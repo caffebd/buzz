@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ciqb4a5dwjpgt"]
+
+[ext_resource type="Shader" uid="uid://b0c1y7pvxaxcx" path="res://assets/materials/rock/shaders/caveWallShader.res" id="1_ewai1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ewai1")

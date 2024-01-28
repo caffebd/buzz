@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7yxa0fek6vlh"]
+
+[ext_resource type="PackedScene" uid="uid://bmknndtenkw4q" path="res://assets/props/imported/cave+floor+supports.glb" id="1_bmjpc"]
+[ext_resource type="Material" uid="uid://ciqb4a5dwjpgt" path="res://assets/materials/rock/caveRock.tres" id="2_opta5"]
+[ext_resource type="Material" uid="uid://bg40piu4c00br" path="res://assets/materials/wood/wood1.tres" id="3_4p5uc"]
+
+[node name="cave+floor+supports" instance=ExtResource("1_bmjpc")]
+
+[node name="ground" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_opta5")
+
+[node name="Cave" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_opta5")
+
+[node name="Plane_091" parent="." index="2"]
+visible = false
+material_override = ExtResource("3_4p5uc")
+surface_material_override/0 = ExtResource("3_4p5uc")

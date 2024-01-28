@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhoihtx0caoyq"]
+
+[ext_resource type="ArrayMesh" uid="uid://rgnw12waxgbf" path="res://assets/props/imported/hammer2.obj" id="1_7p68g"]
+[ext_resource type="Material" uid="uid://bg40piu4c00br" path="res://assets/materials/wood/wood1.tres" id="2_j1k81"]
+[ext_resource type="Material" uid="uid://daqbsfmujargs" path="res://assets/materials/metal/metal1.tres" id="3_adsuw"]
+
+[node name="hammer2" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Hammer2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_7p68g")
+surface_material_override/0 = ExtResource("2_j1k81")
+surface_material_override/1 = ExtResource("3_adsuw")

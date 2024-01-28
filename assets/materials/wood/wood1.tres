@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://bg40piu4c00br"]
+
+[ext_resource type="Texture2D" uid="uid://bh7y5gcvg66vy" path="res://assets/textures/woodTextures/wood_surface/weathered_brown_planks_diff_2k-2.jpg" id="1_pwlid"]
+[ext_resource type="Texture2D" uid="uid://dy12jefx7m4rs" path="res://assets/textures/woodTextures/wood_surface/weathered_brown_planks_nor_gl_2k-2.jpg" id="2_gpalp"]
+[ext_resource type="Texture2D" uid="uid://b08eqr2yccfag" path="res://assets/textures/woodTextures/wood_surface/weathered_brown_planks_rough_2k-2.jpg" id="3_8sjmg"]
+
+[resource]
+albedo_texture = ExtResource("1_pwlid")
+roughness_texture = ExtResource("3_8sjmg")
+normal_enabled = true
+normal_texture = ExtResource("2_gpalp")

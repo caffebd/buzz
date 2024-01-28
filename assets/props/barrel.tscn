@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds7pkb0x7kcwb"]
+
+[ext_resource type="ArrayMesh" uid="uid://3c3wxgp3oy1h" path="res://assets/props/imported/barrel.obj" id="1_oxdoj"]
+[ext_resource type="Material" uid="uid://cgcilr5xt16xt" path="res://assets/materials/metal/metal2.tres" id="2_84rct"]
+
+[node name="barrel" type="Node3D"]
+
+[node name="Barrel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00212878, -1.19209e-07, -0.00199178)
+mesh = ExtResource("1_oxdoj")
+surface_material_override/0 = ExtResource("2_84rct")

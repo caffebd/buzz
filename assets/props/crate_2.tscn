@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs0dn8ou7cuv"]
+
+[ext_resource type="ArrayMesh" uid="uid://dcw2wvxsh4yec" path="res://assets/props/imported/crate2.obj" id="1_ogxl8"]
+[ext_resource type="Material" uid="uid://bg40piu4c00br" path="res://assets/materials/wood/wood1.tres" id="2_cdaj3"]
+
+[node name="crate2" type="Node3D"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, 0, 0)
+
+[node name="Crate2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_ogxl8")
+surface_material_override/0 = ExtResource("2_cdaj3")

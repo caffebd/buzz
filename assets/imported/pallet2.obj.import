@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b2kxnmw6jj0bc"
+path="res://.godot/imported/pallet2.obj-e5fc451de0eb89362e616d08e952118d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pallet2.obj-e5fc451de0eb89362e616d08e952118d.mesh"]
+
+source_file="res://assets/imported/pallet2.obj"
+dest_files=["res://.godot/imported/pallet2.obj-e5fc451de0eb89362e616d08e952118d.mesh", "res://.godot/imported/pallet2.obj-e5fc451de0eb89362e616d08e952118d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

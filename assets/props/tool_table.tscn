@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://djfu81leh3ato"]
+
+[ext_resource type="ArrayMesh" uid="uid://c1koup00uk6ph" path="res://assets/props/imported/toolTable.obj" id="1_w1sgx"]
+[ext_resource type="Material" uid="uid://dh7flndmsr48s" path="res://assets/materials/wood/wood2.tres" id="2_0fsan"]
+
+[node name="toolTable" type="Node3D"]
+
+[node name="ToolTable" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_w1sgx")
+surface_material_override/0 = ExtResource("2_0fsan")

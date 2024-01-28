@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bvwke8uepajwd"]
+
+[ext_resource type="Texture2D" uid="uid://cdqg4w4u57lam" path="res://assets/textures/metalTextures/metal_rusty_tklmeeso/tklmeeso_2K_Normal.jpg" id="1_tnp74"]
+[ext_resource type="Texture2D" uid="uid://bbkj3fpsaia6o" path="res://assets/textures/metalTextures/metal_rusty_tklmeeso/tklmeeso_2K_Roughness.jpg" id="2_c35jc"]
+
+[resource]
+albedo_color = Color(0.172549, 0.172549, 0.172549, 1)
+roughness_texture = ExtResource("2_c35jc")
+normal_enabled = true
+normal_scale = 0.1
+normal_texture = ExtResource("1_tnp74")

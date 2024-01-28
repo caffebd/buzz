@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bip8kdqfxvtrb"]
+
+[ext_resource type="Material" uid="uid://dh7flndmsr48s" path="res://assets/materials/wood/wood2.tres" id="1_gnv6n"]
+[ext_resource type="ArrayMesh" uid="uid://760k7whsfqca" path="res://assets/props/imported/table1.obj" id="2_y8wyg"]
+
+[node name="Table1" type="Node3D"]
+
+[node name="Table1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000586748, -0.00296926, 0.00189935)
+material_override = ExtResource("1_gnv6n")
+mesh = ExtResource("2_y8wyg")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdcbm6rn2rt2h"]
+
+[ext_resource type="ArrayMesh" uid="uid://xdhjapme1efj" path="res://assets/props/imported/axe.obj" id="1_pgvo5"]
+[ext_resource type="Material" uid="uid://daqbsfmujargs" path="res://assets/materials/metal/metal1.tres" id="2_s6vcq"]
+[ext_resource type="Material" uid="uid://dc1gtvtefyemd" path="res://assets/materials/wood/wood4.tres" id="3_nollk"]
+
+[node name="axe" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0433194, -0.0146521, 0.0101928)
+
+[node name="Axe" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0430189, 0.0148316, -0.00970308)
+mesh = ExtResource("1_pgvo5")
+surface_material_override/0 = ExtResource("2_s6vcq")
+surface_material_override/1 = ExtResource("3_nollk")

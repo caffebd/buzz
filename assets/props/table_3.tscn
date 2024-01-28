@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://csmoyn2c6ke3m"]
+
+[ext_resource type="ArrayMesh" uid="uid://dljinkknmn7sj" path="res://assets/props/imported/table3.obj" id="1_l3bto"]
+[ext_resource type="Material" uid="uid://dh7flndmsr48s" path="res://assets/materials/wood/wood2.tres" id="2_2i2of"]
+
+[node name="table3" type="Node3D"]
+
+[node name="Table3" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_l3bto")
+surface_material_override/0 = ExtResource("2_2i2of")

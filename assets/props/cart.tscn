@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpeimmosqf01i"]
+
+[ext_resource type="ArrayMesh" uid="uid://i8pc3uh1d5om" path="res://assets/props/imported/cart.obj" id="1_iscgl"]
+[ext_resource type="Material" uid="uid://bg40piu4c00br" path="res://assets/materials/wood/wood1.tres" id="2_yr2y3"]
+[ext_resource type="Material" uid="uid://char0yh5m5fx0" path="res://assets/materials/metal/metal3.tres" id="3_n3o7h"]
+
+[node name="cart" type="Node3D"]
+
+[node name="Cart" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012871, 0.0101828, -0.00753498)
+mesh = ExtResource("1_iscgl")
+surface_material_override/0 = ExtResource("2_yr2y3")
+surface_material_override/1 = ExtResource("3_n3o7h")
+surface_material_override/2 = ExtResource("3_n3o7h")

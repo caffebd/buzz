@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://benilif5v6f0a"]
+
+[ext_resource type="ArrayMesh" uid="uid://dbw55gsix3qbf" path="res://assets/props/imported/lantern.obj" id="1_sufrm"]
+[ext_resource type="Material" uid="uid://daqbsfmujargs" path="res://assets/materials/metal/metal1.tres" id="2_elp77"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18xyn"]
+transparency = 1
+depth_draw_mode = 1
+albedo_color = Color(0.964706, 0.92549, 0.47451, 1)
+emission_enabled = true
+emission = Color(0.964706, 0.92549, 0.47451, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4gxls"]
+material = SubResource("StandardMaterial3D_18xyn")
+
+[node name="lantern2" type="Node3D"]
+
+[node name="Lantern" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.528894, 0, 0, 0, 0.528894, 0, 0, 0, 0.528894, 0, 0, 0)
+mesh = ExtResource("1_sufrm")
+surface_material_override/0 = ExtResource("2_elp77")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.125035, 0, 0, 0, 0.125035, 0, 0, 0, 0.125035, 0, -0.290429, 0)
+mesh = SubResource("CapsuleMesh_4gxls")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.288663, 0)

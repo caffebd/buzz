@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs0ui40dydsy5"]
+
+[ext_resource type="ArrayMesh" uid="uid://c12t7kxpbqmvm" path="res://assets/props/imported/woodenBucket.obj" id="1_1bqhf"]
+[ext_resource type="Material" uid="uid://bg40piu4c00br" path="res://assets/materials/wood/wood1.tres" id="2_8o13l"]
+[ext_resource type="Material" uid="uid://char0yh5m5fx0" path="res://assets/materials/metal/metal3.tres" id="3_rpo6o"]
+
+[node name="woodenBucket" type="Node3D"]
+
+[node name="WoodenBucket" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_1bqhf")
+surface_material_override/0 = ExtResource("2_8o13l")
+surface_material_override/1 = ExtResource("3_rpo6o")

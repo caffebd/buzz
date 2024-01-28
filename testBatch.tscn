@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d24fqtjm4xi3q"]
+
+[ext_resource type="Material" uid="uid://b5p3vd1t76q0p" path="res://assets/materials/metal/redMetal.tres" id="1_qkb0i"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_o4nhc"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_qkb0i")
+mesh = SubResource("SphereMesh_o4nhc")

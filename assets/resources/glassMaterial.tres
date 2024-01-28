@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://dyoybviwxpxds"]
+
+[sub_resource type="Gradient" id="Gradient_te5e2"]
+offsets = PackedFloat32Array(0.458015, 0.832061)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xs7of"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_86ptn"]
+seamless = true
+color_ramp = SubResource("Gradient_te5e2")
+noise = SubResource("FastNoiseLite_xs7of")
+
+[resource]
+transparency = 1
+depth_draw_mode = 1
+albedo_color = Color(1, 1, 1, 0)
+roughness = 0.5
+roughness_texture = SubResource("NoiseTexture2D_86ptn")
+refraction_enabled = true
+refraction_scale = 0.0

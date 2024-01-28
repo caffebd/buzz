@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcl8xa3r3bo3v"]
+
+[ext_resource type="ArrayMesh" uid="uid://cp2afw77vp2cw" path="res://assets/props/imported/trolley.obj" id="1_5r4ac"]
+
+[node name="trolley" type="Node3D"]
+
+[node name="Trolley" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_5r4ac")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bolvgh4cvprm2"]
+
+[ext_resource type="ArrayMesh" uid="uid://ykqtrjgij6yn" path="res://assets/props/imported/metalBeam1.obj" id="1_8guwg"]
+[ext_resource type="Material" uid="uid://char0yh5m5fx0" path="res://assets/materials/metal/metal3.tres" id="2_ptdto"]
+
+[node name="metalBeam1" type="Node3D"]
+
+[node name="MetalBeam1" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_8guwg")
+surface_material_override/0 = ExtResource("2_ptdto")

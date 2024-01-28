@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctg1hiuyhhakb"]
+
+[ext_resource type="ArrayMesh" uid="uid://cj754gul42esg" path="res://assets/props/imported/picaxe.obj" id="1_u2vkh"]
+[ext_resource type="Material" uid="uid://bg40piu4c00br" path="res://assets/materials/wood/wood1.tres" id="2_eoc1n"]
+[ext_resource type="Material" uid="uid://daqbsfmujargs" path="res://assets/materials/metal/metal1.tres" id="3_metfw"]
+
+[node name="picaxe" type="Node3D"]
+
+[node name="Picaxe" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("1_u2vkh")
+surface_material_override/0 = ExtResource("2_eoc1n")
+surface_material_override/1 = ExtResource("3_metfw")

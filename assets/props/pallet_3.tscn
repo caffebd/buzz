@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c57biuqrjhcoc"]
+
+[ext_resource type="ArrayMesh" uid="uid://betfn314baruk" path="res://assets/props/imported/pallet3.obj" id="1_ris2q"]
+[ext_resource type="Material" uid="uid://6lcwtdciamku" path="res://assets/materials/wood/wood3.tres" id="2_opsap"]
+
+[node name="pallet3" type="Node3D"]
+
+[node name="Pallet3" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_ris2q")
+surface_material_override/0 = ExtResource("2_opsap")

@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://bemeghhhf4cwr"]
+
+[ext_resource type="PackedScene" uid="uid://davruwtayihsp" path="res://assets/props/cave.tscn" id="1_di73o"]
+[ext_resource type="PackedScene" uid="uid://nb0lreegw6ru" path="res://assets/props/lantern.tscn" id="2_yl8qj"]
+[ext_resource type="PackedScene" uid="uid://xcnw23k0i24r" path="res://assets/props/chest_1.tscn" id="3_rbfrs"]
+[ext_resource type="PackedScene" uid="uid://d3jb84s5unxo2" path="res://assets/props/crate_1.tscn" id="4_x2tyr"]
+[ext_resource type="ArrayOccluder3D" uid="uid://r80j0dhvr354" path="res://assets/resources/theCaveOcclusion.occ" id="5_xy88u"]
+[ext_resource type="PackedScene" uid="uid://cqrhoydbclpv4" path="res://assets/props/elec_light.tscn" id="6_a2gbo"]
+[ext_resource type="PackedScene" uid="uid://t6m8v3e73osa" path="res://assets/props/supports.tscn" id="7_y2wuf"]
+[ext_resource type="ArrayMesh" uid="uid://cngkda1l3fg45" path="res://assets/imported/reference.obj" id="8_p6fsa"]
+[ext_resource type="PackedScene" uid="uid://c3clhexajwsyu" path="res://scenes/player.tscn" id="9_kd1w6"]
+
+[sub_resource type="Environment" id="Environment_ckil6"]
+ambient_light_source = 2
+ambient_light_color = Color(0.0745098, 0.0980392, 0.0901961, 1)
+tonemap_mode = 3
+ssr_enabled = true
+glow_enabled = true
+volumetric_fog_density = 0.07
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_emission = Color(0.0901961, 0.12549, 0.117647, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ckil6")
+
+[node name="cave" parent="." instance=ExtResource("1_di73o")]
+
+[node name="lantern3" parent="." instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9414, 4.33785, 14.5557)
+
+[node name="lantern2" parent="." instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.04769, 4.38385, -2.82832)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+
+[node name="chest1" parent="." instance=ExtResource("3_rbfrs")]
+transform = Transform3D(1.58246, 0, 0, 0, 1.58246, 0, 0, 0, 1.58246, 4.42785, 1.95347, 22.5053)
+
+[node name="crate1" parent="." instance=ExtResource("4_x2tyr")]
+transform = Transform3D(1.92396, 0, 0.698895, 0, 2.04697, 0, -0.698895, 0, 1.92396, 8.14791, 2.05019, 23.4968)
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+occluder = ExtResource("5_xy88u")
+
+[node name="elecLight" parent="." instance=ExtResource("6_a2gbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.66619, 4.60254, 23.389)
+
+[node name="supports" parent="." instance=ExtResource("7_y2wuf")]
+
+[node name="Reference" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96121, 1.80996, 23.3405)
+mesh = ExtResource("8_p6fsa")
+
+[node name="Player" parent="." instance=ExtResource("9_kd1w6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.50236, 3.2609, 23.3255)

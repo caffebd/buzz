@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx8ya7af5arcv"]
+
+[ext_resource type="Script" path="res://scripts/noise_meter-chunk.gd" id="1_71v26"]
+
+[node name="0" type="ColorRect"]
+offset_left = 1839.0
+offset_top = 1027.0
+offset_right = 1879.0
+offset_bottom = 1038.0
+color = Color(1, 0.490196, 0.423529, 1)
+script = ExtResource("1_71v26")

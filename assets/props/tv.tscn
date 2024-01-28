@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://dttui33nvf16w"]
+
+[ext_resource type="ArrayMesh" uid="uid://ctcxix1snev8o" path="res://assets/props/imported/TV.obj" id="1_u0pfp"]
+[ext_resource type="Material" uid="uid://bvwke8uepajwd" path="res://assets/materials/misc/blackPlastic.tres" id="2_ysvy6"]
+[ext_resource type="Material" uid="uid://cyr6ltpjbodwa" path="res://assets/materials/wood/wood5.tres" id="3_8kf0n"]
+[ext_resource type="Material" uid="uid://4t1p8mnuelre" path="res://assets/materials/misc/tvScreen.tres" id="4_lxfr4"]
+
+[node name="tv" type="Node3D"]
+
+[node name="Tv" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_u0pfp")
+surface_material_override/0 = ExtResource("2_ysvy6")
+surface_material_override/1 = ExtResource("3_8kf0n")
+surface_material_override/2 = ExtResource("4_lxfr4")

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfi77rkrqyprd"]
+
+[ext_resource type="PackedScene" uid="uid://bqjhjml2jq4f3" path="res://assets/props/imported/switch.glb" id="1_hy7pc"]
+[ext_resource type="Material" uid="uid://dh7flndmsr48s" path="res://assets/materials/wood/wood2.tres" id="2_nkfha"]
+[ext_resource type="Material" uid="uid://cyosiiiy0qf74" path="res://assets/materials/metal/copper.tres" id="3_eps6r"]
+[ext_resource type="Material" uid="uid://bg40piu4c00br" path="res://assets/materials/wood/wood1.tres" id="4_83unn"]
+
+[node name="switch" instance=ExtResource("1_hy7pc")]
+
+[node name="Cube_027" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_nkfha")
+
+[node name="Cylinder_019" parent="." index="1"]
+surface_material_override/0 = ExtResource("3_eps6r")
+surface_material_override/1 = ExtResource("4_83unn")
+
+[node name="Cube_045" parent="." index="3"]
+surface_material_override/0 = ExtResource("3_eps6r")
+
+[node name="Cube_034" parent="." index="5"]
+surface_material_override/0 = ExtResource("3_eps6r")
+
+[node name="Cube_037" parent="." index="6"]
+surface_material_override/0 = ExtResource("3_eps6r")
+
+[node name="Cube_038" parent="." index="7"]
+surface_material_override/0 = ExtResource("3_eps6r")
+
+[node name="Cube_040" parent="." index="8"]
+surface_material_override/0 = ExtResource("3_eps6r")
+
+[node name="Cylinder_021" parent="." index="9"]
+surface_material_override/0 = ExtResource("3_eps6r")

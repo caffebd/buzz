@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2bofj4vue5qx"]
+
+[ext_resource type="ArrayMesh" uid="uid://b5w5cp1e0l78p" path="res://assets/props/imported/key.obj" id="1_xw60o"]
+[ext_resource type="Material" uid="uid://cyosiiiy0qf74" path="res://assets/materials/metal/copper.tres" id="2_cp8nt"]
+
+[node name="key" type="Node3D"]
+
+[node name="Key" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.245775, 0, 0, 0, 0.245775, 0, 0, 0, 0.245775, 0, 0, 0)
+mesh = ExtResource("1_xw60o")
+surface_material_override/0 = ExtResource("2_cp8nt")

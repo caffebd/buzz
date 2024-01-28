@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://t6m8v3e73osa"]
+
+[ext_resource type="PackedScene" uid="uid://ciuwohjfcj5dg" path="res://assets/props/imported/supports.glb" id="1_qtm0k"]
+[ext_resource type="Material" uid="uid://bg40piu4c00br" path="res://assets/materials/wood/wood1.tres" id="2_80ej3"]
+
+[node name="supports" instance=ExtResource("1_qtm0k")]
+
+[node name="Plane_017" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_80ej3")
+
+[node name="Plane_060" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_80ej3")
+
+[node name="Plane_071" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_80ej3")
+
+[node name="Plane_089" parent="." index="3"]
+surface_material_override/0 = ExtResource("2_80ej3")
+
+[node name="Plane_112" parent="." index="4"]
+surface_material_override/0 = ExtResource("2_80ej3")
+
+[node name="Plane_118" parent="." index="5"]
+surface_material_override/0 = ExtResource("2_80ej3")
+
+[node name="Plane_133" parent="." index="6"]
+surface_material_override/0 = ExtResource("2_80ej3")
+
+[node name="Plane_137" parent="." index="7"]
+surface_material_override/0 = ExtResource("2_80ej3")
