@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bemeghhhf4cwr"]
+[gd_scene load_steps=13 format=3 uid="uid://bemeghhhf4cwr"]
 
 [ext_resource type="PackedScene" uid="uid://davruwtayihsp" path="res://assets/props/cave.tscn" id="1_di73o"]
 [ext_resource type="PackedScene" uid="uid://nb0lreegw6ru" path="res://assets/props/lantern.tscn" id="2_yl8qj"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://t6m8v3e73osa" path="res://assets/props/supports.tscn" id="7_y2wuf"]
 [ext_resource type="ArrayMesh" uid="uid://cngkda1l3fg45" path="res://assets/imported/reference.obj" id="8_p6fsa"]
 [ext_resource type="PackedScene" uid="uid://c3clhexajwsyu" path="res://scenes/player.tscn" id="9_kd1w6"]
+[ext_resource type="PackedScene" uid="uid://d2bofj4vue5qx" path="res://assets/props/key.tscn" id="10_sfkbf"]
+[ext_resource type="PackedScene" uid="uid://cxv0bd4xfiv6s" path="res://assets/props/instructions_1.tscn" id="11_qeimc"]
 
 [sub_resource type="Environment" id="Environment_ckil6"]
 ambient_light_source = 2
@@ -16,6 +18,7 @@ ambient_light_color = Color(0.0745098, 0.0980392, 0.0901961, 1)
 tonemap_mode = 3
 ssr_enabled = true
 glow_enabled = true
+volumetric_fog_enabled = true
 volumetric_fog_density = 0.07
 volumetric_fog_albedo = Color(0, 0, 0, 1)
 volumetric_fog_emission = Color(0.0901961, 0.12549, 0.117647, 1)
@@ -55,3 +58,9 @@ mesh = ExtResource("8_p6fsa")
 
 [node name="Player" parent="." instance=ExtResource("9_kd1w6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.50236, 3.2609, 23.3255)
+
+[node name="key" parent="." instance=ExtResource("10_sfkbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0858, 2.17931, 22.4755)
+
+[node name="instructions_1" parent="." instance=ExtResource("11_qeimc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74603, 3.27344, 22.1366)
