@@ -49,7 +49,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ylbpk"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_epusy"]
 resource_name = "notice board_Cube_038"
 _surfaces = [{
 "aabb": AABB(-0.579715, -0.310376, -0.00710499, 1.17724, 0.776339, 0.0235202),
@@ -107,5 +107,5 @@ shadow_mesh = SubResource("ArrayMesh_trv1m")
 
 [node name="Cube_021" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.2172, 0, 1.06411e-07, 0, 1.2172, 0, -1.06411e-07, 0, -1.2172, 0.00311032, -0.00697094, -0.0101058)
-mesh = SubResource("ArrayMesh_ylbpk")
+mesh = SubResource("ArrayMesh_epusy")
 skeleton = NodePath("")

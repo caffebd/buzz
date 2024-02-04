@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c12t7kxpbqmvm"
+path="res://.godot/imported/woodenBucket.obj-5364a941868461bdf3fad7e61b987afe.mesh"
+
+[deps]
+
+files=["res://.godot/imported/woodenBucket.obj-5364a941868461bdf3fad7e61b987afe.mesh"]
+
+source_file="res://assets/props/imported/woodenBucket.obj"
+dest_files=["res://.godot/imported/woodenBucket.obj-5364a941868461bdf3fad7e61b987afe.mesh", "res://.godot/imported/woodenBucket.obj-5364a941868461bdf3fad7e61b987afe.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

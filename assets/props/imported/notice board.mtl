@@ -1,0 +1,45 @@
+# Blender 4.0.0 MTL File: 'caveeeee3.blend'
+# www.blender.org
+
+newmtl Material.002
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd E:/#Work/#theBuzz/buzzV2/assets/textures/miscTextures/instructions/instructions_albedo.jpg
+map_Ns E:/#Work/#theBuzz/buzzV2/assets/textures/miscTextures/instructions/instructions_rough.jpg
+map_d E:/#Work/#theBuzz/buzzV2/assets/textures/miscTextures/instructions/instructions_alpha.jpg
+
+newmtl Wood1
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd H:/3d Assets/Textures/Seamless Textures/#Fabric/Fabric_Denim_2K/TexturesCom_Fabric_Denim_2K_albedo.tif
+map_Ns H:/3d Assets/Textures/Seamless Textures/#Fabric/Fabric_Denim_2K/TexturesCom_Fabric_Denim_2K_roughness.tif
+map_Bump -bm 1.000000 H:/3d Assets/Textures/Seamless Textures/#Fabric/Fabric_Denim_2K/TexturesCom_Fabric_Denim_2K_normal.tif
+
+newmtl Wood2
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd H:/3d Assets/Textures/Seamless Textures/# Wood/wood_surface/weathered_brown_planks_diff_2k-2.jpg
+map_Ns H:/3d Assets/Textures/Seamless Textures/# Wood/wood_surface/weathered_brown_planks_rough_2k-2.jpg
+map_Bump -bm 1.000000 H:/3d Assets/Textures/Seamless Textures/# Wood/wood_surface/weathered_brown_planks_nor_gl_2k-2.jpg
+
+newmtl papers_albedo
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd E:/#Work/#theBuzz/buzzV2/assets/textures/miscTextures/papers/papers_albedo.jpg
+map_d E:/#Work/#theBuzz/buzzV2/assets/textures/miscTextures/papers/papers_alpha.jpg
+map_Bump -bm 1.000000 E:/#Work/#theBuzz/buzzV2/assets/textures/miscTextures/papers/papers_norm.jpg

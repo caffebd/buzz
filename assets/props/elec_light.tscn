@@ -17,7 +17,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_dufki"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ki70b"]
 resource_name = "elecLight_Sphere"
 _surfaces = [{
 "aabb": AABB(-0.226586, -0.00120639, -0.226585, 0.453171, 0.201711, 0.453171),
@@ -51,7 +51,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_6f3qy"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_7atw3"]
 resource_name = "elecLight_Sphere_001"
 _surfaces = [{
 "aabb": AABB(-0.0747323, 0, -0.0747323, 0.149465, 0.125584, 0.149465),
@@ -84,7 +84,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_kcvkd"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ehnpe"]
 resource_name = "elecLight_Cylinder_001"
 _surfaces = [{
 "aabb": AABB(-0.0221769, -0.0189683, -0.0221769, 0.0443538, 0.0379466, 0.0443638),
@@ -123,7 +123,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_jgyqe"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_6v72a"]
 resource_name = "elecLight_Sphere_002"
 _surfaces = [{
 "aabb": AABB(-0.950484, -1, -0.974928, 1.90097, 4.2187, 1.94986),
@@ -156,7 +156,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_wl350"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_q5tkt"]
 resource_name = "elecLight_BezierCircle_003"
 _surfaces = [{
 "aabb": AABB(-0.611442, -3.73593, -3.73617, 1.12671, 7.5357, 7.53618),
@@ -190,7 +190,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_b6b7k"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_o2d7a"]
 resource_name = "lantern_BezierCircle_005"
 _surfaces = [{
 "aabb": AABB(-1.78298, -0.661566, -0.661566, 11.9103, 1.32313, 1.32313),
@@ -213,32 +213,32 @@ shadow_mesh = SubResource("ArrayMesh_18arc")
 
 [node name="Sphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.721872, 0, 0, 0, 0.721872, 0, 0, 0, 0.721872, -0.000477447, -0.181175, -0.000665737)
-mesh = SubResource("ArrayMesh_dufki")
+mesh = SubResource("ArrayMesh_ki70b")
 skeleton = NodePath("")
 
 [node name="Sphere_001" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.721872, 0, 0, 0, 0.721872, 0, 0, 0, 0.721872, -0.000477447, -0.0504942, -0.000665737)
-mesh = SubResource("ArrayMesh_6f3qy")
+mesh = SubResource("ArrayMesh_7atw3")
 skeleton = NodePath("")
 
 [node name="Cylinder" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.721872, 0, 0, 0, 0.721872, 0, 0, 0, 0.721872, -0.000477447, 0.0466753, -0.000665737)
-mesh = SubResource("ArrayMesh_kcvkd")
+mesh = SubResource("ArrayMesh_ehnpe")
 skeleton = NodePath("")
 
 [node name="Sphere_002" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0374418, 0, 0, 0, -0.0374418, 0, 0, 0, 0.0374418, -0.000477447, -0.0170914, -0.000665737)
-mesh = SubResource("ArrayMesh_jgyqe")
+mesh = SubResource("ArrayMesh_6v72a")
 skeleton = NodePath("")
 
 [node name="BezierCircle_002" type="MeshInstance3D" parent="."]
 transform = Transform3D(0, -2.56501e-09, 0.0430337, -0.0430337, 5.13001e-09, -2.56501e-09, 2.56501e-09, 0.0430337, 5.13001e-09, -0.000477447, -0.206712, -0.000845218)
-mesh = SubResource("ArrayMesh_wl350")
+mesh = SubResource("ArrayMesh_q5tkt")
 skeleton = NodePath("")
 
 [node name="BezierCircle_012" type="MeshInstance3D" parent="."]
 transform = Transform3D(0, 0.0201417, 0, -0.0201417, 0, 0, 0, 0, 0.0201417, 0.000154123, 0.246972, -0.00025768)
-mesh = SubResource("ArrayMesh_b6b7k")
+mesh = SubResource("ArrayMesh_o2d7a")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]

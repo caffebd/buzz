@@ -49,7 +49,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_y40x3"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_72yo2"]
 resource_name = "notice board_papers_albedo_006"
 _surfaces = [{
 "aabb": AABB(-1.01452, 0.0140253, -0.606368, 2.09234, 0.000107768, 1.16415),
@@ -107,5 +107,5 @@ shadow_mesh = SubResource("ArrayMesh_nt16o")
 
 [node name="papers_albedo_006" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.61892, 5.96761e-08, -0.112201, -0.112201, 3.74918e-08, 0.61892, 5.87942e-08, 0.629008, -2.76829e-08, 0.0123928, -0.00809917, -0.00102769)
-mesh = SubResource("ArrayMesh_y40x3")
+mesh = SubResource("ArrayMesh_72yo2")
 skeleton = NodePath("")
