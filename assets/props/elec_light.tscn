@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cqrhoydbclpv4"]
+[gd_scene load_steps=16 format=3 uid="uid://cqrhoydbclpv4"]
 
 [ext_resource type="Material" uid="uid://dytny4xp6ox35" path="res://assets/materials/metal/metal1Alpha.tres" id="1_4lvaq"]
+[ext_resource type="Script" path="res://scripts/ElectricLight.gd" id="1_eh5n0"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lvw25"]
 _surfaces = [{
@@ -210,6 +211,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_18arc")
 
 [node name="elecLight" type="Node3D"]
+script = ExtResource("1_eh5n0")
 
 [node name="Sphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.721872, 0, 0, 0, 0.721872, 0, 0, 0, 0.721872, -0.000477447, -0.181175, -0.000665737)
@@ -241,7 +243,8 @@ transform = Transform3D(0, 0.0201417, 0, -0.0201417, 0, 0, 0, 0, 0.0201417, 0.00
 mesh = SubResource("ArrayMesh_o2d7a")
 skeleton = NodePath("")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="ElectricOmniLight" type="OmniLight3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000167109, -0.16998, 0.000245576)
 light_color = Color(0.988235, 0.898039, 0.780392, 1)
 light_energy = 0.6

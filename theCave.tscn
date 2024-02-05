@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bemeghhhf4cwr"]
+[gd_scene load_steps=18 format=3 uid="uid://bemeghhhf4cwr"]
 
 [ext_resource type="PackedScene" uid="uid://davruwtayihsp" path="res://assets/props/cave.tscn" id="1_di73o"]
 [ext_resource type="PackedScene" uid="uid://nb0lreegw6ru" path="res://assets/props/lantern.tscn" id="2_yl8qj"]
@@ -7,10 +7,15 @@
 [ext_resource type="ArrayOccluder3D" uid="uid://r80j0dhvr354" path="res://assets/resources/theCaveOcclusion.occ" id="5_xy88u"]
 [ext_resource type="PackedScene" uid="uid://cqrhoydbclpv4" path="res://assets/props/elec_light.tscn" id="6_a2gbo"]
 [ext_resource type="PackedScene" uid="uid://t6m8v3e73osa" path="res://assets/props/supports.tscn" id="7_y2wuf"]
-[ext_resource type="ArrayMesh" uid="uid://cngkda1l3fg45" path="res://assets/imported/reference.obj" id="8_p6fsa"]
+[ext_resource type="ArrayMesh" uid="uid://cngkda1l3fg45" path="res://assets/props/imported/reference.obj" id="8_p6fsa"]
+[ext_resource type="PackedScene" uid="uid://cygxyydymwdxm" path="res://assets/props/lever.tscn" id="9_gqllp"]
 [ext_resource type="PackedScene" uid="uid://c3clhexajwsyu" path="res://scenes/player.tscn" id="9_kd1w6"]
 [ext_resource type="PackedScene" uid="uid://d2bofj4vue5qx" path="res://assets/props/key.tscn" id="10_sfkbf"]
 [ext_resource type="PackedScene" uid="uid://cxv0bd4xfiv6s" path="res://assets/props/instructions_1.tscn" id="11_qeimc"]
+[ext_resource type="PackedScene" uid="uid://cxadcvq0dda7q" path="res://assets/props/gate.tscn" id="13_rtutk"]
+[ext_resource type="PackedScene" uid="uid://cfi77rkrqyprd" path="res://assets/props/switch.tscn" id="14_t2u5u"]
+[ext_resource type="PackedScene" uid="uid://csmoyn2c6ke3m" path="res://assets/props/table_3.tscn" id="15_si2ph"]
+[ext_resource type="PackedScene" uid="uid://bip8kdqfxvtrb" path="res://assets/props/table_1.tscn" id="16_n4pdf"]
 
 [sub_resource type="Environment" id="Environment_ckil6"]
 ambient_light_source = 2
@@ -23,7 +28,7 @@ volumetric_fog_density = 0.07
 volumetric_fog_albedo = Color(0, 0, 0, 1)
 volumetric_fog_emission = Color(0.0901961, 0.12549, 0.117647, 1)
 
-[node name="Node3D" type="Node3D"]
+[node name="MainCave" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ckil6")
@@ -47,8 +52,29 @@ transform = Transform3D(1.92396, 0, 0.698895, 0, 2.04697, 0, -0.698895, 0, 1.923
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 occluder = ExtResource("5_xy88u")
 
-[node name="elecLight" parent="." instance=ExtResource("6_a2gbo")]
+[node name="ElectricLights" type="Node3D" parent="."]
+
+[node name="elecLight" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.66619, 4.60254, 23.389)
+
+[node name="elecLight2" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06348, 4.60254, 23.389)
+
+[node name="elecLight3" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2236, 6.74523, -31.8943)
+light_range = 8.0
+light_energy = 2.0
+
+[node name="elecLight4" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5081, 5.72681, -18.2153)
+light_range = 4.0
+light_energy = 1.2
+
+[node name="LightSwitch1" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5918, 5.72681, -18.6854)
+visible = false
+light_range = 6.0
+light_energy = 1.5
 
 [node name="supports" parent="." instance=ExtResource("7_y2wuf")]
 
@@ -56,11 +82,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.66619, 4.60254, 23.389)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96121, 1.80996, 23.3405)
 mesh = ExtResource("8_p6fsa")
 
-[node name="Player" parent="." instance=ExtResource("9_kd1w6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.50236, 3.2609, 23.3255)
+[node name="PullLevers" type="Node3D" parent="."]
 
-[node name="key" parent="." instance=ExtResource("10_sfkbf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0858, 2.17931, 22.4755)
+[node name="lever" parent="PullLevers" instance=ExtResource("9_gqllp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57273, 1.91522, 22.0818)
 
 [node name="instructions_1" parent="." instance=ExtResource("11_qeimc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74603, 3.27344, 22.1366)
+transform = Transform3D(-0.152451, 0, 0.988311, 0, 1, 0, -0.988311, 0, -0.152451, -34.1737, 4.03327, -18.5048)
+
+[node name="Player" parent="." instance=ExtResource("9_kd1w6")]
+transform = Transform3D(-0.99841, 0, 0.0563617, 0, 1, 0, -0.0563617, 0, -0.99841, -33.1058, 4.57379, -20.4233)
+
+[node name="Gates" type="Node3D" parent="."]
+
+[node name="gate" parent="Gates" instance=ExtResource("13_rtutk")]
+transform = Transform3D(0.151985, 0, -0.988383, 0, 1, 0, 0.988383, 0, 0.151985, -33.212, 3.68969, -24.6403)
+
+[node name="Switches" type="Node3D" parent="."]
+
+[node name="Switch1" parent="Switches" node_paths=PackedStringArray("linked_object") instance=ExtResource("14_t2u5u")]
+transform = Transform3D(-0.201129, 0, -0.979565, 0, 1, 0, 0.979565, 0, -0.201129, -31.347, 4.02856, -16.1388)
+linked_object = NodePath("../../ElectricLights/LightSwitch1")
+
+[node name="switch" parent="Switches" instance=ExtResource("14_t2u5u")]
+transform = Transform3D(-0.994838, 0, 0.101473, 0, 1, 0, -0.101473, 0, -0.994838, 1.51927, 2.97764, 24.7178)
+
+[node name="Keys" type="Node3D" parent="."]
+
+[node name="key2" parent="Keys" instance=ExtResource("10_sfkbf")]
+transform = Transform3D(-0.671346, 0, 0.741144, 0, 1, 0, -0.741144, 0, -0.671346, -24.7251, 3.24406, -17.5098)
+
+[node name="key" parent="Keys" instance=ExtResource("10_sfkbf")]
+transform = Transform3D(0.723449, 0.0657043, 0.687244, 0.000615568, 0.995399, -0.0958136, -0.690378, 0.0697393, 0.72008, -33.3984, 2.91173, -35.7448)
+
+[node name="Tables" type="Node3D" parent="."]
+
+[node name="table3" parent="Tables" instance=ExtResource("15_si2ph")]
+transform = Transform3D(1.49985, -0.0209956, 0, 0.0209956, 1.49985, 0, 0, 0, 1.5, -34.3203, 2.5167, -36.0641)
+
+[node name="Table1" parent="Tables" instance=ExtResource("16_n4pdf")]
+transform = Transform3D(-0.994314, 0, -0.10649, 0, 1, 0, 0.10649, 0, -0.994314, -25.2085, 3.10862, -17.2654)

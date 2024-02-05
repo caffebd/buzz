@@ -341,7 +341,7 @@ func _on_light_timer_timeout():
 	light_level.value = color.get_luminance() # Use the average color's brighness as the light level value
 	light_level.tint_progress.a = color.get_luminance() # Also tint the progress texture with the above
 	GlobalVars.player_light_level = color.get_luminance()
-	print (GlobalVars.player_light_level)
+	#print (GlobalVars.player_light_level)
 
 
 func _turn_player_a():

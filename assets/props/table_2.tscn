@@ -16,6 +16,7 @@ _surfaces = [{
 }]
 
 [node name="table2" type="Node3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="Table2" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_cvu1c")

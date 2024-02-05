@@ -17,6 +17,7 @@ _surfaces = [{
 }]
 
 [node name="table3" type="Node3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="Table3" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_ovl4h")

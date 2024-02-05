@@ -61,6 +61,7 @@ script = ExtResource("1_4gla0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.896151, 0, 0, 0, 0.896151, 0, 0, 0, 0.896151, 0, -0.369675, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_x53lq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
