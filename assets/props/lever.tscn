@@ -167,8 +167,8 @@ shadow_mesh = SubResource("ArrayMesh_c0bua")
 [sub_resource type="BoxShape3D" id="BoxShape3D_ojwlg"]
 size = Vector3(0.13, 0.41, 0.25)
 
-[sub_resource type="Animation" id="Animation_evyig"]
-resource_name = "already_off"
+[sub_resource type="Animation" id="Animation_gjond"]
+length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -203,8 +203,8 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0)
 }
 
-[sub_resource type="Animation" id="Animation_gjond"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_evyig"]
+resource_name = "already_off"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -275,8 +275,8 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0)
 }
 
-[sub_resource type="Animation" id="Animation_67poh"]
-resource_name = "on"
+[sub_resource type="Animation" id="Animation_mf72a"]
+resource_name = "off"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -285,7 +285,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.785398, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0.785398, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
 tracks/1/type = "bezier"
@@ -311,8 +311,8 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 1)
 }
 
-[sub_resource type="Animation" id="Animation_mf72a"]
-resource_name = "off"
+[sub_resource type="Animation" id="Animation_67poh"]
+resource_name = "on"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -321,7 +321,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.785398, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.785398, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
 tracks/1/type = "bezier"

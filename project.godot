@@ -103,5 +103,4 @@ use={
 
 [rendering]
 
-driver/threads/thread_model=2
 occlusion_culling/use_occlusion_culling=true
