@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c3clhexajwsyu"]
+[gd_scene load_steps=18 format=3 uid="uid://c3clhexajwsyu"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_4gla0"]
 [ext_resource type="PackedScene" uid="uid://7n8g8f8tubsd" path="res://scenes/hud.tscn" id="2_yuhcp"]
@@ -52,6 +52,10 @@ region = Rect2(0, 128, 256, 128)
 atlas = ExtResource("6_thaq8")
 region = Rect2(0, 0, 256, 128)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5ojaj"]
+height = 7.0
+radius = 11.5
+
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 5
@@ -61,6 +65,7 @@ script = ExtResource("1_4gla0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.896151, 0, 0, 0, 0.896151, 0, 0, 0, 0.896151, 0, -0.369675, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_x53lq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -191,6 +196,13 @@ autostart = true
 [node name="Footsteps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_mxmaq")
 volume_db = -10.0
+
+[node name="LightSwitchArea" type="Area3D" parent="."]
+collision_layer = 8388608
+collision_mask = 524288
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightSwitchArea"]
+shape = SubResource("CylinderShape3D_5ojaj")
 
 [connection signal="finished" from="ChaseMusicFadeIn" to="." method="_on_chase_music_fade_in_finished"]
 [connection signal="timeout" from="ChaseMusicTimer" to="." method="_on_chase_music_timer_timeout"]

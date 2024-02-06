@@ -26,6 +26,7 @@ GlobalVars="*res://globals/global_vars.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/always_on_top=true
 
 [editor_plugins]
 
@@ -103,5 +104,4 @@ use={
 
 [rendering]
 
-driver/threads/thread_model=2
 occlusion_culling/use_occlusion_culling=true
