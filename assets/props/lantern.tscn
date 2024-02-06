@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://nb0lreegw6ru"]
+[gd_scene load_steps=13 format=3 uid="uid://nb0lreegw6ru"]
 
+[ext_resource type="Script" path="res://scripts/Lantern.gd" id="1_gbnyh"]
 [ext_resource type="Material" uid="uid://bsdxwmfanaisb" path="res://assets/resources/lightEmitter.tres" id="2_5mien"]
 [ext_resource type="Material" uid="uid://daqbsfmujargs" path="res://assets/materials/metal/metal1.tres" id="2_fvcix"]
 
@@ -123,7 +124,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ldpw4")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_u8saw"]
+height = 8.0
+radius = 22.5
+
 [node name="lantern" type="Node3D"]
+script = ExtResource("1_gbnyh")
 
 [node name="BezierCircle_012" type="MeshInstance3D" parent="."]
 transform = Transform3D(0, 0.0201417, 0, -0.0201417, 0, 0, 0, 0, 0.0201417, 0.000472456, 0.319338, -0.00248604)
@@ -147,10 +153,22 @@ transform = Transform3D(0.135053, 0.0824018, 0.0433986, -0.0824011, 0.0701011, 0
 mesh = SubResource("ArrayMesh_nydbj")
 skeleton = NodePath("")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="LanternLight" type="OmniLight3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.412108, 0)
 light_color = Color(0.988235, 0.858824, 0.631373, 1)
 light_energy = 0.4
 shadow_enabled = true
 shadow_bias = 0.015
 omni_range = 6.58263
+
+[node name="PlayertDetectArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.12014, 0)
+collision_layer = 524288
+collision_mask = 8388608
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayertDetectArea"]
+shape = SubResource("CylinderShape3D_u8saw")
+
+[connection signal="area_entered" from="PlayertDetectArea" to="." method="_on_playert_detect_area_area_entered"]
+[connection signal="area_exited" from="PlayertDetectArea" to="." method="_on_playert_detect_area_area_exited"]

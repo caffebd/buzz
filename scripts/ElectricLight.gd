@@ -5,7 +5,8 @@ extends Node3D
 
 var rng = RandomNumberGenerator.new()
 
-@export var light_state: bool = true 
+@export var light_state: bool = false
+ 
 
 #@onready var omni: OmniLight3D = %ElectricOmniLight
 

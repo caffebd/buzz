@@ -16,7 +16,7 @@ radius = 0.3
 height = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_i3nsj"]
-radius = 1.5
+radius = 3.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ogiwu"]
 radius = 5.0
