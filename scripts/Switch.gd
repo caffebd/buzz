@@ -62,8 +62,11 @@ func flicker():
 
 
 func switch_from_link(state):
+	print ("I am swithcing from link")
 	switch_on = state
 	if switch_on:
 		switch_anim.play("on")
+		%RedLight.visible = false
 	else:
 		switch_anim.play("off")
+		%RedLight.visible = true
