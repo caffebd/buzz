@@ -11,7 +11,7 @@ var fuse_icon
 var lantern_icon
 var key_icon
 
-var key_count: int = 0
+
 
 @onready var target := %Target
 @onready var locked := %Locked
@@ -19,7 +19,8 @@ var key_count: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	%KeyGrid.visible = key_count > 0
+	%KeyGrid.visible = GlobalVars.key_count > 0
+	%KeyCount.text = str(GlobalVars.key_count)
 	GlobalSignals.add_to_inventory.connect(add_to_carried_inventory)
 	GlobalSignals.remove_from_inventory.connect(remove_from_carried_inventory)
 	GlobalSignals.keypad_code.connect(_update_keypad_code)
@@ -48,9 +49,9 @@ func _update_keypad_code(code):
 	$CodeRect/CodeText.text = code
 	
 func _update_key(count:int):
-	key_count += count
-	%KeyGrid.visible = key_count > 0
-	%KeyCount.text = str(key_count)
+	GlobalVars.key_count += count
+	%KeyGrid.visible = GlobalVars.key_count > 0
+	%KeyCount.text = str(GlobalVars.key_count)
 
 	
 

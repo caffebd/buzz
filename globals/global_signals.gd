@@ -41,3 +41,11 @@ signal end_game()
 signal noise_level_show(level)
 
 signal bridge_show(state: bool)
+
+signal cave_body_off(state)
+
+
+signal check_one()
+signal check_two()
+signal check_three()
+signal check_four()

@@ -44,4 +44,4 @@ func _on_death_area_body_entered(body):
 
 func _on_warn_area_body_entered(body):
 	if body.get_groups().has("Player"):
-		linked_switch.flicker()
+		if linked_switch!=null: linked_switch.flicker()

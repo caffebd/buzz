@@ -68,6 +68,8 @@ func _ready():
 	camera.current = true
 	
 
+func set_start_position(start_pos:Vector3):
+	global_position = start_pos
 	
 
 func _temp_mask_change(new_parent):
@@ -324,7 +326,7 @@ func trans_out():
 
 
 func _on_proximity_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	speed_adjust = 2
+	speed_adjust = 1
 	print ("near keypad")
 
 func _on_proximity_area_shape_exited(area_rid, area, area_shape_index, local_shape_index):

@@ -5,6 +5,10 @@ var current_world:String = "real"
 var real_inventory_items:Array
 var tape_inventory_items:Array
 
+var key_count: int = 0
+
+var check_point: int = 0
+
 enum RealStates{
 	tape1,
 	tape2,

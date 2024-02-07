@@ -38,7 +38,7 @@ func use_action(the_player):
 		return
 	var hud = the_player.hud
 	if needs_key:
-		if hud.key_count > 0:
+		if GlobalVars.key_count > 0:
 			needs_key = false
 			linked_action()
 			hud._update_key(-1)
