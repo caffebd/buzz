@@ -1,0 +1,122 @@
+[gd_scene load_steps=6 format=3 uid="uid://i6cfblus7x0w"]
+
+[ext_resource type="Script" path="res://scripts/CodePost.gd" id="1_2pgif"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_it6qt"]
+albedo_color = Color(0.117647, 0.431373, 0.145098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k7p70"]
+material = SubResource("StandardMaterial3D_it6qt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pboen"]
+albedo_color = Color(0.521569, 0.317647, 0.219608, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lf6n0"]
+material = SubResource("StandardMaterial3D_pboen")
+
+[node name="CodePost" type="Node3D"]
+script = ExtResource("1_2pgif")
+
+[node name="Board" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.29581, 0, 0, 0, 0.526188, 0, 0, 0, 0.111573, 0, 0.826873, 0)
+mesh = SubResource("BoxMesh_k7p70")
+
+[node name="post" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.201955, 0, 0, 0, 1.10942, 0, 0, 0, 0.186804, 0, 0, 0)
+mesh = SubResource("BoxMesh_lf6n0")
+
+[node name="CodeLabels" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="CodeLabel" type="Label3D" parent="CodeLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.60424, 0.870586, 0.117521)
+visible = false
+text = "func use_action(the_player):
+    GlobalSignals.emit_signal(\"update_key\",1)
+    queue_free()
+"
+font_size = 11
+outline_size = 7
+horizontal_alignment = 0
+
+[node name="CodeLabel2" type="Label3D" parent="CodeLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.60424, 0.870586, 0.117521)
+visible = false
+text = "func _physics_process(delta):
+    if attack_player:
+    MoveTowardsPoint(delta, patrolSpeed)
+"
+font_size = 11
+outline_size = 7
+horizontal_alignment = 0
+
+[node name="CodeLabel3" type="Label3D" parent="CodeLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.60424, 0.870586, 0.117521)
+visible = false
+text = "func _on_warn_area_body_entered(body):
+    if body.get_groups().has(\"Player\"):
+       if linked_switch!=null: linked_switch.flicker()
+"
+font_size = 10
+outline_size = 7
+horizontal_alignment = 0
+
+[node name="CodeLabel4" type="Label3D" parent="CodeLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.481097, 0.870586, 0.117521)
+visible = false
+text = "func _physics_process(delta):
+    if not is_on_floor():
+        velocity.y -= gravity * delta
+"
+font_size = 12
+outline_size = 7
+horizontal_alignment = 0
+
+[node name="CodeLabel5" type="Label3D" parent="CodeLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.481097, 0.870586, 0.117521)
+visible = false
+text = "func use_action(player):
+    if !lever_on:
+        lever_on = true
+        w%LeverAnim.play(\"on\")
+"
+font_size = 12
+outline_size = 7
+horizontal_alignment = 0
+
+[node name="CodeLabel6" type="Label3D" parent="CodeLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.481097, 0.870586, 0.117521)
+visible = false
+text = "func flicker():
+    for lamp in linked_lights:
+        lamp.flicker()
+"
+font_size = 12
+outline_size = 7
+horizontal_alignment = 0
+
+[node name="CodeLabel7" type="Label3D" parent="CodeLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.542911, 0.870586, 0.117521)
+visible = false
+text = "func _ready():
+    if GlobalVars.gates_open[gate_no] == false:
+        %GateAnim.play(\"already_closed\")
+    else:
+        %GateAnim.play(\"already_open\")
+"
+font_size = 10
+outline_size = 7
+horizontal_alignment = 0
+
+[node name="CodeLabel8" type="Label3D" parent="CodeLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.542911, 0.870586, 0.117521)
+visible = false
+text = "func _on_death_area_body_entered(body):
+    if body.get_groups().has(\"Player\"):
+        attack_player = false
+        GlobalVars.key_count = 0
+        player.hud.cover_fade_death()
+"
+font_size = 10
+outline_size = 7
+horizontal_alignment = 0

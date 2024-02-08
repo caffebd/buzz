@@ -39,6 +39,7 @@ func _on_death_area_body_entered(body):
 	if body.get_groups().has("Player"):
 		attack_player = false
 		print ("reload")
+		GlobalVars.key_count = 0
 		player.hud.cover_fade_death()
 
 

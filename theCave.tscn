@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bemeghhhf4cwr"]
+[gd_scene load_steps=51 format=3 uid="uid://bemeghhhf4cwr"]
 
 [ext_resource type="PackedScene" uid="uid://davruwtayihsp" path="res://assets/props/cave.tscn" id="1_di73o"]
 [ext_resource type="Script" path="res://scripts/MainCave.gd" id="1_wnv3q"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://1rimwgtdsnd5" path="res://scenes/raise_platform.tscn" id="17_kakq7"]
 [ext_resource type="PackedScene" uid="uid://dpfgflu1aixld" path="res://assets/props/keypad.tscn" id="21_s02th"]
 [ext_resource type="PackedScene" uid="uid://qo0hl5if4c4e" path="res://assets/props/elevator.tscn" id="21_wjuhr"]
+[ext_resource type="Script" path="res://scripts/SneakyWall.gd" id="25_51ns1"]
+[ext_resource type="PackedScene" uid="uid://i6cfblus7x0w" path="res://scenes/CodePost.tscn" id="26_ws7ju"]
 
 [sub_resource type="Environment" id="Environment_ckil6"]
 ambient_light_source = 2
@@ -56,6 +58,46 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 5), PackedInt32Arr
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xyai2"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_w17t2"]
+size = Vector3(2.035, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8tlqf"]
+size = Vector3(1.035, 1, 1.725)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hfb36"]
+size = Vector3(0.545, 1, 2.035)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ajmf6"]
+size = Vector3(3.945, 1.465, 0.375)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdw2l"]
+albedo_color = Color(0.52549, 0.462745, 0.380392, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ni4yg"]
+material = SubResource("StandardMaterial3D_bdw2l")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_owtrg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bp2xl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t38v0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_usejq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j53ap"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_et6no"]
+transparency = 1
+albedo_color = Color(0.964706, 0.956863, 0.941176, 0.0392157)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ifx2h"]
+material = SubResource("StandardMaterial3D_et6no")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g8sym"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_302k6"]
+size = Vector3(180, 1, 160)
+
 [node name="MainCave" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_wnv3q")
 player = NodePath("Player")
@@ -74,6 +116,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.9022, 3.57043, -30.1032)
 
 [node name="CheckPos1" type="Marker3D" parent="PlayerCheckPositions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6718, 3.97375, -18.6655)
+
+[node name="CheckPos2" type="Marker3D" parent="PlayerCheckPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5811, 3.91328, -10.6032)
+
+[node name="CheckPos3" type="Marker3D" parent="PlayerCheckPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.8035, 2.71989, 5.66544)
+
+[node name="CheckPos4" type="Marker3D" parent="PlayerCheckPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.33296, 2.90636, -3.97982)
+
+[node name="CheckPos5" type="Marker3D" parent="PlayerCheckPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.8743, 3.06881, -71.1172)
+
+[node name="SecretAreaPos" type="Marker3D" parent="PlayerCheckPositions"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7293, 59.0055, -4.58136)
+
+[node name="KeyPadPos" type="Marker3D" parent="PlayerCheckPositions"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.3778, 0.629602, -114.333)
 
 [node name="TempWall" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2485, 4.10583, -33.1571)
@@ -132,29 +194,40 @@ mesh = ExtResource("8_p6fsa")
 
 [node name="PullLevers" type="Node3D" parent="."]
 
-[node name="lever" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("9_gqllp")]
+[node name="lever1" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("9_gqllp")]
+unique_name_in_owner = true
 transform = Transform3D(0.587008, 0, 0.809581, 0, 1, 0, -0.809581, 0, 0.587008, -55.0076, 0.360599, 43.0283)
 linked_object = NodePath("../../RaisePlatform")
 the_player = NodePath("../../Player")
 
 [node name="lever2" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("9_gqllp")]
+unique_name_in_owner = true
 transform = Transform3D(0.735412, 0, -0.67762, 0, 1, 0, 0.67762, 0, 0.735412, -41.7486, 1.01199, 40.7385)
 linked_object = NodePath("../../RaisePlatform")
 the_player = NodePath("../../Player")
 
 [node name="lever3" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("9_gqllp")]
+unique_name_in_owner = true
 transform = Transform3D(-0.82806, 0, 0.560639, 0, 1, 0, -0.560639, 0, -0.82806, -54.3613, 0.1979, 58.2102)
 linked_object = NodePath("../../RaisePlatform")
 the_player = NodePath("../../Player")
 
 [node name="lever4" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("9_gqllp")]
+unique_name_in_owner = true
 transform = Transform3D(-0.816097, 0, -0.577915, 0, 1, 0, 0.577915, 0, -0.816097, -41.7486, 0.301347, 58.7317)
 linked_object = NodePath("../../RaisePlatform")
 the_player = NodePath("../../Player")
 
 [node name="lever5" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("9_gqllp")]
+unique_name_in_owner = true
 transform = Transform3D(0.0486928, 0, -0.998814, 0, 1, 0, 0.998814, 0, 0.0486928, 69.6311, 0.303881, -93.223)
 linked_object = NodePath("../../TempWall/InvisiBridge")
+the_player = NodePath("../../Player")
+
+[node name="SneakyLever" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("9_gqllp")]
+unique_name_in_owner = true
+transform = Transform3D(0.715571, 0, 0.69854, 0, 1, 0, -0.69854, 0, 0.715571, -11.656, 1.89224, 37.5564)
+linked_object = NodePath("../../SneakyWall")
 the_player = NodePath("../../Player")
 
 [node name="Gates" type="Node3D" parent="."]
@@ -172,7 +245,7 @@ needs_key = true
 
 [node name="gate3" parent="Gates" instance=ExtResource("13_rtutk")]
 unique_name_in_owner = true
-transform = Transform3D(0.980254, 0, 0.197743, 0, 1, 0, -0.197743, 0, 0.980254, -41.098, 2.18338, 10.8999)
+transform = Transform3D(0.901266, 0, 0.433266, 0, 1, 0, -0.433266, 0, 0.901266, -32.4298, 2.13867, 6.78004)
 gate_no = 2
 needs_key = true
 
@@ -180,12 +253,6 @@ needs_key = true
 unique_name_in_owner = true
 transform = Transform3D(0.959299, 0, -0.282392, 0, 1, 0, 0.282392, 0, 0.959299, -0.759579, 2.84672, -5.36305)
 gate_no = 3
-needs_key = true
-
-[node name="gate5" parent="Gates" instance=ExtResource("13_rtutk")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47915, 3.04146, 23.2083)
-gate_no = 4
 needs_key = true
 
 [node name="ElectricLights" type="Node3D" parent="."]
@@ -306,6 +373,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.629, 5.40749, -84.5246)
 light_range = 5.0
 light_energy = 0.5
 
+[node name="lantern19" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76411, 5.08649, 22.4487)
+light_range = 3.0
+light_energy = 0.3
+
 [node name="Switches" type="Node3D" parent="."]
 
 [node name="Switch1" parent="Switches" node_paths=PackedStringArray("linked_lights", "connected_buzz") instance=ExtResource("14_t2u5u")]
@@ -330,6 +402,7 @@ linked_switches = [NodePath("../switch6")]
 connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy5-6")
 
 [node name="switch6" parent="Switches" node_paths=PackedStringArray("linked_lights", "linked_switches", "connected_buzz") instance=ExtResource("14_t2u5u")]
+unique_name_in_owner = true
 transform = Transform3D(-0.745674, 0, -0.666311, 0, 1, 0, 0.666311, 0, -0.745674, 27.7003, 2.48334, -29.9998)
 linked_lights = [NodePath("../../ElectricLights/elecLight5")]
 linked_switches = [NodePath("../switch5")]
@@ -363,6 +436,7 @@ transform = Transform3D(1.49985, -0.0209956, 0, 0.0209956, 1.49985, 0, 0, 0, 1.5
 transform = Transform3D(-0.994314, 0, -0.10649, 0, 1, 0, 0.10649, 0, -0.994314, -25.2085, 3.10862, -17.2654)
 
 [node name="RaisePlatform" parent="." instance=ExtResource("17_kakq7")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.675, -12, 48.961)
 lever_needed = 4
 
@@ -385,6 +459,7 @@ player = NodePath("../../Player")
 linked_switch = NodePath("../../Switches/switch3-4")
 
 [node name="BuzzEnemy5-6" parent="BuzzEnemies" node_paths=PackedStringArray("player", "linked_switch") instance=ExtResource("16_14da8")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8164, 2.82338, -22.8974)
 player = NodePath("../../Player")
 linked_switch = NodePath("../../Switches/switch5")
@@ -415,8 +490,151 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1599, 3.65315, -23.7324)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointAreas/CheckPoint1"]
 shape = SubResource("BoxShape3D_xyai2")
 
+[node name="CheckPoint2" type="Area3D" parent="CheckPointAreas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8372, 3.25073, -11.5822)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointAreas/CheckPoint2"]
+shape = SubResource("BoxShape3D_w17t2")
+
+[node name="CheckPoint3" type="Area3D" parent="CheckPointAreas"]
+transform = Transform3D(0.914713, 0, 0.404104, 0, 1, 0, -0.404104, 0, 0.914713, -31.4382, 2.11976, 6.32946)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointAreas/CheckPoint3"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -0.430647, 0, -0.0695281)
+shape = SubResource("BoxShape3D_8tlqf")
+
+[node name="CheckPoint4" type="Area3D" parent="CheckPointAreas"]
+transform = Transform3D(0.919396, 0, -0.393332, 0, 1, 0, 0.393332, 0, 0.919396, -0.312923, 2.41663, -5.23651)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointAreas/CheckPoint4"]
+shape = SubResource("BoxShape3D_hfb36")
+
+[node name="CheckPoint5" type="Area3D" parent="CheckPointAreas"]
+transform = Transform3D(0.523302, 0, -0.852147, 0, 1, 0, 0.852147, 0, 0.523302, 29.2801, 2.33081, -32.5192)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointAreas/CheckPoint5"]
+shape = SubResource("BoxShape3D_ajmf6")
+
 [node name="Player" parent="." instance=ExtResource("9_kd1w6")]
 unique_name_in_owner = true
-transform = Transform3D(-0.99841, 0, 0.0563617, 0, 1, 0, -0.0563617, 0, -0.99841, 55.7733, 3.15322, -76.7496)
+transform = Transform3D(-0.99841, 0, 0.0563617, 0, 1, 0, -0.0563617, 0, -0.99841, 25.2533, 32.794, -15.7148)
+
+[node name="SneakyWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.202701, 0, 0.435888, 0, 4.89216, 0, -0.0366177, 0, 2.4129, -0.163747, 3.33403, 23.404)
+mesh = SubResource("BoxMesh_ni4yg")
+script = ExtResource("25_51ns1")
+
+[node name="Label3D" type="Label3D" parent="SneakyWall"]
+transform = Transform3D(0.022702, 0, -0.999741, 0, 0.999999, 0, 0.999742, 0, 0.0227041, -0.584473, 0.161551, -0.0104055)
+text = "/
+-----"
+font_size = 17
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SneakyWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SneakyWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_owtrg")
+
+[node name="SneakTunnelWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.205377, 0, 0.839901, 0, 2.62293, 0, -0.0977661, 0, 1.76438, 15.393, 3.12949, 18.976)
+mesh = SubResource("BoxMesh_bp2xl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SneakTunnelWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SneakTunnelWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_t38v0")
+
+[node name="TempEndWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.219504, 0, 0, 0, 11.8739, 0, 0, 0, 17.5544, 38.7261, 2.50134, -28.0989)
+mesh = SubResource("BoxMesh_usejq")
+skeleton = NodePath("../PlayerCheckPositions/CheckPos5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TempEndWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TempEndWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_j53ap")
+
+[node name="TempEndWall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.219504, 0, 0, 0, 11.8739, 0, 0, 0, 17.5544, 38.7261, 2.50134, -2.58611)
+mesh = SubResource("BoxMesh_usejq")
+skeleton = NodePath("../PlayerCheckPositions/CheckPos5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TempEndWall2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TempEndWall2/StaticBody3D"]
+shape = SubResource("BoxShape3D_j53ap")
+
+[node name="TempEndWall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0013715, 0, -17.5541, 0, 11.8739, 0, 0.2195, 0, -0.109683, 20.0858, 2.01731, 32.5936)
+mesh = SubResource("BoxMesh_usejq")
+skeleton = NodePath("../PlayerCheckPositions/CheckPos5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TempEndWall3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TempEndWall3/StaticBody3D"]
+shape = SubResource("BoxShape3D_j53ap")
+
+[node name="lantern" parent="." instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1439, 4.72741, 21.3485)
+
+[node name="SecretArea" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.49397, 56.377, 0)
+
+[node name="Base" type="MeshInstance3D" parent="SecretArea"]
+transform = Transform3D(130.142, 0, 0, 0, 1, 0, 0, 0, 86.2416, 0, 0, 0)
+mesh = SubResource("BoxMesh_ifx2h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SecretArea/Base"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SecretArea/Base/StaticBody3D"]
+shape = SubResource("BoxShape3D_g8sym")
+
+[node name="Sun" type="DirectionalLight3D" parent="SecretArea"]
+transform = Transform3D(1, 0, 0, 0, 0.448056, 0.894006, 0, -0.894006, 0.448056, 4.49397, 57.4076, 39.6039)
+light_energy = 3.505
+light_indirect_energy = 2.455
+
+[node name="CodePost" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0639, 1.36529, -28.8782)
+
+[node name="CodePost2" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0363, 1.36529, 4.74923)
+code_select = 1
+
+[node name="CodePost3" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03521, 1.36529, 15.5334)
+code_select = 2
+
+[node name="CodePost4" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.085, 1.365, -28.659)
+code_select = 3
+
+[node name="CodePost5" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.67, 1.36529, 4.10441)
+code_select = 4
+
+[node name="CodePost6" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0362, 1.36529, 6.29819)
+code_select = 5
+
+[node name="CodePost7" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1471, 1.36529, -27.0037)
+code_select = 6
+
+[node name="CodePost8" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.55026, 1.36529, -8.65798)
+code_select = 7
+
+[node name="FallArea" type="Area3D" parent="SecretArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.7463, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SecretArea/FallArea"]
+shape = SubResource("BoxShape3D_302k6")
 
 [connection signal="body_entered" from="CheckPointAreas/CheckPoint1" to="." method="_on_check_point_1_body_entered"]
+[connection signal="body_entered" from="CheckPointAreas/CheckPoint2" to="." method="_on_check_point_2_body_entered"]
+[connection signal="body_entered" from="CheckPointAreas/CheckPoint3" to="." method="_on_check_point_3_body_entered"]
+[connection signal="body_entered" from="CheckPointAreas/CheckPoint4" to="." method="_on_check_point_4_body_entered"]
+[connection signal="body_entered" from="CheckPointAreas/CheckPoint5" to="." method="_on_check_point_5_body_entered"]
+[connection signal="body_entered" from="SecretArea/FallArea" to="." method="_on_fall_area_body_entered"]

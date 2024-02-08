@@ -7,7 +7,11 @@ var tape_inventory_items:Array
 
 var key_count: int = 0
 
-var check_point: int = 0
+var check_point: int = 4
+
+var sneaky_wall_open: bool = false
+
+var start_secret_area: bool = true
 
 enum RealStates{
 	tape1,

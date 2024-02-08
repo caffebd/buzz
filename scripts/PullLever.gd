@@ -9,14 +9,20 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	%LeverAnim.play("already_off")
+	lever_on=false
 
-	if not lever_on:
-		%LeverAnim.play("already_off")
-		lever_on=false
-	else:
-		%LeverAnim.play("already_on")
-		lever_on=true
+	#if not lever_on:
+		#%LeverAnim.play("already_off")
+		#lever_on=false
+	#else:
+		#%LeverAnim.play("already_on")
+		#lever_on=true
 
+
+func lever_set_on():
+	%LeverAnim.play("already_on")
+	lever_on=true
 
 func use_action(player):
 	if %LeverAnim.is_playing():
@@ -24,7 +30,6 @@ func use_action(player):
 	if !lever_on:
 		lever_on = true
 		%LeverAnim.play("on")
-		GlobalVars.lever_state = "on"
 		#if GlobalVars.tape_current_state == GlobalVars.TapeStates.lever:
 			#CameraTransition.transition_camera3D( the_player.camera,$LeverCam, 0.8)
 			#var yield_timer_a = Timer.new()
