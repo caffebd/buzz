@@ -50,6 +50,7 @@ func _update_keypad_code(code):
 	
 func _update_key(count:int):
 	GlobalVars.key_count += count
+	print ("keys "+str(GlobalVars.key_count))
 	%KeyGrid.visible = GlobalVars.key_count > 0
 	%KeyCount.text = str(GlobalVars.key_count)
 

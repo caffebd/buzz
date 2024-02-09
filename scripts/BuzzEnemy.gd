@@ -11,6 +11,8 @@ var start_pos := Vector3.ZERO
 
 @export var patrolSpeed = 2.5
 
+@export var final_buzz:bool = false
+
 func _ready():
 	start_pos = position
 
@@ -40,8 +42,13 @@ func _on_death_area_body_entered(body):
 		attack_player = false
 		print ("reload")
 		GlobalVars.key_count = 0
-		player.hud.cover_fade_death()
+		if final_buzz:
+			call_deferred("game_over_call")
+		else:	
+			player.hud.cover_fade_death()
 
+func game_over_call():
+	get_tree().change_scene_to_file("res://scenes/OverScreen.tscn")
 
 func _on_warn_area_body_entered(body):
 	if body.get_groups().has("Player"):

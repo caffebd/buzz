@@ -28,6 +28,7 @@ func switch(state):
 	%ElectricOmniLight.visible = light_state
 	
 
+	
 
 func flicker():
 	#rng.randf_range(0.2, 0.8)

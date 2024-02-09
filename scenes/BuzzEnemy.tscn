@@ -49,11 +49,11 @@ one_shot = true
 
 [node name="BuzzSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_dd21r")
-volume_db = -20.0
+volume_db = -5.0
 unit_size = 30.0
 max_db = 6.0
 autoplay = true
-max_distance = 20.0
+max_distance = 25.0
 
 [node name="DeathArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.296595, 0)

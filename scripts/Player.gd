@@ -33,6 +33,7 @@ var run_audio = preload("res://assets/audio/stone_run.mp3")
 @onready var ray = %PlayerRay
 @onready var hud = %HUD
 
+
 var use_cursor: bool = false
 
 var _in_cut_scene: bool = false
@@ -45,7 +46,9 @@ var player_added_noise: float = 0.0
 @onready var color_rect := $ColorRect
 @onready var light_level := $LightLevel
 
+@export var secret_room_pos: Marker3D
 
+var freeze_controls:bool = false
  
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -61,12 +64,25 @@ func _ready():
 	GlobalSignals.fuse_set_up.connect(_fuse_set_up)
 	GlobalSignals.lamp_set_up.connect(_lamp_set_up)
 	GlobalSignals.cut_scene.connect(_cut_scene)
+	GlobalSignals.teleport.connect(_teleport)
 #	Temp chnage player mask to go through cave
 	#GlobalSignals.parent_to_elevator.connect(_temp_mask_change)
 	
 	
 	camera.current = true
-	
+
+
+func _teleport(dir):
+	if dir == "up":
+		freeze_controls = true
+		var yield_timer_teleport = Timer.new()
+		add_child(yield_timer_teleport)
+		yield_timer_teleport.start(4.0);
+		await yield_timer_teleport.timeout
+		yield_timer_teleport.queue_free()
+		global_position = secret_room_pos.global_position
+		freeze_controls = false
+		GlobalSignals.emit_signal("secret_area", true)
 
 func set_start_position(start_pos:Vector3):
 	global_position = start_pos
@@ -125,10 +141,18 @@ func _take_action():
 			add_child(yield_timer_key)
 			yield_timer_key.start(0.2);
 			await yield_timer_key.timeout
+			yield_timer_key.queue_free()
 			keypad_pause = false
 		
 		
 func _physics_process(delta):
+	
+	if freeze_controls:
+		print ("float")
+		velocity.y = JUMP_VELOCITY
+		move_and_slide()
+		return
+		
 	if use_cursor or _in_cut_scene:
 		return
 	# Add the gravity.

@@ -7,9 +7,13 @@ extends Node3D
 
 @export var linked_switches:Array[Node3D]
 
+@export var linked_object: Array[Node3D]
+
 @export var connected_buzz:CharacterBody3D
 
 @export var switch_on:bool = false
+
+@export var one_time: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,9 +33,15 @@ func operate_switch():
 		if linked_switches.size()>0:
 			for switch in linked_switches:
 				switch.switch_from_link(true)
+		if linked_object.size()>0:
+			for object in linked_object:
+				object.linked_from_switch(true)
 		if connected_buzz != null:
 			connected_buzz.attack_player = true
 	else:
+		if one_time:
+			switch_anim.play("off_broken")
+			return
 		switch_on = false
 		switch_anim.play("off")
 		%RedLight.visible = true

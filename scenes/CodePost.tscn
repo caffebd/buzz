@@ -120,3 +120,13 @@ text = "func _on_death_area_body_entered(body):
 font_size = 10
 outline_size = 7
 horizontal_alignment = 0
+
+[node name="Instructions" type="Label3D" parent="CodeLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.542911, 0.870586, 0.117521)
+visible = false
+text = "Secret Developer Area
+To return to game, FALL OFF
+"
+font_size = 15
+outline_size = 7
+horizontal_alignment = 0

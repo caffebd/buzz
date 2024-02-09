@@ -49,3 +49,6 @@ signal check_one()
 signal check_two()
 signal check_three()
 signal check_four()
+
+signal teleport(direction)
+signal secret_area(state)

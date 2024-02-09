@@ -1,7 +1,8 @@
 extends Node3D
 
 var entered_code := ""
-var correct_code := "786"
+var correct_code := "6842"
+var secret_code := "2535"
 
 var keypad_locked := false
 
@@ -22,7 +23,7 @@ func key_press(key: String):
 		entered_code = ""
 		GlobalSignals.emit_signal("keypad_code", entered_code)
 		return
-	if entered_code.length()<3:
+	if entered_code.length()<4:
 		entered_code = entered_code+key
 		GlobalSignals.emit_signal("keypad_code", entered_code)
 #		%Code.text = entered_code
@@ -40,5 +41,9 @@ func _check_code():
 		$KeypadArea/keyPadColl.disabled=true
 #		GlobalSignals.emit_signal("manual_state_trigger", "patrol", 2)
 		GlobalSignals.emit_signal("elevator_open")
-#		if linked_object != null:
-#			linked_object.linked_action()
+	elif entered_code == secret_code:
+		GlobalVars.secret_area_found = true
+		GlobalSignals.emit_signal("keypad_code", "correct")
+		#keypad_locked = true
+		GlobalSignals.emit_signal("teleport","up")
+		

@@ -12,6 +12,7 @@ func linked_action():
 	if lever_count == lever_needed:
 		var tween = create_tween()
 		tween.tween_property(self, "position:y", -3.5, 2.5)
+		%PlatformCode.visible = true
 	#if position.y > 2.0:
 		#tween.tween_property(self, "position:y", -1.0, 2.0)
 	#else:

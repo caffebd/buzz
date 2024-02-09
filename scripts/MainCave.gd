@@ -35,7 +35,8 @@ func _setup_from_check():
 	if GlobalVars.sneaky_wall_open:
 		%SneakyLever.lever_set_on()
 	if GlobalVars.start_secret_area:
-		player.set_start_position(%SecretAreaPos.global_position)
+		#player.set_start_position(%SecretAreaPos.global_position)
+		player.set_start_position(%KeyPadPos.global_position)
 
 func _check_one():
 	%gate.needs_key = false
@@ -100,3 +101,15 @@ func _on_fall_area_body_entered(body):
 	if body.is_in_group("Player"):
 		%SecretArea.visible = false
 		body.global_position = %KeyPadPos.global_position
+
+
+func _on_platform_death_area_body_entered(body):
+		if body.is_in_group("Player"):
+			print ("reload")
+			GlobalVars.key_count = 0
+			player.hud.cover_fade_death()
+
+
+
+func _on_secret_room_sensor_body_entered(body):
+	GlobalVars.secret_room_found = true

@@ -7,11 +7,14 @@ extends Node3D
 
 @export var lever_on:=false
 
+@export var hide_lever:bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	%LeverAnim.play("already_off")
 	lever_on=false
-
+	if hide_lever:
+		linked_from_switch(false)
 	#if not lever_on:
 		#%LeverAnim.play("already_off")
 		#lever_on=false
@@ -53,5 +56,8 @@ func use_action(player):
 		
 
 
+func linked_from_switch(state):
+	visible = state
+	%LeverCol.disabled = !state
 
 

@@ -23,8 +23,10 @@ mesh = SubResource("CylinderMesh_1ktcc")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RaisePlatformObject/StaticBody3D"]
 shape = SubResource("CylinderShape3D_b5rbu")
 
-[node name="Label3D" type="Label3D" parent="RaisePlatformObject"]
+[node name="PlatformCode" type="Label3D" parent="RaisePlatformObject"]
+unique_name_in_owner = true
 transform = Transform3D(-0.697063, 0.0219914, 9.61274e-10, 0, -3.04848e-08, 0.69741, 0.0219914, 0.697063, 3.04696e-08, 0.00972294, 1.008, 0.00425795)
+visible = false
 modulate = Color(0.537255, 0, 0, 0.760784)
 text = "6842"
 outline_size = 6
