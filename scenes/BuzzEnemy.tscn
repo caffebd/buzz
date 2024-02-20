@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3e8vsx4cw4ik"]
+[gd_scene load_steps=10 format=3 uid="uid://c3e8vsx4cw4ik"]
 
 [ext_resource type="Script" path="res://scripts/BuzzEnemy.gd" id="1_vmvqu"]
 [ext_resource type="AudioStream" uid="uid://xjnl0lm63eir" path="res://assets/audio/buzzing_sound_loop.mp3" id="2_dd21r"]
 [ext_resource type="PackedScene" uid="uid://bnhcflptp6mit" path="res://assets/props/buzzeffect.tscn" id="3_1fauo"]
+[ext_resource type="AudioStream" uid="uid://bbpifigtrhi3q" path="res://assets/audio/ambience/horror_amb_v3_constant_31.ogg" id="4_hg08y"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1xsqo"]
 radius = 0.3
@@ -75,6 +76,12 @@ wait_time = 0.5
 one_shot = true
 
 [node name="Buzzeffect" parent="." instance=ExtResource("3_1fauo")]
+
+[node name="ChaseSoundA" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_hg08y")
+volume_db = -80.0
+max_distance = 18.0
 
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]

@@ -26,6 +26,7 @@ func operate_switch():
 	if !switch_on:
 		switch_on = true
 		switch_anim.play("on")
+		%SwitchAudio.play()
 		%RedLight.visible = false
 		if linked_lights.size() > 0:
 			for light in linked_lights:
@@ -44,6 +45,7 @@ func operate_switch():
 			return
 		switch_on = false
 		switch_anim.play("off")
+		%SwitchAudio.play()
 		%RedLight.visible = true
 		if linked_lights.size() > 0:
 			for light in linked_lights:

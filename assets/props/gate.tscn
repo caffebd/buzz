@@ -1,8 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxadcvq0dda7q"]
+[gd_scene load_steps=20 format=3 uid="uid://cxadcvq0dda7q"]
 
 [ext_resource type="PackedScene" uid="uid://d2h4a8f2sds31" path="res://assets/props/imported/gate.glb" id="1_4pltf"]
 [ext_resource type="Script" path="res://scripts/Gate.gd" id="2_556vq"]
 [ext_resource type="Material" uid="uid://char0yh5m5fx0" path="res://assets/materials/metal/metal3.tres" id="2_y1yav"]
+[ext_resource type="AudioStream" uid="uid://c8c3o7so5uax5" path="res://assets/audio/gate_open_short.mp3" id="4_derpv"]
+[ext_resource type="AudioStream" uid="uid://dxn73qml0bwip" path="res://assets/audio/locked_gate.mp3" id="5_3kc0q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8nni"]
 
@@ -468,3 +470,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.272321, -1.55617)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" index="0"]
 shape = SubResource("BoxShape3D_n8lok")
+
+[node name="GateAudio" type="AudioStreamPlayer" parent="." index="6"]
+unique_name_in_owner = true
+stream = ExtResource("4_derpv")
+
+[node name="GateLocked" type="AudioStreamPlayer" parent="." index="7"]
+unique_name_in_owner = true
+stream = ExtResource("5_3kc0q")

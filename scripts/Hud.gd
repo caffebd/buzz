@@ -113,6 +113,19 @@ func _on_static_anim_animation_finished(anim_name):
 		
 
 
+func display_locked():
+	if %Locked.visible == true:
+		return
+	%Locked.visible = true
+	var locked_timer = Timer.new()
+	add_child(locked_timer)
+	locked_timer.start(1.2);
+	await locked_timer.timeout
+	print ("lock timer out")
+	locked_timer.queue_free()
+	%Locked.visible = false
+	
+
 func cover_fade(amount:float):
 	
 	var fade_to: float = 0.0

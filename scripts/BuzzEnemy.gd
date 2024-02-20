@@ -19,11 +19,26 @@ func _ready():
 func _physics_process(delta):
 	if attack_player:
 		MoveTowardsPoint(delta, patrolSpeed)
+		chase_audio(true)
 	else:
 		var direction = global_position.direction_to(start_pos)
 		velocity = direction * patrolSpeed
+		
+		chase_audio(false)
 		move_and_slide()
 
+func chase_audio(state):
+	if state and not %ChaseSoundA.is_playing():
+		%ChaseSoundA.play()
+		var chase_tween = create_tween()
+		chase_tween.tween_property(%ChaseSoundA, "volume_db", -5.0, 2.0)
+		await chase_tween.finished	
+	elif not state and %ChaseSoundA.is_playing():
+		var chase_tween = create_tween()
+		chase_tween.tween_property(%ChaseSoundA, "volume_db", -80.0, 6.0)
+		await chase_tween.finished
+
+		%ChaseSoundA.stop()
 
 func MoveTowardsPoint(delta, speed):
 	#var targetPos = navigationAgent.get_next_path_position()

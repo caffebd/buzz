@@ -14,4 +14,5 @@ func _ready():
 
 
 func _on_replay_btn_pressed():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().change_scene_to_file("res://theCave.tscn")

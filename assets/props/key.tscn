@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2bofj4vue5qx"]
+[gd_scene load_steps=7 format=3 uid="uid://d2bofj4vue5qx"]
 
 [ext_resource type="Script" path="res://scripts/Key.gd" id="1_f3wcx"]
 [ext_resource type="Material" uid="uid://cyosiiiy0qf74" path="res://assets/materials/metal/copper.tres" id="2_cp8nt"]
+[ext_resource type="AudioStream" uid="uid://41sw3xax7sbv" path="res://assets/audio/key_collect.mp3" id="3_kmwrf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p7jo6"]
 resource_name = "Copper"
@@ -39,3 +40,7 @@ collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_up2a4")
+
+[node name="keyCollect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_kmwrf")

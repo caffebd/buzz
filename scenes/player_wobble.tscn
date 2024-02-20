@@ -1,0 +1,299 @@
+[gd_scene load_steps=26 format=3 uid="uid://bjaea3cv6gi0g"]
+
+[ext_resource type="Script" path="res://scripts/PlayerWobble.gd" id="1_4aiey"]
+[ext_resource type="PackedScene" uid="uid://7n8g8f8tubsd" path="res://scenes/hud.tscn" id="2_yuhcp"]
+[ext_resource type="AudioStream" uid="uid://tt4o8ubtqdpo" path="res://assets/audio/buzz_horror_chase_fade_out.mp3" id="3_e0gn3"]
+[ext_resource type="AudioStream" uid="uid://dxblosc724dlv" path="res://assets/audio/buzzing_sound_chase_fade_in.mp3" id="4_45gjm"]
+[ext_resource type="AudioStream" uid="uid://42un1jsd4ovb" path="res://assets/audio/buzz_horror_chase.mp3" id="5_ko4er"]
+[ext_resource type="Texture2D" uid="uid://ws1gc42o1seo" path="res://assets/ui/light_meter_ui.svg" id="6_thaq8"]
+[ext_resource type="AudioStream" uid="uid://b2opxbrd85blc" path="res://assets/audio/stone_footsteps.mp3" id="7_mxmaq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x53lq"]
+height = 1.7
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jrkkt"]
+radius = 0.395
+height = 1.635
+
+[sub_resource type="Animation" id="Animation_oialn"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.0174533), Vector3(0, 0, 0.0174533)]
+}
+
+[sub_resource type="Animation" id="Animation_usvt8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.0174533)]
+}
+
+[sub_resource type="Animation" id="Animation_6073r"]
+resource_name = "idle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2val"]
+_data = {
+"RESET": SubResource("Animation_usvt8"),
+"idle": SubResource("Animation_6073r"),
+"walk": SubResource("Animation_oialn")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6smyi"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_urkq1"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_qf3jt"]
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_onsif"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_6smyi")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_urkq1")
+blend_point_1/pos = 1.0
+blend_point_2/node = SubResource("AnimationNodeBlendSpace1D_qf3jt")
+blend_point_2/pos = 0.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lnlp7"]
+height = 1.0
+radius = 0.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8e1wd"]
+cull_mode = 2
+backlight = Color(1, 1, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tc35e"]
+material = SubResource("StandardMaterial3D_8e1wd")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1goek"]
+material = SubResource("StandardMaterial3D_8e1wd")
+top_radius = 0.0
+bottom_radius = 0.4
+height = 0.4
+rings = 1
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_81dem"]
+lightmap_size_hint = Vector2i(11, 6)
+material = SubResource("StandardMaterial3D_8e1wd")
+radius = 0.3
+height = 0.6
+radial_segments = 4
+rings = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qhuk"]
+atlas = ExtResource("6_thaq8")
+region = Rect2(0, 128, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_755lr"]
+atlas = ExtResource("6_thaq8")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5ojaj"]
+height = 7.0
+radius = 11.5
+
+[node name="PlayerWobble" type="CharacterBody3D" groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 5
+collision_mask = 5
+wall_min_slide_angle = 0.523599
+script = ExtResource("1_4aiey")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.896151, 0, 0, 0, 0.896151, 0, 0, 0, 0.896151, 0, -0.369675, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_x53lq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.418606, -0.00968532)
+shape = SubResource("CapsuleShape3D_jrkkt")
+
+[node name="Head" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00679305, 0.217858, -0.140415)
+
+[node name="HeadXRotation" type="Node3D" parent="Head"]
+unique_name_in_owner = true
+
+[node name="Camera" type="Camera3D" parent="Head/HeadXRotation"]
+unique_name_in_owner = true
+transform = Transform3D(0.999848, 0.0174524, 0, -0.0174524, 0.999848, 0, 0, 0, 1, 0, 0, 0)
+current = true
+fov = 60.0
+
+[node name="BobAnim" type="AnimationPlayer" parent="Head/HeadXRotation/Camera"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_q2val")
+}
+
+[node name="PlayerRay" type="RayCast3D" parent="Head/HeadXRotation/Camera"]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -2)
+collision_mask = 8
+
+[node name="AnimationTree" type="AnimationTree" parent="Head/HeadXRotation/Camera"]
+unique_name_in_owner = true
+tree_root = SubResource("AnimationNodeBlendSpace1D_onsif")
+anim_player = NodePath("../BobAnim")
+parameters/blend_position = 0.00052774
+parameters/2/blend_position = 0
+
+[node name="HUD" parent="." instance=ExtResource("2_yuhcp")]
+unique_name_in_owner = true
+
+[node name="ChaseMusicFadeOut" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_e0gn3")
+
+[node name="ChaseMusicFadeIn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_45gjm")
+
+[node name="ChaseMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ko4er")
+
+[node name="ChaseMusicTimer" type="Timer" parent="."]
+wait_time = 9.8
+one_shot = true
+
+[node name="Proximity" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.188432, -0.258039)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Proximity"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.263114)
+shape = SubResource("CylinderShape3D_lnlp7")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="LightDetection" type="Node3D" parent="SubViewport"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0444019, 0)
+
+[node name="Camera" type="Camera3D" parent="SubViewport/LightDetection"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
+fov = 40.0
+size = 0.25
+far = 20.0
+
+[node name="MeshPlane" type="MeshInstance3D" parent="SubViewport/LightDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+layers = 524288
+mesh = SubResource("PlaneMesh_tc35e")
+
+[node name="MeshCone" type="MeshInstance3D" parent="SubViewport/LightDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+layers = 524288
+mesh = SubResource("CylinderMesh_1goek")
+
+[node name="MeshOctahedron" type="MeshInstance3D" parent="SubViewport/LightDetection"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0.5, 0)
+visible = false
+layers = 524288
+mesh = SubResource("SphereMesh_81dem")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(256, 256)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(256, 256)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="LightLevel" type="TextureProgressBar" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 1.0
+step = 0.0
+value = 0.25
+fill_mode = 7
+texture_under = SubResource("AtlasTexture_1qhuk")
+texture_progress = SubResource("AtlasTexture_755lr")
+tint_under = Color(1, 1, 1, 0.752941)
+
+[node name="LightTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_mxmaq")
+volume_db = -10.0
+
+[node name="LightSwitchArea" type="Area3D" parent="."]
+collision_layer = 8388608
+collision_mask = 524288
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightSwitchArea"]
+shape = SubResource("CylinderShape3D_5ojaj")
+
+[connection signal="finished" from="ChaseMusicFadeIn" to="." method="_on_chase_music_fade_in_finished"]
+[connection signal="timeout" from="ChaseMusicTimer" to="." method="_on_chase_music_timer_timeout"]
+[connection signal="area_shape_entered" from="Proximity" to="." method="_on_proximity_area_shape_entered"]
+[connection signal="area_shape_exited" from="Proximity" to="." method="_on_proximity_area_shape_exited"]
+[connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]

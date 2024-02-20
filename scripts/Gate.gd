@@ -23,10 +23,12 @@ func linked_action():
 		return
 	if GlobalVars.gates_open[gate_no] == false:
 		%GateAnim.play("gate_open")
+		%GateAudio.play()
 		GlobalVars.gates_open[gate_no] = true
 		needs_key = false
 	else:
 		%GateAnim.play("gate_close")
+		%GateAudio.play()
 		GlobalVars.gates_open[gate_no] = false
 	
 	print (GlobalVars.gates_open[gate_no])
@@ -41,8 +43,11 @@ func use_action(the_player):
 		if GlobalVars.key_count > 0:
 			needs_key = false
 			linked_action()
-
 			hud._update_key(-1)
+		else:
+			print ("locked")
+			hud.display_locked()
+			%GateLocked.play()
 	else:
 		linked_action()
 
