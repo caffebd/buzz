@@ -1,0 +1,34 @@
+[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://dvjqt4rsnf17y"]
+
+[ext_resource type="Texture2D" uid="uid://da0hef3tphpuk" path="res://assets/textures/caveTextures/Rock_Cliff_uhrochkg_2K/uhrochkg_2K_Albedo.jpg" id="1_1w1sy"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_fav4f"]
+texture = ExtResource("1_1w1sy")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_17k88"]
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2 : source_color;
+
+
+
+void fragment() {
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+
+
+}
+"
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_fav4f")
+nodes/fragment/2/position = Vector2(-100, 120)
+nodes/fragment/3/node = SubResource("VisualShaderNodeUVFunc_17k88")
+nodes/fragment/3/position = Vector2(-340, 140)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)

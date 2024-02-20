@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn3m1sobi3w00"]
+
+[ext_resource type="PackedScene" uid="uid://bcbnxbh3k6det" path="res://assets/props/imported/cave2.glb" id="1_t6suj"]
+[ext_resource type="Material" uid="uid://ciqb4a5dwjpgt" path="res://assets/materials/rock/caveRock.tres" id="2_mpgfj"]
+
+[node name="cave2" instance=ExtResource("1_t6suj")]
+
+[node name="Cave" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_007" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+surface_material_override/1 = ExtResource("2_mpgfj")
+
+[node name="Cave_008" parent="." index="3"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_010" parent="." index="4"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_013" parent="." index="5"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_014" parent="." index="6"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_015" parent="." index="7"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_016" parent="." index="8"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_017" parent="." index="9"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_018" parent="." index="10"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+surface_material_override/1 = ExtResource("2_mpgfj")
+
+[node name="Cave_020" parent="." index="11"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_021" parent="." index="12"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_022" parent="." index="13"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_023" parent="." index="14"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_024" parent="." index="15"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_025" parent="." index="16"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_027" parent="." index="17"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_026" parent="." index="18"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="Cave_029" parent="." index="19"]
+surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="ground" parent="." index="20"]
+surface_material_override/0 = ExtResource("2_mpgfj")
