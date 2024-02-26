@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://cngr7jtxxxmes"]
+
+[ext_resource type="ArrayMesh" uid="uid://bceqcx8jvto5i" path="res://assets/props/imported/computer.obj" id="1_xvnyd"]
+[ext_resource type="Material" uid="uid://41rtedinxr5k" path="res://assets/materials/misc/computerBody.tres" id="2_o3s2y"]
+[ext_resource type="Material" uid="uid://cyxlsn1eypvwh" path="res://assets/materials/misc/buttons.tres" id="3_0udul"]
+[ext_resource type="Material" uid="uid://cu161qejabqmp" path="res://assets/materials/misc/computerNoise.tres" id="4_4gd78"]
+
+[node name="computer" type="Node3D"]
+
+[node name="Computer" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_xvnyd")
+surface_material_override/0 = ExtResource("2_o3s2y")
+surface_material_override/1 = ExtResource("3_0udul")
+surface_material_override/2 = ExtResource("2_o3s2y")
+surface_material_override/3 = ExtResource("4_4gd78")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bemeghhhf4cwr"]
+[gd_scene load_steps=60 format=3 uid="uid://bemeghhhf4cwr"]
 
 [ext_resource type="Script" path="res://scripts/MainCave.gd" id="1_wnv3q"]
 [ext_resource type="Script" path="res://scripts/InvisiBridge.gd" id="2_mpgbl"]
@@ -31,13 +31,12 @@
 [ext_resource type="PackedScene" uid="uid://dj8aqolgkt68e" path="res://scenes/player_sway.tscn" id="29_yrwlu"]
 [ext_resource type="PackedScene" uid="uid://jws2yoklpimh" path="res://assets/props/wooden_lift_shaft.tscn" id="30_qxgbt"]
 [ext_resource type="PackedScene" uid="uid://bxpav1l0yd5h2" path="res://assets/props/wooden_lift.tscn" id="31_xvxvi"]
+[ext_resource type="PackedScene" uid="uid://cngr7jtxxxmes" path="res://assets/props/computer.tscn" id="32_dcfrx"]
 
 [sub_resource type="Environment" id="Environment_ckil6"]
 ambient_light_source = 2
 ambient_light_color = Color(0.0745098, 0.0980392, 0.0901961, 1)
 tonemap_mode = 3
-ssr_enabled = true
-glow_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.07
 volumetric_fog_albedo = Color(0, 0, 0, 1)
@@ -475,7 +474,7 @@ light_range = 3.0
 light_energy = 0.3
 
 [node name="lantern20" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.8496, 3.39215, 17.9722)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.9547, 3.39215, 14.2782)
 light_range = 3.0
 light_energy = 0.2
 
@@ -589,10 +588,8 @@ final_buzz = true
 [node name="keypad" parent="." instance=ExtResource("21_s02th")]
 transform = Transform3D(-0.997926, 0, 0.0643755, 0, 1, 0, -0.0643755, 0, -0.997926, 91.1409, -0.325032, -114.233)
 
-[node name="elevator" parent="." node_paths=PackedStringArray("call_buzz", "connected_buzz") instance=ExtResource("21_wjuhr")]
+[node name="elevator" parent="." instance=ExtResource("21_wjuhr")]
 transform = Transform3D(-0.81824, 0, -0.574877, 0, 1, 0, 0.574877, 0, -0.81824, 91.2539, 0.25644, -117.509)
-call_buzz = NodePath("../BuzzEnemies/FinalBuzz")
-connected_buzz = NodePath("../BuzzEnemies/BuzzEnemy7")
 
 [node name="CheckPointAreas" type="Node3D" parent="."]
 
@@ -763,6 +760,9 @@ transform = Transform3D(0.992384, 0, 0.123186, 0, 1, 0, -0.123186, 0, 0.992384, 
 
 [node name="woodenLift" parent="." instance=ExtResource("31_xvxvi")]
 transform = Transform3D(0.991246, 0, 0.132032, 0, 1, 0, -0.132032, 0, 0.991246, 24.329, 2.57394, 56.4031)
+
+[node name="Node3D" parent="." instance=ExtResource("32_dcfrx")]
+transform = Transform3D(0.0545911, 0, -0.124115, 0, 0.13559, 0, 0.124115, 0, 0.0545911, -41.8081, 3.05429, 9.91653)
 
 [connection signal="body_entered" from="cave2/PlatformDeathArea" to="." method="_on_platform_death_area_body_entered"]
 [connection signal="body_entered" from="cave2/ElevatorDeathArea" to="." method="_on_platform_death_area_body_entered"]
