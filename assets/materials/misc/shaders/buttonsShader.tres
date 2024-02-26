@@ -1,0 +1,112 @@
+[gd_resource type="VisualShader" load_steps=12 format=3 uid="uid://c34gr5v8tgrhy"]
+
+[ext_resource type="Texture2D" uid="uid://cxlv3idk8mdr7" path="res://assets/textures/miscTextures/computer/buttonsAlpha.jpg" id="1_e8u0n"]
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_c8gu2"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0.5, 0.5, 0.5, 0.5)]
+op_type = 5
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_5lvdo"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeIntConstant" id="VisualShaderNodeIntConstant_kkjcv"]
+constant = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_dvyo4"]
+texture = ExtResource("1_e8u0n")
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_x1ned"]
+constant = Color(0, 0, 0, 1)
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_v8fin"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0.5, 0.5, 0.5, 0.5)]
+op_type = 5
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_v2867"]
+constant = Color(0, 0.462072, 0.840039, 1)
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_orluc"]
+function = 1
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_s8xdw"]
+constant = Color(0.455817, 0.455817, 0.455817, 1)
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_0xfv3"]
+constant = Color(0, 0.462072, 0.840039, 1)
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+// ColorConstant:8
+	vec4 n_out8p0 = vec4(0.455817, 0.455817, 0.455817, 1.000000);
+
+
+// ColorConstant:9
+	vec4 n_out9p0 = vec4(0.000000, 0.462072, 0.840039, 1.000000);
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+// Mix:11
+	vec4 n_out11p0 = mix(n_out8p0, n_out9p0, n_out2p0);
+
+
+// ColorConstant:3
+	vec4 n_out3p0 = vec4(0.000000, 0.000000, 0.000000, 1.000000);
+
+
+// ColorConstant:5
+	vec4 n_out5p0 = vec4(0.000000, 0.462072, 0.840039, 1.000000);
+
+
+// Mix:4
+	vec4 n_out4p0 = mix(n_out3p0, n_out5p0, n_out2p0);
+
+
+// IntConstant:14
+	int n_out14p0 = 2;
+
+
+// VectorOp:13
+	vec2 n_out13p0 = vec2(n_out4p0.xy) * vec2(float(n_out14p0));
+
+
+// Output:0
+	ALBEDO = vec3(n_out11p0.xyz);
+	EMISSION = vec3(n_out13p0, 0.0);
+
+
+}
+"
+graph_offset = Vector2(-672.2, 355.449)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_dvyo4")
+nodes/fragment/2/position = Vector2(-620, 480)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorConstant_x1ned")
+nodes/fragment/3/position = Vector2(-280, 680)
+nodes/fragment/4/node = SubResource("VisualShaderNodeMix_v8fin")
+nodes/fragment/4/position = Vector2(-20, 560)
+nodes/fragment/5/node = SubResource("VisualShaderNodeColorConstant_v2867")
+nodes/fragment/5/position = Vector2(-220, 780)
+nodes/fragment/7/node = SubResource("VisualShaderNodeUVFunc_orluc")
+nodes/fragment/7/position = Vector2(-860, 280)
+nodes/fragment/8/node = SubResource("VisualShaderNodeColorConstant_s8xdw")
+nodes/fragment/8/position = Vector2(-360, 120)
+nodes/fragment/9/node = SubResource("VisualShaderNodeColorConstant_0xfv3")
+nodes/fragment/9/position = Vector2(-300, 220)
+nodes/fragment/11/node = SubResource("VisualShaderNodeMix_c8gu2")
+nodes/fragment/11/position = Vector2(-20, 0)
+nodes/fragment/13/node = SubResource("VisualShaderNodeVectorOp_5lvdo")
+nodes/fragment/13/position = Vector2(170.102, 333.752)
+nodes/fragment/14/node = SubResource("VisualShaderNodeIntConstant_kkjcv")
+nodes/fragment/14/position = Vector2(180, 540)
+nodes/fragment/connections = PackedInt32Array(2, 0, 4, 2, 3, 0, 4, 0, 5, 0, 4, 1, 8, 0, 11, 0, 9, 0, 11, 1, 2, 0, 11, 2, 11, 0, 0, 0, 13, 0, 0, 5, 4, 0, 13, 0, 14, 0, 13, 1)
