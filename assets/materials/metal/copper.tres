@@ -5,9 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://4grbarfnrj47" path="res://assets/textures/metalTextures/WornMetal_2K/TexturesCom_WornMetal_2K_roughness.jpg" id="3_d3xiy"]
 
 [resource]
-albedo_color = Color(0.698039, 0.415686, 0.270588, 1)
+albedo_color = Color(0.894909, 0.633454, 0.504476, 1)
 metallic = 1.0
 metallic_texture = ExtResource("1_l8i0a")
 roughness_texture = ExtResource("3_d3xiy")
+emission_enabled = true
+emission = Color(0.795596, 0.498339, 0.344547, 1)
+emission_energy_multiplier = 0.0
 normal_enabled = true
 normal_texture = ExtResource("2_27n8u")
+uv1_offset = Vector3(0.74, 0.23, 0.57)
