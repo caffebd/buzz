@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1jj3jfc40fey"]
+
+[ext_resource type="ArrayMesh" uid="uid://bp26ni20o7iaj" path="res://assets/props/imported/hangingBridge.obj" id="1_emtjw"]
+
+[node name="hangingBridge" type="Node3D"]
+
+[node name="HangingBridge" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_emtjw")

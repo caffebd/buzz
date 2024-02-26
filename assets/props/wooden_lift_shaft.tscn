@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://jws2yoklpimh"]
+
+[ext_resource type="ArrayMesh" uid="uid://l6o616soon4o" path="res://assets/props/imported/woodenLiftShaft.obj" id="1_fqf0m"]
+[ext_resource type="Material" uid="uid://bg40piu4c00br" path="res://assets/materials/wood/wood1.tres" id="2_obuce"]
+
+[node name="woodenLiftShaft" type="Node3D"]
+
+[node name="WoodenLiftShaft" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_fqf0m")
+surface_material_override/0 = ExtResource("2_obuce")

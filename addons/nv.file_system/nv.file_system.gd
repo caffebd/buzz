@@ -14,7 +14,7 @@ const FILE_BUTTON_INDEX := 0
 
 ## no race
 var _processing: bool = false
-var docked: bool = true
+var docked: bool = false
 
 ## The Editor FileSystem
 var file_system: FileSystemDock

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b68ixqmcnbrne"]
+
+[ext_resource type="ArrayMesh" uid="uid://d7rafhy2funw" path="res://assets/props/imported/elevatorShaftDoor.obj" id="1_q5lc0"]
+[ext_resource type="Material" uid="uid://char0yh5m5fx0" path="res://assets/materials/metal/metal3.tres" id="2_7qs51"]
+
+[node name="elevatorShaftDoor" type="Node3D"]
+
+[node name="ElevatorShaftDoor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.167896, 0, -0.167895)
+mesh = ExtResource("1_q5lc0")
+skeleton = NodePath("../ElevatorShaft")
+surface_material_override/0 = ExtResource("2_7qs51")

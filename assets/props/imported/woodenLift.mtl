@@ -1,0 +1,35 @@
+# Blender 4.0.0 MTL File: 'caveeeee7.blend'
+# www.blender.org
+
+newmtl Metal3
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd H:/3d Assets/Megascans/Downloaded/surface/metal_sheet_vckieff/vckieff_2K_Albedo.jpg
+map_Ns H:/3d Assets/Megascans/Downloaded/surface/metal_sheet_vckieff/vckieff_2K_Roughness.jpg
+map_Bump -bm 1.000000 H:/3d Assets/Megascans/Downloaded/surface/metal_sheet_vckieff/vckieff_2K_Normal.jpg
+
+newmtl Wood2
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd H:/3d Assets/Textures/Seamless Textures/# Wood/wood_surface/weathered_brown_planks_diff_2k-2.jpg
+map_Ns H:/3d Assets/Textures/Seamless Textures/# Wood/wood_surface/weathered_brown_planks_rough_2k-2.jpg
+map_Bump -bm 1.000000 H:/3d Assets/Textures/Seamless Textures/# Wood/wood_surface/weathered_brown_planks_nor_gl_2k-2.jpg
+
+newmtl Wood5
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd H:/3d Assets/Textures/Seamless Textures/# Wood/weathered_brown_planks_2k.gltf/textures/weathered_brown_planks_diff_2k.jpg
+map_Ns H:/3d Assets/Textures/Seamless Textures/# Wood/weathered_brown_planks_2k.gltf/textures/weathered_brown_planks_rough_2k.jpg
+map_Bump -bm 1.000000 H:/3d Assets/Textures/Seamless Textures/# Wood/weathered_brown_planks_2k.gltf/textures/weathered_brown_planks_nor_gl_2k.jpg

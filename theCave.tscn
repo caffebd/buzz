@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://bemeghhhf4cwr"]
+[gd_scene load_steps=59 format=3 uid="uid://bemeghhhf4cwr"]
 
 [ext_resource type="Script" path="res://scripts/MainCave.gd" id="1_wnv3q"]
 [ext_resource type="Script" path="res://scripts/InvisiBridge.gd" id="2_mpgbl"]
@@ -29,6 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://i6cfblus7x0w" path="res://scenes/CodePost.tscn" id="26_ws7ju"]
 [ext_resource type="AudioStream" uid="uid://bglmpeyyd6tm1" path="res://assets/audio/ambience/horror_amb_v3_constant_26.ogg" id="29_12pmf"]
 [ext_resource type="PackedScene" uid="uid://dj8aqolgkt68e" path="res://scenes/player_sway.tscn" id="29_yrwlu"]
+[ext_resource type="PackedScene" uid="uid://jws2yoklpimh" path="res://assets/props/wooden_lift_shaft.tscn" id="30_qxgbt"]
+[ext_resource type="PackedScene" uid="uid://bxpav1l0yd5h2" path="res://assets/props/wooden_lift.tscn" id="31_xvxvi"]
 
 [sub_resource type="Environment" id="Environment_ckil6"]
 ambient_light_source = 2
@@ -317,7 +319,10 @@ light_range = 6.0
 light_energy = 1.5
 
 [node name="ElecLight2" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.689, 5.69056, 18.7843)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.689, 4.96777, 18.7843)
+
+[node name="ElecLight3" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6234, 5.93024, 53.3168)
 
 [node name="elecLight3" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.0501, 16.8371, 49.5911)
@@ -752,6 +757,12 @@ max_distance = 15.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("secret_room_pos") instance=ExtResource("29_yrwlu")]
 secret_room_pos = NodePath("../PlayerCheckPositions/SecretAreaPos")
+
+[node name="woodenLiftShaft" parent="." instance=ExtResource("30_qxgbt")]
+transform = Transform3D(0.992384, 0, 0.123186, 0, 1, 0, -0.123186, 0, 0.992384, 24.3393, 2.52291, 56.3993)
+
+[node name="woodenLift" parent="." instance=ExtResource("31_xvxvi")]
+transform = Transform3D(0.991246, 0, 0.132032, 0, 1, 0, -0.132032, 0, 0.991246, 24.329, 2.57394, 56.4031)
 
 [connection signal="body_entered" from="cave2/PlatformDeathArea" to="." method="_on_platform_death_area_body_entered"]
 [connection signal="body_entered" from="cave2/ElevatorDeathArea" to="." method="_on_platform_death_area_body_entered"]

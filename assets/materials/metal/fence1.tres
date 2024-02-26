@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dsdwmotmbxqc0"]
+
+[ext_resource type="Shader" uid="uid://c5eq5ecfc7ymn" path="res://assets/materials/metal/shaders/fenceShader.tres" id="1_mdkso"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_mdkso")

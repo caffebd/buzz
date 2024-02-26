@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://f130ed7o7f8t"]
+
+[ext_resource type="PackedScene" uid="uid://bibonef818845" path="res://assets/props/imported/elevator.glb" id="1_5enq8"]
+[ext_resource type="Material" uid="uid://dsdwmotmbxqc0" path="res://assets/materials/metal/fence1.tres" id="2_aq2au"]
+[ext_resource type="Material" uid="uid://char0yh5m5fx0" path="res://assets/materials/metal/metal3.tres" id="3_mxom8"]
+
+[node name="elevator" instance=ExtResource("1_5enq8")]
+
+[node name="Plane_037" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_aq2au")
+
+[node name="Plane_044" parent="." index="1"]
+surface_material_override/0 = ExtResource("3_mxom8")
+
+[node name="Cube_068" parent="." index="2"]
+blend_shapes/Cube.040 = 0.9942
+surface_material_override/0 = ExtResource("3_mxom8")

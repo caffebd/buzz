@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dfwb8q7ufkt7i"
+path="res://.godot/imported/elevatorShaft.obj-fb155b06900b5ce2c51c4a8e0e495f0f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/elevatorShaft.obj-fb155b06900b5ce2c51c4a8e0e495f0f.mesh"]
+
+source_file="res://assets/props/imported/elevatorShaft.obj"
+dest_files=["res://.godot/imported/elevatorShaft.obj-fb155b06900b5ce2c51c4a8e0e495f0f.mesh", "res://.godot/imported/elevatorShaft.obj-fb155b06900b5ce2c51c4a8e0e495f0f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -28,6 +28,10 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/nv.file_system/plugin.cfg")
+
 [importer_defaults]
 
 texture={
@@ -100,4 +104,7 @@ use={
 
 [rendering]
 
+anti_aliasing/quality/msaa_3d=3
+anti_aliasing/quality/screen_space_aa=1
+anti_aliasing/quality/use_taa=true
 occlusion_culling/use_occlusion_culling=true

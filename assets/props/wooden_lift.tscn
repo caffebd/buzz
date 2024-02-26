@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxpav1l0yd5h2"]
+
+[ext_resource type="ArrayMesh" uid="uid://n1w7fxdgdhpf" path="res://assets/props/imported/woodenLift.obj" id="1_hqrnw"]
+[ext_resource type="Material" uid="uid://char0yh5m5fx0" path="res://assets/materials/metal/metal3.tres" id="2_ao7v1"]
+[ext_resource type="Material" uid="uid://bg40piu4c00br" path="res://assets/materials/wood/wood1.tres" id="3_qh6k1"]
+[ext_resource type="Material" uid="uid://bl1thfgrth70r" path="res://assets/materials/wood/wood6.tres" id="4_qlxu1"]
+
+[node name="woodenLift" type="Node3D"]
+
+[node name="WoodenLift" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_hqrnw")
+surface_material_override/0 = ExtResource("2_ao7v1")
+surface_material_override/1 = ExtResource("4_qlxu1")
+surface_material_override/2 = ExtResource("3_qh6k1")
+surface_material_override/3 = ExtResource("3_qh6k1")

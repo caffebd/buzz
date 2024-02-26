@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bp26ni20o7iaj"
+path="res://.godot/imported/hangingBridge.obj-dfb4d7ad5117f7ee2ddf311df9acc2f9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hangingBridge.obj-dfb4d7ad5117f7ee2ddf311df9acc2f9.mesh"]
+
+source_file="res://assets/props/imported/hangingBridge.obj"
+dest_files=["res://.godot/imported/hangingBridge.obj-dfb4d7ad5117f7ee2ddf311df9acc2f9.mesh", "res://.godot/imported/hangingBridge.obj-dfb4d7ad5117f7ee2ddf311df9acc2f9.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

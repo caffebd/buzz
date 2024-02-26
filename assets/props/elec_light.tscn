@@ -243,9 +243,24 @@ transform = Transform3D(0, 0.0201417, 0, -0.0201417, 0, 0, 0, 0, 0.0201417, 0.00
 mesh = SubResource("ArrayMesh_o2d7a")
 skeleton = NodePath("")
 
+[node name="BezierCircle_013" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 0.0201417, 0, -0.0201417, 0, 0, 0, 0, 0.0201417, 0.000154123, 0.470589, -0.00025768)
+mesh = SubResource("ArrayMesh_o2d7a")
+skeleton = NodePath("")
+
+[node name="BezierCircle_014" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 0.0201417, 0, -0.0201417, 0, 0, 0, 0, 0.0201417, 0.000154123, 0.695982, -0.00025768)
+mesh = SubResource("ArrayMesh_o2d7a")
+skeleton = NodePath("")
+
+[node name="BezierCircle_015" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 0.0201417, 0, -0.0201417, 0, 0, 0, 0, 0.0201417, 0.000154123, 0.919818, -0.00025768)
+mesh = SubResource("ArrayMesh_o2d7a")
+skeleton = NodePath("")
+
 [node name="ElectricOmniLight" type="OmniLight3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000167109, -0.16998, 0.000245576)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000167109, -0.582574, 0.000245576)
 light_color = Color(0.988235, 0.898039, 0.780392, 1)
 light_energy = 0.6
 shadow_enabled = true
