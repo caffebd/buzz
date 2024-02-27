@@ -254,36 +254,29 @@ mesh = ExtResource("8_p6fsa")
 
 [node name="PullLevers" type="Node3D" parent="."]
 
-[node name="lever1" parent="PullLevers" node_paths=PackedStringArray("linked_object") instance=ExtResource("9_gqllp")]
+[node name="lever1" parent="PullLevers" instance=ExtResource("9_gqllp")]
 unique_name_in_owner = true
 transform = Transform3D(0.587008, 0, 0.809581, 0, 1, 0, -0.809581, 0, 0.587008, -55.0076, 0.360599, 43.0283)
-linked_object = NodePath("../../RaisePlatform")
 
-[node name="lever2" parent="PullLevers" node_paths=PackedStringArray("linked_object") instance=ExtResource("9_gqllp")]
+[node name="lever2" parent="PullLevers" instance=ExtResource("9_gqllp")]
 unique_name_in_owner = true
 transform = Transform3D(0.735412, 0, -0.67762, 0, 1, 0, 0.67762, 0, 0.735412, -41.7486, 1.01199, 40.7385)
-linked_object = NodePath("../../RaisePlatform")
 
-[node name="lever3" parent="PullLevers" node_paths=PackedStringArray("linked_object") instance=ExtResource("9_gqllp")]
+[node name="lever3" parent="PullLevers" instance=ExtResource("9_gqllp")]
 unique_name_in_owner = true
 transform = Transform3D(-0.82806, 0, 0.560639, 0, 1, 0, -0.560639, 0, -0.82806, -54.3613, 0.1979, 58.2102)
-linked_object = NodePath("../../RaisePlatform")
 
-[node name="lever4" parent="PullLevers" node_paths=PackedStringArray("linked_object") instance=ExtResource("9_gqllp")]
+[node name="lever4" parent="PullLevers" instance=ExtResource("9_gqllp")]
 unique_name_in_owner = true
 transform = Transform3D(-0.816097, 0, -0.577915, 0, 1, 0, 0.577915, 0, -0.816097, -41.7486, 0.301347, 58.7317)
-linked_object = NodePath("../../RaisePlatform")
 
-[node name="lever5" parent="PullLevers" node_paths=PackedStringArray("linked_object") instance=ExtResource("9_gqllp")]
+[node name="lever5" parent="PullLevers" instance=ExtResource("9_gqllp")]
 unique_name_in_owner = true
 transform = Transform3D(0.882919, 0.000364933, -0.469525, 0.0138353, 0.999545, 0.0267936, 0.469321, -0.0301526, 0.882513, 69.8827, 0.972053, -81.0355)
-linked_object = NodePath("../../TempWall/InvisiBridge")
-hide_lever = true
 
-[node name="SneakyLever" parent="PullLevers" node_paths=PackedStringArray("linked_object") instance=ExtResource("9_gqllp")]
+[node name="SneakyLever" parent="PullLevers" instance=ExtResource("9_gqllp")]
 unique_name_in_owner = true
 transform = Transform3D(0.715571, 0, 0.69854, 0, 1, 0, -0.69854, 0, 0.715571, -11.656, 1.89224, 37.5564)
-linked_object = NodePath("../../SneakyWall")
 
 [node name="Gates" type="Node3D" parent="."]
 

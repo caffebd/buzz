@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1jj3jfc40fey"]
+[gd_scene load_steps=4 format=3 uid="uid://c1jj3jfc40fey"]
 
 [ext_resource type="ArrayMesh" uid="uid://bp26ni20o7iaj" path="res://assets/props/imported/hangingBridge.obj" id="1_emtjw"]
+[ext_resource type="Material" uid="uid://bg40piu4c00br" path="res://assets/materials/wood/wood1.tres" id="2_iuf8t"]
+[ext_resource type="Material" uid="uid://char0yh5m5fx0" path="res://assets/materials/metal/metal3.tres" id="3_oxoa1"]
 
 [node name="hangingBridge" type="Node3D"]
 
 [node name="HangingBridge" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_emtjw")
+surface_material_override/0 = ExtResource("2_iuf8t")
+surface_material_override/1 = ExtResource("3_oxoa1")

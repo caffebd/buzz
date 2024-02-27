@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dl8bp0xyyastr"
+path="res://.godot/imported/metalBox.obj-180b9a36dd55e090f42fc993c5041fc9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/metalBox.obj-180b9a36dd55e090f42fc993c5041fc9.mesh"]
+
+source_file="res://assets/props/imported/metalBox.obj"
+dest_files=["res://.godot/imported/metalBox.obj-180b9a36dd55e090f42fc993c5041fc9.mesh", "res://.godot/imported/metalBox.obj-180b9a36dd55e090f42fc993c5041fc9.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

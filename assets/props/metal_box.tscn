@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn57rh8fm3m1y"]
+
+[ext_resource type="ArrayMesh" uid="uid://dl8bp0xyyastr" path="res://assets/props/imported/metalBox.obj" id="1_6watq"]
+[ext_resource type="Material" uid="uid://char0yh5m5fx0" path="res://assets/materials/metal/metal3.tres" id="2_i6y71"]
+
+[node name="metalBox" type="Node3D"]
+
+[node name="MetalBox" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("1_6watq")
+surface_material_override/0 = ExtResource("2_i6y71")

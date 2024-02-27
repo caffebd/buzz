@@ -1,0 +1,13 @@
+# Blender 4.0.0 MTL File: 'caveeeee7.blend'
+# www.blender.org
+
+newmtl Metal1
+Ka 0.868182 0.868182 0.868182
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd H:/3d Assets/Textures/Seamless Textures/# Metals/WornMetal_2K/TexturesCom_WornMetal_2K_albedo.tif
+map_Ns H:/3d Assets/Textures/Seamless Textures/# Metals/WornMetal_2K/TexturesCom_WornMetal_2K_roughness.tif
+map_Bump -bm 1.000000 H:/3d Assets/Textures/Seamless Textures/# Metals/WornMetal_2K/TexturesCom_WornMetal_2K_normal.tif
