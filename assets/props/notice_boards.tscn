@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bhutkt6306ixn"]
+[gd_scene load_steps=25 format=3 uid="uid://bhutkt6306ixn"]
 
 [ext_resource type="PackedScene" uid="uid://8d3xbic6ekai" path="res://assets/props/imported/notice board.glb" id="1_sp8ja"]
 [ext_resource type="Material" uid="uid://dh7flndmsr48s" path="res://assets/materials/wood/wood2.tres" id="2_lu1bh"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bqo81srkcqwhm" path="res://assets/textures/miscTextures/map/map 2.png" id="11_jb7nx"]
 [ext_resource type="Texture2D" uid="uid://dlprckh3fvli7" path="res://assets/textures/miscTextures/map/map 3.png" id="12_eerr2"]
 [ext_resource type="Texture2D" uid="uid://ex2eg2jdn6jd" path="res://assets/textures/miscTextures/map/map 4.png" id="13_yq408"]
+[ext_resource type="Texture2D" uid="uid://q5qk6pkt0y8u" path="res://assets/materials/lever_sml.png" id="14_7yaua"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nins0"]
 albedo_texture = ExtResource("6_4tubm")
@@ -37,6 +38,11 @@ albedo_texture = ExtResource("12_eerr2")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onpwo"]
 albedo_texture = ExtResource("13_yq408")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lsxpp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kfcp4"]
+albedo_texture = ExtResource("14_7yaua")
 
 [node name="notice board" instance=ExtResource("1_sp8ja")]
 
@@ -111,3 +117,8 @@ surface_material_override/0 = ExtResource("2_lu1bh")
 surface_material_override/1 = ExtResource("4_0b268")
 surface_material_override/2 = ExtResource("5_12can")
 surface_material_override/3 = SubResource("StandardMaterial3D_onpwo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="12"]
+transform = Transform3D(0.266956, 0, 0, 0, 0.266956, 0, 0, 0, 0.266956, 0, 0, -3.82127)
+mesh = SubResource("PlaneMesh_lsxpp")
+surface_material_override/0 = SubResource("StandardMaterial3D_kfcp4")

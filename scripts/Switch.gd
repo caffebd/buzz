@@ -28,6 +28,7 @@ func operate_switch():
 		switch_anim.play("on")
 		%SwitchAudio.play()
 		%RedLight.visible = false
+		GlobalSignals.emit_signal("key_show", true)
 		if linked_lights.size() > 0:
 			for light in linked_lights:
 				light.switch(true)
@@ -45,6 +46,7 @@ func operate_switch():
 			return
 		switch_on = false
 		switch_anim.play("off")
+		GlobalSignals.emit_signal("key_show", false)
 		%SwitchAudio.play()
 		%RedLight.visible = true
 		if linked_lights.size() > 0:
@@ -53,6 +55,9 @@ func operate_switch():
 		if linked_switches.size()>0:
 			for switch in linked_switches:
 				switch.switch_from_link(false)
+		if linked_object.size()>0:
+			for object in linked_object:
+				object.linked_from_switch(false)
 		if connected_buzz != null:
 			connected_buzz.attack_player = false
 

@@ -6,14 +6,24 @@ var player: CharacterBody3D
 
 var picked: bool = false
 
-func _ready():
-	pass
+@export var is_visible: bool = true
+@export var switch_effected: bool = true
 
+func _ready():
+	GlobalSignals.key_show.connect(_key_show)
+	$KeyGlow.play("glow")
+	visible = is_visible
+	%KeyCol.disabled = !is_visible
+
+func _key_show(state):
+	if switch_effected:
+		visible = state
+		%KeyCol.disabled = !state
+	
 func use_action(the_player):
 	if picked:
 		return
 	picked = true
-	print ("grab key")
 	%keyCollect.play()
 	GlobalSignals.emit_signal("update_key", 1)
 	visible= false
@@ -24,6 +34,7 @@ func use_action(the_player):
 	print ("key timer out")
 	key_timer.queue_free()
 	queue_free()
+
 
 
 	

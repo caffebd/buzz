@@ -188,6 +188,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("rotate_other"):
 		_turn_player_a()
 
+	if Input.is_action_just_pressed("test_open"):
+		print ("test ele")
+		GlobalSignals.emit_signal("elevator_open")
+
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY

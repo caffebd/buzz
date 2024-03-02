@@ -13,12 +13,19 @@ var start_pos := Vector3.ZERO
 
 @export var final_buzz:bool = false
 
+@export var using_navmesh: bool = true
+
+@onready var nav_agent: NavigationAgent3D = %NavAgent
+
 func _ready():
 	start_pos = position
 
 func _physics_process(delta):
 	if attack_player:
-		MoveTowardsPoint(delta, patrolSpeed)
+		if using_navmesh:
+			move_using_nav(delta, patrolSpeed)
+		else:
+			MoveTowardsPoint(delta, patrolSpeed)
 		chase_audio(true)
 	else:
 		var direction = global_position.direction_to(start_pos)
@@ -46,7 +53,20 @@ func MoveTowardsPoint(delta, speed):
 	faceDirection(player.position)
 	velocity = direction * speed
 	move_and_slide()
-	
+
+
+func nav_towards_point(delta, speed):
+	var targetPos = nav_agent.get_next_path_position()
+	print (targetPos)
+	var direction = global_position.direction_to(targetPos)
+	faceDirection(player.position)
+	velocity = direction * speed
+	move_and_slide()
+
+func move_using_nav(delta, speed):
+	nav_agent.set_target_position(player.global_position)
+	nav_towards_point(delta, speed)
+	var distance_to_player:float = global_position.distance_to(player.global_position)	
 
 func faceDirection(direction : Vector3):
 	look_at(Vector3(direction.x, global_position.y, direction.z), Vector3.UP)

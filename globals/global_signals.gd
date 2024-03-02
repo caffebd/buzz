@@ -52,3 +52,5 @@ signal check_four()
 
 signal teleport(direction)
 signal secret_area(state)
+
+signal key_show(state)

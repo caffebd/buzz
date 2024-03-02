@@ -32,7 +32,7 @@ func use_action(player):
 		return
 	if !lever_on:
 		lever_on = true
-		%LeverAnim.play("on")
+		%LeverAnim.play("lever_on")
 		#if GlobalVars.tape_current_state == GlobalVars.TapeStates.lever:
 			#CameraTransition.transition_camera3D( the_player.camera,$LeverCam, 0.8)
 			#var yield_timer_a = Timer.new()

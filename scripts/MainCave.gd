@@ -51,11 +51,11 @@ func _check_two():
 func _check_three():
 	_check_two()
 	%gate3.needs_key = false
-	%RaisePlatform.remove_key()
-	%lever1.lever_set_on()
-	%lever2.lever_set_on()
-	%lever3.lever_set_on()
-	%lever4.lever_set_on()
+	#%RaisePlatform.remove_key()
+	#%lever1.lever_set_on()
+	#%lever2.lever_set_on()
+	#%lever3.lever_set_on()
+	#%lever4.lever_set_on()
 
 
 func _check_four():
