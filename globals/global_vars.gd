@@ -7,7 +7,7 @@ var tape_inventory_items:Array
 
 var key_count: int = 0
 
-var check_point: int = 3
+var check_point: int = 7
 
 var secret_room_found: bool = false
 var secret_area_found: bool = false

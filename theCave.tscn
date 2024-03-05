@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://bemeghhhf4cwr"]
+[gd_scene load_steps=86 format=3 uid="uid://bemeghhhf4cwr"]
 
 [ext_resource type="Script" path="res://scripts/MainCave.gd" id="1_wnv3q"]
 [ext_resource type="ArrayOccluder3D" uid="uid://ytjnoassvn75" path="res://assets/resources/cave_occ_5.occ" id="2_cayuj"]
@@ -14,7 +14,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cngkda1l3fg45" path="res://assets/props/imported/reference.obj" id="8_p6fsa"]
 [ext_resource type="Texture2D" uid="uid://q5qk6pkt0y8u" path="res://assets/materials/lever_sml.png" id="10_pktko"]
 [ext_resource type="PackedScene" uid="uid://d2bofj4vue5qx" path="res://assets/props/key.tscn" id="10_sfkbf"]
-[ext_resource type="PackedScene" uid="uid://by5hoiqhq0deb" path="res://scenes/lever.tscn" id="13_pfvhf"]
+[ext_resource type="PackedScene" uid="uid://b7o26r4s75lrm" path="res://scenes/lever_test/lever.tscn" id="13_e6y0d"]
 [ext_resource type="PackedScene" uid="uid://cxadcvq0dda7q" path="res://assets/props/gate.tscn" id="13_rtutk"]
 [ext_resource type="PackedScene" uid="uid://cfi77rkrqyprd" path="res://assets/props/switch.tscn" id="14_t2u5u"]
 [ext_resource type="PackedScene" uid="uid://csmoyn2c6ke3m" path="res://assets/props/table_3.tscn" id="15_si2ph"]
@@ -26,11 +26,13 @@
 [ext_resource type="PackedScene" uid="uid://i6cfblus7x0w" path="res://scenes/CodePost.tscn" id="26_ws7ju"]
 [ext_resource type="AudioStream" uid="uid://bglmpeyyd6tm1" path="res://assets/audio/ambience/horror_amb_v3_constant_26.ogg" id="29_12pmf"]
 [ext_resource type="PackedScene" uid="uid://dj8aqolgkt68e" path="res://scenes/player_sway.tscn" id="29_yrwlu"]
+[ext_resource type="Script" path="res://scripts/HangingBridges.gd" id="30_e7qc3"]
 [ext_resource type="PackedScene" uid="uid://jws2yoklpimh" path="res://assets/props/wooden_lift_shaft.tscn" id="30_qxgbt"]
 [ext_resource type="Material" uid="uid://dh7flndmsr48s" path="res://assets/materials/wood/wood2.tres" id="31_k84k0"]
 [ext_resource type="PackedScene" uid="uid://bxpav1l0yd5h2" path="res://assets/props/wooden_lift.tscn" id="31_xvxvi"]
 [ext_resource type="Material" uid="uid://kvpvm6epaegp" path="res://assets/materials/misc/instructions.tres" id="32_7mq5o"]
 [ext_resource type="PackedScene" uid="uid://cngr7jtxxxmes" path="res://assets/props/computer.tscn" id="32_dcfrx"]
+[ext_resource type="AudioStream" uid="uid://762mdtpu7wrx" path="res://assets/audio/wooden_lift_rise.mp3" id="32_ppd8n"]
 [ext_resource type="PackedScene" uid="uid://bmsmfajn5hi2y" path="res://assets/props/elevator_shaft.tscn" id="33_7vcgy"]
 [ext_resource type="PackedScene" uid="uid://c1jj3jfc40fey" path="res://assets/props/hanging_bridge.tscn" id="33_57nje"]
 [ext_resource type="Material" uid="uid://bhnjimwycstky" path="res://assets/materials/misc/papers.tres" id="33_n2wxr"]
@@ -47,13 +49,6 @@ volumetric_fog_density = 0.07
 volumetric_fog_albedo = Color(0, 0, 0, 1)
 volumetric_fog_emission = Color(0.0901961, 0.12549, 0.117647, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ia6w"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_a4fdt"]
-material = SubResource("StandardMaterial3D_8ia6w")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kkmk4"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1u0j2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_n74vy"]
@@ -61,9 +56,8 @@ material = SubResource("StandardMaterial3D_1u0j2")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rqmr6"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_7ypsy"]
-height = 0.5
-radius = 8.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_vohpm"]
+size = Vector3(3.285, 0.255, 3.17)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_geggp"]
 size = Vector3(80, 1, 50)
@@ -200,7 +194,7 @@ size = Vector3(1.035, 1, 1.725)
 size = Vector3(0.545, 1, 2.035)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ajmf6"]
-size = Vector3(3.945, 1.465, 0.375)
+size = Vector3(2.33, 0.765, 1.025)
 
 [sub_resource type="BoxMesh" id="BoxMesh_usejq"]
 
@@ -445,10 +439,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.6677, 3.3021, -10.8494)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3169, 2.71989, 5.66544)
 
 [node name="CheckPos4" type="Marker3D" parent="PlayerCheckPositions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.33296, 2.90636, -3.97982)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8206, 2.65515, 42.6084)
 
 [node name="CheckPos5" type="Marker3D" parent="PlayerCheckPositions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.5637, 2.38961, -77.6745)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4916, 2.84185, -12.6746)
+
+[node name="CheckPos6" type="Marker3D" parent="PlayerCheckPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7911, 2.0673, -32.9733)
+
+[node name="CheckPos7" type="Marker3D" parent="PlayerCheckPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.2425, 1.93272, -69.0335)
 
 [node name="SecretAreaPos" type="Marker3D" parent="PlayerCheckPositions"]
 unique_name_in_owner = true
@@ -456,7 +456,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7293, 59.0055, -4.58136)
 
 [node name="KeyPadPos" type="Marker3D" parent="PlayerCheckPositions"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.3778, 0.629602, -114.333)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148.539, 0.969007, -67.1458)
 
 [node name="Decoration" type="Node3D" parent="."]
 
@@ -475,15 +475,6 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -25.09
 [node name="TempWall" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2485, 4.10583, -33.1571)
 
-[node name="TempWall1" type="MeshInstance3D" parent="TempWall"]
-transform = Transform3D(0.0788954, 0, 1.03361, 0, 3.20308, 0, -0.0348464, 0, 2.34018, -7.35551, -1.48554, -16.9305)
-mesh = SubResource("BoxMesh_a4fdt")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="TempWall/TempWall1"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TempWall/TempWall1/StaticBody3D"]
-shape = SubResource("BoxShape3D_kkmk4")
-
 [node name="InvisiBridge" type="MeshInstance3D" parent="TempWall"]
 transform = Transform3D(3.18569, 0.0043789, -15.2582, 0.022149, 0.972007, 0.199, 3.69042, -0.00961376, 13.1702, 45.103, -12.763, -70.784)
 mesh = SubResource("BoxMesh_n74vy")
@@ -499,10 +490,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00590706, -0.12674, -0.010
 metadata/_edit_lock_ = true
 
 [node name="PlatformDeathArea" type="Area3D" parent="cave2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.2363, -3.38255, 48.8453)
+transform = Transform3D(0.987516, 0, 0.15752, 0, 1, 0, -0.15752, 0, 0.987516, 24.2496, 1.6109, 55.9485)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cave2/PlatformDeathArea"]
-shape = SubResource("CylinderShape3D_7ypsy")
+transform = Transform3D(0.99995, -5.19593e-05, -0.0100703, 5.19571e-05, 1, -4.71522e-07, 0.0100703, -5.1893e-08, 0.99995, 0.0825119, -1.69522, 0.454876)
+shape = SubResource("BoxShape3D_vohpm")
 
 [node name="ElevatorDeathArea" type="Area3D" parent="cave2"]
 transform = Transform3D(0.667936, 0, 0.744218, 0, 1, 0, -0.744218, 0, 0.667936, 76.1824, -0.282354, -104.965)
@@ -553,11 +545,11 @@ mesh = SubResource("PlaneMesh_fngx7")
 surface_material_override/0 = SubResource("StandardMaterial3D_qe3qd")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-visible = false
 navigation_mesh = SubResource("NavigationMesh_xs164")
 
 [node name="navmesh_001" type="MeshInstance3D" parent="NavigationRegion3D"]
 transform = Transform3D(0.851021, 0, 0.525132, 0, 1, 0, -0.525132, 0, 0.851021, 43.8402, 1.12073, 0.407585)
+visible = false
 mesh = SubResource("ArrayMesh_yrrgp")
 skeleton = NodePath("")
 
@@ -583,10 +575,42 @@ mesh = ExtResource("8_p6fsa")
 
 [node name="PullLevers" type="Node3D" parent="."]
 
-[node name="lever" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("13_pfvhf")]
-transform = Transform3D(0.851919, 0, 0.523674, 0, 1, 0, -0.523674, 0, 0.851919, -30.8702, 1.97211, 21.883)
+[node name="lever1" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("13_e6y0d")]
+unique_name_in_owner = true
+transform = Transform3D(0.471366, 0, -0.881938, 0, 1, 0, 0.881938, 0, 0.471366, -29.9871, 1.87788, 23)
 linked_object = NodePath("../../cave2/SecretDoorNode")
 the_player = NodePath("../../Player")
+
+[node name="lever2" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("13_e6y0d")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6421, 1.08027, 53.0772)
+linked_object = NodePath("../../woodenLift")
+the_player = NodePath("../../Player")
+
+[node name="lever3" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("13_e6y0d")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8138, 1.08027, 61.6835)
+linked_object = NodePath("../../woodenLift")
+the_player = NodePath("../../Player")
+
+[node name="lever5" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("13_e6y0d")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0416, 1.08027, 51.9115)
+linked_object = NodePath("../../woodenLift")
+the_player = NodePath("../../Player")
+
+[node name="lever4" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("13_e6y0d")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.6918, 1.08027, 62.9717)
+linked_object = NodePath("../../woodenLift")
+the_player = NodePath("../../Player")
+
+[node name="lever6" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("13_e6y0d")]
+unique_name_in_owner = true
+transform = Transform3D(0.674792, 0, -0.738008, 0, 1, 0, 0.738008, 0, 0.674792, 97.477, 0.87156, -64.7178)
+linked_object = NodePath("../../HangingBridges")
+the_player = NodePath("../../Player")
+hide_lever = true
 
 [node name="Gates" type="Node3D" parent="."]
 
@@ -614,7 +638,8 @@ gate_no = 3
 needs_key = true
 
 [node name="gate5" parent="Gates" instance=ExtResource("13_rtutk")]
-transform = Transform3D(0.0503007, -0.00115649, -0.998733, 0.00461942, 0.999989, -0.00092529, 0.998723, -0.004567, 0.0503058, 18.8852, 2.6763, -17.8458)
+unique_name_in_owner = true
+transform = Transform3D(0.0503007, -0.00115649, -0.998733, 0.00461942, 0.999989, -0.00092529, 0.998723, -0.004567, 0.0503058, 19.2652, 2.6763, -14.8308)
 
 [node name="ElectricLights" type="Node3D" parent="."]
 
@@ -631,31 +656,41 @@ light_energy = 0.4
 [node name="ElecLight3" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.6626, 4.59034, 21.2871)
 
-[node name="elecLight3" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.0501, 16.8371, 49.5911)
-light_range = 35.0
-light_energy = 3.0
+[node name="elecLight4a" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4607, 5.27445, 53.1382)
+light_range = 8.0
+light_energy = 1.8
 
-[node name="elecLight4" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.0161, 16.0226, 49.2087)
-light_range = 35.0
-light_energy = 3.0
+[node name="elecLight4b" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8606, 5.05597, 61.9294)
+light_range = 8.0
+light_energy = 1.8
+
+[node name="elecLight4d" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8294, 4.79411, 63.2192)
+light_range = 8.0
+light_energy = 1.8
+
+[node name="elecLight4c" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7596, 5.46447, 51.878)
+light_range = 8.0
+light_energy = 1.8
 
 [node name="elecLight5" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.157, 4.31688, -19.2219)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4727, 4.31688, -20.7138)
 
 [node name="elecLight7" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.9757, 6.93725, -111.572)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.58, 9.93561, -77.8274)
 light_range = 25.0
 light_energy = 3.0
 
 [node name="elecLight9" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.6708, 6.93725, -97.6956)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.2684, 4.33953, -66.2002)
 light_range = 25.0
 light_energy = 3.0
 
 [node name="elecLight8" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.0769, 4.18261, -114.259)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.945, 9.6718, -63.1967)
 light_range = 25.0
 light_energy = 3.0
 
@@ -665,7 +700,7 @@ light_range = 15.0
 light_energy = 1.8
 
 [node name="elecLight11" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.829, 4.23734, -81.1365)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.413, 10.2784, -64.9279)
 light_range = 8.0
 light_energy = 1.0
 
@@ -683,29 +718,69 @@ light_range = 5.0
 [node name="lantern23" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8577, 5.7132, -42.2731)
 
+[node name="lantern39" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5813, 3.56481, -39.8824)
+
+[node name="lantern40" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4789, 4.06778, -53.1776)
+
+[node name="lantern41" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4789, 3.95376, -65.0155)
+
+[node name="lantern42" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2894, 3.81391, -62.8303)
+
+[node name="lantern43" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.208, 3.81391, -75.4594)
+
+[node name="lantern36" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.4839, 5.53874, -43.334)
+
+[node name="lantern37" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5336, 5.3307, -36.8574)
+
+[node name="lantern38" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6405, 5.04548, -34.215)
+
 [node name="lantern24" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.849, 5.4101, -70.2778)
 
 [node name="lantern25" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148.421, 4.05861, -65.3004)
 
-[node name="lantern28" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.511, 5.4101, -70.2778)
-
-[node name="lantern29" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.433, 6.55268, -72.9656)
-
-[node name="lantern31" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.51, 6.13921, -73.0114)
-
-[node name="lantern30" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.507, 5.06839, -70.8456)
-
 [node name="lantern26" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2244, 5.79168, -51.4742)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4479, 3.7291, -50.7322)
+
+[node name="lantern28" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6451, 3.77137, -59.97)
 
 [node name="lantern27" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.0611, 4.7115, -62.7404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7362, 4.06139, -62.7404)
+light_range = 6.0
+light_energy = 0.4
+
+[node name="lantern44" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.1012, 3.94308, -73.5324)
+light_range = 6.0
+light_energy = 0.4
+
+[node name="lantern45" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.9951, 3.94308, -73.5324)
+light_range = 6.0
+light_energy = 0.4
+
+[node name="lantern46" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9435, 3.94308, -81.4706)
+light_range = 6.0
+light_energy = 0.4
+
+[node name="lantern47" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.2115, 4.17858, -84.5632)
+light_range = 6.0
+light_energy = 0.4
+
+[node name="lantern48" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.9988, 4.24432, -71.5975)
 light_range = 6.0
 light_energy = 0.4
 
@@ -749,6 +824,12 @@ light_energy = 0.5
 
 [node name="lantern10" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9414, 4.33785, 14.5557)
+
+[node name="lantern11" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0963, 4.12432, 40.685)
+
+[node name="lantern35" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8254, 4.93759, 49.5304)
 
 [node name="lantern8" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.69401, 4.42098, 23.4234)
@@ -841,23 +922,29 @@ transform = Transform3D(0.196887, 0, -0.980426, 0, 1, 0, 0.980426, 0, 0.196887, 
 linked_lights = [NodePath("../../ElectricLights/ElecLight3")]
 connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy3")
 
+[node name="switch4" parent="Switches" node_paths=PackedStringArray("linked_lights", "connected_buzz") instance=ExtResource("14_t2u5u")]
+transform = Transform3D(-0.453835, 0, 0.891086, 0, 1, 0, -0.891086, 0, -0.453835, 20.7722, 2.47663, 45.7601)
+linked_lights = [NodePath("../../ElectricLights/elecLight4a"), NodePath("../../ElectricLights/elecLight4b"), NodePath("../../ElectricLights/elecLight4d"), NodePath("../../ElectricLights/elecLight4c")]
+connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy4")
+
 [node name="switch5" parent="Switches" node_paths=PackedStringArray("linked_lights", "linked_switches", "connected_buzz") instance=ExtResource("14_t2u5u")]
-transform = Transform3D(0.654965, 0, -0.755659, 0, 1, 0, 0.755659, 0, 0.654965, 23.2111, 3.1845, -11.7908)
+transform = Transform3D(-0.107789, 0.0260374, 0.993833, 0.0028075, 0.999661, -0.0258856, -0.99417, 0, -0.107826, 17.1628, 3.07002, -17.888)
 linked_lights = [NodePath("../../ElectricLights/elecLight5")]
 linked_switches = [NodePath("../switch6")]
 connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy5-6")
+one_time = true
 
 [node name="switch6" parent="Switches" node_paths=PackedStringArray("linked_lights", "linked_switches", "connected_buzz") instance=ExtResource("14_t2u5u")]
 unique_name_in_owner = true
-transform = Transform3D(-0.745674, 0, -0.666311, 0, 1, 0, 0.666311, 0, -0.745674, 27.7003, 2.48334, -29.9998)
+transform = Transform3D(-0.745674, 0, -0.666311, 0, 1, 0, 0.666311, 0, -0.745674, 27.7003, 2.01321, -29.9998)
 linked_lights = [NodePath("../../ElectricLights/elecLight5")]
 linked_switches = [NodePath("../switch5")]
 connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy5-6")
 
 [node name="switch7" parent="Switches" node_paths=PackedStringArray("linked_lights", "linked_object", "connected_buzz") instance=ExtResource("14_t2u5u")]
-transform = Transform3D(-0.0999621, 0, 0.994991, 0, 1, 0, -0.994991, 0, -0.0999621, 60.2638, 2.4424, -86.3452)
+transform = Transform3D(0.39678, 0, 0.917914, 0, 1, 0, -0.917914, 0, 0.39678, 96.4148, 2.14555, -72.5635)
 linked_lights = [NodePath("../../ElectricLights/elecLight7"), NodePath("../../ElectricLights/elecLight8"), NodePath("../../ElectricLights/elecLight9"), NodePath("../../ElectricLights/elecLight11"), NodePath("../../ElectricLights/elecLight12")]
-linked_object = [null]
+linked_object = [NodePath("../../PullLevers/lever6")]
 connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy7")
 one_time = true
 
@@ -896,7 +983,6 @@ transform = Transform3D(0.844178, 0, 0.536063, 0, 1, 0, -0.536063, 0, 0.844178, 
 [node name="RaisePlatform" parent="." instance=ExtResource("17_kakq7")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.675, -12, 48.961)
-lever_needed = 4
 
 [node name="BuzzEnemies" type="Node3D" parent="."]
 
@@ -918,18 +1004,25 @@ player = NodePath("../../Player")
 linked_switch = NodePath("../../Switches/switch3")
 patrolSpeed = 2.2
 
+[node name="BuzzEnemy4" parent="BuzzEnemies" node_paths=PackedStringArray("player", "linked_switch") instance=ExtResource("16_14da8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7739, 2.20379, 40.5532)
+player = NodePath("../../Player")
+linked_switch = NodePath("../../Switches/switch4")
+patrolSpeed = 1.8
+
 [node name="BuzzEnemy5-6" parent="BuzzEnemies" node_paths=PackedStringArray("player", "linked_switch") instance=ExtResource("16_14da8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8164, 2.82338, -22.8974)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8954, 2.82338, -26.8274)
 player = NodePath("../../Player")
 linked_switch = NodePath("../../Switches/switch5")
 patrolSpeed = 2.0
 
 [node name="BuzzEnemy7" parent="BuzzEnemies" node_paths=PackedStringArray("player", "linked_switch") instance=ExtResource("16_14da8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.1354, 7.84445, -67.21)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.577, 6.00323, -80.2128)
 player = NodePath("../../Player")
 linked_switch = NodePath("../../Switches/switch7")
 patrolSpeed = 2.65
+using_navmesh = false
 
 [node name="FinalBuzz" parent="BuzzEnemies" node_paths=PackedStringArray("player") instance=ExtResource("16_14da8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.579, 37.609, -146.723)
@@ -964,9 +1057,23 @@ transform = Transform3D(0.919396, 0, -0.393332, 0, 1, 0, 0.393332, 0, 0.919396, 
 shape = SubResource("BoxShape3D_hfb36")
 
 [node name="CheckPoint5" type="Area3D" parent="CheckPointAreas"]
-transform = Transform3D(0.523302, 0, -0.852147, 0, 1, 0, 0.852147, 0, 0.523302, 29.2801, 2.33081, -32.5192)
+transform = Transform3D(0.997039, 0, 0.0768933, 0, 1, 0, -0.0768933, 0, 0.997039, 18.8454, 2.77005, -15.425)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointAreas/CheckPoint5"]
+shape = SubResource("BoxShape3D_ajmf6")
+
+[node name="CheckPoint6" type="Area3D" parent="CheckPointAreas"]
+transform = Transform3D(0.716667, 0, -0.697415, 0, 1, 0, 0.697415, 0, 0.716667, 29.849, 2.39663, -33.0519)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointAreas/CheckPoint6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2227, 0, 0.449203)
+shape = SubResource("BoxShape3D_ajmf6")
+
+[node name="CheckPoint7" type="Area3D" parent="CheckPointAreas"]
+transform = Transform3D(0.716667, 0, -0.697415, 0, 1, 0, 0.697415, 0, 0.716667, 98.7037, 2.39663, -70.3678)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointAreas/CheckPoint7"]
+transform = Transform3D(0.719679, 0, -0.694306, 0, 1, 0, 0.694306, 0, 0.719679, -3.52495, -0.726805, 5.97363)
 shape = SubResource("BoxShape3D_ajmf6")
 
 [node name="TempEndWall" type="MeshInstance3D" parent="."]
@@ -1069,16 +1176,24 @@ secret_room_pos = NodePath("../PlayerCheckPositions/SecretAreaPos")
 transform = Transform3D(0.992384, 0, 0.123186, 0, 1, 0, -0.123186, 0, 0.992384, 24.3393, 2.52291, 56.3993)
 
 [node name="woodenLift" parent="." instance=ExtResource("31_xvxvi")]
-transform = Transform3D(0.991246, 0, 0.132032, 0, 1, 0, -0.132032, 0, 0.991246, 24.329, 2.57394, 56.4031)
+unique_name_in_owner = true
+transform = Transform3D(0.991246, 0, 0.132032, 0, 1, 0, -0.132032, 0, 0.991246, 24.329, -6, 56.403)
 
 [node name="KeyPadComputer" parent="." instance=ExtResource("32_dcfrx")]
-transform = Transform3D(-0.135578, 0, -0.00180784, 0, 0.13559, 0, 0.00180784, 0, -0.135578, 149.713, 1.55293, -66.5532)
+transform = Transform3D(-0.135578, 0, -0.00180784, 0, 0.13559, 0, 0.00180784, 0, -0.135578, 149.713, 1.43097, -66.5827)
 
-[node name="hangingBridge2" parent="." instance=ExtResource("33_57nje")]
-transform = Transform3D(0.999827, 0, -0.0186041, 0, 1, 0, 0.0186041, 0, 0.999827, 110.428, 1.22467, -70.0368)
+[node name="HangingBridges" type="Node3D" parent="."]
+transform = Transform3D(0.999827, 0, -0.0186041, 0, 1, 0, 0.0186041, 0, 0.999827, 110.428, 19, -70.037)
+script = ExtResource("30_e7qc3")
 
-[node name="hangingBridge" parent="." instance=ExtResource("33_57nje")]
-transform = Transform3D(0.974683, 0, 0.22359, 0, 1, 0, -0.22359, 0, 0.974683, 127.494, 1.48641, -71.4892)
+[node name="hangingBridge2" parent="HangingBridges" instance=ExtResource("33_57nje")]
+
+[node name="hangingBridge" parent="HangingBridges" instance=ExtResource("33_57nje")]
+transform = Transform3D(0.970354, 0, 0.241684, 0, 1, 0, -0.241684, 0, 0.970354, 17.036, 0.26174, -1.76965)
+
+[node name="BridgeAudio" type="AudioStreamPlayer" parent="HangingBridges"]
+unique_name_in_owner = true
+stream = ExtResource("32_ppd8n")
 
 [node name="ElevatorParts" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 153.095, 2.0201, -69.4318)
@@ -1137,6 +1252,18 @@ surface_material_override/0 = ExtResource("37_qv647")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TempWall2/StaticBody3D"]
 shape = SubResource("BoxShape3D_wi4kr")
 
+[node name="crate2" parent="." instance=ExtResource("3_v5vlg")]
+transform = Transform3D(1.67048, 0, 0, 0, 1.67048, 0, 0, 0, 1.67048, 26.1786, 1.00776, -53.6855)
+
+[node name="crate2" parent="crate2" instance=ExtResource("3_v5vlg")]
+transform = Transform3D(0.359259, 0, -0.888438, 0, 0.958326, 0, 0.888438, 0, 0.359259, 1.95048, -0.0036518, -6.1861)
+
+[node name="crate2" parent="crate2/crate2" instance=ExtResource("3_v5vlg")]
+transform = Transform3D(-0.516729, 0, 0.906621, 0, 1.04354, 0, -0.906621, 0, -0.516729, -3.56977, 0.0160713, -8.64284)
+
+[node name="crate2" parent="crate2/crate2/crate2" instance=ExtResource("3_v5vlg")]
+transform = Transform3D(0.577623, 0, 0.950695, 0, 1.11242, 0, -0.950695, 0, 0.577623, 10.5009, -0.0239756, 2.90585)
+
 [connection signal="body_entered" from="cave2/PlatformDeathArea" to="." method="_on_platform_death_area_body_entered"]
 [connection signal="body_entered" from="cave2/ElevatorDeathArea" to="." method="_on_platform_death_area_body_entered"]
 [connection signal="body_entered" from="cave2/SecretRoomSensor" to="." method="_on_secret_room_sensor_body_entered"]
@@ -1145,4 +1272,6 @@ shape = SubResource("BoxShape3D_wi4kr")
 [connection signal="body_entered" from="CheckPointAreas/CheckPoint3" to="." method="_on_check_point_3_body_entered"]
 [connection signal="body_entered" from="CheckPointAreas/CheckPoint4" to="." method="_on_check_point_4_body_entered"]
 [connection signal="body_entered" from="CheckPointAreas/CheckPoint5" to="." method="_on_check_point_5_body_entered"]
+[connection signal="body_entered" from="CheckPointAreas/CheckPoint6" to="." method="_on_check_point_6_body_entered"]
+[connection signal="body_entered" from="CheckPointAreas/CheckPoint7" to="." method="_on_check_point_7_body_entered"]
 [connection signal="body_entered" from="SecretArea/FallArea" to="." method="_on_fall_area_body_entered"]

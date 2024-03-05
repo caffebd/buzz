@@ -11,9 +11,13 @@ var picked: bool = false
 
 func _ready():
 	GlobalSignals.key_show.connect(_key_show)
+	GlobalSignals.remove_platform_key.connect(_remove_platform_key)
 	$KeyGlow.play("glow")
 	visible = is_visible
 	%KeyCol.disabled = !is_visible
+
+func _remove_platform_key():
+	queue_free()
 
 func _key_show(state):
 	if switch_effected:

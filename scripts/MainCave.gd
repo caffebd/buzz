@@ -27,8 +27,10 @@ func _setup_from_check():
 			_check_four()
 		5:
 			_check_five()
-			
-
+		6:
+			_check_six()			
+		7:
+			_check_seven()
 			
 	var position = %PlayerCheckPositions.get_child(GlobalVars.check_point)
 	player.set_start_position(position.global_position)
@@ -51,12 +53,11 @@ func _check_two():
 func _check_three():
 	_check_two()
 	%gate3.needs_key = false
-	#%RaisePlatform.remove_key()
-	#%lever1.lever_set_on()
-	#%lever2.lever_set_on()
-	#%lever3.lever_set_on()
-	#%lever4.lever_set_on()
-
+	%woodenLift.remove_key()
+	%lever2.lever_set_on()
+	%lever3.lever_set_on()
+	%lever4.lever_set_on()
+	%lever5.lever_set_on()
 
 func _check_four():
 	_check_three()
@@ -65,6 +66,14 @@ func _check_four():
 	
 func _check_five():
 	_check_four()
+	%gate5.needs_key = false
+	GlobalSignals.emit_signal("remove_platform_key")
+
+func _check_six():
+	_check_five()
+	
+func _check_seven():
+	_check_six()
 	
 func _on_check_point_1_body_entered(body):
 	if body.is_in_group("Player"):
@@ -91,11 +100,16 @@ func _on_check_point_4_body_entered(body):
 
 
 func _on_check_point_5_body_entered(body):
-	if body.is_in_group("Player") and %"BuzzEnemy5-6".attack_player == false:
+	if body.is_in_group("Player"):
 		print ("CHECK 5 CHECK 5")
 		if GlobalVars.check_point < 5:
 			GlobalVars.check_point = 5
 
+func _on_check_point_6_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Player") and %"BuzzEnemy5-6".attack_player == false:
+		print ("CHECK 6 ")
+		if GlobalVars.check_point < 6:
+			GlobalVars.check_point = 6
 
 func _on_fall_area_body_entered(body):
 	if body.is_in_group("Player"):
@@ -113,3 +127,13 @@ func _on_platform_death_area_body_entered(body):
 
 func _on_secret_room_sensor_body_entered(body):
 	GlobalVars.secret_room_found = true
+
+
+
+
+
+func _on_check_point_7_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Player") and %"BuzzEnemy5-6".attack_player == false:
+		print ("CHECK 7 ")
+		if GlobalVars.check_point < 7:
+			GlobalVars.check_point = 7

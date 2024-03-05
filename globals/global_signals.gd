@@ -54,3 +54,5 @@ signal teleport(direction)
 signal secret_area(state)
 
 signal key_show(state)
+
+signal remove_platform_key()
