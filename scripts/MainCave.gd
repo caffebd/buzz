@@ -53,11 +53,7 @@ func _check_two():
 func _check_three():
 	_check_two()
 	%gate3.needs_key = false
-	%woodenLift.remove_key()
-	%lever2.lever_set_on()
-	%lever3.lever_set_on()
-	%lever4.lever_set_on()
-	%lever5.lever_set_on()
+
 
 func _check_four():
 	_check_three()
@@ -67,6 +63,10 @@ func _check_four():
 func _check_five():
 	_check_four()
 	%gate5.needs_key = false
+	%lever2.lever_set_on()
+	%lever3.lever_set_on()
+	%lever4.lever_set_on()
+	%lever5.lever_set_on()
 	GlobalSignals.emit_signal("remove_platform_key")
 
 func _check_six():

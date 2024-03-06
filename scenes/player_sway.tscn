@@ -74,7 +74,7 @@ shape = SubResource("CapsuleShape3D_jrkkt")
 
 [node name="Head" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00679305, 0.217858, -0.140415)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.00679305, 0.217858, -0.140415)
 
 [node name="Camera" type="Camera3D" parent="Head"]
 unique_name_in_owner = true

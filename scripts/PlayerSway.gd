@@ -142,13 +142,14 @@ func _take_action():
 				return
 			keypad_pause = true
 #			GlobalSignals.emit_signal("key_press", collider.name)
-			collider.get_parent().get_parent().key_press(collider.name)
+			collider.get_parent().key_press(collider.name)
 			var yield_timer_key = Timer.new()
 			add_child(yield_timer_key)
 			yield_timer_key.start(0.2);
 			await yield_timer_key.timeout
 			yield_timer_key.queue_free()
 			keypad_pause = false
+
 		
 		
 func _physics_process(delta):

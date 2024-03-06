@@ -7,6 +7,8 @@ var move_up: bool = false
 @export var call_buzz: CharacterBody3D
 @export var connected_buzz: CharacterBody3D
 
+var elevator_speed: float = 1.5
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalSignals.elevator_open.connect(_door_open_trigger)
@@ -27,9 +29,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if move_up:
-		%Plane_037.global_position.y += 2 * delta
-		%Plane_044.global_position.y += 2 * delta
-		%Cube_068.global_position.y += 2 * delta
+		%Plane_037.global_position.y += elevator_speed * delta
+		%Plane_044.global_position.y += elevator_speed * delta
+		%Cube_068.global_position.y += elevator_speed * delta
 		
 func _door_open_trigger():
 	print("ele open")
@@ -49,7 +51,7 @@ func door_col_state():
 func _on_inside_trigger_body_entered(body):
 	if body.is_in_group("Player") and not door_was_closed:
 		door_was_closed = true
-		#connected_buzz.attack_player = false
+		connected_buzz.attack_player = false
 		#GlobalSignals.emit_signal("cave_body_off", true)
 		GlobalSignals.emit_signal("elevator_close")
 		GlobalSignals.emit_signal("parent_to_elevator" )
@@ -59,7 +61,12 @@ func _on_inside_trigger_body_entered(body):
 		yield_timer_a.start(3);
 		await yield_timer_a.timeout
 		move_up = true
-		#call_buzz.attack_player = true
+		call_buzz.attack_player = true
+		var yield_timer_b = Timer.new()
+		add_child(yield_timer_b)
+		yield_timer_b.start(4);
+		await yield_timer_a.timeout
+		_flicker_light()
 
 func _flicker_light():
 	var rng = RandomNumberGenerator.new()
@@ -74,6 +81,8 @@ func _flicker_light():
 
 
 func _on_end_trigger_body_entered(body):
+	print (body)
 	if body.is_in_group("Player"):
+		print ("YEP PLAY HERE")
 		_flicker_light()
 		GlobalSignals.emit_signal("end_game")

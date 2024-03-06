@@ -19,31 +19,43 @@ func key_press(key: String):
 	if keypad_locked:
 		return
 	print("You pressed "+str(key))
-	if key == "Delete":
+	%WrongLabel.visible = false
+	if key == "clear":
 		entered_code = ""
-		GlobalSignals.emit_signal("keypad_code", entered_code)
+		%CodeLabel.text = ""
+		#GlobalSignals.emit_signal("keypad_code", entered_code)
+		return
+	if key == "enter":
+		_check_code()
 		return
 	if entered_code.length()<4:
 		entered_code = entered_code+key
-		GlobalSignals.emit_signal("keypad_code", entered_code)
+		%CodeLabel.text = entered_code
+		#GlobalSignals.emit_signal("keypad_code", entered_code)
 #		%Code.text = entered_code
-		_check_code()
+		#_check_code()
 	else:
 		entered_code = key
+		%CodeLabel.text = entered_code
 #		%Code.text = entered_code
-		GlobalSignals.emit_signal("keypad_code", entered_code)
+		#GlobalSignals.emit_signal("keypad_code", entered_code)
 
 func _check_code():
 	if entered_code == correct_code:
 		keypad_locked = true
 		print ("DOOR OPEN")
-		GlobalSignals.emit_signal("keypad_code", "correct")
-		$KeypadArea/keyPadColl.disabled=true
+		%RightLabel.visible = true
+		%RightSound.play()
+		#GlobalSignals.emit_signal("keypad_code", "correct")
+		#$KeypadArea/keyPadColl.disabled=true
 #		GlobalSignals.emit_signal("manual_state_trigger", "patrol", 2)
 		GlobalSignals.emit_signal("elevator_open")
 	elif entered_code == secret_code:
 		GlobalVars.secret_area_found = true
-		GlobalSignals.emit_signal("keypad_code", "correct")
+		#GlobalSignals.emit_signal("keypad_code", "correct")
 		#keypad_locked = true
 		GlobalSignals.emit_signal("teleport","up")
+	else:
+		%WrongSound.play()
+		%WrongLabel.visible = true
 		

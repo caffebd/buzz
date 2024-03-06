@@ -1,11 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://cngr7jtxxxmes"]
+[gd_scene load_steps=12 format=3 uid="uid://cngr7jtxxxmes"]
 
+[ext_resource type="Script" path="res://scripts/keypad.gd" id="1_a4hkp"]
 [ext_resource type="ArrayMesh" uid="uid://bceqcx8jvto5i" path="res://assets/props/imported/computer.obj" id="1_xvnyd"]
 [ext_resource type="Material" uid="uid://41rtedinxr5k" path="res://assets/materials/misc/computerBody.tres" id="2_o3s2y"]
 [ext_resource type="Material" uid="uid://cyxlsn1eypvwh" path="res://assets/materials/misc/buttons.tres" id="3_0udul"]
 [ext_resource type="Material" uid="uid://cu161qejabqmp" path="res://assets/materials/misc/computerNoise.tres" id="4_4gd78"]
+[ext_resource type="FontFile" uid="uid://b2cdtuyu5jntw" path="res://assets/fonts/press-start-2p/PressStart2P-Regular.ttf" id="5_h70fw"]
+[ext_resource type="AudioStream" uid="uid://cjhkmfk57fb3t" path="res://assets/audio/Wrong 1.mp3" id="7_tyo75"]
+[ext_resource type="AudioStream" uid="uid://dpelk7o8lgnaq" path="res://assets/audio/Right.mp3" id="8_p2v7n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wu41u"]
+size = Vector3(0.247324, 0.23, 0.23)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xx1x"]
+size = Vector3(0.27, 0.2, 0.66)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rlvmf"]
+height = 0.2
+radius = 0.4
 
 [node name="computer" type="Node3D"]
+script = ExtResource("1_a4hkp")
 
 [node name="Computer" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_xvnyd")
@@ -13,3 +28,136 @@ surface_material_override/0 = ExtResource("2_o3s2y")
 surface_material_override/1 = ExtResource("3_0udul")
 surface_material_override/2 = ExtResource("2_o3s2y")
 surface_material_override/3 = ExtResource("4_4gd78")
+
+[node name="CodeLabel" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.00312224, -0.322695, 0.946498, 0.00106448, 0.946503, 0.322693, -0.999995, 0, 0.00329871, -0.231148, 2.0265, 0)
+modulate = Color(4.81307e-07, 0.467412, 1.15514e-06, 1)
+outline_modulate = Color(1, 1, 1, 1)
+font = ExtResource("5_h70fw")
+font_size = 80
+
+[node name="WrongLabel" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-0.0373556, -0.168426, 0.985006, -0.00494498, 0.985713, 0.168359, -0.99929, 0.00141833, -0.0376548, -0.0869763, 1.46659, -0.045267)
+visible = false
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "X"
+font = ExtResource("5_h70fw")
+font_size = 100
+
+[node name="RightLabel" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-0.0373556, -0.168426, 0.985006, -0.00494498, 0.985713, 0.168359, -0.99929, 0.00141833, -0.0376548, -0.0869763, 1.43989, -0.0296146)
+visible = false
+outline_modulate = Color(1, 1, 1, 1)
+text = "✅"
+font = ExtResource("5_h70fw")
+font_size = 100
+
+[node name="1" type="StaticBody3D" parent="." groups=["key"]]
+transform = Transform3D(0.898257, 0.43945, 0.00424071, -0.439452, 0.898266, -0.000389816, -0.00398059, -0.00151344, 0.999991, 0.529066, 0.252943, 1.04433)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1"]
+shape = SubResource("BoxShape3D_wu41u")
+
+[node name="2" type="StaticBody3D" parent="." groups=["key"]]
+transform = Transform3D(0.898257, 0.43945, 0.00424071, -0.439452, 0.898266, -0.000389816, -0.00398059, -0.00151344, 0.999991, 0.529066, 0.252943, 0.623309)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="2"]
+shape = SubResource("BoxShape3D_wu41u")
+
+[node name="3" type="StaticBody3D" parent="." groups=["key"]]
+transform = Transform3D(0.898257, 0.43945, 0.00424071, -0.439452, 0.898266, -0.000389816, -0.00398059, -0.00151344, 0.999991, 0.529066, 0.252943, 0.194085)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3"]
+shape = SubResource("BoxShape3D_wu41u")
+
+[node name="4" type="StaticBody3D" parent="." groups=["key"]]
+transform = Transform3D(0.898257, 0.43945, 0.00424071, -0.439452, 0.898266, -0.000389816, -0.00398059, -0.00151344, 0.999991, 0.853931, 0.077993, 1.03806)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="4"]
+shape = SubResource("BoxShape3D_wu41u")
+
+[node name="5" type="StaticBody3D" parent="." groups=["key"]]
+transform = Transform3D(0.898257, 0.43945, 0.00424071, -0.439452, 0.898266, -0.000389816, -0.00398059, -0.00151344, 0.999991, 0.853931, 0.077993, 0.620479)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="5"]
+shape = SubResource("BoxShape3D_wu41u")
+
+[node name="6" type="StaticBody3D" parent="." groups=["key"]]
+transform = Transform3D(0.898257, 0.43945, 0.00424071, -0.439452, 0.898266, -0.000389816, -0.00398059, -0.00151344, 0.999991, 0.846644, 0.079228, 0.191496)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="6"]
+shape = SubResource("BoxShape3D_wu41u")
+
+[node name="7" type="StaticBody3D" parent="." groups=["key"]]
+transform = Transform3D(0.898257, 0.43945, 0.00424071, -0.439452, 0.898266, -0.000389816, -0.00398059, -0.00151344, 0.999991, 1.18432, -0.0776149, 1.04015)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="7"]
+shape = SubResource("BoxShape3D_wu41u")
+
+[node name="8" type="StaticBody3D" parent="." groups=["key"]]
+transform = Transform3D(0.898257, 0.43945, 0.00424071, -0.439452, 0.898266, -0.000389816, -0.00398059, -0.00151344, 0.999991, 1.18387, -0.0888159, 0.623087)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="8"]
+shape = SubResource("BoxShape3D_wu41u")
+
+[node name="9" type="StaticBody3D" parent="." groups=["key"]]
+transform = Transform3D(0.898257, 0.43945, 0.00424071, -0.439452, 0.898266, -0.000389816, -0.00398059, -0.00151344, 0.999991, 1.15867, -0.084362, 0.20414)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="9"]
+shape = SubResource("BoxShape3D_wu41u")
+
+[node name="10" type="StaticBody3D" parent="." groups=["key"]]
+transform = Transform3D(0.898257, 0.43945, 0.00424071, -0.439452, 0.898266, -0.000389816, -0.00398059, -0.00151344, 0.999991, 1.49814, -0.238657, 1.0382)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="10"]
+shape = SubResource("BoxShape3D_wu41u")
+
+[node name="clear" type="StaticBody3D" parent="." groups=["key"]]
+transform = Transform3D(0.898257, 0.43945, 0.00424071, -0.439452, 0.898266, -0.000389816, -0.00398059, -0.00151344, 0.999991, 1.49814, -0.238657, 0.387318)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="clear"]
+transform = Transform3D(1, 4.30009e-09, -4.65661e-10, 4.29964e-09, 1, -1.16415e-10, -4.65661e-10, 0, 1, 0.000254035, 0.000129342, 0.0116171)
+shape = SubResource("BoxShape3D_0xx1x")
+
+[node name="enter" type="StaticBody3D" parent="." groups=["key"]]
+transform = Transform3D(0.898257, 0.43945, 0.00424071, -0.439452, 0.898266, -0.000389816, -0.00398059, -0.00151344, 0.999991, 1.0119, 0.0348129, -0.773183)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enter"]
+transform = Transform3D(1, 4.30009e-09, -4.65661e-10, 4.29964e-09, 1, -1.16415e-10, -4.65661e-10, 0, 1, 0.000254035, 0.000129342, 0.0116171)
+shape = SubResource("CylinderShape3D_rlvmf")
+
+[node name="WrongSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_tyo75")
+
+[node name="RightSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_p2v7n")
