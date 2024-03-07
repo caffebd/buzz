@@ -17,10 +17,13 @@ var start_pos := Vector3.ZERO
 
 @onready var nav_agent: NavigationAgent3D = %NavAgent
 
+@export var harmless: bool = false
+
 func _ready():
 	start_pos = position
 
 func _physics_process(delta):
+	if harmless: return
 	if attack_player:
 		if using_navmesh:
 			move_using_nav(delta, patrolSpeed)
@@ -73,7 +76,7 @@ func faceDirection(direction : Vector3):
 
 
 func _on_death_area_body_entered(body):
-	if body.get_groups().has("Player"):
+	if body.get_groups().has("Player") and not harmless:
 		attack_player = false
 		print ("reload")
 		GlobalVars.key_count = 0

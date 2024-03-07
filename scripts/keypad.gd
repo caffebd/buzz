@@ -8,7 +8,7 @@ var keypad_locked := false
 
 @export var linked_object: Node3D
 
-
+@export var connected_buzz: CharacterBody3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -52,6 +52,7 @@ func _check_code():
 		GlobalSignals.emit_signal("elevator_open")
 	elif entered_code == secret_code:
 		GlobalVars.secret_area_found = true
+		connected_buzz.attack_player = false
 		#GlobalSignals.emit_signal("keypad_code", "correct")
 		#keypad_locked = true
 		GlobalSignals.emit_signal("teleport","up")
