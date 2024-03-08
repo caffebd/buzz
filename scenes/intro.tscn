@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c26hwpmmkc2pg"]
+[gd_scene load_steps=18 format=3 uid="uid://c26hwpmmkc2pg"]
 
 [ext_resource type="Script" path="res://scripts/intro.gd" id="1_8m1g2"]
 [ext_resource type="PackedScene" uid="uid://c3clhexajwsyu" path="res://scenes/player.tscn" id="1_v7n6u"]
@@ -35,8 +35,21 @@ material = SubResource("StandardMaterial3D_5vwci")
 [sub_resource type="BoxShape3D" id="BoxShape3D_irku1"]
 size = Vector3(3.645, 0.815, 0.815)
 
-[node name="Intro" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mw7mb"]
+albedo_color = Color(0.180842, 7.51291e-07, 4.45209e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_11www"]
+material = SubResource("StandardMaterial3D_mw7mb")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_a4eu3"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xwilw"]
+size = Vector3(3.385, 1, 0.275)
+
+[node name="Intro" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_8m1g2")
+player = NodePath("Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4h0dq")
@@ -51,7 +64,7 @@ mesh = SubResource("BoxMesh_sjyco")
 shape = SubResource("ConcavePolygonShape3D_lnor0")
 
 [node name="Player" parent="." instance=ExtResource("1_v7n6u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 72.5254)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 73.4577)
 
 [node name="Side1" type="StaticBody3D" parent="."]
 
@@ -144,14 +157,31 @@ font = ExtResource("2_p7387")
 font_size = 70
 
 [node name="End" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.897789, 9.16511)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.897789, 9.38611)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="End"]
 shape = SubResource("BoxShape3D_irku1")
 
 [node name="BuzzEnemy" parent="." instance=ExtResource("5_1xyvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59791, 8.28165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262088, 8.64075)
 using_navmesh = false
 harmless = true
 
+[node name="Barrier" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(3.62518, 0, 0, 0, 2.42831, 0, 0, 0, 0.202441, 0, 1, 24.3919)
+mesh = SubResource("BoxMesh_11www")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Barrier"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrier/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_a4eu3")
+
+[node name="BarrierTrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.725644, 23.3185)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BarrierTrigger"]
+shape = SubResource("BoxShape3D_xwilw")
+
 [connection signal="body_entered" from="End" to="." method="_on_end_body_entered"]
+[connection signal="body_entered" from="BarrierTrigger" to="." method="_on_barrier_trigger_body_entered"]
