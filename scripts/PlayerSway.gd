@@ -155,7 +155,6 @@ func _take_action():
 func _physics_process(delta):
 	
 	if freeze_controls:
-		print ("float")
 		velocity.y = JUMP_VELOCITY
 		move_and_slide()
 		return
@@ -171,7 +170,7 @@ func _physics_process(delta):
 	
 	var collider = ray.get_collider()
 	if collider != null and collider is StaticBody3D:
-		print (collider.name)
+		#print (collider.name)
 		if collider.get_parent().has_method("use_action") or collider.is_in_group("key") or collider.is_in_group("door"):
 			hud.target.modulate = Color(1,1,1,1)
 			#_check_door(collider)
@@ -191,7 +190,6 @@ func _physics_process(delta):
 		_turn_player_a()
 
 	if Input.is_action_just_pressed("test_open"):
-		print ("test ele")
 		GlobalSignals.emit_signal("elevator_open")
 
 	# Handle Jump.
