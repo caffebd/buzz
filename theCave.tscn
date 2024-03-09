@@ -46,12 +46,14 @@
 [ext_resource type="Texture2D" uid="uid://dwaawlchha2yl" path="res://assets/textures/miscTextures/map/map 1.png" id="45_vyx8p"]
 
 [sub_resource type="Environment" id="Environment_ckil6"]
-background_color = Color(1, 1, 1, 1)
-tonemap_mode = 3
+background_mode = 1
+background_color = Color(0.00820203, 0.00820202, 0.00820202, 1)
+background_energy_multiplier = 0.0
+ambient_light_energy = 0.0
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.07
 volumetric_fog_albedo = Color(0, 0, 0, 1)
-volumetric_fog_emission = Color(0.0901961, 0.12549, 0.117647, 1)
+volumetric_fog_emission = Color(0.0530605, 0.0794367, 0.0735778, 1)
+volumetric_fog_emission_energy = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1u0j2"]
 
@@ -1232,7 +1234,7 @@ transform = Transform3D(0.996287, 0, 0.0860991, -0.000186336, 0.999998, 0.002156
 script = ExtResource("25_51ns1")
 
 [node name="SecretDoor" type="MeshInstance3D" parent="cave2/SecretDoorNode"]
-transform = Transform3D(1, 0, -7.45058e-09, 2.91038e-11, 1, -2.32831e-10, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, -1.49012e-08, 5.82077e-11, 1, -4.65661e-10, 0, 0, 1, 0.120726, 0.00303459, -1.39697)
 mesh = SubResource("ArrayMesh_exs0o")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("5_e4u4f")
@@ -1335,13 +1337,18 @@ needs_key = true
 
 [node name="ElecLight1" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
 transform = Transform3D(1, 0, 0, 0, 0.999998, 0.00219911, 0, -0.00219911, 0.999998, -41.9075, 5.15606, -24.4958)
-light_range = 6.0
-light_energy = 1.5
+light_range = 4.0
+light_energy = 1.0
 
 [node name="ElecLight2" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.7037, 4.96777, -0.329589)
-light_range = 5.0
-light_energy = 0.4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.9484, 4.96777, 2.06119)
+light_range = 4.0
+light_energy = 0.3
+
+[node name="ElecLight2a" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.4975, 4.96777, 9.45201)
+light_range = 4.0
+light_energy = 0.3
 
 [node name="ElecLight3" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
 transform = Transform3D(0.995166, 0, 0.0982082, 0, 1, 0, -0.0982082, 0, 0.995166, -23.7237, 4.59034, 19.0216)
@@ -1385,211 +1392,247 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.945, 9.6718, -63.1967)
 light_range = 25.0
 light_energy = 3.0
 
-[node name="elecLight10" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8205, 11.2211, 7.73124)
-light_range = 15.0
-light_energy = 1.8
-
 [node name="elecLight11" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.413, 10.2784, -64.9279)
 light_range = 8.0
 light_energy = 1.0
 
-[node name="elecLight12" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
-transform = Transform3D(0.999868, 0.0162483, 0, -0.0162483, 0.999868, 0, 0, 0, 1, 61.4227, 4.95592, -87.1176)
-light_range = 9.0
-light_energy = 1.2
-
 [node name="Lanterns" type="Node3D" parent="."]
 
 [node name="lantern22" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.97993, 4.72713, -14.8456)
-light_range = 5.0
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern23" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8577, 5.7132, -42.2731)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8577, 4.86612, -42.0718)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern39" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5813, 3.56481, -39.8824)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern40" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4789, 4.06778, -53.1776)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern41" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4789, 3.95376, -65.0155)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern42" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2894, 3.81391, -62.8303)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern43" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.208, 3.81391, -75.4594)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern36" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.4839, 5.53874, -43.334)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern37" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5336, 5.3307, -36.8574)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern38" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6405, 5.04548, -34.215)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern24" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.849, 5.4101, -70.2778)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern30" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.729, 5.24047, -76.2337)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern25" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148.421, 4.05861, -65.3004)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern26" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4479, 3.7291, -50.7322)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern28" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6451, 3.77137, -59.97)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern27" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7362, 4.06139, -62.7404)
-light_range = 6.0
-light_energy = 0.4
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern44" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.1012, 3.94308, -73.5324)
-light_range = 6.0
-light_energy = 0.4
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern45" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.9951, 3.94308, -73.5324)
-light_range = 6.0
-light_energy = 0.4
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern46" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9435, 3.94308, -81.4706)
-light_range = 6.0
-light_energy = 0.4
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern47" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.2115, 4.17858, -84.5632)
-light_range = 6.0
-light_energy = 0.4
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern48" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.9988, 4.24432, -71.5975)
-light_range = 6.0
-light_energy = 0.4
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern9" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.04769, 4.38385, -2.82832)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.1097, 5.94058, -40.9556)
 light_range = 4.0
-light_energy = 3.0
+light_energy = 0.2
 
 [node name="lantern2" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.7041, 6.39969, -32.4608)
-light_range = 5.0
-light_energy = 2.0
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern29" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.5813, 5.70871, -33.2505)
-light_range = 3.0
-light_energy = 1.0
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern3" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.9868, 5.1368, -19.6025)
 light_range = 4.0
-light_energy = 0.8
+light_energy = 0.2
 
 [node name="lantern6" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.4217, 5.06122, -11.3627)
-light_range = 3.0
-light_energy = 0.4
+light_range = 4.0
+light_energy = 0.2
+
+[node name="lantern17" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.0642, 5.06122, -11.1252)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern4" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.91868, 4.64527, 16.89)
 light_range = 4.0
-light_energy = 0.5
+light_energy = 0.2
 
 [node name="lantern5" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.5063, 5.21928, 11.6755)
-light_range = 8.0
-light_energy = 1.2
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern7" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(0.320944, 0, -0.947098, 0, 1, 0, 0.947098, 0, 0.320944, -18.9301, 5.46646, -2.39162)
-light_range = 5.0
-light_energy = 0.5
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern10" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9414, 4.33785, 14.5557)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern11" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0963, 4.12432, 40.685)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern35" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8254, 4.93759, 49.5304)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern8" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.69401, 4.42098, 23.4234)
-light_range = 5.0
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern12" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2396, 4.76764, 5.30667)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern13" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3913, 4.28091, 16.3732)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern14" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3218, 4.24038, -13.4469)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern15" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6016, 5.24393, 4.74585)
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern16" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2485, 4.10583, -33.1571)
-light_range = 6.0
-light_energy = 0.4
-
-[node name="lantern17" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4772, 6.04257, -1.70189)
-light_range = 5.0
-light_energy = 0.4
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern18" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9393, 5.31164, 9.30536)
-light_range = 2.0
-light_energy = 0.1
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern20" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4752, 4.3805, 26.5665)
-light_range = 2.0
-light_energy = 0.3
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern19" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14444, 5.08649, 23.037)
-light_range = 3.0
-light_energy = 0.3
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern32" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.51694, 5.4012, 23.037)
-light_range = 3.0
-light_energy = 0.3
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern33" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.51694, 5.4012, 18.0224)
-light_range = 3.0
-light_energy = 0.3
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern34" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01703, 5.44995, 23.2278)
-light_range = 3.0
-light_energy = 0.3
+light_range = 4.0
+light_energy = 0.2
 
 [node name="lantern21" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02161, 6.18942, -6.18082)
-light_range = 6.0
-light_energy = 0.4
+light_range = 4.0
+light_energy = 0.2
 
 [node name="Switches" type="Node3D" parent="."]
 
@@ -1600,19 +1643,19 @@ connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy1")
 
 [node name="switch2" parent="Switches" node_paths=PackedStringArray("linked_lights", "linked_switches", "connected_buzz") instance=ExtResource("14_t2u5u")]
 transform = Transform3D(0.525546, 0, -0.850765, 0, 1, 0, 0.850765, 0, 0.525546, -43.44, 3.28653, -6.3238)
-linked_lights = [NodePath("../../ElectricLights/ElecLight2")]
+linked_lights = [NodePath("../../ElectricLights/ElecLight2"), NodePath("../../ElectricLights/ElecLight2a")]
 linked_switches = [NodePath("../switch2a"), NodePath("../switch2b")]
 connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy2")
 
 [node name="switch2a" parent="Switches" node_paths=PackedStringArray("linked_lights", "linked_switches", "connected_buzz") instance=ExtResource("14_t2u5u")]
-transform = Transform3D(-0.865798, 0, -0.500393, 0, 1, 0, 0.500393, 0, -0.865798, -44.1076, 3.13309, 1.79635)
-linked_lights = [NodePath("../../ElectricLights/ElecLight2")]
+transform = Transform3D(-0.707588, 0, -0.706625, 0, 1, 0, 0.706625, 0, -0.707588, -49.899, 2.7256, 5.91623)
+linked_lights = [NodePath("../../ElectricLights/ElecLight2"), NodePath("../../ElectricLights/ElecLight2a")]
 linked_switches = [NodePath("../switch2"), NodePath("../switch2b")]
 connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy2")
 
 [node name="switch2b" parent="Switches" node_paths=PackedStringArray("linked_lights", "linked_switches", "connected_buzz") instance=ExtResource("14_t2u5u")]
 transform = Transform3D(0.0636092, 0, -0.997975, 0, 1, 0, 0.997975, 0, 0.0636092, -38.4604, 2.91868, 4.92471)
-linked_lights = [NodePath("../../ElectricLights/ElecLight2")]
+linked_lights = [NodePath("../../ElectricLights/ElecLight2"), NodePath("../../ElectricLights/ElecLight2a")]
 linked_switches = [NodePath("../switch2"), NodePath(".")]
 connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy2")
 
@@ -1642,7 +1685,7 @@ connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy5-6")
 
 [node name="switch7" parent="Switches" node_paths=PackedStringArray("linked_lights", "linked_object", "connected_buzz") instance=ExtResource("14_t2u5u")]
 transform = Transform3D(0.39678, 0, 0.917914, 0, 1, 0, -0.917914, 0, 0.39678, 96.4148, 2.14555, -72.5635)
-linked_lights = [NodePath("../../ElectricLights/elecLight7"), NodePath("../../ElectricLights/elecLight8"), NodePath("../../ElectricLights/elecLight9"), NodePath("../../ElectricLights/elecLight11"), NodePath("../../ElectricLights/elecLight12")]
+linked_lights = [NodePath("../../ElectricLights/elecLight7"), NodePath("../../ElectricLights/elecLight8"), NodePath("../../ElectricLights/elecLight9"), NodePath("../../ElectricLights/elecLight11"), NodePath("")]
 linked_object = [NodePath("../../PullLevers/lever6")]
 connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy7")
 one_time = true
@@ -1661,7 +1704,7 @@ is_visible = false
 
 [node name="key3" parent="Keys" instance=ExtResource("10_sfkbf")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.4863, 2.65777, 1.04699)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.1259, 2.19819, 5.50883)
 is_visible = false
 
 [node name="key4" parent="Keys" instance=ExtResource("10_sfkbf")]
@@ -1677,7 +1720,7 @@ transform = Transform3D(1.49985, -0.0209956, 0, 0.0209956, 1.49985, 0, 0, 0, 1.5
 transform = Transform3D(-0.960949, 0, -0.276728, 0, 1, 0, 0.276728, 0, -0.960949, -38.7765, 2.47935, -24.3909)
 
 [node name="Table3" parent="Tables" instance=ExtResource("16_n4pdf")]
-transform = Transform3D(0.844178, 0, 0.536063, 0, 1, 0, -0.536063, 0, 0.844178, -47.0988, 2.52034, 1.15278)
+transform = Transform3D(-0.668599, 0, 0.743623, 0, 1, 0, -0.743623, 0, -0.668599, -52.3034, 2.00189, 5.81633)
 
 [node name="BuzzEnemies" type="Node3D" parent="."]
 

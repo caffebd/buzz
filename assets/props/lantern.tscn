@@ -158,9 +158,8 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.412108, 0)
 light_color = Color(0.988235, 0.858824, 0.631373, 1)
 light_energy = 0.4
-shadow_enabled = true
 shadow_bias = 0.015
-omni_range = 6.58263
+omni_range = 4.0
 
 [node name="PlayertDetectArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.12014, 0)

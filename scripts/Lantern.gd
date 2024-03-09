@@ -13,12 +13,16 @@ func _ready():
 
 
 func _on_playert_detect_area_area_entered(area):
-	if not disabled:
-		visible = true
+	pass
+	#if not disabled:
+		#print ("VISIBLE Light")
+		#visible = true
 	
 	
 
 
 func _on_playert_detect_area_area_exited(area):
-	if not disabled:
-		visible = false
+	pass
+	#if not disabled:
+		#print ("NO VISIBLE Light")
+		#visible = false
