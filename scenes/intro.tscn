@@ -13,6 +13,7 @@ ambient_light_source = 2
 ambient_light_color = Color(0.89059, 0.89059, 0.89059, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bibgp"]
+albedo_color = Color(0.605274, 0.605274, 0.605274, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_sjyco"]
 material = SubResource("StandardMaterial3D_bibgp")
@@ -80,7 +81,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58672, 1.08997, 0)
 shape = SubResource("BoxShape3D_6hwpb")
 
 [node name="Back" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03376, 75.3942)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03376, 74.3937)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Back"]
 shape = SubResource("BoxShape3D_nipdv")

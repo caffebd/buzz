@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://7n8g8f8tubsd"]
+[gd_scene load_steps=18 format=3 uid="uid://7n8g8f8tubsd"]
 
 [ext_resource type="Script" path="res://scripts/Hud.gd" id="1_8c27q"]
 [ext_resource type="PackedScene" uid="uid://drdrhpc5dcafn" path="res://scenes/key_icon.tscn" id="2_6ngnm"]
 [ext_resource type="FontFile" uid="uid://cnv2p7n8e175w" path="res://assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf" id="2_iyhvh"]
+[ext_resource type="Texture2D" uid="uid://b1vlmebjnfgux" path="res://assets/ui/key_icon_word.png" id="3_2j6ab"]
 [ext_resource type="Script" path="res://scripts/FPS.gd" id="3_jw2fc"]
 [ext_resource type="Texture2D" uid="uid://bn60asi1ryqux" path="res://assets/ui/play_vcr.png" id="4_a7owl"]
 [ext_resource type="Texture2D" uid="uid://b8em80j2uktb8" path="res://assets/textures/uiTextures/white_rect.png" id="4_ioefi"]
@@ -319,6 +320,7 @@ columns = 2
 
 [node name="keyIcon" parent="KeyGrid" instance=ExtResource("2_6ngnm")]
 layout_mode = 2
+texture = ExtResource("3_2j6ab")
 
 [node name="KeyCount" type="Label" parent="KeyGrid"]
 unique_name_in_owner = true
@@ -361,7 +363,6 @@ text = "Noise: 0"
 
 [node name="FPS" type="Label" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
