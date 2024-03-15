@@ -90,8 +90,9 @@ func _teleport(dir):
 		freeze_controls = false
 		GlobalSignals.emit_signal("secret_area", true)
 
-func set_start_position(start_pos:Vector3):
+func set_start_position(start_pos:Vector3, dir: float = 0.0):
 	global_position = start_pos
+	head.rotate_y(dir)
 	
 
 func _temp_mask_change(new_parent):

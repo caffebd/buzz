@@ -3,6 +3,8 @@ extends Node3D
 @onready var player_check_positions: Node3D = %PlayerCheckPositions
 
 @export var player: CharacterBody3D
+
+var rotate_angle: float = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_setup_from_check()
@@ -18,22 +20,29 @@ func _process(delta):
 func _setup_from_check():
 	match GlobalVars.check_point:
 		1:
+			rotate_angle = deg_to_rad(20.0)
 			_check_one()
 		2:
+			rotate_angle = deg_to_rad(30.0)
 			_check_two()
 		3:
+			rotate_angle = deg_to_rad(140.0)
 			_check_three()
 		4:
+			rotate_angle = deg_to_rad(15.0)
 			_check_four()
 		5:
+			rotate_angle = deg_to_rad(175.0)
 			_check_five()
 		6:
+			rotate_angle = deg_to_rad(145.0)
 			_check_six()			
 		7:
+			rotate_angle = deg_to_rad(100.0)
 			_check_seven()
 			
 	var position = %PlayerCheckPositions.get_child(GlobalVars.check_point)
-	player.set_start_position(position.global_position)
+	player.set_start_position(position.global_position, rotate_angle)
 	if GlobalVars.sneaky_wall_open:
 		%SneakyLever.lever_set_on()
 	if GlobalVars.start_secret_area:
@@ -74,7 +83,12 @@ func _check_six():
 	
 func _check_seven():
 	_check_six()
-	
+
+func _player_rotate(dir:float = 0):
+	pass
+	#player.head.rotation.y = dir
+	#print (player.head.rotation.y)
+
 func _on_check_point_1_body_entered(body):
 	if body.is_in_group("Player"):
 		if GlobalVars.check_point < 1:

@@ -3,6 +3,7 @@ extends Control
 var secret_area_count:int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalVars.check_point = 0
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if GlobalVars.secret_room_found:
 		secret_area_count += 1
@@ -15,4 +16,4 @@ func _ready():
 
 func _on_replay_btn_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	get_tree().change_scene_to_file("res://theCave.tscn")
+	get_tree().change_scene_to_file("res://scenes/intro.tscn")

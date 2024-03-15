@@ -40,14 +40,15 @@ func _physics_process(delta):
 func chase_audio(state):
 	if state and not %ChaseSoundA.is_playing():
 		%ChaseSoundA.play()
+		%BuzzSound.max_distance = 28.0
 		var chase_tween = create_tween()
 		chase_tween.tween_property(%ChaseSoundA, "volume_db", -5.0, 2.0)
 		await chase_tween.finished	
 	elif not state and %ChaseSoundA.is_playing():
-		var chase_tween = create_tween()
+		var chase_tween = create_tween().set_parallel(true)
 		chase_tween.tween_property(%ChaseSoundA, "volume_db", -80.0, 6.0)
+		chase_tween.tween_property(%BuzzSound, "max_distance", 10.0, 6.0)
 		await chase_tween.finished
-
 		%ChaseSoundA.stop()
 
 func MoveTowardsPoint(delta, speed):

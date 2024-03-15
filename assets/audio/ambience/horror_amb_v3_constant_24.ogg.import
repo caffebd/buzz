@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/horror_amb_v3_constant_24.ogg-1bb5e3b9a6d86a0
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

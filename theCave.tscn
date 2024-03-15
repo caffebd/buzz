@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://bemeghhhf4cwr"]
+[gd_scene load_steps=142 format=3 uid="uid://bemeghhhf4cwr"]
 
 [ext_resource type="Script" path="res://scripts/MainCave.gd" id="1_wnv3q"]
 [ext_resource type="ArrayOccluder3D" uid="uid://ytjnoassvn75" path="res://assets/resources/cave_occ_5.occ" id="2_cayuj"]
@@ -21,8 +21,12 @@
 [ext_resource type="PackedScene" uid="uid://c3e8vsx4cw4ik" path="res://scenes/BuzzEnemy.tscn" id="16_14da8"]
 [ext_resource type="PackedScene" uid="uid://bip8kdqfxvtrb" path="res://assets/props/table_1.tscn" id="16_n4pdf"]
 [ext_resource type="Script" path="res://scripts/SneakyWall.gd" id="25_51ns1"]
+[ext_resource type="AudioStream" uid="uid://clpgdl4dabo4j" path="res://assets/audio/ambience/horror_amb_v3_constant_100.ogg" id="25_fi745"]
+[ext_resource type="AudioStream" uid="uid://b0gjd8pjsk7o6" path="res://assets/audio/ambience/horror_amb_v3_constant_36.ogg" id="26_18nvi"]
 [ext_resource type="Script" path="res://scripts/SecretArea.gd" id="26_cu3xi"]
 [ext_resource type="PackedScene" uid="uid://i6cfblus7x0w" path="res://scenes/CodePost.tscn" id="26_ws7ju"]
+[ext_resource type="AudioStream" uid="uid://by0w3bccafstl" path="res://assets/audio/ambience/horror_amb_v3_constant_12.ogg" id="27_muwgc"]
+[ext_resource type="AudioStream" uid="uid://ye2oskirskm" path="res://assets/audio/ambience/horror_amb_v3_constant_24.ogg" id="28_p7otx"]
 [ext_resource type="AudioStream" uid="uid://bglmpeyyd6tm1" path="res://assets/audio/ambience/horror_amb_v3_constant_26.ogg" id="29_12pmf"]
 [ext_resource type="PackedScene" uid="uid://dj8aqolgkt68e" path="res://scenes/player_sway.tscn" id="29_yrwlu"]
 [ext_resource type="Script" path="res://scripts/HangingBridges.gd" id="30_e7qc3"]
@@ -42,6 +46,7 @@
 [ext_resource type="FontFile" uid="uid://cnv2p7n8e175w" path="res://assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf" id="41_mydsu"]
 [ext_resource type="Texture2D" uid="uid://ex2eg2jdn6jd" path="res://assets/textures/miscTextures/map/map 4.png" id="42_c4vr3"]
 [ext_resource type="Texture2D" uid="uid://1o6obfrsa8f3" path="res://assets/textures/miscTextures/map/map 9.jpg" id="43_kboyv"]
+[ext_resource type="Script" path="res://scripts/arrow_crate.gd" id="43_u15ob"]
 [ext_resource type="Texture2D" uid="uid://1j45pyj2m8kb" path="res://assets/textures/miscTextures/map/map 7.png" id="44_jc61u"]
 [ext_resource type="Texture2D" uid="uid://dwaawlchha2yl" path="res://assets/textures/miscTextures/map/map 1.png" id="45_vyx8p"]
 
@@ -611,6 +616,9 @@ shadow_mesh = SubResource("ArrayMesh_kweij")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wi4kr"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_elgiq"]
+size = Vector3(0.19, 0.165, 0.395)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7s7xj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6f1nc"]
@@ -1175,7 +1183,7 @@ transform = Transform3D(0.46243, 0, 0.886656, 0, 1, 0, -0.886656, 0, 0.46243, -5
 transform = Transform3D(0.46243, 0, 0.886656, 0, 1, 0, -0.886656, 0, 0.46243, -53.5588, 1.706, 6.96223)
 
 [node name="crate1" parent="Decoration" instance=ExtResource("4_jnikq")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -25.0934, 1.85968, 19.2593)
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -25.0934, 1.85968, 19.6628)
 
 [node name="TempWall" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2485, 4.10583, -33.1571)
@@ -1234,7 +1242,7 @@ transform = Transform3D(0.996287, 0, 0.0860991, -0.000186336, 0.999998, 0.002156
 script = ExtResource("25_51ns1")
 
 [node name="SecretDoor" type="MeshInstance3D" parent="cave2/SecretDoorNode"]
-transform = Transform3D(1, 0, -1.49012e-08, 5.82077e-11, 1, -4.65661e-10, 0, 0, 1, 0.120726, 0.00303459, -1.39697)
+transform = Transform3D(1, 0, -2.23517e-08, 8.73115e-11, 1, -6.98492e-10, 0, 0, 1, 0.00181532, 4.55379e-05, -0.0210056)
 mesh = SubResource("ArrayMesh_exs0o")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("5_e4u4f")
@@ -1430,7 +1438,22 @@ light_range = 4.0
 light_energy = 0.2
 
 [node name="lantern43" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.208, 3.81391, -75.4594)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8795, 3.81391, -77.9056)
+light_range = 4.0
+light_energy = 0.2
+
+[node name="lantern53" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9431, 2.88885, -73.4098)
+light_range = 4.0
+light_energy = 0.2
+
+[node name="lantern55" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.045, 3.81391, -67.0616)
+light_range = 4.0
+light_energy = 0.2
+
+[node name="lantern54" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1667, 3.56876, -69.9521)
 light_range = 4.0
 light_energy = 0.2
 
@@ -1465,7 +1488,22 @@ light_range = 4.0
 light_energy = 0.2
 
 [node name="lantern26" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4479, 3.7291, -50.7322)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.9141, 3.85209, -47.1854)
+light_range = 4.0
+light_energy = 0.2
+
+[node name="lantern49" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8618, 3.73587, -49.6884)
+light_range = 4.0
+light_energy = 0.2
+
+[node name="lantern57" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.7272, 1.84267, -52.5364)
+light_range = 4.0
+light_energy = 0.2
+
+[node name="lantern50" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5036, 4.06836, -45.7949)
 light_range = 4.0
 light_energy = 0.2
 
@@ -1474,8 +1512,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6451, 3.77137, -59.97)
 light_range = 4.0
 light_energy = 0.2
 
+[node name="lantern58" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9748, 1.34215, -61.2191)
+light_range = 4.0
+light_energy = 0.2
+
 [node name="lantern27" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7362, 4.06139, -62.7404)
+transform = Transform3D(0.999999, 0, -0.00127409, 0, 1, 0, 0.00127409, 0, 0.999999, 43.0189, 2.97116, -64.0817)
 light_range = 4.0
 light_energy = 0.2
 
@@ -1498,6 +1541,11 @@ light_energy = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.2115, 4.17858, -84.5632)
 light_range = 4.0
 light_energy = 0.2
+
+[node name="lantern56" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.3266, 3.64902, -80.3389)
+light_range = 4.0
+light_energy = 0.4
 
 [node name="lantern48" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.9988, 4.24432, -71.5975)
@@ -1549,6 +1597,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.5063, 5.21928, 11.6755)
 light_range = 4.0
 light_energy = 0.2
 
+[node name="lantern60" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.5063, 5.21928, 11.6755)
+light_range = 4.0
+light_energy = 0.2
+
+[node name="lantern61" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.1645, 4.25952, 11.0273)
+light_range = 2.0
+light_energy = 0.2
+
 [node name="lantern7" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(0.320944, 0, -0.947098, 0, 1, 0, 0.947098, 0, 0.320944, -18.9301, 5.46646, -2.39162)
 light_range = 4.0
@@ -1564,6 +1622,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0963, 4.12432, 40.685)
 light_range = 4.0
 light_energy = 0.2
 
+[node name="lantern59" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3904, 4.12432, 44.0507)
+light_range = 4.0
+light_energy = 0.2
+
 [node name="lantern35" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8254, 4.93759, 49.5304)
 light_range = 4.0
@@ -1575,13 +1638,18 @@ light_range = 4.0
 light_energy = 0.2
 
 [node name="lantern12" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2396, 4.76764, 5.30667)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9071, 4.76764, 4.75243)
 light_range = 4.0
 light_energy = 0.2
 
 [node name="lantern13" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3913, 4.28091, 16.3732)
 light_range = 4.0
+light_energy = 0.2
+
+[node name="lantern62" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.57862, 4.17511, 14.4641)
+light_range = 2.0
 light_energy = 0.2
 
 [node name="lantern14" parent="Lanterns" instance=ExtResource("2_yl8qj")]
@@ -1593,6 +1661,21 @@ light_energy = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6016, 5.24393, 4.74585)
 light_range = 4.0
 light_energy = 0.2
+
+[node name="lantern31" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6272, 5.24393, -3.98881)
+light_range = 5.0
+light_energy = 0.4
+
+[node name="lantern51" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7524, 5.1342, -8.61432)
+light_range = 5.0
+light_energy = 0.4
+
+[node name="lantern52" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6339, 5.1342, -1.06356)
+light_range = 5.0
+light_energy = 0.4
 
 [node name="lantern16" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2485, 4.10583, -33.1571)
@@ -1620,7 +1703,7 @@ light_range = 4.0
 light_energy = 0.2
 
 [node name="lantern33" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.51694, 5.4012, 18.0224)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.09224, 5.4012, 16.9249)
 light_range = 4.0
 light_energy = 0.2
 
@@ -1656,7 +1739,7 @@ connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy2")
 [node name="switch2b" parent="Switches" node_paths=PackedStringArray("linked_lights", "linked_switches", "connected_buzz") instance=ExtResource("14_t2u5u")]
 transform = Transform3D(0.0636092, 0, -0.997975, 0, 1, 0, 0.997975, 0, 0.0636092, -38.4604, 2.91868, 4.92471)
 linked_lights = [NodePath("../../ElectricLights/ElecLight2"), NodePath("../../ElectricLights/ElecLight2a")]
-linked_switches = [NodePath("../switch2"), NodePath(".")]
+linked_switches = [NodePath("../switch2"), NodePath("../switch2a")]
 connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy2")
 
 [node name="switch3" parent="Switches" node_paths=PackedStringArray("linked_lights", "connected_buzz") instance=ExtResource("14_t2u5u")]
@@ -1685,7 +1768,7 @@ connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy5-6")
 
 [node name="switch7" parent="Switches" node_paths=PackedStringArray("linked_lights", "linked_object", "connected_buzz") instance=ExtResource("14_t2u5u")]
 transform = Transform3D(0.39678, 0, 0.917914, 0, 1, 0, -0.917914, 0, 0.39678, 96.4148, 2.14555, -72.5635)
-linked_lights = [NodePath("../../ElectricLights/elecLight7"), NodePath("../../ElectricLights/elecLight8"), NodePath("../../ElectricLights/elecLight9"), NodePath("../../ElectricLights/elecLight11"), NodePath("")]
+linked_lights = [NodePath("../../ElectricLights/elecLight7"), NodePath("../../ElectricLights/elecLight8"), NodePath("../../ElectricLights/elecLight9"), NodePath("../../ElectricLights/elecLight11")]
 linked_object = [NodePath("../../PullLevers/lever6")]
 connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy7")
 one_time = true
@@ -1708,7 +1791,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.1259, 2.19819, 5.50883)
 is_visible = false
 
 [node name="key4" parent="Keys" instance=ExtResource("10_sfkbf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1687, 1.94792, 19.2023)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1687, 1.9462, 19.6684)
 switch_effected = false
 
 [node name="Tables" type="Node3D" parent="."]
@@ -1777,7 +1860,7 @@ transform = Transform3D(0.983894, 0, 0.178751, 0, 1, 0, -0.178751, 0, 0.983894, 
 shape = SubResource("BoxShape3D_xyai2")
 
 [node name="CheckPoint2" type="Area3D" parent="CheckPointAreas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.3717, 3.25073, -13.6956)
+transform = Transform3D(0.835338, 0, 0.549737, 0, 1, 0, -0.549737, 0, 0.835338, -48.5595, 3.25073, -14.6889)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointAreas/CheckPoint2"]
 shape = SubResource("BoxShape3D_w17t2")
@@ -1921,11 +2004,67 @@ fake_lever = true
 [node name="CaveAudio" type="Node3D" parent="."]
 
 [node name="TunnelAudio1" type="AudioStreamPlayer3D" parent="CaveAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.3192, 4.57131, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5583, 4.41554, 3.88668)
 stream = ExtResource("29_12pmf")
 volume_db = -20.0
 autoplay = true
 max_distance = 15.0
+
+[node name="TunnelAudio2" type="AudioStreamPlayer3D" parent="CaveAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7253, 3.91791, 2.37077)
+stream = ExtResource("25_fi745")
+volume_db = -15.0
+autoplay = true
+max_distance = 30.0
+
+[node name="TunnelAudio3" type="AudioStreamPlayer3D" parent="CaveAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.74179, 3.91791, 23.1125)
+stream = ExtResource("25_fi745")
+volume_db = -15.0
+autoplay = true
+max_distance = 30.0
+
+[node name="TunnelAudio4" type="AudioStreamPlayer3D" parent="CaveAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.368, 3.58283, 11.1755)
+stream = ExtResource("26_18nvi")
+volume_db = -20.0
+autoplay = true
+max_distance = 40.0
+
+[node name="TunnelAudio5" type="AudioStreamPlayer3D" parent="CaveAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.5279, 3.33589, -41.4934)
+stream = ExtResource("27_muwgc")
+volume_db = -20.0
+autoplay = true
+max_distance = 40.0
+
+[node name="TunnelAudio6" type="AudioStreamPlayer3D" parent="CaveAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0363, 3.26809, -52.3597)
+stream = ExtResource("27_muwgc")
+volume_db = -20.0
+autoplay = true
+max_distance = 40.0
+
+[node name="TunnelAudio7" type="AudioStreamPlayer3D" parent="CaveAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0936, 4.40759, -39.0451)
+stream = ExtResource("27_muwgc")
+volume_db = -20.0
+autoplay = true
+max_distance = 40.0
+
+[node name="TunnelAudio8" type="AudioStreamPlayer3D" parent="CaveAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.9119, 3.44096, -73.12)
+stream = ExtResource("28_p7otx")
+volume_db = -20.0
+autoplay = true
+max_distance = 50.0
+
+[node name="TunnelAudio9" type="AudioStreamPlayer3D" parent="CaveAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.8953, 3.44096, -82.5153)
+stream = ExtResource("28_p7otx")
+volume_db = -20.0
+autoplay = true
+max_distance = 50.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("secret_room_pos") instance=ExtResource("29_yrwlu")]
 secret_room_pos = NodePath("../PlayerCheckPositions/SecretAreaPos")
@@ -2004,7 +2143,7 @@ surface_material_override/2 = ExtResource("33_n2wxr")
 surface_material_override/3 = ExtResource("34_gai78")
 
 [node name="lever gear" type="MeshInstance3D" parent="SignBoards"]
-transform = Transform3D(1.2172, 0, 0, 0, 1.2172, 0, 0, 0, 1.2172, -38.5122, 2.98703, 10.9746)
+transform = Transform3D(1.2141, 0, 0.0868148, 0, 1.2172, 0, -0.0868148, 0, 1.2141, -8.86048, 2.98703, 14.8439)
 mesh = SubResource("ArrayMesh_s1x4k")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("31_k84k0")
@@ -2031,17 +2170,44 @@ surface_material_override/0 = ExtResource("37_qv647")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TempWall2/StaticBody3D"]
 shape = SubResource("BoxShape3D_wi4kr")
 
-[node name="crate2" parent="." instance=ExtResource("3_v5vlg")]
-transform = Transform3D(1.67048, 0, 0, 0, 1.67048, 0, 0, 0, 1.67048, 26.1786, 1.00776, -53.6855)
+[node name="Crates" type="Node3D" parent="."]
 
-[node name="crate2" parent="crate2" instance=ExtResource("3_v5vlg")]
-transform = Transform3D(0.359259, 0, -0.888438, 0, 0.958326, 0, 0.888438, 0, 0.359259, 1.95048, -0.0036518, -6.1861)
+[node name="crate2" parent="Crates" instance=ExtResource("3_v5vlg")]
+transform = Transform3D(-2.32319, 2.031e-07, 0, -2.031e-07, -2.32319, 0, 0, 0, 2.32319, 26.5737, 1.12939, -52.665)
+script = ExtResource("43_u15ob")
 
-[node name="crate2" parent="crate2/crate2" instance=ExtResource("3_v5vlg")]
-transform = Transform3D(-0.516729, 0, 0.906621, 0, 1.04354, 0, -0.906621, 0, -0.516729, -3.56977, 0.0160713, -8.64284)
+[node name="arrow" type="Label3D" parent="Crates/crate2"]
+unique_name_in_owner = true
+transform = Transform3D(0.0247597, -0.999374, 0.0252702, 0.025911, 0.025911, 0.999328, -0.999357, -0.0240883, 0.0265363, 0, -0.0617618, 0)
+text = "-->"
+font = ExtResource("41_mydsu")
+font_size = 20
+outline_size = 6
 
-[node name="crate2" parent="crate2/crate2/crate2" instance=ExtResource("3_v5vlg")]
-transform = Transform3D(0.577623, 0, 0.950695, 0, 1.11242, 0, -0.950695, 0, 0.577623, 10.5009, -0.0239756, 2.90585)
+[node name="arrowCrateBody" type="StaticBody3D" parent="Crates/crate2"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Crates/crate2/arrowCrateBody"]
+shape = SubResource("BoxShape3D_elgiq")
+
+[node name="crate3" parent="Crates" instance=ExtResource("3_v5vlg")]
+transform = Transform3D(-1.07568, 0, 2.88994, 0, 3.08366, 0, -2.88994, 0, -1.07568, 54.8067, 1.05883, -85.2963)
+
+[node name="crate5" parent="Crates" instance=ExtResource("3_v5vlg")]
+transform = Transform3D(-0.718297, 0, 1.92979, 0, 2.05915, 0, -1.92979, 0, -0.718297, 48.0782, 1.05883, -79.61)
+
+[node name="crate6" parent="Crates" instance=ExtResource("3_v5vlg")]
+transform = Transform3D(-0.59051, 0, 1.97265, 0, 2.05915, 0, -1.97265, 0, -0.59051, 43.5749, 1.05883, -64.2361)
+
+[node name="crate4" parent="Crates" instance=ExtResource("3_v5vlg")]
+transform = Transform3D(1.5328, 0, 1.94072, 0, 2.47303, 0, -1.94072, 0, 1.5328, 40.1215, 1.04443, -74.5041)
+
+[node name="crate7" parent="Crates" instance=ExtResource("3_v5vlg")]
+transform = Transform3D(0.286013, 2.70281e-05, 1.98898, 0.378086, -1.9728, -0.0543416, 1.95271, 0.381972, -0.280803, 33.0491, 1.04443, -73.3256)
+
+[node name="crate8" parent="Crates" instance=ExtResource("3_v5vlg")]
+transform = Transform3D(0.263215, -0.0738942, -1.57735, -0.026866, -1.59909, 0.0704295, -1.57885, 0.0148915, -0.264163, 24.9807, 1.27873, -61.2282)
 
 [node name="Maps" type="Node3D" parent="."]
 
@@ -2093,7 +2259,7 @@ surface_material_override/2 = ExtResource("34_gai78")
 surface_material_override/3 = SubResource("StandardMaterial3D_bhd2l")
 
 [node name="Here" type="Label3D" parent="Maps/map3"]
-transform = Transform3D(0.267748, 0, -1.93715e-07, 0, 0.259966, 0, 7.45058e-09, 0, 0.267853, 0.109016, -0.0697622, -0.010252)
+transform = Transform3D(0.267748, 0, -1.71363e-07, 0, 0.259966, 0, 1.49012e-08, 0, 0.267853, -0.124783, 0.0101233, -0.00851059)
 modulate = Color(1, 0, 0, 1)
 outline_modulate = Color(1, 1, 1, 1)
 text = "x
