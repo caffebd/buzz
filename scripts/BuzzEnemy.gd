@@ -19,8 +19,15 @@ var start_pos := Vector3.ZERO
 
 @export var harmless: bool = false
 
+
+
 func _ready():
 	start_pos = position
+	match GlobalVars.difficulty_level:
+		0:
+			patrolSpeed *= 0.55
+		1:
+			patrolSpeed *= 0.75
 
 func _physics_process(delta):
 	if harmless: return

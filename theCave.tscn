@@ -1152,15 +1152,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.6677, 3.3021, -10.8494)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3169, 2.71989, 5.66544)
 
 [node name="CheckPos4" type="Marker3D" parent="PlayerCheckPositions"]
-transform = Transform3D(-0.0387017, 0, -0.999251, 0, 1, 0, 0.999251, 0, -0.0387017, 21.9784, 2.65515, 41.2062)
+transform = Transform3D(-0.0387017, 0, -0.999251, 0, 1, 0, 0.999251, 0, -0.0387017, 1.28224, 3.02292, -4.77723)
 
 [node name="CheckPos5" type="Marker3D" parent="PlayerCheckPositions"]
-transform = Transform3D(-0.998943, 0, -0.0459559, 0, 1, 0, 0.0459559, 0, -0.998943, 19.8302, 2.84185, -10.3355)
+transform = Transform3D(-0.0387017, 0, -0.999251, 0, 1, 0, 0.999251, 0, -0.0387017, 22.1261, 2.67451, 41.204)
 
 [node name="CheckPos6" type="Marker3D" parent="PlayerCheckPositions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7911, 2.0673, -32.9733)
+transform = Transform3D(-0.998943, 0, -0.0459559, 0, 1, 0, 0.0459559, 0, -0.998943, 19.8302, 2.84185, -10.3355)
 
 [node name="CheckPos7" type="Marker3D" parent="PlayerCheckPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7911, 2.0673, -32.9733)
+
+[node name="CheckPos8" type="Marker3D" parent="PlayerCheckPositions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.8933, 1.60607, -69.0335)
 
 [node name="SecretAreaPos" type="Marker3D" parent="PlayerCheckPositions"]
@@ -1273,7 +1276,7 @@ skeleton = NodePath("")
 
 [node name="PullLevers" type="Node3D" parent="."]
 
-[node name="lever1" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("13_e6y0d")]
+[node name="SneakyLever" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("13_e6y0d")]
 unique_name_in_owner = true
 transform = Transform3D(0.938788, 0, -0.344496, 0, 1, 0, 0.344496, 0, 0.938788, -21.3746, 1.82112, 16.2789)
 linked_object = NodePath("../../cave2/SecretDoorNode")
@@ -1817,26 +1820,25 @@ patrolSpeed = 1.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.2281, 3.40502, -12.2042)
 player = NodePath("../../Player")
 linked_switch = NodePath("../../Switches/switch2")
-patrolSpeed = 1.5
+patrolSpeed = 2.0
 
 [node name="BuzzEnemy3" parent="BuzzEnemies" node_paths=PackedStringArray("player", "linked_switch") instance=ExtResource("16_14da8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4585, 2.64064, 20.724)
 player = NodePath("../../Player")
 linked_switch = NodePath("../../Switches/switch3")
-patrolSpeed = 2.2
 
 [node name="BuzzEnemy4" parent="BuzzEnemies" node_paths=PackedStringArray("player", "linked_switch") instance=ExtResource("16_14da8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7739, 2.20379, 40.5532)
 player = NodePath("../../Player")
 linked_switch = NodePath("../../Switches/switch4")
-patrolSpeed = 1.8
+patrolSpeed = 2.1
 
 [node name="BuzzEnemy5-6" parent="BuzzEnemies" node_paths=PackedStringArray("player", "linked_switch") instance=ExtResource("16_14da8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8954, 2.82338, -26.8274)
 player = NodePath("../../Player")
 linked_switch = NodePath("../../Switches/switch5")
-patrolSpeed = 2.0
+patrolSpeed = 2.6
 
 [node name="BuzzEnemy7" parent="BuzzEnemies" node_paths=PackedStringArray("player", "linked_switch") instance=ExtResource("16_14da8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.577, 6.00323, -80.2128)
@@ -1879,22 +1881,28 @@ transform = Transform3D(0.919396, 0, -0.393332, 0, 1, 0, 0.393332, 0, 0.919396, 
 shape = SubResource("BoxShape3D_hfb36")
 
 [node name="CheckPoint5" type="Area3D" parent="CheckPointAreas"]
-transform = Transform3D(0.970971, 0, 0.239195, 0, 1, 0, -0.239195, 0, 0.970971, 18.9311, 2.77005, -15.267)
+transform = Transform3D(0.103452, 0, -0.994634, 0, 1, 0, 0.994634, 0, 0.103452, 21.5937, 2.41663, 39.4635)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointAreas/CheckPoint5"]
-shape = SubResource("BoxShape3D_ajmf6")
+shape = SubResource("BoxShape3D_hfb36")
 
 [node name="CheckPoint6" type="Area3D" parent="CheckPointAreas"]
-transform = Transform3D(0.716667, 0, -0.697415, 0, 1, 0, 0.697415, 0, 0.716667, 29.849, 2.39663, -33.0519)
+transform = Transform3D(0.970971, 0, 0.239195, 0, 1, 0, -0.239195, 0, 0.970971, 18.9311, 2.77005, -15.267)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointAreas/CheckPoint6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2227, 0, 0.449203)
 shape = SubResource("BoxShape3D_ajmf6")
 
 [node name="CheckPoint7" type="Area3D" parent="CheckPointAreas"]
-transform = Transform3D(0.716667, 0, -0.697415, 0, 1, 0, 0.697415, 0, 0.716667, 98.7037, 2.39663, -70.3678)
+transform = Transform3D(0.716667, 0, -0.697415, 0, 1, 0, 0.697415, 0, 0.716667, 29.3165, 2.39663, -33.0519)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointAreas/CheckPoint7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2227, 0, 0.449203)
+shape = SubResource("BoxShape3D_ajmf6")
+
+[node name="CheckPoint8" type="Area3D" parent="CheckPointAreas"]
+transform = Transform3D(0.716667, 0, -0.697415, 0, 1, 0, 0.697415, 0, 0.716667, 98.7037, 2.39663, -70.3678)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointAreas/CheckPoint8"]
 transform = Transform3D(0.719679, 0, -0.694306, 0, 1, 0, 0.694306, 0, 0.719679, -3.52495, -0.726805, 5.97363)
 shape = SubResource("BoxShape3D_ajmf6")
 
@@ -2316,4 +2324,5 @@ outline_size = 1
 [connection signal="body_entered" from="CheckPointAreas/CheckPoint5" to="." method="_on_check_point_5_body_entered"]
 [connection signal="body_entered" from="CheckPointAreas/CheckPoint6" to="." method="_on_check_point_6_body_entered"]
 [connection signal="body_entered" from="CheckPointAreas/CheckPoint7" to="." method="_on_check_point_7_body_entered"]
+[connection signal="body_entered" from="CheckPointAreas/CheckPoint8" to="." method="_on_check_point_8_body_entered"]
 [connection signal="body_entered" from="SecretArea/FallArea" to="." method="_on_fall_area_body_entered"]

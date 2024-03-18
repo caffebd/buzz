@@ -12,7 +12,7 @@ config_version=5
 
 config/name="the Buzz v2"
 config/tags=PackedStringArray("git")
-run/main_scene="res://scenes/intro.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0.0383972, 0.0383972, 0.0383971, 1)
 config/icon="res://icon.svg"
@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 CameraTransition="*res://auto_load/camera_transition.tscn"
 GlobalSignals="*res://globals/global_signals.gd"
 GlobalVars="*res://globals/global_vars.gd"
+SaveLoad="*res://auto_load/save_load.gd"
 
 [display]
 

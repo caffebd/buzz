@@ -1,0 +1,146 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2iujmdxcbdf4"]
+
+[ext_resource type="Texture2D" uid="uid://bjgb23yhbdl2t" path="res://assets/ui/BuzzmenuBackground.png" id="1_c82tr"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_q7qjk"]
+[ext_resource type="FontFile" uid="uid://c8ce4lp22fmcs" path="res://assets/fonts/Comfortaa/static/Comfortaa-SemiBold.ttf" id="2_am4mp"]
+[ext_resource type="FontFile" uid="uid://bs5t4chqd6rde" path="res://assets/fonts/Comfortaa/static/Comfortaa-Regular.ttf" id="3_65r85"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0ejj"]
+bg_color = Color(0.099986, 0.099986, 0.099986, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aovt3"]
+bg_color = Color(0.154876, 0.154876, 0.154876, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5pnkc"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_q7qjk")
+
+[node name="BackgroundImg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -125.0
+offset_top = -2.0
+offset_right = 2434.0
+offset_bottom = 1321.0
+scale = Vector2(0.835, 0.835)
+mouse_filter = 2
+texture = ExtResource("1_c82tr")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 893.0
+offset_top = 125.0
+offset_right = 1460.0
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_am4mp")
+theme_override_font_sizes/font_size = 120
+text = "The Buzz"
+
+[node name="PlayBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 412.0
+offset_right = 1365.0
+offset_bottom = 546.0
+theme_override_fonts/font = ExtResource("3_65r85")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/hover = SubResource("StyleBoxFlat_p0ejj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
+text = "PLAY"
+
+[node name="SettingsBtn" type="Button" parent="."]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 1026.0
+offset_top = 678.0
+offset_right = 1368.0
+offset_bottom = 778.0
+theme_override_fonts/font = ExtResource("3_65r85")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_5pnkc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
+text = "settings"
+
+[node name="PlayPop" type="ColorRect" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+visible = false
+layout_mode = 0
+offset_left = 892.0
+offset_top = 322.0
+offset_right = 1453.0
+offset_bottom = 889.0
+color = Color(0.947199, 0.947199, 0.947199, 0.988235)
+
+[node name="ColorRect" type="ColorRect" parent="PlayPop"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 554.0
+offset_bottom = 559.0
+color = Color(0.111197, 0.111197, 0.111197, 0.988235)
+
+[node name="NewGameBtn" type="Button" parent="PlayPop"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 93.0
+offset_top = 96.0
+offset_right = 481.0
+offset_bottom = 230.0
+theme_override_fonts/font = ExtResource("3_65r85")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_p0ejj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
+text = "New Game"
+
+[node name="ContinueBtn" type="Button" parent="PlayPop"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 96.0
+offset_top = 304.0
+offset_right = 484.0
+offset_bottom = 438.0
+theme_override_fonts/font = ExtResource("3_65r85")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_p0ejj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
+text = "Continue"
+
+[connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="PlayPop/NewGameBtn" to="." method="_on_new_game_btn_pressed"]
+[connection signal="pressed" from="PlayPop/ContinueBtn" to="." method="_on_continue_btn_pressed"]

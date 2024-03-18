@@ -29,17 +29,20 @@ func _setup_from_check():
 			rotate_angle = deg_to_rad(140.0)
 			_check_three()
 		4:
-			rotate_angle = deg_to_rad(15.0)
+			rotate_angle = deg_to_rad(80.0)
 			_check_four()
 		5:
-			rotate_angle = deg_to_rad(175.0)
+			rotate_angle = deg_to_rad(15.0)
 			_check_five()
 		6:
-			rotate_angle = deg_to_rad(145.0)
-			_check_six()			
+			rotate_angle = deg_to_rad(175.0)
+			_check_six()
 		7:
+			rotate_angle = deg_to_rad(145.0)
+			_check_seven()			
+		8:
 			rotate_angle = deg_to_rad(100.0)
-			_check_seven()
+			_check_eight()
 			
 	var position = %PlayerCheckPositions.get_child(GlobalVars.check_point)
 	player.set_start_position(position.global_position, rotate_angle)
@@ -68,9 +71,12 @@ func _check_four():
 	_check_three()
 	%key3.queue_free()
 	%gate4.needs_key = false
-	
+
 func _check_five():
 	_check_four()
+	
+func _check_six():
+	_check_five()
 	%gate5.needs_key = false
 	%lever2.lever_set_on()
 	%lever3.lever_set_on()
@@ -78,11 +84,11 @@ func _check_five():
 	%lever5.lever_set_on()
 	GlobalSignals.emit_signal("remove_platform_key")
 
-func _check_six():
-	_check_five()
-	
 func _check_seven():
 	_check_six()
+	
+func _check_eight():
+	_check_seven()
 
 func _player_rotate(dir:float = 0):
 	pass
@@ -93,24 +99,28 @@ func _on_check_point_1_body_entered(body):
 	if body.is_in_group("Player"):
 		if GlobalVars.check_point < 1:
 			GlobalVars.check_point = 1
+			SaveLoad.save_data()
 
 
 func _on_check_point_2_body_entered(body):
 	if body.is_in_group("Player"):
 		if GlobalVars.check_point < 2:
 			GlobalVars.check_point = 2
+			SaveLoad.save_data()
 
 
 func _on_check_point_3_body_entered(body):
 	if body.is_in_group("Player"):
 		if GlobalVars.check_point < 3:
 			GlobalVars.check_point = 3
+			SaveLoad.save_data()
 
 
 func _on_check_point_4_body_entered(body):
 	if body.is_in_group("Player"):
 		if GlobalVars.check_point < 4:
 			GlobalVars.check_point = 4
+			SaveLoad.save_data()
 
 
 func _on_check_point_5_body_entered(body):
@@ -118,12 +128,28 @@ func _on_check_point_5_body_entered(body):
 		print ("CHECK 5 CHECK 5")
 		if GlobalVars.check_point < 5:
 			GlobalVars.check_point = 5
+			SaveLoad.save_data()
 
 func _on_check_point_6_body_entered(body: Node3D) -> void:
-	if body.is_in_group("Player") and %"BuzzEnemy5-6".attack_player == false:
+	if body.is_in_group("Player"):
 		print ("CHECK 6 ")
 		if GlobalVars.check_point < 6:
 			GlobalVars.check_point = 6
+			SaveLoad.save_data()
+
+func _on_check_point_7_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Player") and %"BuzzEnemy5-6".attack_player == false:
+		print ("CHECK 7 ")
+		if GlobalVars.check_point < 7:
+			GlobalVars.check_point = 7
+			SaveLoad.save_data()
+
+func _on_check_point_8_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Player"):
+		print ("CHECK 8 ")
+		if GlobalVars.check_point < 8:
+			GlobalVars.check_point = 8
+			SaveLoad.save_data()
 
 func _on_fall_area_body_entered(body):
 	if body.is_in_group("Player"):
@@ -141,13 +167,13 @@ func _on_platform_death_area_body_entered(body):
 
 func _on_secret_room_sensor_body_entered(body):
 	GlobalVars.secret_room_found = true
+	SaveLoad.save_data()
 
 
 
 
 
-func _on_check_point_7_body_entered(body: Node3D) -> void:
-	if body.is_in_group("Player") and %"BuzzEnemy5-6".attack_player == false:
-		print ("CHECK 7 ")
-		if GlobalVars.check_point < 7:
-			GlobalVars.check_point = 7
+
+
+
+

@@ -18,6 +18,8 @@ func linked_action():
 	if lever_count == lever_needed:
 		var tween = create_tween()
 		tween.tween_property(self, "position:z", 22.0, 3.0)
+		GlobalVars.sneaky_wall_open = true
+		SaveLoad.save_data()
 	#if position.y > 2.0:
 		#tween.tween_property(self, "position:y", -1.0, 2.0)
 	#else:

@@ -9,6 +9,8 @@ var key_count: int = 0
 
 var check_point: int = 0
 
+var difficulty_level: int = 1
+
 var secret_room_found: bool = false
 var secret_area_found: bool = false
 

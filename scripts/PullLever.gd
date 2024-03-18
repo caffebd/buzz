@@ -28,7 +28,9 @@ func _ready():
 func lever_set_on():
 	%LeverAnim.play("already_on")
 	lever_on=true
-
+	if linked_object != null:
+		linked_object.linked_action()
+		
 func use_action(player):
 	if %LeverAnim.is_playing():
 		return

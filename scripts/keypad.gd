@@ -55,6 +55,7 @@ func _check_code():
 		connected_buzz.attack_player = false
 		#GlobalSignals.emit_signal("keypad_code", "correct")
 		#keypad_locked = true
+		SaveLoad.save_data()
 		GlobalSignals.emit_signal("teleport","up")
 	else:
 		%WrongSound.play()
