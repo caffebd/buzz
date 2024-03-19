@@ -1556,9 +1556,9 @@ light_range = 4.0
 light_energy = 0.2
 
 [node name="lantern9" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.04769, 4.38385, -2.82832)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09482, 4.38385, -4.06798)
 light_range = 4.0
-light_energy = 0.2
+light_energy = 0.4
 
 [node name="lantern" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.1097, 5.94058, -40.9556)
@@ -1717,6 +1717,11 @@ light_energy = 0.2
 
 [node name="lantern21" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02161, 6.18942, -6.18082)
+light_range = 4.0
+light_energy = 0.2
+
+[node name="lantern63" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.29487, 4.91997, -1.93745)
 light_range = 4.0
 light_energy = 0.2
 
