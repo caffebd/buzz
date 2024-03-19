@@ -26,7 +26,7 @@ func _on_new_game_btn_pressed() -> void:
 	GlobalVars.secret_area_found = false
 	GlobalVars.sneaky_wall_open = false
 	await SaveLoad.save_data()
-	get_tree().change_scene_to_file("res://theCave.tscn")
+	get_tree().change_scene_to_file("res://scenes/intro.tscn")
 
 
 func _on_continue_btn_pressed() -> void:
@@ -36,3 +36,7 @@ func _on_continue_btn_pressed() -> void:
 
 func _on_settings_btn_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/settings_menu.tscn")
+
+
+func _on_exit_btn_pressed() -> void:
+	get_tree().quit()

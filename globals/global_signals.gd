@@ -56,3 +56,5 @@ signal secret_area(state)
 signal key_show(state)
 
 signal remove_platform_key()
+
+signal hud_menu_cover(state)

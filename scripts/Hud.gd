@@ -25,6 +25,7 @@ func _ready():
 	GlobalSignals.remove_from_inventory.connect(remove_from_carried_inventory)
 	GlobalSignals.keypad_code.connect(_update_keypad_code)
 	GlobalSignals.update_key.connect(_update_key)
+	GlobalSignals.hud_menu_cover.connect(_menu_cover_enter)
 	if GlobalVars.current_world=="tape":
 		$PlayLabel.visible = true
 	%Target.modulate = Color(1,1,1,0.2)
@@ -148,4 +149,23 @@ func on_tween_finished():
 	call_deferred("_restart_game")
 
 func _restart_game():
+	GlobalVars.key_count = 0
 	get_tree().reload_current_scene()
+
+func _menu_cover_enter(state):
+	print ("MENU FADE COVER")
+	if state:
+		var tween = create_tween()
+		tween.tween_property(%MenuOverlay, "modulate:a", 0.5, 1.0)
+		%menubtn.disabled = false
+		%menubtn.visible = true
+		%menubtn.mouse_filter = MOUSE_FILTER_STOP
+	else:
+		%menubtn.disabled = true
+		%menubtn.mouse_filter = MOUSE_FILTER_IGNORE
+		%menubtn.visible = false
+		%MenuOverlay.modulate.a = 0
+	#tween.connect("finished", on_tween_finished)	
+
+func _on_menubtn_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

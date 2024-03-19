@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://c26hwpmmkc2pg"]
 
 [ext_resource type="Script" path="res://scripts/intro.gd" id="1_8m1g2"]
-[ext_resource type="PackedScene" uid="uid://c3clhexajwsyu" path="res://scenes/player.tscn" id="1_v7n6u"]
 [ext_resource type="FontFile" uid="uid://cnv2p7n8e175w" path="res://assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf" id="2_p7387"]
+[ext_resource type="PackedScene" uid="uid://dj8aqolgkt68e" path="res://scenes/player_sway.tscn" id="4_pvfnm"]
 [ext_resource type="PackedScene" uid="uid://c3e8vsx4cw4ik" path="res://scenes/BuzzEnemy.tscn" id="5_1xyvp"]
 
 [sub_resource type="Environment" id="Environment_4h0dq"]
@@ -50,10 +50,13 @@ size = Vector3(3.385, 1, 0.275)
 
 [node name="Intro" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_8m1g2")
-player = NodePath("Player")
+player = NodePath("PlayerSway")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4h0dq")
+
+[node name="PlayerSway" parent="." instance=ExtResource("4_pvfnm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36781, 71.4523)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.58834, 0, 0, 0, 0.0887276, 0, 0, 0, 66.5469, 0, 0, 40.6689)
@@ -63,9 +66,6 @@ mesh = SubResource("BoxMesh_sjyco")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_lnor0")
-
-[node name="Player" parent="." instance=ExtResource("1_v7n6u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 73.4577)
 
 [node name="Side1" type="StaticBody3D" parent="."]
 

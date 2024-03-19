@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://7n8g8f8tubsd"]
+[gd_scene load_steps=21 format=3 uid="uid://7n8g8f8tubsd"]
 
 [ext_resource type="Script" path="res://scripts/Hud.gd" id="1_8c27q"]
 [ext_resource type="PackedScene" uid="uid://drdrhpc5dcafn" path="res://scenes/key_icon.tscn" id="2_6ngnm"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dx8ya7af5arcv" path="res://scenes/noise_meter-chunk.tscn" id="8_hk4il"]
 [ext_resource type="Texture2D" uid="uid://b4ik8sp7tus14" path="res://assets/ui/lock_closed.png" id="9_ipt8r"]
 [ext_resource type="Texture2D" uid="uid://d2r7rhsggc6gw" path="res://assets/ui/lock_open.png" id="10_s16ru"]
+[ext_resource type="FontFile" uid="uid://bs5t4chqd6rde" path="res://assets/fonts/Comfortaa/static/Comfortaa-Regular.ttf" id="13_mbrfa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sa0io"]
 shader = ExtResource("5_2dwyq")
@@ -297,6 +298,28 @@ _data = {
 "static_in": SubResource("Animation_aqn2r"),
 "static_out": SubResource("Animation_rb48x")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpc1q"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aa5bo"]
+bg_color = Color(0.154876, 0.154876, 0.154876, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -586,4 +609,37 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.0627451, 0, 0, 1)
 
+[node name="MenuOverlay" type="ColorRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1929.0
+offset_bottom = 1088.0
+mouse_filter = 2
+color = Color(0, 0.0627451, 0, 1)
+
+[node name="menubtn" type="Button" parent="MenuOverlay"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.5
+offset_top = -60.0
+offset_right = 128.5
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("13_mbrfa")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_gpc1q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aa5bo")
+disabled = true
+text = "menu"
+
 [connection signal="animation_finished" from="StaticAnim" to="." method="_on_static_anim_animation_finished"]
+[connection signal="pressed" from="MenuOverlay/menubtn" to="." method="_on_menubtn_pressed"]

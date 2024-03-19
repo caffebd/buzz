@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2iujmdxcbdf4"]
+[gd_scene load_steps=9 format=3 uid="uid://d2iujmdxcbdf4"]
 
 [ext_resource type="Texture2D" uid="uid://bjgb23yhbdl2t" path="res://assets/ui/BuzzmenuBackground.png" id="1_c82tr"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_q7qjk"]
@@ -28,6 +28,17 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5pnkc"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpe7o"]
 bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 border_width_left = 2
 border_width_top = 2
@@ -94,6 +105,19 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5pnkc")
 theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
 text = "settings"
 
+[node name="ExitBtn" type="Button" parent="."]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 1654.0
+offset_top = 937.0
+offset_right = 1877.0
+offset_bottom = 1037.0
+theme_override_fonts/font = ExtResource("3_65r85")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_5pnkc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
+text = "exit"
+
 [node name="PlayPop" type="ColorRect" parent="."]
 unique_name_in_owner = true
 auto_translate_mode = 1
@@ -136,11 +160,12 @@ offset_right = 484.0
 offset_bottom = 438.0
 theme_override_fonts/font = ExtResource("3_65r85")
 theme_override_font_sizes/font_size = 60
-theme_override_styles/hover = SubResource("StyleBoxFlat_p0ejj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kpe7o")
 theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
 text = "Continue"
 
 [connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]
 [connection signal="pressed" from="PlayPop/NewGameBtn" to="." method="_on_new_game_btn_pressed"]
 [connection signal="pressed" from="PlayPop/ContinueBtn" to="." method="_on_continue_btn_pressed"]

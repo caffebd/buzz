@@ -5,6 +5,7 @@ var barrier_follow: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	player.set_start_position(player.global_position, deg_to_rad(180.0))
 	%Barrier.global_position.y = 20.0
 
 

@@ -68,7 +68,6 @@ func MoveTowardsPoint(delta, speed):
 
 func nav_towards_point(delta, speed):
 	var targetPos = nav_agent.get_next_path_position()
-	print (targetPos)
 	var direction = global_position.direction_to(targetPos)
 	faceDirection(player.position)
 	velocity = direction * speed
@@ -87,10 +86,10 @@ func _on_death_area_body_entered(body):
 	if body.get_groups().has("Player") and not harmless:
 		attack_player = false
 		print ("reload")
-		GlobalVars.key_count = 0
 		if final_buzz:
 			call_deferred("game_over_call")
-		else:	
+		else:
+			player.playing_active = false	
 			player.hud.cover_fade_death()
 
 func game_over_call():

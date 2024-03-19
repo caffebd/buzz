@@ -16,6 +16,8 @@ var t_bob = 0.0
 var lean_amount = 5
 var lean_weight = 0.05
 
+var playing_active: bool = true
+
 @export var wobble_head:bool = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -118,9 +120,11 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60)) 
 	if Input.is_action_just_pressed("ui_cancel"):
 		if use_cursor:
+			GlobalSignals.emit_signal("hud_menu_cover", false)
 			use_cursor = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
+			GlobalSignals.emit_signal("hud_menu_cover", true)
 			use_cursor = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if Input.is_action_just_pressed("use"):
@@ -132,8 +136,7 @@ func _take_action():
 	var collider = ray.get_collider()
 #	if collider == null:
 #		hud.spot_intensity(false)
-	if collider != null and collider is StaticBody3D:
-		print(collider.name)
+	if collider != null and collider is StaticBody3D and playing_active:
 		if collider.get_parent().has_method("use_action"):
 			collider.get_parent().use_action(self)
 		if collider.is_in_group("door"):
