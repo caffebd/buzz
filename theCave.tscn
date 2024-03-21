@@ -1,6 +1,7 @@
-[gd_scene load_steps=142 format=3 uid="uid://bemeghhhf4cwr"]
+[gd_scene load_steps=143 format=3 uid="uid://bemeghhhf4cwr"]
 
 [ext_resource type="Script" path="res://scripts/MainCave.gd" id="1_wnv3q"]
+[ext_resource type="Environment" uid="uid://cabft7enoqf3a" path="res://assets/env/caveEnv.tres" id="2_3nl71"]
 [ext_resource type="ArrayOccluder3D" uid="uid://ytjnoassvn75" path="res://assets/resources/cave_occ_5.occ" id="2_cayuj"]
 [ext_resource type="Script" path="res://scripts/InvisiBridge.gd" id="2_mpgbl"]
 [ext_resource type="PackedScene" uid="uid://nb0lreegw6ru" path="res://assets/props/lantern.tscn" id="2_yl8qj"]
@@ -23,7 +24,6 @@
 [ext_resource type="Script" path="res://scripts/SneakyWall.gd" id="25_51ns1"]
 [ext_resource type="AudioStream" uid="uid://clpgdl4dabo4j" path="res://assets/audio/ambience/horror_amb_v3_constant_100.ogg" id="25_fi745"]
 [ext_resource type="AudioStream" uid="uid://b0gjd8pjsk7o6" path="res://assets/audio/ambience/horror_amb_v3_constant_36.ogg" id="26_18nvi"]
-[ext_resource type="Script" path="res://scripts/SecretArea.gd" id="26_cu3xi"]
 [ext_resource type="PackedScene" uid="uid://i6cfblus7x0w" path="res://scenes/CodePost.tscn" id="26_ws7ju"]
 [ext_resource type="AudioStream" uid="uid://by0w3bccafstl" path="res://assets/audio/ambience/horror_amb_v3_constant_12.ogg" id="27_muwgc"]
 [ext_resource type="AudioStream" uid="uid://ye2oskirskm" path="res://assets/audio/ambience/horror_amb_v3_constant_24.ogg" id="28_p7otx"]
@@ -49,16 +49,8 @@
 [ext_resource type="Script" path="res://scripts/arrow_crate.gd" id="43_u15ob"]
 [ext_resource type="Texture2D" uid="uid://1j45pyj2m8kb" path="res://assets/textures/miscTextures/map/map 7.png" id="44_jc61u"]
 [ext_resource type="Texture2D" uid="uid://dwaawlchha2yl" path="res://assets/textures/miscTextures/map/map 1.png" id="45_vyx8p"]
-
-[sub_resource type="Environment" id="Environment_ckil6"]
-background_mode = 1
-background_color = Color(0.00820203, 0.00820202, 0.00820202, 1)
-background_energy_multiplier = 0.0
-ambient_light_energy = 0.0
-volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0, 0, 0, 1)
-volumetric_fog_emission = Color(0.0530605, 0.0794367, 0.0735778, 1)
-volumetric_fog_emission_energy = 0.5
+[ext_resource type="PackedScene" uid="uid://u4hxq1msejna" path="res://scenes/secretRoom.tscn" id="50_4xnoy"]
+[ext_resource type="PackedScene" uid="uid://c7vqoxchxma4g" path="res://scenes/secret_key.tscn" id="51_2mfg0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1u0j2"]
 
@@ -207,18 +199,6 @@ size = Vector3(0.545, 1, 2.035)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ajmf6"]
 size = Vector3(2.33, 0.765, 1.025)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_et6no"]
-transparency = 1
-albedo_color = Color(0.576471, 0.184314, 0.192157, 0.054902)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ifx2h"]
-material = SubResource("StandardMaterial3D_et6no")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_g8sym"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_302k6"]
-size = Vector3(180, 1, 160)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8rk4s"]
 
@@ -1124,12 +1104,25 @@ shadow_mesh = SubResource("ArrayMesh_u3qmc")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8iuee"]
 albedo_texture = ExtResource("45_vyx8p")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_et6no"]
+transparency = 1
+albedo_color = Color(0.576471, 0.184314, 0.192157, 0.054902)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ifx2h"]
+material = SubResource("StandardMaterial3D_et6no")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g8sym"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_302k6"]
+size = Vector3(180, 1, 160)
+
 [node name="MainCave" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_wnv3q")
 player = NodePath("Player")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ckil6")
+[node name="CaveEnvironment" type="WorldEnvironment" parent="."]
+unique_name_in_owner = true
+environment = ExtResource("2_3nl71")
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.688599, 0.0113792, 0.191214)
@@ -1164,11 +1157,7 @@ transform = Transform3D(-0.998943, 0, -0.0459559, 0, 1, 0, 0.0459559, 0, -0.9989
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7911, 2.0673, -32.9733)
 
 [node name="CheckPos8" type="Marker3D" parent="PlayerCheckPositions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.8933, 1.60607, -69.0335)
-
-[node name="SecretAreaPos" type="Marker3D" parent="PlayerCheckPositions"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7293, 59.0055, -4.58136)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.082, 1.60607, -66.6541)
 
 [node name="KeyPadPos" type="Marker3D" parent="PlayerCheckPositions"]
 unique_name_in_owner = true
@@ -1799,6 +1788,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.1259, 2.19819, 5.50883)
 is_visible = false
 
 [node name="key4" parent="Keys" instance=ExtResource("10_sfkbf")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1687, 1.9462, 19.6684)
 switch_effected = false
 
@@ -1914,106 +1904,6 @@ shape = SubResource("BoxShape3D_ajmf6")
 [node name="lantern" parent="." instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1439, 4.72741, 21.3485)
 
-[node name="SecretArea" type="Node3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.49397, 56.377, 0)
-visible = false
-script = ExtResource("26_cu3xi")
-
-[node name="Base" type="MeshInstance3D" parent="SecretArea"]
-transform = Transform3D(130.142, 0, 0, 0, 1, 0, 0, 0, 86.2416, 0, 0, 0)
-mesh = SubResource("BoxMesh_ifx2h")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SecretArea/Base"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SecretArea/Base/StaticBody3D"]
-shape = SubResource("BoxShape3D_g8sym")
-
-[node name="Sun" type="DirectionalLight3D" parent="SecretArea"]
-transform = Transform3D(1, 0, 0, 0, 0.729196, 0.684305, 0, -0.684305, 0.729196, 4.49397, 11.7564, 10.4562)
-light_energy = 4.049
-sky_mode = 1
-
-[node name="CodePost" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0639, 1.36529, -28.8782)
-
-[node name="CodePost2" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0363, 1.36529, 4.74923)
-code_select = 1
-
-[node name="CodePost3" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03521, 1.36529, 15.5334)
-code_select = 2
-
-[node name="CodePost4" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.085, 1.365, -28.659)
-code_select = 3
-
-[node name="CodePost5" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.67, 1.36529, 4.10441)
-code_select = 4
-
-[node name="CodePost6" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0362, 1.36529, 6.29819)
-code_select = 5
-
-[node name="CodePost7" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1471, 1.36529, -27.0037)
-code_select = 6
-
-[node name="CodePost8" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.55026, 1.36529, -8.65798)
-code_select = 7
-
-[node name="InstructionPost" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(-0.710198, 0, -0.704002, 0, 1, 0, 0.704002, 0, -0.710198, 18.6512, 1.36529, -0.32235)
-code_select = 8
-
-[node name="Reference" type="MeshInstance3D" parent="SecretArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2263, 0.490753, 6.24331)
-mesh = ExtResource("8_p6fsa")
-skeleton = NodePath("../..")
-
-[node name="Reference2" type="MeshInstance3D" parent="SecretArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28772, 0.496986, 10.3248)
-mesh = ExtResource("8_p6fsa")
-skeleton = NodePath("../..")
-
-[node name="Reference4" type="MeshInstance3D" parent="SecretArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3346, 0.490753, -9.53854)
-mesh = ExtResource("8_p6fsa")
-skeleton = NodePath("../..")
-
-[node name="Reference3" type="MeshInstance3D" parent="SecretArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.6002, 0.490753, 16.9868)
-mesh = ExtResource("8_p6fsa")
-skeleton = NodePath("../..")
-
-[node name="FallArea" type="Area3D" parent="SecretArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.7463, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SecretArea/FallArea"]
-shape = SubResource("BoxShape3D_302k6")
-
-[node name="crate1" parent="SecretArea" instance=ExtResource("4_jnikq")]
-transform = Transform3D(6.18556, -6.19723, 0, 6.19723, 6.18556, 0, 0, 0, 8.75596, 2.1049, 1.29267, -6.14251)
-
-[node name="BuzzEnemy" parent="SecretArea" instance=ExtResource("16_14da8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.105, 2.71457, -11.0396)
-harmless = true
-
-[node name="gate" parent="SecretArea" instance=ExtResource("13_rtutk")]
-transform = Transform3D(0.864564, 0, -0.502522, -0.257388, 0.858871, -0.442824, 0.431601, 0.512193, 0.742549, -1.48837, 1.59886, -19.2599)
-
-[node name="lantern" parent="SecretArea" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(12.095, 0, 0, 0, 12.095, 0, 0, 0, 12.095, 2.00405, 2.63852, 7.03623)
-light_range = 2.0
-light_energy = 0.2
-
-[node name="lever" parent="SecretArea" instance=ExtResource("13_e6y0d")]
-transform = Transform3D(2.8097, 0, 0, 0, 2.8097, 0, 0, 0, 2.8097, 33.6982, 0.5849, -5.78702)
-fake_lever = true
-
 [node name="CaveAudio" type="Node3D" parent="."]
 
 [node name="TunnelAudio1" type="AudioStreamPlayer3D" parent="CaveAudio"]
@@ -2079,8 +1969,9 @@ volume_db = -20.0
 autoplay = true
 max_distance = 50.0
 
-[node name="Player" parent="." node_paths=PackedStringArray("secret_room_pos") instance=ExtResource("29_yrwlu")]
-secret_room_pos = NodePath("../PlayerCheckPositions/SecretAreaPos")
+[node name="Player" parent="." node_paths=PackedStringArray("secret_room_pos", "world_env") instance=ExtResource("29_yrwlu")]
+secret_room_pos = NodePath("../secretArea/SecretAreaPos")
+world_env = NodePath("../CaveEnvironment")
 
 [node name="woodenLiftShaft" parent="." instance=ExtResource("30_qxgbt")]
 transform = Transform3D(0.992384, 0, 0.123186, 0, 1, 0, -0.123186, 0, 0.992384, 24.3393, 2.52291, 56.3993)
@@ -2319,6 +2210,128 @@ font = ExtResource("41_mydsu")
 font_size = 22
 outline_size = 1
 
+[node name="SecretArea" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.99099, 31.6374, 3.83509)
+visible = false
+
+[node name="Base" type="MeshInstance3D" parent="SecretArea"]
+transform = Transform3D(130.142, 0, 0, 0, 1, 0, 0, 0, 86.2416, 0, 0, 0)
+mesh = SubResource("BoxMesh_ifx2h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SecretArea/Base"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SecretArea/Base/StaticBody3D"]
+shape = SubResource("BoxShape3D_g8sym")
+
+[node name="Sun" type="DirectionalLight3D" parent="SecretArea"]
+transform = Transform3D(1, 0, 0, 0, 0.729196, 0.684305, 0, -0.684305, 0.729196, 4.49397, 11.7564, 10.4562)
+light_energy = 4.049
+sky_mode = 1
+
+[node name="CodePost" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0639, 1.36529, -28.8782)
+
+[node name="CodePost2" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0363, 1.36529, 4.74923)
+code_select = 1
+
+[node name="CodePost3" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03521, 1.36529, 15.5334)
+code_select = 2
+
+[node name="CodePost4" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.085, 1.365, -28.659)
+code_select = 3
+
+[node name="CodePost5" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.67, 1.36529, 4.10441)
+code_select = 4
+
+[node name="CodePost6" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0362, 1.36529, 6.29819)
+code_select = 5
+
+[node name="CodePost7" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1471, 1.36529, -27.0037)
+code_select = 6
+
+[node name="CodePost8" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.55026, 1.36529, -8.65798)
+code_select = 7
+
+[node name="InstructionPost" parent="SecretArea" instance=ExtResource("26_ws7ju")]
+transform = Transform3D(-0.710198, 0, -0.704002, 0, 1, 0, 0.704002, 0, -0.710198, 18.6512, 1.36529, -0.32235)
+code_select = 8
+
+[node name="Reference" type="MeshInstance3D" parent="SecretArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2263, 0.490753, 6.24331)
+mesh = ExtResource("8_p6fsa")
+skeleton = NodePath("../..")
+
+[node name="Reference2" type="MeshInstance3D" parent="SecretArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28772, 0.496986, 10.3248)
+mesh = ExtResource("8_p6fsa")
+skeleton = NodePath("../..")
+
+[node name="Reference4" type="MeshInstance3D" parent="SecretArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3346, 0.490753, -9.53854)
+mesh = ExtResource("8_p6fsa")
+skeleton = NodePath("../..")
+
+[node name="Reference3" type="MeshInstance3D" parent="SecretArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.6002, 0.490753, 16.9868)
+mesh = ExtResource("8_p6fsa")
+skeleton = NodePath("../..")
+
+[node name="FallArea" type="Area3D" parent="SecretArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.7463, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SecretArea/FallArea"]
+shape = SubResource("BoxShape3D_302k6")
+
+[node name="crate1" parent="SecretArea" instance=ExtResource("4_jnikq")]
+transform = Transform3D(6.18556, -6.19723, 0, 6.19723, 6.18556, 0, 0, 0, 8.75596, 2.1049, 1.29267, -6.14251)
+
+[node name="BuzzEnemy" parent="SecretArea" instance=ExtResource("16_14da8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.105, 2.71457, -11.0396)
+harmless = true
+
+[node name="gate" parent="SecretArea" instance=ExtResource("13_rtutk")]
+transform = Transform3D(0.864564, 0, -0.502522, -0.257388, 0.858871, -0.442824, 0.431601, 0.512193, 0.742549, -1.48837, 1.59886, -19.2599)
+
+[node name="lantern" parent="SecretArea" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(12.095, 0, 0, 0, 12.095, 0, 0, 0, 12.095, 2.00405, 2.63852, 7.03623)
+light_range = 2.0
+light_energy = 0.2
+
+[node name="lever" parent="SecretArea" instance=ExtResource("13_e6y0d")]
+transform = Transform3D(2.8097, 0, 0, 0, 2.8097, 0, 0, 0, 2.8097, 33.6982, 0.5849, -5.78702)
+fake_lever = true
+
+[node name="secretArea" parent="." node_paths=PackedStringArray("player") instance=ExtResource("50_4xnoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.0315, -0.409407)
+visible = false
+player = NodePath("../Player")
+
+[node name="FallArea" type="Area3D" parent="secretArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.1155, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="secretArea/FallArea"]
+shape = SubResource("BoxShape3D_302k6")
+
+[node name="SecretAreaPos" type="Marker3D" parent="secretArea"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.165, 0.478886, 1.48501)
+
+[node name="Sun" type="DirectionalLight3D" parent="secretArea"]
+transform = Transform3D(1, 0, 0, 0, 0.729196, 0.684305, 0, -0.684305, 0.729196, 4.49397, -6.7701, 10.4562)
+light_energy = 0.75
+sky_mode = 1
+
+[node name="SecretKey" parent="secretArea" instance=ExtResource("51_2mfg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3776, 0, 0)
+
 [connection signal="body_entered" from="cave2/PlatformDeathArea" to="." method="_on_platform_death_area_body_entered"]
 [connection signal="body_entered" from="cave2/ElevatorDeathArea" to="." method="_on_platform_death_area_body_entered"]
 [connection signal="body_entered" from="cave2/SecretRoomSensor" to="." method="_on_secret_room_sensor_body_entered"]
@@ -2331,3 +2344,4 @@ outline_size = 1
 [connection signal="body_entered" from="CheckPointAreas/CheckPoint7" to="." method="_on_check_point_7_body_entered"]
 [connection signal="body_entered" from="CheckPointAreas/CheckPoint8" to="." method="_on_check_point_8_body_entered"]
 [connection signal="body_entered" from="SecretArea/FallArea" to="." method="_on_fall_area_body_entered"]
+[connection signal="body_entered" from="secretArea/FallArea" to="." method="_on_fall_area_body_entered"]

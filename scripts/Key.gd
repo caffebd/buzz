@@ -8,6 +8,7 @@ var picked: bool = false
 
 @export var is_visible: bool = true
 @export var switch_effected: bool = true
+@export var is_platform_key: bool = false
 
 func _ready():
 	GlobalSignals.key_show.connect(_key_show)
@@ -17,7 +18,8 @@ func _ready():
 	%KeyCol.disabled = !is_visible
 
 func _remove_platform_key():
-	queue_free()
+	if is_platform_key:
+		queue_free()
 
 func _key_show(state):
 	if switch_effected:

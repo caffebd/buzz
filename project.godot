@@ -31,10 +31,6 @@ window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/nv.file_system/plugin.cfg")
-
 [importer_defaults]
 
 texture={
@@ -112,8 +108,6 @@ test_open={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 textures/default_filters/anisotropic_filtering_level=0
 environment/glow/upscale_mode=0
 anti_aliasing/quality/msaa_3d=3

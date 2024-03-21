@@ -64,12 +64,13 @@ func _check_two():
 
 func _check_three():
 	_check_two()
+	%key3.queue_free()
 	%gate3.needs_key = false
 
 
 func _check_four():
 	_check_three()
-	%key3.queue_free()
+	%key4.queue_free()
 	%gate4.needs_key = false
 
 func _check_five():

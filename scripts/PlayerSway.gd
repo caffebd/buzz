@@ -56,6 +56,8 @@ var player_added_noise: float = 0.0
 
 @export var secret_room_pos: Marker3D
 
+@export var world_env: WorldEnvironment
+
 var freeze_controls:bool = false
  
 func _ready():
@@ -91,7 +93,15 @@ func _teleport(dir):
 		global_position = secret_room_pos.global_position
 		freeze_controls = false
 		GlobalSignals.emit_signal("secret_area", true)
-
+		world_env.environment.volumetric_fog_enabled = false
+		world_env.environment.glow_enabled = true
+		world_env.environment.glow_bloom = 0.8
+		world_env.environment.glow_hdr_scale = 1.75
+		world_env.environment.ambient_light_source =Environment.AMBIENT_SOURCE_DISABLED
+		world_env.environment.reflected_light_source = Environment.REFLECTION_SOURCE_DISABLED
+		world_env.environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
+		world_env.environment.tonemap_exposure = 2.93
+		
 func set_start_position(start_pos:Vector3, dir: float = 0.0):
 	global_position = start_pos
 	head.rotate_y(dir)
