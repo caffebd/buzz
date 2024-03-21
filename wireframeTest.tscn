@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj83u0jti3n8c"]
+
+[ext_resource type="Texture2D" uid="uid://bdjda2ue58uhr" path="res://assets/textures/wireframe.png" id="1_4f0et"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ns7bx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23xns"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("1_4f0et")
+emission_enabled = true
+emission_texture = ExtResource("1_4f0et")
+uv1_scale = Vector3(2.995, 2, 2.995)
+
+[sub_resource type="Environment" id="Environment_puwd0"]
+background_mode = 1
+ambient_light_source = 1
+reflected_light_source = 1
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ns7bx")
+surface_material_override/0 = SubResource("StandardMaterial3D_23xns")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_puwd0")
