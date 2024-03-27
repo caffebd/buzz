@@ -5,5 +5,5 @@ transparency = 1
 depth_draw_mode = 1
 albedo_color = Color(1, 0, 0.0470588, 1)
 roughness = 0.28
-emission = Color(0, 0.847765, 0, 1)
-emission_energy_multiplier = 0.0
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 2.5

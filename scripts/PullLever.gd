@@ -32,6 +32,7 @@ func lever_set_on():
 		linked_object.linked_action()
 		
 func use_action(player):
+	print ("Lever  is "+name)
 	if %LeverAnim.is_playing():
 		return
 	if fake_lever:
@@ -39,7 +40,7 @@ func use_action(player):
 		return
 	if !lever_on: 
 		lever_on = true
-		%LeverAnim.play("on")
+		%LeverAnim.play("lever_on")
 		#if GlobalVars.tape_current_state == GlobalVars.TapeStates.lever:
 			#CameraTransition.transition_camera3D( the_player.camera,$LeverCam, 0.8)
 			#var yield_timer_a = Timer.new()
@@ -67,10 +68,10 @@ func _fake_lever():
 		return
 	if !lever_on:
 		lever_on = true
-		%LeverAnim.play("on")
+		%LeverAnim.play("lever_on")
 	else:
 		lever_on = false
-		%LeverAnim.play("off")
+		%LeverAnim.play("lever_off")
 		
 func linked_from_switch(state):
 	visible = state

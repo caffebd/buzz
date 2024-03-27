@@ -23,5 +23,5 @@ mesh = SubResource("ArrayMesh_giht2")
 surface_material_override/0 = ExtResource("2_ghb3h")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_color = Color(1, 0, 0, 1)
+light_color = Color(0.375363, 0.607194, 0.254087, 1)
 omni_range = 0.437
