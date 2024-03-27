@@ -1,12 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn3m1sobi3w00"]
+[gd_scene load_steps=4 format=3 uid="uid://cn3m1sobi3w00"]
 
 [ext_resource type="PackedScene" uid="uid://bcbnxbh3k6det" path="res://assets/props/imported/cave2.glb" id="1_t6suj"]
+[ext_resource type="Material" uid="uid://bm5mmlclkh2no" path="res://assets/materials/metal/metal4.tres" id="2_6t3ws"]
 [ext_resource type="Material" uid="uid://ciqb4a5dwjpgt" path="res://assets/materials/rock/caveRock.tres" id="2_mpgfj"]
 
 [node name="cave2" instance=ExtResource("1_t6suj")]
 
+[node name="secretRoom" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_6t3ws")
+
 [node name="cave_050" parent="." index="1"]
 surface_material_override/0 = ExtResource("2_mpgfj")
+
+[node name="secretRoomDoor" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_6t3ws")
 
 [node name="cave_001" parent="." index="3"]
 surface_material_override/0 = ExtResource("2_mpgfj")
