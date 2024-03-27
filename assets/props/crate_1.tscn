@@ -18,5 +18,10 @@ _surfaces = [{
 [node name="crate1" type="Node3D"]
 
 [node name="Crate1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_giht2")
 surface_material_override/0 = ExtResource("2_ghb3h")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 0, 0, 1)
+omni_range = 0.437
