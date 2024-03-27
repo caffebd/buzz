@@ -7,5 +7,4 @@ func _ready() -> void:
 
 
 func use_action(player):
-	var tween = create_tween()
-	tween.tween_property(%arrow, "position:y", -0.07, 1.75)
+	GlobalSignals.emit_signal("light_up_crates")

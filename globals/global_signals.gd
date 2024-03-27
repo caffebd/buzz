@@ -66,3 +66,5 @@ signal ammo_count (amount)
 signal take_damage()
 
 signal reward_over()
+
+signal light_up_crates()

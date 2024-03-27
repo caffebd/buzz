@@ -74,7 +74,8 @@ func _fake_lever():
 		%LeverAnim.play("lever_off")
 		
 func linked_from_switch(state):
-	visible = state
-	%LeverCol.disabled = !state
+	if !lever_on:
+		visible = state
+		%LeverCol.disabled = !state
 
 
