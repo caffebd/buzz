@@ -1,0 +1,259 @@
+[gd_scene load_steps=22 format=3 uid="uid://c0thkom80vbpv"]
+
+[ext_resource type="Script" path="res://scripts/player_shoot.gd" id="1_4xdf5"]
+[ext_resource type="PackedScene" uid="uid://7n8g8f8tubsd" path="res://scenes/hud.tscn" id="2_dry2m"]
+[ext_resource type="AudioStream" uid="uid://tt4o8ubtqdpo" path="res://assets/audio/buzz_horror_chase_fade_out.mp3" id="3_37373"]
+[ext_resource type="AudioStream" uid="uid://dxblosc724dlv" path="res://assets/audio/buzzing_sound_chase_fade_in.mp3" id="4_wogfd"]
+[ext_resource type="AudioStream" uid="uid://42un1jsd4ovb" path="res://assets/audio/buzz_horror_chase.mp3" id="5_4phw7"]
+[ext_resource type="Texture2D" uid="uid://ws1gc42o1seo" path="res://assets/ui/light_meter_ui.svg" id="6_26on8"]
+[ext_resource type="AudioStream" uid="uid://b2opxbrd85blc" path="res://assets/audio/stone_footsteps.mp3" id="7_44ipv"]
+[ext_resource type="Script" path="res://scripts/hand_cam.gd" id="8_suk2n"]
+[ext_resource type="PackedScene" uid="uid://7wklyqh8vc2q" path="res://scenes/weapon.tscn" id="9_t5veu"]
+[ext_resource type="AudioStream" uid="uid://cc4f2ns21cvrf" path="res://assets/audio/RewardAudio/shoot_quick.mp3" id="10_4ae4y"]
+[ext_resource type="AudioStream" uid="uid://cslw2vq81jpl7" path="res://assets/audio/RewardAudio/no_ammo.mp3" id="11_to3b7"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x53lq"]
+height = 1.7
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jrkkt"]
+radius = 0.395
+height = 1.635
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lnlp7"]
+height = 1.0
+radius = 0.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8e1wd"]
+cull_mode = 2
+backlight = Color(1, 1, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tc35e"]
+material = SubResource("StandardMaterial3D_8e1wd")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1goek"]
+material = SubResource("StandardMaterial3D_8e1wd")
+top_radius = 0.0
+bottom_radius = 0.4
+height = 0.4
+rings = 1
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_81dem"]
+lightmap_size_hint = Vector2i(11, 6)
+material = SubResource("StandardMaterial3D_8e1wd")
+radius = 0.3
+height = 0.6
+radial_segments = 4
+rings = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qhuk"]
+atlas = ExtResource("6_26on8")
+region = Rect2(0, 128, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_755lr"]
+atlas = ExtResource("6_26on8")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5ojaj"]
+height = 7.0
+radius = 11.5
+
+[node name="PlayerShoot" type="CharacterBody3D" groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 5
+collision_mask = 5
+wall_min_slide_angle = 0.523599
+script = ExtResource("1_4xdf5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.896151, 0, 0, 0, 0.896151, 0, 0, 0, 0.896151, 0, -0.369675, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_x53lq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.418606, -0.00968532)
+shape = SubResource("CapsuleShape3D_jrkkt")
+
+[node name="Head" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.00679305, 0.217858, -0.140415)
+
+[node name="Camera" type="Camera3D" parent="Head"]
+unique_name_in_owner = true
+cull_mask = 524287
+current = true
+fov = 60.0
+
+[node name="PlayerRay" type="RayCast3D" parent="Head/Camera"]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -2)
+collision_mask = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head"]
+
+[node name="HUD" parent="." instance=ExtResource("2_dry2m")]
+unique_name_in_owner = true
+
+[node name="ChaseMusicFadeOut" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_37373")
+
+[node name="ChaseMusicFadeIn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wogfd")
+
+[node name="ChaseMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4phw7")
+
+[node name="ChaseMusicTimer" type="Timer" parent="."]
+wait_time = 9.8
+one_shot = true
+
+[node name="Proximity" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.188432, -0.258039)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Proximity"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.263114)
+shape = SubResource("CylinderShape3D_lnlp7")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="LightDetection" type="Node3D" parent="SubViewport"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0444019, 0)
+
+[node name="Camera" type="Camera3D" parent="SubViewport/LightDetection"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
+fov = 40.0
+size = 0.25
+far = 20.0
+
+[node name="MeshPlane" type="MeshInstance3D" parent="SubViewport/LightDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+layers = 524288
+mesh = SubResource("PlaneMesh_tc35e")
+
+[node name="MeshCone" type="MeshInstance3D" parent="SubViewport/LightDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+layers = 524288
+mesh = SubResource("CylinderMesh_1goek")
+
+[node name="MeshOctahedron" type="MeshInstance3D" parent="SubViewport/LightDetection"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0.5, 0)
+visible = false
+layers = 524288
+mesh = SubResource("SphereMesh_81dem")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(256, 256)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(256, 256)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="LightLevel" type="TextureProgressBar" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 1.0
+step = 0.0
+value = 0.25
+fill_mode = 7
+texture_under = SubResource("AtlasTexture_1qhuk")
+texture_progress = SubResource("AtlasTexture_755lr")
+tint_under = Color(1, 1, 1, 0.752941)
+
+[node name="LightTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_44ipv")
+volume_db = -10.0
+
+[node name="LightSwitchArea" type="Area3D" parent="."]
+collision_layer = 8388608
+collision_mask = 524288
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightSwitchArea"]
+shape = SubResource("CylinderShape3D_5ojaj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WeaponSubView" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+positional_shadow_atlas_size = 4096
+canvas_cull_mask = 4294443008
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="HandCam" type="Camera3D" parent="CanvasLayer/SubViewportContainer/WeaponSubView"]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.07258, 0)
+cull_mask = 524288
+script = ExtResource("8_suk2n")
+
+[node name="Hand" type="Node3D" parent="CanvasLayer/SubViewportContainer/WeaponSubView/HandCam"]
+unique_name_in_owner = true
+
+[node name="Weapon" parent="CanvasLayer/SubViewportContainer/WeaponSubView/HandCam/Hand" instance=ExtResource("9_t5veu")]
+unique_name_in_owner = true
+transform = Transform3D(0.999507, 0.000931839, 0.0313969, 0, 0.99956, -0.0296662, -0.0314108, 0.0296516, 0.999067, 0.341512, -0.549895, -0.428272)
+
+[node name="BulletMarker" type="Marker3D" parent="CanvasLayer/SubViewportContainer/WeaponSubView/HandCam/Hand/Weapon"]
+unique_name_in_owner = true
+transform = Transform3D(1, -2.32831e-10, 0, 0, 1, 0, 0, 0, 1, 0.0104001, -0.0098173, -1.19591)
+
+[node name="WeaponShoot" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_4ae4y")
+
+[node name="WeaponOut" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_to3b7")
+
+[connection signal="finished" from="ChaseMusicFadeIn" to="." method="_on_chase_music_fade_in_finished"]
+[connection signal="timeout" from="ChaseMusicTimer" to="." method="_on_chase_music_timer_timeout"]
+[connection signal="area_shape_entered" from="Proximity" to="." method="_on_proximity_area_shape_entered"]
+[connection signal="area_shape_exited" from="Proximity" to="." method="_on_proximity_area_shape_exited"]
+[connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]

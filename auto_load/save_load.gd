@@ -20,10 +20,12 @@ func save_data():
 		"the_buzz_data":{
 		"difficulty_level": GlobalVars.difficulty_level,
 		"check_point": GlobalVars.check_point,
+		"encounters": GlobalVars.encounters,
 		"secret_room_found":GlobalVars.secret_room_found,
 		"secret_area_found" : GlobalVars.secret_area_found,
 		"sneaky_wall_open": GlobalVars.sneaky_wall_open,
-
+		"reward_unlocked": GlobalVars.reward_unlocked,
+		"reward_time": GlobalVars.reward_time
 		}
 	}
 	
@@ -51,9 +53,12 @@ func load_data():
 		
 		GlobalVars.difficulty_level = buzzData["difficulty_level"]
 		GlobalVars.check_point = buzzData["check_point"]
+		GlobalVars.encounters = buzzData["encounters"]
 		GlobalVars.secret_room_found = buzzData["secret_room_found"]
 		GlobalVars.secret_area_found = buzzData["secret_area_found"]
 		GlobalVars.sneaky_wall_open = buzzData["sneaky_wall_open"]
+		GlobalVars.reward_unlocked = buzzData["reward_unlocked"]
+		GlobalVars.reward_time = buzzData["reward_time"]
 
 	
 	

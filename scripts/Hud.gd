@@ -11,7 +11,7 @@ var fuse_icon
 var lantern_icon
 var key_icon
 
-
+#var menu_tween: Tween
 
 @onready var target := %Target
 @onready var locked := %Locked
@@ -29,6 +29,8 @@ func _ready():
 	if GlobalVars.current_world=="tape":
 		$PlayLabel.visible = true
 	%Target.modulate = Color(1,1,1,0.2)
+	#menu_tween = get_tree().create_tween()
+	
 
 func _process(delta):
 	var adjusted_light = GlobalVars.player_light_level*GlobalVars.light_factor
@@ -150,17 +152,21 @@ func on_tween_finished():
 
 func _restart_game():
 	GlobalVars.key_count = 0
+	GlobalVars.encounters += 1
 	get_tree().reload_current_scene()
 
 func _menu_cover_enter(state):
 	print ("MENU FADE COVER")
+	
 	if state:
-		var tween = create_tween()
-		tween.tween_property(%MenuOverlay, "modulate:a", 0.5, 1.0)
+		
+		#menu_tween.tween_property(%MenuOverlay, "modulate:a", 0.5, 1.0)
+		%MenuOverlay.modulate.a = 0.5
 		%menubtn.disabled = false
 		%menubtn.visible = true
 		%menubtn.mouse_filter = MOUSE_FILTER_STOP
 	else:
+		#menu_tween.stop()
 		%menubtn.disabled = true
 		%menubtn.mouse_filter = MOUSE_FILTER_IGNORE
 		%menubtn.visible = false

@@ -1,0 +1,313 @@
+[gd_scene load_steps=19 format=3 uid="uid://b6crdl1usv8fp"]
+
+[ext_resource type="PackedScene" uid="uid://57wrtv30uanq" path="res://scenes/reward_maze.tscn" id="1_2rc22"]
+[ext_resource type="Script" path="res://scripts/reward_scene.gd" id="1_4mtwt"]
+[ext_resource type="PackedScene" uid="uid://c0thkom80vbpv" path="res://scenes/player_shoot.tscn" id="2_caie8"]
+[ext_resource type="Environment" uid="uid://dy4pbxglf20qk" path="res://assets/env/secretRoomEnv.tres" id="2_eoux8"]
+[ext_resource type="FontFile" uid="uid://cnv2p7n8e175w" path="res://assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf" id="4_kxnfo"]
+[ext_resource type="Texture2D" uid="uid://b5126amix1jvu" path="res://assets/ui/time_icon.png" id="6_5ceue"]
+[ext_resource type="FontFile" uid="uid://bs5t4chqd6rde" path="res://assets/fonts/Comfortaa/static/Comfortaa-Regular.ttf" id="6_w6d8h"]
+[ext_resource type="AudioStream" uid="uid://uux6qce4i3b5" path="res://assets/audio/RewardAudio/game_over.mp3" id="7_23l12"]
+[ext_resource type="Texture2D" uid="uid://cjs1v3d2m5rrj" path="res://assets/ui/health_icon.png" id="7_y3boy"]
+[ext_resource type="AudioStream" uid="uid://b0bumj78gimfn" path="res://assets/audio/RewardAudio/collect_ammo.mp3" id="8_6ykc3"]
+[ext_resource type="Texture2D" uid="uid://dtyofg0gj2ora" path="res://assets/ui/ammo_icon.png" id="8_m4t73"]
+[ext_resource type="AudioStream" uid="uid://drbygjes4e1pu" path="res://assets/audio/RewardAudio/kill_enemy.mp3" id="9_bm5b5"]
+[ext_resource type="AudioStream" uid="uid://drlmxl120iuxc" path="res://assets/audio/RewardAudio/buzz_reward-music.mp3" id="13_8tgt5"]
+[ext_resource type="AudioStream" uid="uid://drqxf2wm0iemb" path="res://assets/audio/RewardAudio/new_best_time.mp3" id="14_a0qwd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8drlp"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmm6j"]
+bg_color = Color(8.18223e-07, 0.431357, 1.15514e-06, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6hfb"]
+bg_color = Color(0.00817055, 0.151193, 0.0078714, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqbrn"]
+bg_color = Color(0.0777247, 0.381244, 0.0760198, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="RewardScene" type="Node3D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_4mtwt")
+player = NodePath("PlayerShoot")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_eoux8")
+
+[node name="RewardMaze" parent="." instance=ExtResource("1_2rc22")]
+
+[node name="PlayerShoot" parent="." instance=ExtResource("2_caie8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9836, 1, 2.02655)
+
+[node name="EnemyPositions" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Pos0" type="Marker3D" parent="EnemyPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.64, 0, 13.765)
+
+[node name="Pos1" type="Marker3D" parent="EnemyPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38436, 0, 11.7889)
+
+[node name="Pos2" type="Marker3D" parent="EnemyPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1102, 0, -18.1578)
+
+[node name="Pos3" type="Marker3D" parent="EnemyPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2945, 0, -15.1682)
+
+[node name="Pos4" type="Marker3D" parent="EnemyPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2782, 0, -10.7287)
+
+[node name="Pos5" type="Marker3D" parent="EnemyPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.115, 0, 14.3977)
+
+[node name="Pos6" type="Marker3D" parent="EnemyPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.9796, 0, 16.9144)
+
+[node name="Enemies" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="EnemySpeedTimer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBG" type="ColorRect" parent="UI"]
+layout_mode = 0
+offset_left = 1229.0
+offset_top = 28.0
+offset_right = 1893.0
+offset_bottom = 86.0
+
+[node name="HealthBar" type="ProgressBar" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1234.0
+offset_top = 32.0
+offset_right = 1888.0
+offset_bottom = 81.0
+theme_override_styles/background = SubResource("StyleBoxFlat_8drlp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wmm6j")
+value = 100.0
+show_percentage = false
+
+[node name="Ammo" type="Label" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_top = 22.0
+offset_right = 7.0
+offset_bottom = 101.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_kxnfo")
+theme_override_font_sizes/font_size = 70
+text = "50"
+
+[node name="TimeLabel" type="Label" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 147.0
+offset_top = 17.0
+offset_right = 432.0
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("4_kxnfo")
+theme_override_font_sizes/font_size = 70
+text = "999
+"
+
+[node name="TimeIcon" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 4.0
+offset_right = 138.0
+offset_bottom = 100.0
+texture = ExtResource("6_5ceue")
+
+[node name="HealthIcon" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 1119.0
+offset_top = 7.0
+offset_right = 1219.0
+offset_bottom = 107.0
+texture = ExtResource("7_y3boy")
+
+[node name="AmmoIcon" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 798.0
+offset_top = 24.0
+offset_right = 898.0
+offset_bottom = 124.0
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("8_m4t73")
+
+[node name="Rewardpop" type="ColorRect" parent="UI"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 667.0
+offset_top = 169.0
+offset_right = 1228.0
+offset_bottom = 937.0
+color = Color(0.947199, 0.947199, 0.947199, 0.988235)
+
+[node name="ColorRect" type="ColorRect" parent="UI/Rewardpop"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 554.0
+offset_bottom = 760.0
+color = Color(0.352941, 0.109804, 0.109804, 0.988235)
+
+[node name="ColorRect2" type="ColorRect" parent="UI/Rewardpop"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 55.0
+offset_top = 312.0
+offset_right = 526.0
+offset_bottom = 323.0
+color = Color(1, 1, 1, 0.988235)
+
+[node name="PlayReward" type="Button" parent="UI/Rewardpop"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 80.0
+offset_top = 592.0
+offset_right = 468.0
+offset_bottom = 726.0
+theme_override_fonts/font = ExtResource("6_w6d8h")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_g6hfb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xqbrn")
+text = "MENU"
+
+[node name="BestTimeLabel" type="Label" parent="UI/Rewardpop"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 71.0
+offset_top = 351.0
+offset_right = 505.0
+offset_bottom = 468.0
+theme_override_fonts/font = ExtResource("4_kxnfo")
+theme_override_font_sizes/font_size = 50
+text = "Longest Survival
+Time"
+horizontal_alignment = 1
+
+[node name="BestTimeLabel3" type="Label" parent="UI/Rewardpop"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 64.0
+offset_top = 27.0
+offset_right = 521.0
+offset_bottom = 106.0
+theme_override_fonts/font = ExtResource("4_kxnfo")
+theme_override_font_sizes/font_size = 70
+text = "Reward Over"
+horizontal_alignment = 1
+
+[node name="BestTimeLabel2" type="Label" parent="UI/Rewardpop"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 64.0
+offset_top = 143.0
+offset_right = 498.0
+offset_bottom = 203.0
+theme_override_fonts/font = ExtResource("4_kxnfo")
+theme_override_font_sizes/font_size = 50
+text = "Your time"
+horizontal_alignment = 1
+
+[node name="BestTime" type="Label" parent="UI/Rewardpop"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 81.0
+offset_top = 477.0
+offset_right = 515.0
+offset_bottom = 534.0
+theme_override_fonts/font = ExtResource("4_kxnfo")
+theme_override_font_sizes/font_size = 45
+text = "30 seconds"
+horizontal_alignment = 1
+
+[node name="YourTime" type="Label" parent="UI/Rewardpop"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 68.0
+offset_top = 214.0
+offset_right = 502.0
+offset_bottom = 271.0
+theme_override_fonts/font = ExtResource("4_kxnfo")
+theme_override_font_sizes/font_size = 45
+text = "30 seconds"
+horizontal_alignment = 1
+
+[node name="PlayTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="AmmoBoxes" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="AmmoSpawn" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Ammo0" type="Marker3D" parent="AmmoSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9075, 0, 1.7439)
+
+[node name="Ammo1" type="Marker3D" parent="AmmoSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01022, 0, -10.1122)
+
+[node name="Ammo2" type="Marker3D" parent="AmmoSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9658, 0, -4.01213)
+
+[node name="Ammo3" type="Marker3D" parent="AmmoSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5047, 0, 27.8774)
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_23l12")
+
+[node name="CollectAmmo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_6ykc3")
+
+[node name="EnemyHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_bm5b5")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_8tgt5")
+volume_db = -22.0
+autoplay = true
+
+[node name="NewBestTime" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_a0qwd")
+
+[connection signal="timeout" from="EnemySpeedTimer" to="." method="_on_enemy_speed_timer_timeout"]
+[connection signal="pressed" from="UI/Rewardpop/PlayReward" to="." method="_on_play_reward_pressed"]
+[connection signal="timeout" from="PlayTimer" to="." method="_on_play_timer_timeout"]

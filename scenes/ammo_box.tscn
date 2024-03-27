@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy0lvs1w5nqlf"]
+
+[ext_resource type="Script" path="res://scripts/ammo_box.gd" id="1_68kt5"]
+[ext_resource type="Material" uid="uid://b6lhdvxhh8vwe" path="res://assets/materials/wireframe/black.tres" id="2_pure1"]
+[ext_resource type="Material" uid="uid://cgbcbh7wtjkk1" path="res://assets/materials/wireframe/wireframe1.tres" id="3_wh7ji"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xk3ai"]
+material = ExtResource("2_pure1")
+
+[sub_resource type="SphereMesh" id="SphereMesh_jvtwy"]
+material = ExtResource("3_wh7ji")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_corn2"]
+size = Vector3(0.845, 0.795, 0.8)
+
+[node name="AmmoBox" type="Node3D"]
+script = ExtResource("1_68kt5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.653746, 0, 0, 0, 0.653746, 0, 0, 0, 0.653746, 0, 0, 0)
+mesh = SubResource("BoxMesh_xk3ai")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.83227, 0, 0, 0, 0.83227, 0, 0, 0, 0.83227, 0, 0, 0)
+mesh = SubResource("SphereMesh_jvtwy")
+
+[node name="AmmoArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AmmoArea"]
+shape = SubResource("BoxShape3D_corn2")
+
+[connection signal="body_entered" from="AmmoArea" to="." method="_on_ammo_area_body_entered"]

@@ -690,3 +690,9 @@ shape = SubResource("BoxShape3D_txgg2")
 [node name="SwitchAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("6_xy465")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0661221, 0.069922)
+light_color = Color(0, 1, 0, 1)
+light_energy = 0.052
+omni_range = 0.174

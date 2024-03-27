@@ -235,6 +235,7 @@ skeleton = NodePath("")
 
 [node name="BezierCircle_002" type="MeshInstance3D" parent="."]
 transform = Transform3D(0, -2.56501e-09, 0.0430337, -0.0430337, 5.13001e-09, -2.56501e-09, 2.56501e-09, 0.0430337, 5.13001e-09, -0.000477447, -0.206712, -0.000845218)
+visible = false
 mesh = SubResource("ArrayMesh_q5tkt")
 skeleton = NodePath("")
 
@@ -267,3 +268,13 @@ shadow_enabled = true
 shadow_bias = 0.015
 shadow_opacity = 0.9
 omni_range = 9.0
+
+[node name="ElectricOmniLight2" type="OmniLight3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000167109, -0.158165, 0.000245576)
+light_color = Color(0.988235, 0.898039, 0.780392, 1)
+light_energy = 1.132
+shadow_enabled = true
+shadow_bias = 0.015
+shadow_opacity = 0.9
+omni_range = 0.276

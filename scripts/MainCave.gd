@@ -43,6 +43,9 @@ func _setup_from_check():
 		8:
 			rotate_angle = deg_to_rad(100.0)
 			_check_eight()
+		9:
+			rotate_angle = deg_to_rad(100.0)
+			_check_nine()
 			
 	var position = %PlayerCheckPositions.get_child(GlobalVars.check_point)
 	player.set_start_position(position.global_position, rotate_angle)
@@ -90,6 +93,10 @@ func _check_seven():
 	
 func _check_eight():
 	_check_seven()
+
+func _check_nine():
+	%lever6.lever_set_on()
+	_check_eight()
 
 func _player_rotate(dir:float = 0):
 	pass

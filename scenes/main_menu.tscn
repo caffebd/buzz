@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2iujmdxcbdf4"]
+[gd_scene load_steps=11 format=3 uid="uid://d2iujmdxcbdf4"]
 
 [ext_resource type="Texture2D" uid="uid://bjgb23yhbdl2t" path="res://assets/ui/BuzzmenuBackground.png" id="1_c82tr"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_q7qjk"]
 [ext_resource type="FontFile" uid="uid://c8ce4lp22fmcs" path="res://assets/fonts/Comfortaa/static/Comfortaa-SemiBold.ttf" id="2_am4mp"]
 [ext_resource type="FontFile" uid="uid://bs5t4chqd6rde" path="res://assets/fonts/Comfortaa/static/Comfortaa-Regular.ttf" id="3_65r85"]
+[ext_resource type="FontFile" uid="uid://cnv2p7n8e175w" path="res://assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf" id="5_eldjj"]
+[ext_resource type="AudioStream" uid="uid://dvfniwo5vu4u8" path="res://assets/audio/RewardAudio/cheat_active.mp3" id="6_w1n77"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0ejj"]
 bg_color = Color(0.099986, 0.099986, 0.099986, 1)
@@ -105,6 +107,19 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5pnkc")
 theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
 text = "settings"
 
+[node name="RewardBtn" type="Button" parent="."]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 1027.0
+offset_top = 849.0
+offset_right = 1369.0
+offset_bottom = 949.0
+theme_override_fonts/font = ExtResource("3_65r85")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_5pnkc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
+text = "REWARD"
+
 [node name="ExitBtn" type="Button" parent="."]
 auto_translate_mode = 1
 layout_mode = 0
@@ -121,7 +136,6 @@ text = "exit"
 [node name="PlayPop" type="ColorRect" parent="."]
 unique_name_in_owner = true
 auto_translate_mode = 1
-visible = false
 layout_mode = 0
 offset_left = 892.0
 offset_top = 322.0
@@ -164,8 +178,71 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_kpe7o")
 theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
 text = "Continue"
 
+[node name="Rewardpop" type="ColorRect" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 891.0
+offset_top = 309.0
+offset_right = 1452.0
+offset_bottom = 967.0
+color = Color(0.947199, 0.947199, 0.947199, 0.988235)
+
+[node name="ColorRect" type="ColorRect" parent="Rewardpop"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 554.0
+offset_bottom = 645.0
+color = Color(0.111197, 0.111197, 0.111197, 0.988235)
+
+[node name="PlayReward" type="Button" parent="Rewardpop"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 86.0
+offset_top = 99.0
+offset_right = 474.0
+offset_bottom = 233.0
+theme_override_fonts/font = ExtResource("3_65r85")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_p0ejj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
+text = "Play Reward"
+
+[node name="BestTimeLabel" type="Label" parent="Rewardpop"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 354.0
+offset_right = 501.0
+offset_bottom = 471.0
+theme_override_fonts/font = ExtResource("5_eldjj")
+theme_override_font_sizes/font_size = 50
+text = "Longest Survival
+Time"
+horizontal_alignment = 1
+
+[node name="BestTime" type="Label" parent="Rewardpop"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 67.0
+offset_top = 497.0
+offset_right = 501.0
+offset_bottom = 554.0
+theme_override_fonts/font = ExtResource("5_eldjj")
+theme_override_font_sizes/font_size = 45
+text = "30 seconds"
+horizontal_alignment = 1
+
+[node name="CheatAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_w1n77")
+
 [connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="RewardBtn" to="." method="_on_reward_btn_pressed"]
 [connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]
 [connection signal="pressed" from="PlayPop/NewGameBtn" to="." method="_on_new_game_btn_pressed"]
 [connection signal="pressed" from="PlayPop/ContinueBtn" to="." method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="Rewardpop/PlayReward" to="." method="_on_play_reward_pressed"]

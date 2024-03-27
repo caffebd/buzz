@@ -58,3 +58,11 @@ signal key_show(state)
 signal remove_platform_key()
 
 signal hud_menu_cover(state)
+
+signal respawn_enemy(marker)
+signal respawn_ammo(marker)
+
+signal ammo_count (amount)
+signal take_damage()
+
+signal reward_over()

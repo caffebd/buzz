@@ -56,6 +56,10 @@ func _on_inside_trigger_body_entered(body):
 		GlobalSignals.emit_signal("elevator_close")
 		GlobalSignals.emit_signal("parent_to_elevator" )
 		#GlobalSignals.emit_signal("manual_state_trigger", "patrol", 2)
+		print ("CHECK 8 ")
+		if GlobalVars.check_point < 9:
+			GlobalVars.check_point = 9
+			SaveLoad.save_data()
 		var yield_timer_a = Timer.new()
 		add_child(yield_timer_a)
 		yield_timer_a.start(3);

@@ -1,8 +1,8 @@
-[gd_scene load_steps=143 format=3 uid="uid://bemeghhhf4cwr"]
+[gd_scene load_steps=138 format=3 uid="uid://bemeghhhf4cwr"]
 
 [ext_resource type="Script" path="res://scripts/MainCave.gd" id="1_wnv3q"]
-[ext_resource type="Environment" uid="uid://cabft7enoqf3a" path="res://assets/env/caveEnv.tres" id="2_3nl71"]
 [ext_resource type="ArrayOccluder3D" uid="uid://ytjnoassvn75" path="res://assets/resources/cave_occ_5.occ" id="2_cayuj"]
+[ext_resource type="Environment" uid="uid://cabft7enoqf3a" path="res://assets/env/caveEnv.tres" id="2_g1yio"]
 [ext_resource type="Script" path="res://scripts/InvisiBridge.gd" id="2_mpgbl"]
 [ext_resource type="PackedScene" uid="uid://nb0lreegw6ru" path="res://assets/props/lantern.tscn" id="2_yl8qj"]
 [ext_resource type="PackedScene" uid="uid://cs0dn8ou7cuv" path="res://assets/props/crate_2.tscn" id="3_v5vlg"]
@@ -12,7 +12,6 @@
 [ext_resource type="Material" uid="uid://bm5mmlclkh2no" path="res://assets/materials/metal/metal4.tres" id="5_e4u4f"]
 [ext_resource type="PackedScene" uid="uid://cqrhoydbclpv4" path="res://assets/props/elec_light.tscn" id="6_a2gbo"]
 [ext_resource type="PackedScene" uid="uid://t6m8v3e73osa" path="res://assets/props/supports.tscn" id="7_y2wuf"]
-[ext_resource type="ArrayMesh" uid="uid://cngkda1l3fg45" path="res://assets/props/imported/reference.obj" id="8_p6fsa"]
 [ext_resource type="Texture2D" uid="uid://q5qk6pkt0y8u" path="res://assets/materials/lever_sml.png" id="10_pktko"]
 [ext_resource type="PackedScene" uid="uid://d2bofj4vue5qx" path="res://assets/props/key.tscn" id="10_sfkbf"]
 [ext_resource type="PackedScene" uid="uid://b7o26r4s75lrm" path="res://scenes/lever_test/lever.tscn" id="13_e6y0d"]
@@ -24,7 +23,6 @@
 [ext_resource type="Script" path="res://scripts/SneakyWall.gd" id="25_51ns1"]
 [ext_resource type="AudioStream" uid="uid://clpgdl4dabo4j" path="res://assets/audio/ambience/horror_amb_v3_constant_100.ogg" id="25_fi745"]
 [ext_resource type="AudioStream" uid="uid://b0gjd8pjsk7o6" path="res://assets/audio/ambience/horror_amb_v3_constant_36.ogg" id="26_18nvi"]
-[ext_resource type="PackedScene" uid="uid://i6cfblus7x0w" path="res://scenes/CodePost.tscn" id="26_ws7ju"]
 [ext_resource type="AudioStream" uid="uid://by0w3bccafstl" path="res://assets/audio/ambience/horror_amb_v3_constant_12.ogg" id="27_muwgc"]
 [ext_resource type="AudioStream" uid="uid://ye2oskirskm" path="res://assets/audio/ambience/horror_amb_v3_constant_24.ogg" id="28_p7otx"]
 [ext_resource type="AudioStream" uid="uid://bglmpeyyd6tm1" path="res://assets/audio/ambience/horror_amb_v3_constant_26.ogg" id="29_12pmf"]
@@ -1104,15 +1102,6 @@ shadow_mesh = SubResource("ArrayMesh_u3qmc")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8iuee"]
 albedo_texture = ExtResource("45_vyx8p")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_et6no"]
-transparency = 1
-albedo_color = Color(0.576471, 0.184314, 0.192157, 0.054902)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ifx2h"]
-material = SubResource("StandardMaterial3D_et6no")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_g8sym"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_302k6"]
 size = Vector3(180, 1, 160)
 
@@ -1122,7 +1111,7 @@ player = NodePath("Player")
 
 [node name="CaveEnvironment" type="WorldEnvironment" parent="."]
 unique_name_in_owner = true
-environment = ExtResource("2_3nl71")
+environment = ExtResource("2_g1yio")
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.688599, 0.0113792, 0.191214)
@@ -1157,7 +1146,10 @@ transform = Transform3D(-0.998943, 0, -0.0459559, 0, 1, 0, 0.0459559, 0, -0.9989
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7911, 2.0673, -32.9733)
 
 [node name="CheckPos8" type="Marker3D" parent="PlayerCheckPositions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.082, 1.60607, -66.6541)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.5806, 1.9769, -68.6575)
+
+[node name="CheckPos9" type="Marker3D" parent="PlayerCheckPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.36, 1.5877, -66.4892)
 
 [node name="KeyPadPos" type="Marker3D" parent="PlayerCheckPositions"]
 unique_name_in_owner = true
@@ -1227,14 +1219,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 1.77636e-15, 0, -7.10543e-15, 1, 0.092865
 shape = SubResource("ConcavePolygonShape3D_7esv1")
 
 [node name="SecretBoard" parent="cave2" instance=ExtResource("5_876fr")]
-transform = Transform3D(0.903801, 0, -0.427954, 0, 1, 0, 0.427954, 0, 0.903801, 8.73489, 3.81842, 14.2094)
+transform = Transform3D(0.760046, 0, -0.64987, 0, 1, 0, 0.64987, 0, 0.760046, 11.2041, 4.03598, 15.3446)
 
 [node name="SecretDoorNode" type="Node3D" parent="cave2"]
 transform = Transform3D(0.996287, 0, 0.0860991, -0.000186336, 0.999998, 0.00215617, -0.0860989, -0.00216421, 0.996285, 4.351, 3.77156, 23.3948)
 script = ExtResource("25_51ns1")
 
 [node name="SecretDoor" type="MeshInstance3D" parent="cave2/SecretDoorNode"]
-transform = Transform3D(1, 0, -2.23517e-08, 8.73115e-11, 1, -6.98492e-10, 0, 0, 1, 0.00181532, 4.55379e-05, -0.0210056)
+transform = Transform3D(1, 0, -2.98023e-08, 1.16415e-10, 1, -9.31323e-10, 0, 0, 1, 0.108128, 0.00271773, -1.25119)
 mesh = SubResource("ArrayMesh_exs0o")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("5_e4u4f")
@@ -1251,11 +1243,11 @@ mesh = SubResource("PlaneMesh_fngx7")
 surface_material_override/0 = SubResource("StandardMaterial3D_qe3qd")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+visible = false
 navigation_mesh = SubResource("NavigationMesh_xs164")
 
 [node name="navmesh_001" type="MeshInstance3D" parent="NavigationRegion3D"]
 transform = Transform3D(0.851021, 0, 0.525132, 0, 1, 0, -0.525132, 0, 0.851021, 43.8402, 1.12073, 0.407585)
-visible = false
 mesh = SubResource("ArrayMesh_yrrgp")
 skeleton = NodePath("")
 
@@ -1717,7 +1709,7 @@ light_energy = 0.2
 [node name="Switches" type="Node3D" parent="."]
 
 [node name="Switch1" parent="Switches" node_paths=PackedStringArray("linked_lights", "connected_buzz") instance=ExtResource("14_t2u5u")]
-transform = Transform3D(0.00188532, 0, -0.999998, 0, 1, 0, 0.999998, 0, 0.00188532, -47.3962, 3.19119, -21.6698)
+transform = Transform3D(0.345266, 0, -0.938505, 0, 1, 0, 0.938505, 0, 0.345266, -47.8676, 3.19119, -21.6698)
 linked_lights = [NodePath("../../ElectricLights/ElecLight1")]
 connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy1")
 
@@ -2210,105 +2202,6 @@ font = ExtResource("41_mydsu")
 font_size = 22
 outline_size = 1
 
-[node name="SecretArea" type="Node3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.99099, 31.6374, 3.83509)
-visible = false
-
-[node name="Base" type="MeshInstance3D" parent="SecretArea"]
-transform = Transform3D(130.142, 0, 0, 0, 1, 0, 0, 0, 86.2416, 0, 0, 0)
-mesh = SubResource("BoxMesh_ifx2h")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SecretArea/Base"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SecretArea/Base/StaticBody3D"]
-shape = SubResource("BoxShape3D_g8sym")
-
-[node name="Sun" type="DirectionalLight3D" parent="SecretArea"]
-transform = Transform3D(1, 0, 0, 0, 0.729196, 0.684305, 0, -0.684305, 0.729196, 4.49397, 11.7564, 10.4562)
-light_energy = 4.049
-sky_mode = 1
-
-[node name="CodePost" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0639, 1.36529, -28.8782)
-
-[node name="CodePost2" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0363, 1.36529, 4.74923)
-code_select = 1
-
-[node name="CodePost3" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03521, 1.36529, 15.5334)
-code_select = 2
-
-[node name="CodePost4" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.085, 1.365, -28.659)
-code_select = 3
-
-[node name="CodePost5" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.67, 1.36529, 4.10441)
-code_select = 4
-
-[node name="CodePost6" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0362, 1.36529, 6.29819)
-code_select = 5
-
-[node name="CodePost7" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1471, 1.36529, -27.0037)
-code_select = 6
-
-[node name="CodePost8" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.55026, 1.36529, -8.65798)
-code_select = 7
-
-[node name="InstructionPost" parent="SecretArea" instance=ExtResource("26_ws7ju")]
-transform = Transform3D(-0.710198, 0, -0.704002, 0, 1, 0, 0.704002, 0, -0.710198, 18.6512, 1.36529, -0.32235)
-code_select = 8
-
-[node name="Reference" type="MeshInstance3D" parent="SecretArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2263, 0.490753, 6.24331)
-mesh = ExtResource("8_p6fsa")
-skeleton = NodePath("../..")
-
-[node name="Reference2" type="MeshInstance3D" parent="SecretArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28772, 0.496986, 10.3248)
-mesh = ExtResource("8_p6fsa")
-skeleton = NodePath("../..")
-
-[node name="Reference4" type="MeshInstance3D" parent="SecretArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3346, 0.490753, -9.53854)
-mesh = ExtResource("8_p6fsa")
-skeleton = NodePath("../..")
-
-[node name="Reference3" type="MeshInstance3D" parent="SecretArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.6002, 0.490753, 16.9868)
-mesh = ExtResource("8_p6fsa")
-skeleton = NodePath("../..")
-
-[node name="FallArea" type="Area3D" parent="SecretArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.7463, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SecretArea/FallArea"]
-shape = SubResource("BoxShape3D_302k6")
-
-[node name="crate1" parent="SecretArea" instance=ExtResource("4_jnikq")]
-transform = Transform3D(6.18556, -6.19723, 0, 6.19723, 6.18556, 0, 0, 0, 8.75596, 2.1049, 1.29267, -6.14251)
-
-[node name="BuzzEnemy" parent="SecretArea" instance=ExtResource("16_14da8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.105, 2.71457, -11.0396)
-harmless = true
-
-[node name="gate" parent="SecretArea" instance=ExtResource("13_rtutk")]
-transform = Transform3D(0.864564, 0, -0.502522, -0.257388, 0.858871, -0.442824, 0.431601, 0.512193, 0.742549, -1.48837, 1.59886, -19.2599)
-
-[node name="lantern" parent="SecretArea" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(12.095, 0, 0, 0, 12.095, 0, 0, 0, 12.095, 2.00405, 2.63852, 7.03623)
-light_range = 2.0
-light_energy = 0.2
-
-[node name="lever" parent="SecretArea" instance=ExtResource("13_e6y0d")]
-transform = Transform3D(2.8097, 0, 0, 0, 2.8097, 0, 0, 0, 2.8097, 33.6982, 0.5849, -5.78702)
-fake_lever = true
-
 [node name="secretArea" parent="." node_paths=PackedStringArray("player") instance=ExtResource("50_4xnoy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.0315, -0.409407)
 visible = false
@@ -2343,5 +2236,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3776, 0, 0)
 [connection signal="body_entered" from="CheckPointAreas/CheckPoint6" to="." method="_on_check_point_6_body_entered"]
 [connection signal="body_entered" from="CheckPointAreas/CheckPoint7" to="." method="_on_check_point_7_body_entered"]
 [connection signal="body_entered" from="CheckPointAreas/CheckPoint8" to="." method="_on_check_point_8_body_entered"]
-[connection signal="body_entered" from="SecretArea/FallArea" to="." method="_on_fall_area_body_entered"]
 [connection signal="body_entered" from="secretArea/FallArea" to="." method="_on_fall_area_body_entered"]

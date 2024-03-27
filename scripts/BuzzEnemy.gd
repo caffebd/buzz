@@ -23,11 +23,12 @@ var start_pos := Vector3.ZERO
 
 func _ready():
 	start_pos = position
-	match GlobalVars.difficulty_level:
-		0:
-			patrolSpeed *= 0.55
-		1:
-			patrolSpeed *= 0.75
+	if not final_buzz:
+		match GlobalVars.difficulty_level:
+			0:
+				patrolSpeed *= 0.55
+			1:
+				patrolSpeed *= 0.75
 
 func _physics_process(delta):
 	if harmless: return
@@ -93,7 +94,7 @@ func _on_death_area_body_entered(body):
 			player.hud.cover_fade_death()
 
 func game_over_call():
-	get_tree().change_scene_to_file("res://scenes/OverScreen.tscn")
+	get_tree().change_scene_to_file("res://scenes/outro.tscn")
 
 func _on_warn_area_body_entered(body):
 	if body.get_groups().has("Player"):

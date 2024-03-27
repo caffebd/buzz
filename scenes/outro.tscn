@@ -1,0 +1,267 @@
+[gd_scene load_steps=18 format=3 uid="uid://bj5p3wlp6cgs1"]
+
+[ext_resource type="Script" path="res://scripts/outro.gd" id="1_upelj"]
+[ext_resource type="Environment" uid="uid://bbpbibs2x4nw" path="res://assets/env/introSceneEnv.tres" id="2_drto3"]
+[ext_resource type="ArrayMesh" uid="uid://ctrcuv44te42g" path="res://assets/imported/introPath.obj" id="3_rmpva"]
+[ext_resource type="Material" uid="uid://cgbcbh7wtjkk1" path="res://assets/materials/wireframe/wireframe1.tres" id="4_4hw3n"]
+[ext_resource type="PackedScene" uid="uid://dj8aqolgkt68e" path="res://scenes/player_sway.tscn" id="5_u1qsq"]
+[ext_resource type="PackedScene" uid="uid://c3e8vsx4cw4ik" path="res://scenes/BuzzEnemy.tscn" id="6_2qjys"]
+[ext_resource type="PackedScene" uid="uid://cbni5nn22l6rl" path="res://scenes/secret_sign.tscn" id="7_kb42j"]
+[ext_resource type="FontFile" uid="uid://cnv2p7n8e175w" path="res://assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf" id="8_nv7le"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mah4u"]
+points = PackedVector3Array(-55, -0.01, -3, -55, -0.01, 3, -55, 0.01, -3, 55, -0.01, -3, -55, 0.01, 3, 55, -0.01, 3, 55, 0.01, -3, 55, 0.01, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6hwpb"]
+size = Vector3(0.33, 3.075, 150)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nipdv"]
+size = Vector3(6.62, 2.705, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_irku1"]
+size = Vector3(6.29, 0.815, 7.355)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mw7mb"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_11www"]
+material = SubResource("StandardMaterial3D_mw7mb")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_a4eu3"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xwilw"]
+size = Vector3(3.385, 1, 0.275)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tls31"]
+size = Vector3(22.61, 1, 50)
+
+[node name="Outro" type="Node3D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_upelj")
+player = NodePath("PlayerSway")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_drto3")
+
+[node name="IntroPath" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 28.7687)
+mesh = ExtResource("3_rmpva")
+surface_material_override/0 = ExtResource("4_4hw3n")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="IntroPath"]
+
+[node name="PathColl" type="CollisionShape3D" parent="IntroPath/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_mah4u")
+
+[node name="PlayerSway" parent="." instance=ExtResource("5_u1qsq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36781, 70.0551)
+
+[node name="Side1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48223, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Side1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58672, 1.08997, 0)
+shape = SubResource("BoxShape3D_6hwpb")
+
+[node name="Side2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91496, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Side2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58672, 1.08997, 0)
+shape = SubResource("BoxShape3D_6hwpb")
+
+[node name="Back" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03376, 74.3937)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Back"]
+shape = SubResource("BoxShape3D_nipdv")
+
+[node name="Back2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03376, 7.44943)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Back2"]
+shape = SubResource("BoxShape3D_nipdv")
+
+[node name="End" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.897789, 50.4772)
+
+[node name="EndCol" type="CollisionShape3D" parent="End"]
+shape = SubResource("BoxShape3D_irku1")
+
+[node name="BuzzEnemy" parent="." instance=ExtResource("6_2qjys")]
+transform = Transform3D(2.09575, 0, 0, 0, 2.09575, 0, 0, 0, 2.09575, 0, 0.922133, 8.64075)
+using_navmesh = false
+harmless = true
+
+[node name="Barrier" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(6.62955, 0, 0, 0, 2.42831, 0, 0, 0, 0.202441, 0, 1.19158, 45.5585)
+mesh = SubResource("BoxMesh_11www")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Barrier"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrier/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_a4eu3")
+
+[node name="SecretSign12" parent="Barrier" instance=ExtResource("7_kb42j")]
+transform = Transform3D(-0.15084, 0, -1.31868e-08, 0, 0.411809, 0, 4.31843e-07, 0, -4.93971, 0.0784759, -0.227215, -1.19778)
+skeleton = NodePath("../..")
+
+[node name="Label3D" parent="Barrier/SecretSign12" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58035e-05, 0.376975, 0.0664101)
+text = "no going
+back"
+font_size = 28
+outline_size = 3
+
+[node name="BarrierTrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.725644, 20.7251)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BarrierTrigger"]
+shape = SubResource("BoxShape3D_xwilw")
+
+[node name="SecretSign" parent="." instance=ExtResource("7_kb42j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06654, 0.639835, 65.8649)
+
+[node name="Label3D" parent="SecretSign" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00782442, 0.382708, 0.0635452)
+text = "Simulation
+Complete"
+
+[node name="SecretSign2" parent="." instance=ExtResource("7_kb42j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05724, 0.639835, 61.8444)
+
+[node name="Label3D" parent="SecretSign2" index="0"]
+text = "Safe path
+found"
+
+[node name="SecretSign3" parent="." instance=ExtResource("7_kb42j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04288, 0.639835, 57.8355)
+
+[node name="Label3D" parent="SecretSign3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58035e-05, 0.376975, 0.0664101)
+text = "Secret Areas found 2/2"
+font_size = 26
+outline_size = 2
+autowrap_mode = 2
+width = 250.0
+
+[node name="SecretSign4" parent="." instance=ExtResource("7_kb42j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94102, 0.639835, 53.7228)
+
+[node name="Label3D" parent="SecretSign4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58035e-05, 0.376975, 0.0664101)
+text = "99 Anomaly Encounters"
+font_size = 26
+outline_size = 2
+autowrap_mode = 2
+width = 250.0
+
+[node name="SecretSign5" parent="." instance=ExtResource("7_kb42j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05902, 0.639835, 49.7193)
+
+[node name="Label3D" parent="SecretSign5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58035e-05, 0.376975, 0.0664101)
+text = "Encounter Rate MEDIUM"
+font_size = 26
+autowrap_mode = 2
+width = 200.0
+
+[node name="SecretSign12" parent="." instance=ExtResource("7_kb42j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.941085, 0.639835, 45.8444)
+
+[node name="Label3D" parent="SecretSign12" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58035e-05, 0.487845, 0.0664101)
+text = "Recommendation:
+"
+font_size = 18
+outline_size = 1
+
+[node name="RecLabel" type="Label3D" parent="SecretSign12"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58035e-05, 0.313751, 0.0664101)
+modulate = Color(0.247059, 1, 1, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "Termination
+"
+font = ExtResource("8_nv7le")
+font_size = 22
+outline_size = 2
+uppercase = true
+
+[node name="SecretSign6" parent="." instance=ExtResource("7_kb42j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03519, 0.639835, 35.9187)
+
+[node name="Label3D" parent="SecretSign6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58035e-05, 0.376975, 0.0664101)
+text = "Contact
+causes"
+
+[node name="SecretSign7" parent="." instance=ExtResource("7_kb42j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0494, 0.639835, 33.9326)
+
+[node name="Label3D" parent="SecretSign7" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58035e-05, 0.376975, 0.0664101)
+text = "time
+loops"
+
+[node name="SecretSign8" parent="." instance=ExtResource("7_kb42j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04502, 0.639835, 29.8742)
+
+[node name="Label3D" parent="SecretSign8" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58035e-05, 0.376975, 0.0664101)
+text = "Origin:
+Bangladesh"
+font_size = 28
+outline_size = 3
+
+[node name="SecretSign9" parent="." instance=ExtResource("7_kb42j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93776, 0.639835, 25.9485)
+
+[node name="Label3D" parent="SecretSign9" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58035e-05, 0.376975, 0.0664101)
+text = "TASK:"
+font_size = 33
+
+[node name="SecretSign10" parent="." instance=ExtResource("7_kb42j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03794, 0.639835, 23.9143)
+
+[node name="Label3D" parent="SecretSign10" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58035e-05, 0.376975, 0.0664101)
+text = "exit cave
+system"
+font_size = 28
+outline_size = 3
+
+[node name="SecretSign11" parent="." instance=ExtResource("7_kb42j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2446, 0.639835, 14.8591)
+
+[node name="Label3D" parent="SecretSign11" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58035e-05, 0.376975, 0.0664101)
+text = "keep walking"
+font_size = 28
+outline_size = 3
+
+[node name="KillArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -55.681, 59.9645)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillArea"]
+shape = SubResource("BoxShape3D_tls31")
+
+[connection signal="body_entered" from="End" to="." method="_on_end_body_entered"]
+[connection signal="body_entered" from="BarrierTrigger" to="." method="_on_barrier_trigger_body_entered"]
+[connection signal="body_entered" from="KillArea" to="." method="_on_kill_area_body_entered"]
+
+[editable path="Barrier/SecretSign12"]
+[editable path="SecretSign"]
+[editable path="SecretSign2"]
+[editable path="SecretSign3"]
+[editable path="SecretSign4"]
+[editable path="SecretSign5"]
+[editable path="SecretSign12"]
+[editable path="SecretSign6"]
+[editable path="SecretSign7"]
+[editable path="SecretSign8"]
+[editable path="SecretSign9"]
+[editable path="SecretSign10"]
+[editable path="SecretSign11"]
