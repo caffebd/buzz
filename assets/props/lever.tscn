@@ -1,64 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://cygxyydymwdxm"]
+[gd_scene load_steps=10 format=3 uid="uid://cygxyydymwdxm"]
 
-[ext_resource type="PackedScene" uid="uid://gtcihlort0us" path="res://assets/props/imported/lever.glb" id="1_62a5d"]
-[ext_resource type="Script" path="res://scripts/PullLever.gd" id="2_23c3y"]
-[ext_resource type="Material" uid="uid://daqbsfmujargs" path="res://assets/materials/metal/metal1.tres" id="2_ens7s"]
-[ext_resource type="Material" uid="uid://b802qqv0b8ssc" path="res://assets/materials/misc/leverLight.tres" id="3_7v20o"]
+[ext_resource type="PackedScene" uid="uid://gtcihlort0us" path="res://assets/props/imported/lever.glb" id="1_lrff6"]
+[ext_resource type="Material" uid="uid://bm5mmlclkh2no" path="res://assets/materials/metal/metal4.tres" id="2_12kja"]
+[ext_resource type="Material" uid="uid://bsdxwmfanaisb" path="res://assets/resources/lightEmitter.tres" id="3_poo0a"]
 
-[sub_resource type="Animation" id="Animation_ev6f6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cylinder_011:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cylinder_011:surface_material_override/2:emission_energy_multiplier")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.5]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Cylinder_011:surface_material_override/2:albedo_color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0, 0.0470588, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Cylinder_011:surface_material_override/2:emission")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_oiaqu"]
+[sub_resource type="Animation" id="Animation_y64wm"]
 resource_name = "lever_on"
-length = 0.7
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -66,103 +14,54 @@ tracks/0/path = NodePath("Cylinder_011:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-1.1378, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(1.07247, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Cylinder_011:surface_material_override/2:emission_energy_multiplier")
+tracks/1/path = NodePath("OmniLight3D:light_energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [2.5, 2.5, 2.8]
+"values": [0.0, 0.131]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Cylinder_011:surface_material_override/2:emission")
+tracks/2/path = NodePath("Cylinder_011:surface_material_override/2:emission_energy_multiplier")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 0, 0, 1), Color(0, 1, 0, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Cylinder_011:surface_material_override/2:albedo_color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 0, 0.0470588, 1), Color(0, 1, 0.0470588, 1)]
+"values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_cqwwx"]
-resource_name = "already_on"
+[sub_resource type="Animation" id="Animation_xh8c8"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cylinder_011:rotation")
+tracks/0/path = NodePath("Cylinder_011:surface_material_override/2:emission_energy_multiplier")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-1.1378, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cylinder_011:surface_material_override/2:emission_energy_multiplier")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.8]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Cylinder_011:surface_material_override/2:emission")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 1, 0, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Cylinder_011:surface_material_override/2:albedo_color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 1, 0.0470588, 1)]
+"values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_6tby4"]
+[sub_resource type="Animation" id="Animation_3lejp"]
 resource_name = "lever_off"
-length = 0.7
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -170,49 +69,37 @@ tracks/0/path = NodePath("Cylinder_011:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-1.1378, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(1.07247, 0, 0), Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Cylinder_011:surface_material_override/2:emission_energy_multiplier")
+tracks/1/path = NodePath("OmniLight3D:light_energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [2.8, 2.5]
+"values": [0.131, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Cylinder_011:surface_material_override/2:albedo_color")
+tracks/2/path = NodePath("Cylinder_011:surface_material_override/2:emission_energy_multiplier")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 1, 0.0470588, 1), Color(1, 0, 0.0470588, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Cylinder_011:surface_material_override/2:emission")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0.648447, 1.92523e-07, 1), Color(1, 0, 0, 1)]
+"values": [1.0, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_o3bu7"]
+[sub_resource type="Animation" id="Animation_icers"]
 resource_name = "already_off"
 length = 0.001
 tracks/0/type = "value"
@@ -230,63 +117,95 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Cylinder_011:surface_material_override/2:emission_energy_multiplier")
+tracks/1/path = NodePath("OmniLight3D:light_energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [2.5]
+"values": [0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Cylinder_011:surface_material_override/2:albedo_color")
+tracks/2/path = NodePath("Cylinder_011:surface_material_override/2:emission_energy_multiplier")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 0, 0.0470588, 1)]
+"values": [0.0]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Cylinder_011:surface_material_override/2:emission")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+
+[sub_resource type="Animation" id="Animation_dwim3"]
+resource_name = "already_on"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cylinder_011:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 0, 0, 1)]
+"values": [Vector3(1.07247, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.131]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cylinder_011:surface_material_override/2:emission_energy_multiplier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bc4cl"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qydu3"]
 _data = {
-"RESET": SubResource("Animation_ev6f6"),
-"already_off": SubResource("Animation_o3bu7"),
-"already_on": SubResource("Animation_cqwwx"),
-"lever_off": SubResource("Animation_6tby4"),
-"lever_on": SubResource("Animation_oiaqu")
+"RESET": SubResource("Animation_xh8c8"),
+"already_off": SubResource("Animation_icers"),
+"already_on": SubResource("Animation_dwim3"),
+"lever_off": SubResource("Animation_3lejp"),
+"lever_on": SubResource("Animation_y64wm")
 }
 
-[node name="lever" instance=ExtResource("1_62a5d")]
-script = ExtResource("2_23c3y")
+[node name="lever" instance=ExtResource("1_lrff6")]
 
 [node name="Cylinder_011" parent="." index="0"]
-transform = Transform3D(0.403295, 0, 0, 0, 0.403295, 0, 0, 0, 0.403295, 0.000631593, -0.0010593, -0.000370128)
-surface_material_override/0 = ExtResource("2_ens7s")
-surface_material_override/1 = ExtResource("2_ens7s")
-surface_material_override/2 = ExtResource("3_7v20o")
+transform = Transform3D(0.403295, 0, 0, 0, 0.192758, -0.354248, 0, 0.354248, 0.192758, 0.000631593, -0.0010593, -0.000370128)
+surface_material_override/0 = ExtResource("2_12kja")
+surface_material_override/1 = ExtResource("2_12kja")
+surface_material_override/2 = ExtResource("3_poo0a")
 
 [node name="Circle_013" parent="." index="1"]
-surface_material_override/0 = ExtResource("2_ens7s")
+surface_material_override/0 = ExtResource("2_12kja")
 
-[node name="LeverAnim" type="AnimationPlayer" parent="." index="2"]
-unique_name_in_owner = true
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.243953, 0)
+light_color = Color(0.937255, 0.811765, 0.443137, 1)
+light_energy = 0.131
+shadow_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 libraries = {
-"": SubResource("AnimationLibrary_bc4cl")
+"": SubResource("AnimationLibrary_qydu3")
 }

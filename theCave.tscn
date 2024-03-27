@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=3 uid="uid://bemeghhhf4cwr"]
+[gd_scene load_steps=140 format=3 uid="uid://bemeghhhf4cwr"]
 
 [ext_resource type="Script" path="res://scripts/MainCave.gd" id="1_wnv3q"]
 [ext_resource type="ArrayOccluder3D" uid="uid://ytjnoassvn75" path="res://assets/resources/cave_occ_5.occ" id="2_cayuj"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://nb0lreegw6ru" path="res://assets/props/lantern.tscn" id="2_yl8qj"]
 [ext_resource type="PackedScene" uid="uid://cs0dn8ou7cuv" path="res://assets/props/crate_2.tscn" id="3_v5vlg"]
 [ext_resource type="PackedScene" uid="uid://d3jb84s5unxo2" path="res://assets/props/crate_1.tscn" id="4_jnikq"]
-[ext_resource type="PackedScene" uid="uid://cn3m1sobi3w00" path="res://assets/props/cave_2.tscn" id="4_w5610"]
+[ext_resource type="PackedScene" uid="uid://dbf3il0amco4r" path="res://assets/props/cave_2.tscn" id="4_w5610"]
 [ext_resource type="PackedScene" uid="uid://d2yb2l371yrpy" path="res://assets/props/secret_board.tscn" id="5_876fr"]
 [ext_resource type="Material" uid="uid://bm5mmlclkh2no" path="res://assets/materials/metal/metal4.tres" id="5_e4u4f"]
 [ext_resource type="PackedScene" uid="uid://cqrhoydbclpv4" path="res://assets/props/elec_light.tscn" id="6_a2gbo"]
@@ -48,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://1j45pyj2m8kb" path="res://assets/textures/miscTextures/map/map 7.png" id="44_jc61u"]
 [ext_resource type="Texture2D" uid="uid://dwaawlchha2yl" path="res://assets/textures/miscTextures/map/map 1.png" id="45_vyx8p"]
 [ext_resource type="PackedScene" uid="uid://u4hxq1msejna" path="res://scenes/secretRoom.tscn" id="50_4xnoy"]
+[ext_resource type="PackedScene" uid="uid://cygxyydymwdxm" path="res://assets/props/lever.tscn" id="50_exakp"]
 [ext_resource type="PackedScene" uid="uid://c7vqoxchxma4g" path="res://scenes/secret_key.tscn" id="51_2mfg0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1u0j2"]
@@ -2230,6 +2231,9 @@ sky_mode = 1
 
 [node name="SecretKey" parent="secretArea" instance=ExtResource("51_2mfg0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3776, 0, 0)
+
+[node name="lever" parent="." instance=ExtResource("50_exakp")]
+transform = Transform3D(2.03283, 0, 0, 0, 2.03283, 0, 0, 0, 2.03283, -33.4566, 2.05429, 6.72496)
 
 [connection signal="body_entered" from="cave2/PlatformDeathArea" to="." method="_on_platform_death_area_body_entered"]
 [connection signal="body_entered" from="cave2/ElevatorDeathArea" to="." method="_on_platform_death_area_body_entered"]
