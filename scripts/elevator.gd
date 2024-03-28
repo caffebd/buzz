@@ -51,6 +51,7 @@ func door_col_state():
 func _on_inside_trigger_body_entered(body):
 	if body.is_in_group("Player") and not door_was_closed:
 		door_was_closed = true
+		GlobalVars.in_lift = true
 		connected_buzz.attack_player = false
 		#GlobalSignals.emit_signal("cave_body_off", true)
 		GlobalSignals.emit_signal("elevator_close")
@@ -65,6 +66,7 @@ func _on_inside_trigger_body_entered(body):
 		yield_timer_a.start(3);
 		await yield_timer_a.timeout
 		move_up = true
+		$ElevatorMoving.play()
 		call_buzz.attack_player = true
 		var yield_timer_b = Timer.new()
 		add_child(yield_timer_b)

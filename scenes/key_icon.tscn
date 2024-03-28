@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://drdrhpc5dcafn"]
 
-[ext_resource type="Texture2D" uid="uid://cecvihalm81t0" path="res://assets/ui/key_icon_sml.png" id="1_boa5r"]
+[ext_resource type="Texture2D" uid="uid://datdw27kwlpt" path="res://assets/textures/uiTextures/keyIcon-sml.png" id="1_jtk56"]
 
 [node name="keyIcon" type="TextureRect"]
-texture = ExtResource("1_boa5r")
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("1_jtk56")

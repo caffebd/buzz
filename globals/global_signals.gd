@@ -68,3 +68,6 @@ signal take_damage()
 signal reward_over()
 
 signal light_up_crates()
+
+signal cave_environment()
+signal maze_environment()

@@ -6,6 +6,8 @@ var player: CharacterBody3D
 
 var picked: bool = false
 
+@export var is_fake: bool = false
+
 @export var is_visible: bool = true
 @export var switch_effected: bool = true
 
@@ -14,6 +16,8 @@ func _ready():
 	GlobalSignals.key_show.connect(_key_show)
 	visible = is_visible
 	%KeyCol.disabled = !is_visible
+	if is_fake:
+		%KeyCol.disabled = true
 
 
 
@@ -23,7 +27,7 @@ func _key_show(state):
 		%KeyCol.disabled = !state
 	
 func use_action(the_player):
-	if picked:
+	if picked or is_fake:
 		return
 	picked = true
 	%keyCollect.play()

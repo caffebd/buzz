@@ -367,7 +367,7 @@ size = Vector3(0.1, 0.3, 0.22)
 script = ExtResource("2_gy7x2")
 
 [node name="Cylinder_011" parent="." index="0"]
-transform = Transform3D(0.403295, 0, 0, 0, 0.403296, 0, 0, 0, 0.403296, 0.000631593, -0.0010593, -0.000370128)
+transform = Transform3D(0.403295, 0, 0, 0, 0.192758, -0.354249, 0, 0.354249, 0.192758, 0.000631593, -0.0010593, -0.000370128)
 mesh = SubResource("ArrayMesh_npfw8")
 surface_material_override/0 = SubResource("StandardMaterial3D_b4seh")
 surface_material_override/1 = SubResource("StandardMaterial3D_b4seh")

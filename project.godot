@@ -109,5 +109,7 @@ test_open={
 [rendering]
 
 textures/default_filters/anisotropic_filtering_level=0
+environment/ssao/quality=0
+environment/ssil/quality=0
 environment/glow/upscale_mode=0
 occlusion_culling/use_occlusion_culling=true

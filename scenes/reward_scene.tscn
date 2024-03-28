@@ -1,16 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://b6crdl1usv8fp"]
+[gd_scene load_steps=22 format=3 uid="uid://b6crdl1usv8fp"]
 
 [ext_resource type="PackedScene" uid="uid://57wrtv30uanq" path="res://scenes/reward_maze.tscn" id="1_2rc22"]
 [ext_resource type="Script" path="res://scripts/reward_scene.gd" id="1_4mtwt"]
 [ext_resource type="PackedScene" uid="uid://c0thkom80vbpv" path="res://scenes/player_shoot.tscn" id="2_caie8"]
 [ext_resource type="Environment" uid="uid://dy4pbxglf20qk" path="res://assets/env/secretRoomEnv.tres" id="2_eoux8"]
 [ext_resource type="FontFile" uid="uid://cnv2p7n8e175w" path="res://assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf" id="4_kxnfo"]
-[ext_resource type="Texture2D" uid="uid://b5126amix1jvu" path="res://assets/ui/time_icon.png" id="6_5ceue"]
+[ext_resource type="Texture2D" uid="uid://mys81ubcwhyb" path="res://assets/textures/uiTextures/time.png" id="6_33eqt"]
 [ext_resource type="FontFile" uid="uid://bs5t4chqd6rde" path="res://assets/fonts/Comfortaa/static/Comfortaa-Regular.ttf" id="6_w6d8h"]
 [ext_resource type="AudioStream" uid="uid://uux6qce4i3b5" path="res://assets/audio/RewardAudio/game_over.mp3" id="7_23l12"]
 [ext_resource type="Texture2D" uid="uid://cjs1v3d2m5rrj" path="res://assets/ui/health_icon.png" id="7_y3boy"]
 [ext_resource type="AudioStream" uid="uid://b0bumj78gimfn" path="res://assets/audio/RewardAudio/collect_ammo.mp3" id="8_6ykc3"]
-[ext_resource type="Texture2D" uid="uid://dtyofg0gj2ora" path="res://assets/ui/ammo_icon.png" id="8_m4t73"]
+[ext_resource type="Texture2D" uid="uid://bgwklwajsn8ok" path="res://assets/textures/uiTextures/ammo.png" id="8_kekl5"]
 [ext_resource type="AudioStream" uid="uid://drbygjes4e1pu" path="res://assets/audio/RewardAudio/kill_enemy.mp3" id="9_bm5b5"]
 [ext_resource type="AudioStream" uid="uid://drlmxl120iuxc" path="res://assets/audio/RewardAudio/buzz_reward-music.mp3" id="13_8tgt5"]
 [ext_resource type="AudioStream" uid="uid://drqxf2wm0iemb" path="res://assets/audio/RewardAudio/new_best_time.mp3" id="14_a0qwd"]
@@ -43,6 +43,15 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu0t4"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uo3p1"]
+material = SubResource("StandardMaterial3D_hu0t4")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ncwgy"]
+
 [node name="RewardScene" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_4mtwt")
 player = NodePath("PlayerShoot")
@@ -53,7 +62,7 @@ environment = ExtResource("2_eoux8")
 [node name="RewardMaze" parent="." instance=ExtResource("1_2rc22")]
 
 [node name="PlayerShoot" parent="." instance=ExtResource("2_caie8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9836, 1, 2.02655)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8885, 1, 2.02655)
 
 [node name="EnemyPositions" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -142,11 +151,12 @@ text = "999
 
 [node name="TimeIcon" type="TextureRect" parent="UI"]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 4.0
-offset_right = 138.0
-offset_bottom = 100.0
-texture = ExtResource("6_5ceue")
+offset_left = 46.0
+offset_top = 12.0
+offset_right = 174.0
+offset_bottom = 140.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_33eqt")
 
 [node name="HealthIcon" type="TextureRect" parent="UI"]
 layout_mode = 0
@@ -162,8 +172,8 @@ offset_left = 798.0
 offset_top = 24.0
 offset_right = 898.0
 offset_bottom = 124.0
-scale = Vector2(0.65, 0.65)
-texture = ExtResource("8_m4t73")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_kekl5")
 
 [node name="Rewardpop" type="ColorRect" parent="UI"]
 unique_name_in_owner = true
@@ -279,7 +289,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Ammo0" type="Marker3D" parent="AmmoSpawn"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9075, 0, 1.7439)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9075, 0, 1.93776)
 
 [node name="Ammo1" type="Marker3D" parent="AmmoSpawn"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01022, 0, -10.1122)
@@ -307,6 +317,15 @@ autoplay = true
 [node name="NewBestTime" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("14_a0qwd")
+
+[node name="StartWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.67393, 0, 0, 0, 1.67393, 0, 0, 0, 1.67393, 23.9097, 0, 1.97087)
+mesh = SubResource("BoxMesh_uo3p1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StartWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StartWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_ncwgy")
 
 [connection signal="timeout" from="EnemySpeedTimer" to="." method="_on_enemy_speed_timer_timeout"]
 [connection signal="pressed" from="UI/Rewardpop/PlayReward" to="." method="_on_play_reward_pressed"]

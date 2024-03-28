@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://f130ed7o7f8t"]
+[gd_scene load_steps=11 format=3 uid="uid://f130ed7o7f8t"]
 
 [ext_resource type="PackedScene" uid="uid://bibonef818845" path="res://assets/props/imported/elevator.glb" id="1_5enq8"]
 [ext_resource type="Material" uid="uid://dsdwmotmbxqc0" path="res://assets/materials/metal/fence1.tres" id="2_aq2au"]
 [ext_resource type="Script" path="res://scripts/elevator.gd" id="2_ta8bw"]
 [ext_resource type="Material" uid="uid://char0yh5m5fx0" path="res://assets/materials/metal/metal3.tres" id="3_mxom8"]
 [ext_resource type="PackedScene" uid="uid://cqrhoydbclpv4" path="res://assets/props/elec_light.tscn" id="5_l78rl"]
+[ext_resource type="AudioStream" uid="uid://762mdtpu7wrx" path="res://assets/audio/wooden_lift_rise.mp3" id="6_5bb0s"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hkm3t"]
 data = PackedVector3Array(-1.4082, -3.3984, -1.5933, 1.3139, -0.0725, -1.5933, 1.3139, -3.3984, -1.5933, -1.4082, -3.3984, -1.5933, -1.4082, -0.0725, -1.5933, 1.3139, -0.0725, -1.5933, -1.4082, -3.3984, 1.5933, 1.3139, -0.0725, 1.5933, -1.4082, -0.0725, 1.5933, -1.4082, -3.3984, 1.5933, 1.3139, -3.3984, 1.5933, 1.3139, -0.0725, 1.5933, -1.4062, -3.3984, 1.5385, -1.4062, -0.0724, -1.5582, -1.4062, -3.3984, -1.5582, -1.4062, -3.3984, 1.5385, -1.4062, -0.0724, 1.5385, -1.4062, -0.0724, -1.5582)
@@ -64,5 +65,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.187804, -0.612356, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InsideTrigger" index="0"]
 shape = SubResource("BoxShape3D_vas1l")
+
+[node name="ElevatorMoving" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("6_5bb0s")
+volume_db = -15.928
 
 [connection signal="body_entered" from="InsideTrigger" to="." method="_on_inside_trigger_body_entered"]

@@ -24,6 +24,8 @@ var reward_unlocked: bool = false
 
 var reward_time: int = 0
 
+var in_lift: bool = false
+
 enum RealStates{
 	tape1,
 	tape2,

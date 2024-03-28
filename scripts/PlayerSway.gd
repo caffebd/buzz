@@ -75,6 +75,8 @@ func _ready():
 	GlobalSignals.lamp_set_up.connect(_lamp_set_up)
 	GlobalSignals.cut_scene.connect(_cut_scene)
 	GlobalSignals.teleport.connect(_teleport)
+	GlobalSignals.cave_environment.connect(_cave_environment)
+	GlobalSignals.maze_environment.connect(_maze_envrionment)
 #	Temp chnage player mask to go through cave
 	#GlobalSignals.parent_to_elevator.connect(_temp_mask_change)
 	
@@ -93,15 +95,56 @@ func _teleport(dir):
 		global_position = secret_room_pos.global_position
 		freeze_controls = false
 		GlobalSignals.emit_signal("secret_area", true)
-		world_env.environment.volumetric_fog_enabled = false
-		world_env.environment.glow_enabled = true
-		world_env.environment.glow_bloom = 0.8
-		world_env.environment.glow_hdr_scale = 1.75
-		world_env.environment.ambient_light_source =Environment.AMBIENT_SOURCE_DISABLED
-		world_env.environment.reflected_light_source = Environment.REFLECTION_SOURCE_DISABLED
-		world_env.environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
-		world_env.environment.tonemap_exposure = 2.93
-		
+		#GlobalSignals.emit_signal("maze_environment")
+
+
+func _maze_envrionment():
+	print ("maze env set")
+	return
+	world_env.environment.fog_enabled = true
+	world_env.environment.fog_mode = Environment.FOG_MODE_DEPTH
+	world_env.environment.fog_light_color = Color(0,0,0)
+	world_env.environment.fog_density = 1.0
+	world_env.environment.fog_depth_begin = 0
+	world_env.environment.fog_depth_end = 21.1
+	
+	world_env.environment.volumetric_fog_enabled = true
+	world_env.environment.volumetric_fog_density = 0.612
+	world_env.environment.volumetric_fog_albedo = Color(0.126, 0.126,0.126 )
+	world_env.environment.volumetric_fog_emission_energy = 8.47
+	world_env.environment.volumetric_fog_length = 64.0
+	
+	world_env.environment.background_mode = Environment.BG_COLOR
+	world_env.environment.background_color = Color(0,0,0)
+	world_env.environment.background_energy_multiplier = 1.0
+	
+	world_env.environment.reflected_light_source = Environment.REFLECTION_SOURCE_DISABLED
+	world_env.environment.ambient_light_source = Environment.AMBIENT_SOURCE_DISABLED
+	
+	world_env.environment.reflected_light_source = Environment.REFLECTION_SOURCE_DISABLED
+	world_env.environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
+	world_env.environment.tonemap_exposure = 2.93	
+	
+
+func _cave_environment():
+	world_env.environment.background_mode = Environment.BG_COLOR
+	world_env.environment.background_color = Color(0,0,0)
+	world_env.environment.background_energy_multiplier = 0
+	
+	world_env.environment.ambient_light_source = Environment.AMBIENT_SOURCE_BG
+	world_env.environment.ambient_light_energy = 0
+	world_env.environment.tonemap_mode = Environment.TONE_MAPPER_ACES
+	world_env.environment.tonemap_exposure = 1.0
+
+	world_env.environment.fog_enabled = false
+	
+	world_env.environment.volumetric_fog_enabled = true
+	world_env.environment.volumetric_fog_density = 0.0921
+	world_env.environment.volumetric_fog_albedo = Color(0.38, 0.514,0.4 )
+	world_env.environment.volumetric_fog_emission = Color(0.096,0.096,0.096)
+	world_env.environment.volumetric_fog_emission_energy = 1
+	world_env.environment.volumetric_fog_length = 19.56
+	
 func set_start_position(start_pos:Vector3, dir: float = 0.0):
 	global_position = start_pos
 	head.rotate_y(dir)
@@ -129,6 +172,8 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60)) 
 	if Input.is_action_just_pressed("ui_cancel"):
+		if GlobalVars.in_lift:
+			return
 		if use_cursor:
 			GlobalSignals.emit_signal("hud_menu_cover", false)
 			use_cursor = false

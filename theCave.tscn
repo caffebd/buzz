@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://bemeghhhf4cwr"]
+[gd_scene load_steps=139 format=3 uid="uid://bemeghhhf4cwr"]
 
 [ext_resource type="Script" path="res://scripts/MainCave.gd" id="1_wnv3q"]
 [ext_resource type="ArrayOccluder3D" uid="uid://ytjnoassvn75" path="res://assets/resources/cave_occ_5.occ" id="2_cayuj"]
@@ -45,6 +45,8 @@
 [ext_resource type="Texture2D" uid="uid://1o6obfrsa8f3" path="res://assets/textures/miscTextures/map/map 9.jpg" id="43_kboyv"]
 [ext_resource type="Texture2D" uid="uid://1j45pyj2m8kb" path="res://assets/textures/miscTextures/map/map 7.png" id="44_jc61u"]
 [ext_resource type="Texture2D" uid="uid://dwaawlchha2yl" path="res://assets/textures/miscTextures/map/map 1.png" id="45_vyx8p"]
+[ext_resource type="PackedScene" uid="uid://cbni5nn22l6rl" path="res://scenes/secret_sign.tscn" id="48_3wdqq"]
+[ext_resource type="AudioStream" uid="uid://qhejm2msopgi" path="res://assets/audio/maze_complete.mp3" id="49_vrf7d"]
 [ext_resource type="PackedScene" uid="uid://u4hxq1msejna" path="res://scenes/secretRoom.tscn" id="50_4xnoy"]
 [ext_resource type="PackedScene" uid="uid://c7vqoxchxma4g" path="res://scenes/secret_key.tscn" id="51_2mfg0"]
 
@@ -1102,6 +1104,9 @@ albedo_texture = ExtResource("45_vyx8p")
 [sub_resource type="BoxShape3D" id="BoxShape3D_302k6"]
 size = Vector3(180, 1, 160)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_o036x"]
+size = Vector3(1.89, 1.165, 3.52)
+
 [node name="MainCave" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_wnv3q")
 player = NodePath("Player")
@@ -1740,11 +1745,11 @@ transform = Transform3D(0.292405, 0, -0.956295, 0, 1, 0, 0.956295, 0, 0.292405, 
 linked_lights = [NodePath("../../ElectricLights/ElecLight3")]
 connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy3")
 
-[node name="switch4" parent="Switches" node_paths=PackedStringArray("linked_lights", "linked_object") instance=ExtResource("14_t2u5u")]
+[node name="switch4" parent="Switches" node_paths=PackedStringArray("linked_lights", "linked_object", "connected_buzz") instance=ExtResource("14_t2u5u")]
 transform = Transform3D(0.358987, 0, 0.933342, 0, 1, 0, -0.933342, 0, 0.358987, 21.9121, 2.36172, 46.2307)
 linked_lights = [NodePath("../../ElectricLights/elecLight4a"), NodePath("../../ElectricLights/elecLight4b"), NodePath("../../ElectricLights/elecLight4d"), NodePath("../../ElectricLights/elecLight4c")]
 linked_object = [NodePath("../../PullLevers/lever2"), NodePath("../../PullLevers/lever3"), NodePath("../../PullLevers/lever4"), NodePath("../../PullLevers/lever5")]
-connected_buzz = NodePath("")
+connected_buzz = NodePath("../../BuzzEnemies/BuzzEnemy4")
 
 [node name="switch5" parent="Switches" node_paths=PackedStringArray("linked_lights", "linked_switches", "connected_buzz") instance=ExtResource("14_t2u5u")]
 transform = Transform3D(-0.107789, 0.0260374, 0.993833, 0.0028075, 0.999661, -0.0258856, -0.99417, 0, -0.107826, 17.8909, 3.07002, -16.6481)
@@ -1781,7 +1786,7 @@ is_visible = false
 
 [node name="key3" parent="Keys" instance=ExtResource("10_sfkbf")]
 unique_name_in_owner = true
-transform = Transform3D(0.069861, 0, 0.997557, 0, 1, 0, -0.997557, 0, 0.069861, -53.1229, 2.1047, 6.0739)
+transform = Transform3D(0.069861, 0, 0.997557, 0, 1, 0, -0.997557, 0, 0.069861, -52.6734, 2.12357, 5.01579)
 is_visible = false
 
 [node name="key4" parent="Keys" instance=ExtResource("10_sfkbf")]
@@ -1798,7 +1803,7 @@ transform = Transform3D(1.49985, -0.0209956, 0, 0.0209956, 1.49985, 0, 0, 0, 1.5
 transform = Transform3D(-0.960949, 0, -0.276728, 0, 1, 0, 0.276728, 0, -0.960949, -38.7765, 2.47935, -24.3909)
 
 [node name="Table3" parent="Tables" instance=ExtResource("16_n4pdf")]
-transform = Transform3D(-0.151762, 0, 0.988417, 0, 1, 0, -0.988417, 0, -0.151762, -53.3707, 1.99009, 6.13148)
+transform = Transform3D(0.86193, 0, 0.507028, 0, 1, 0, -0.507028, 0, 0.86193, -53.3707, 1.99009, 5.16693)
 
 [node name="BuzzEnemies" type="Node3D" parent="."]
 
@@ -2211,15 +2216,51 @@ shape = SubResource("BoxShape3D_302k6")
 
 [node name="SecretAreaPos" type="Marker3D" parent="secretArea"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.165, 0.478886, 1.48501)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7472, 0.478886, 1.97493)
 
 [node name="Sun" type="DirectionalLight3D" parent="secretArea"]
 transform = Transform3D(1, 0, 0, 0, 0.729196, 0.684305, 0, -0.684305, 0.729196, 4.49397, -6.7701, 10.4562)
-light_energy = 0.75
+light_energy = 0.3
 sky_mode = 1
 
 [node name="SecretKey" parent="secretArea" instance=ExtResource("51_2mfg0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3776, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24871, 0, 11.9529)
+
+[node name="SecretKey2" parent="secretArea" instance=ExtResource("51_2mfg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8721, 0, 13.9053)
+
+[node name="SecretKey3" parent="secretArea" instance=ExtResource("51_2mfg0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.62124, -0.086956, -15.4649)
+
+[node name="SecretSign" parent="secretArea" instance=ExtResource("48_3wdqq")]
+transform = Transform3D(0.0742825, 0, 0.997237, 0, 1, 0, -0.997237, 0, 0.0742825, 18.0144, 0, 2.04427)
+
+[node name="SecretSign2" parent="secretArea" instance=ExtResource("48_3wdqq")]
+transform = Transform3D(0.0742825, 0, 0.997237, 0, 1, 0, -0.997237, 0, 0.0742825, 15.49, 0, 1.92196)
+
+[node name="Label3D" parent="secretArea/SecretSign2" index="0"]
+text = "Find Exit"
+
+[node name="SecretSign3" parent="secretArea" instance=ExtResource("48_3wdqq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.1353, -0.212616, 23.1294)
+
+[node name="Label3D" parent="secretArea/SecretSign3" index="0"]
+text = "EXIT"
+
+[node name="SecretSign4" parent="secretArea" instance=ExtResource("48_3wdqq")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -29.8125, -0.212616, 23.1294)
+
+[node name="Label3D" parent="secretArea/SecretSign4" index="0"]
+text = "EXIT"
+
+[node name="ExitArea" type="Area3D" parent="secretArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1582, 0, 22.9318)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="secretArea/ExitArea"]
+shape = SubResource("BoxShape3D_o036x")
+
+[node name="MazeCompleteAudio" type="AudioStreamPlayer" parent="secretArea"]
+stream = ExtResource("49_vrf7d")
 
 [connection signal="body_entered" from="cave2/PlatformDeathArea" to="." method="_on_platform_death_area_body_entered"]
 [connection signal="body_entered" from="cave2/ElevatorDeathArea" to="." method="_on_platform_death_area_body_entered"]
@@ -2233,3 +2274,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3776, 0, 0)
 [connection signal="body_entered" from="CheckPointAreas/CheckPoint7" to="." method="_on_check_point_7_body_entered"]
 [connection signal="body_entered" from="CheckPointAreas/CheckPoint8" to="." method="_on_check_point_8_body_entered"]
 [connection signal="body_entered" from="secretArea/FallArea" to="." method="_on_fall_area_body_entered"]
+[connection signal="body_entered" from="secretArea/ExitArea" to="." method="_on_exit_area_body_entered"]
+
+[editable path="secretArea/SecretSign2"]
+[editable path="secretArea/SecretSign3"]
+[editable path="secretArea/SecretSign4"]

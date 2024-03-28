@@ -15,6 +15,7 @@ func use_action(the_player):
 	var hud = the_player.hud
 	if needs_key:
 		if GlobalVars.key_count > 0:
+			%GateOpen.play()
 			var tween = create_tween()
 			tween.tween_property(self, "position:y", 4.2, 2.0)
 			hud._update_key(-1)

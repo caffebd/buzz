@@ -181,7 +181,9 @@ func _on_secret_room_sensor_body_entered(body):
 
 
 
-
-
-
-
+func _on_exit_area_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Player"):
+		$secretArea/MazeCompleteAudio.play()
+		GlobalSignals.emit_signal("secret_area", false)
+		#GlobalSignals.emit_signal("cave_environment")
+		body.global_position = %KeyPadPos.global_position

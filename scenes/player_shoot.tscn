@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c0thkom80vbpv"]
+[gd_scene load_steps=23 format=3 uid="uid://c0thkom80vbpv"]
 
 [ext_resource type="Script" path="res://scripts/player_shoot.gd" id="1_4xdf5"]
 [ext_resource type="PackedScene" uid="uid://7n8g8f8tubsd" path="res://scenes/hud.tscn" id="2_dry2m"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/hand_cam.gd" id="8_suk2n"]
 [ext_resource type="PackedScene" uid="uid://7wklyqh8vc2q" path="res://scenes/weapon.tscn" id="9_t5veu"]
 [ext_resource type="AudioStream" uid="uid://cc4f2ns21cvrf" path="res://assets/audio/RewardAudio/shoot_quick.mp3" id="10_4ae4y"]
+[ext_resource type="PackedScene" uid="uid://bxom4dthfe7x5" path="res://scenes/shorif_gun.tscn" id="10_a5kps"]
 [ext_resource type="AudioStream" uid="uid://cslw2vq81jpl7" path="res://assets/audio/RewardAudio/no_ammo.mp3" id="11_to3b7"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x53lq"]
@@ -237,13 +238,18 @@ script = ExtResource("8_suk2n")
 [node name="Hand" type="Node3D" parent="CanvasLayer/SubViewportContainer/WeaponSubView/HandCam"]
 unique_name_in_owner = true
 
-[node name="Weapon" parent="CanvasLayer/SubViewportContainer/WeaponSubView/HandCam/Hand" instance=ExtResource("9_t5veu")]
+[node name="WeaponOld" parent="CanvasLayer/SubViewportContainer/WeaponSubView/HandCam/Hand" instance=ExtResource("9_t5veu")]
 unique_name_in_owner = true
 transform = Transform3D(0.999507, 0.000931839, 0.0313969, 0, 0.99956, -0.0296662, -0.0314108, 0.0296516, 0.999067, 0.341512, -0.549895, -0.428272)
+visible = false
+
+[node name="Weapon" parent="CanvasLayer/SubViewportContainer/WeaponSubView/HandCam/Hand" instance=ExtResource("10_a5kps")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.286822, -0.626941, -0.987913)
 
 [node name="BulletMarker" type="Marker3D" parent="CanvasLayer/SubViewportContainer/WeaponSubView/HandCam/Hand/Weapon"]
 unique_name_in_owner = true
-transform = Transform3D(1, -2.32831e-10, 0, 0, 1, 0, 0, 0, 1, 0.0104001, -0.0098173, -1.19591)
+transform = Transform3D(0.999507, 0.000931839, 0.0313969, 0, 0.99956, -0.0296662, -0.0314108, 0.0296516, 0.999067, 0.0520845, 0.223253, -0.791838)
 
 [node name="WeaponShoot" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
