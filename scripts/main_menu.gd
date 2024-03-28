@@ -19,6 +19,8 @@ func _setup_reward():
 		
 func _on_play_btn_pressed() -> void:
 	%PlayPop.visible = true
+	%ExitBtn.visible = false
+	%ExitBtn.disabled = true
 	print (GlobalVars.secret_area_found)
 	print (GlobalVars.secret_room_found)
 	if GlobalVars.check_point > 0:
@@ -87,6 +89,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 
 func _on_back_btn_pressed() -> void:
+	%ExitBtn.visible = true
+	%ExitBtn.disabled = false
 	%PlayPop.visible = false
 	%Rewardpop.visible = false
 

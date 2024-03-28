@@ -102,6 +102,7 @@ text = "REWARD"
 flat = true
 
 [node name="ExitBtn" type="Button" parent="."]
+unique_name_in_owner = true
 auto_translate_mode = 1
 layout_mode = 0
 offset_left = 55.0
@@ -128,10 +129,9 @@ texture = ExtResource("7_46y22")
 [node name="PlayPop" type="ColorRect" parent="."]
 unique_name_in_owner = true
 auto_translate_mode = 1
-visible = false
 layout_mode = 0
 offset_left = 1477.0
-offset_top = 748.0
+offset_top = 679.0
 offset_right = 1860.0
 offset_bottom = 1025.0
 color = Color(0, 0, 0, 1)
@@ -155,33 +155,25 @@ flat = true
 unique_name_in_owner = true
 auto_translate_mode = 1
 layout_mode = 0
-offset_left = 22.0
-offset_top = 119.0
-offset_right = 410.0
-offset_bottom = 253.0
+offset_left = -8.0
+offset_top = 124.0
+offset_right = 380.0
+offset_bottom = 258.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.894118, 0.85098, 0, 1)
 theme_override_fonts/font = ExtResource("4_sjex7")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uw63n")
 text = "CONTINUE"
 flat = true
 
-[node name="BackCover" type="ColorRect" parent="PlayPop"]
-layout_mode = 0
-offset_left = -1397.0
-offset_top = 183.0
-offset_right = -1162.0
-offset_bottom = 291.0
-color = Color(0, 0, 0, 1)
-
-[node name="BackBtn" type="Button" parent="PlayPop/BackCover"]
+[node name="BackBtn" type="Button" parent="PlayPop"]
 auto_translate_mode = 1
 layout_mode = 0
-offset_left = -8.0
-offset_top = -13.0
-offset_right = 242.0
-offset_bottom = 121.0
+offset_left = -1438.0
+offset_top = 239.0
+offset_right = -1188.0
+offset_bottom = 373.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.894118, 0.85098, 0, 1)
 theme_override_fonts/font = ExtResource("4_sjex7")
@@ -285,6 +277,6 @@ stream = ExtResource("6_w1n77")
 [connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]
 [connection signal="pressed" from="PlayPop/NewGameBtn" to="." method="_on_new_game_btn_pressed"]
 [connection signal="pressed" from="PlayPop/ContinueBtn" to="." method="_on_continue_btn_pressed"]
-[connection signal="pressed" from="PlayPop/BackCover/BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="PlayPop/BackBtn" to="." method="_on_back_btn_pressed"]
 [connection signal="pressed" from="Rewardpop/PlayReward" to="." method="_on_play_reward_pressed"]
 [connection signal="pressed" from="Rewardpop/BackBtn2" to="." method="_on_back_btn_pressed"]

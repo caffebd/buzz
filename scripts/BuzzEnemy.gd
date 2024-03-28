@@ -26,9 +26,9 @@ func _ready():
 	if not final_buzz:
 		match GlobalVars.difficulty_level:
 			0:
-				patrolSpeed *= 0.55
+				patrolSpeed *= 0.65
 			1:
-				patrolSpeed *= 0.75
+				patrolSpeed *= 0.85
 
 func _physics_process(delta):
 	if harmless: return

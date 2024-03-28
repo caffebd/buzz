@@ -1257,28 +1257,28 @@ mesh = SubResource("BoxMesh_v1td2")
 
 [node name="lever2" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("13_6xv8n")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1187, 1.08022, 52.6061)
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 16.1187, 1.13257, 52.6061)
 linked_object = NodePath("../../woodenLift")
 the_player = NodePath("../../Player")
 hide_lever = true
 
 [node name="lever3" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("13_6xv8n")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1041, 1.08022, 61.9089)
+transform = Transform3D(-1.69392, 0, -0.143642, 0, 1.7, 0, 0.143642, 0, -1.69392, 17.1041, 1.14136, 61.9089)
 linked_object = NodePath("../../woodenLift")
 the_player = NodePath("../../Player")
 hide_lever = true
 
 [node name="lever4" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("13_6xv8n")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.796, 1.13139, 62.9689)
+transform = Transform3D(-1.69941, 0, 0.0448865, 0, 1.7, 0, -0.0448865, 0, -1.69941, 30.796, 1.15698, 62.9689)
 linked_object = NodePath("../../woodenLift")
 the_player = NodePath("../../Player")
 hide_lever = true
 
 [node name="lever5" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("13_6xv8n")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7003, 1.14985, 51.6385)
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 29.7003, 1.16472, 51.6385)
 linked_object = NodePath("../../woodenLift")
 the_player = NodePath("../../Player")
 hide_lever = true
