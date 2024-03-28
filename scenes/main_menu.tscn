@@ -1,55 +1,25 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2iujmdxcbdf4"]
+[gd_scene load_steps=14 format=3 uid="uid://d2iujmdxcbdf4"]
 
-[ext_resource type="Texture2D" uid="uid://bjgb23yhbdl2t" path="res://assets/ui/BuzzmenuBackground.png" id="1_c82tr"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_q7qjk"]
-[ext_resource type="FontFile" uid="uid://c8ce4lp22fmcs" path="res://assets/fonts/Comfortaa/static/Comfortaa-SemiBold.ttf" id="2_am4mp"]
-[ext_resource type="FontFile" uid="uid://bs5t4chqd6rde" path="res://assets/fonts/Comfortaa/static/Comfortaa-Regular.ttf" id="3_65r85"]
-[ext_resource type="FontFile" uid="uid://cnv2p7n8e175w" path="res://assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf" id="5_eldjj"]
+[ext_resource type="Texture2D" uid="uid://cmfyajwo2aeqa" path="res://assets/ui/menu_backgrounds/main_menu.png" id="2_tqqwr"]
+[ext_resource type="FontFile" uid="uid://ci0vfsbqa0cc5" path="res://assets/fonts/RanadeOTF/Ranade-Light.otf" id="4_sjex7"]
+[ext_resource type="Texture2D" uid="uid://d0aljk0cwggal" path="res://assets/ui/arrow.png" id="5_qg3cv"]
 [ext_resource type="AudioStream" uid="uid://dvfniwo5vu4u8" path="res://assets/audio/RewardAudio/cheat_active.mp3" id="6_w1n77"]
+[ext_resource type="Texture2D" uid="uid://cusdglook0m8s" path="res://assets/ui/buzzlogo-white.png" id="7_46y22"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0ejj"]
-bg_color = Color(0.099986, 0.099986, 0.099986, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2jbog"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aovt3"]
-bg_color = Color(0.154876, 0.154876, 0.154876, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o3tut"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5pnkc"]
-bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0nmm1"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpe7o"]
-bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tr47j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_arw22"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uw63n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o03hw"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -69,171 +39,240 @@ offset_right = 2434.0
 offset_bottom = 1321.0
 scale = Vector2(0.835, 0.835)
 mouse_filter = 2
-texture = ExtResource("1_c82tr")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 893.0
-offset_top = 125.0
-offset_right = 1460.0
-offset_bottom = 260.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_am4mp")
-theme_override_font_sizes/font_size = 120
-text = "The Buzz"
+texture = ExtResource("2_tqqwr")
 
 [node name="PlayBtn" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1020.0
-offset_top = 412.0
-offset_right = 1365.0
-offset_bottom = 546.0
-theme_override_fonts/font = ExtResource("3_65r85")
-theme_override_font_sizes/font_size = 100
-theme_override_styles/hover = SubResource("StyleBoxFlat_p0ejj")
-theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
+offset_left = 1633.0
+offset_top = 667.0
+offset_right = 1822.0
+offset_bottom = 750.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.894118, 0.85098, 0, 1)
+theme_override_fonts/font = ExtResource("4_sjex7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2jbog")
 text = "PLAY"
+flat = true
 
 [node name="SettingsBtn" type="Button" parent="."]
 auto_translate_mode = 1
 layout_mode = 0
-offset_left = 1026.0
-offset_top = 678.0
-offset_right = 1368.0
-offset_bottom = 778.0
-theme_override_fonts/font = ExtResource("3_65r85")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/hover = SubResource("StyleBoxFlat_5pnkc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
-text = "settings"
+offset_left = 1581.0
+offset_top = 771.0
+offset_right = 1802.0
+offset_bottom = 853.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.894118, 0.85098, 0, 1)
+theme_override_fonts/font = ExtResource("4_sjex7")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o3tut")
+text = "SETTINGS"
+flat = true
+
+[node name="CreditsBtn" type="Button" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 1590.0
+offset_top = 864.0
+offset_right = 1811.0
+offset_bottom = 946.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.894118, 0.85098, 0, 1)
+theme_override_fonts/font = ExtResource("4_sjex7")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o3tut")
+text = "CREDITS"
+flat = true
 
 [node name="RewardBtn" type="Button" parent="."]
 auto_translate_mode = 1
 layout_mode = 0
-offset_left = 1027.0
-offset_top = 849.0
-offset_right = 1369.0
-offset_bottom = 949.0
-theme_override_fonts/font = ExtResource("3_65r85")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/hover = SubResource("StyleBoxFlat_5pnkc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
+offset_left = 1580.0
+offset_top = 947.0
+offset_right = 1831.0
+offset_bottom = 1047.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.894118, 0.85098, 0, 1)
+theme_override_fonts/font = ExtResource("4_sjex7")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0nmm1")
 text = "REWARD"
+flat = true
 
 [node name="ExitBtn" type="Button" parent="."]
 auto_translate_mode = 1
 layout_mode = 0
-offset_left = 1654.0
-offset_top = 937.0
-offset_right = 1877.0
-offset_bottom = 1037.0
-theme_override_fonts/font = ExtResource("3_65r85")
+offset_left = 55.0
+offset_top = 944.0
+offset_right = 278.0
+offset_bottom = 1044.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.892874, 0.851791, 7.70092e-07, 1)
+theme_override_fonts/font = ExtResource("4_sjex7")
 theme_override_font_sizes/font_size = 60
-theme_override_styles/hover = SubResource("StyleBoxFlat_5pnkc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
-text = "exit"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tr47j")
+text = "EXIT"
+flat = true
+
+[node name="Buzz Title" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1342.0
+offset_top = -38.0
+offset_right = 2342.0
+offset_bottom = 962.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_46y22")
 
 [node name="PlayPop" type="ColorRect" parent="."]
 unique_name_in_owner = true
 auto_translate_mode = 1
+visible = false
 layout_mode = 0
-offset_left = 892.0
-offset_top = 322.0
-offset_right = 1453.0
-offset_bottom = 889.0
-color = Color(0.947199, 0.947199, 0.947199, 0.988235)
-
-[node name="ColorRect" type="ColorRect" parent="PlayPop"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 554.0
-offset_bottom = 559.0
-color = Color(0.111197, 0.111197, 0.111197, 0.988235)
+offset_left = 1477.0
+offset_top = 748.0
+offset_right = 1860.0
+offset_bottom = 1025.0
+color = Color(0, 0, 0, 1)
 
 [node name="NewGameBtn" type="Button" parent="PlayPop"]
 auto_translate_mode = 1
 layout_mode = 0
-offset_left = 93.0
-offset_top = 96.0
-offset_right = 481.0
-offset_bottom = 230.0
-theme_override_fonts/font = ExtResource("3_65r85")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/hover = SubResource("StyleBoxFlat_p0ejj")
-theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
-text = "New Game"
+offset_left = -14.0
+offset_top = -2.0
+offset_right = 374.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.894118, 0.85098, 0, 1)
+theme_override_fonts/font = ExtResource("4_sjex7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_arw22")
+text = "NEW GAME"
+flat = true
 
 [node name="ContinueBtn" type="Button" parent="PlayPop"]
 unique_name_in_owner = true
 auto_translate_mode = 1
 layout_mode = 0
-offset_left = 96.0
-offset_top = 304.0
-offset_right = 484.0
-offset_bottom = 438.0
-theme_override_fonts/font = ExtResource("3_65r85")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/hover = SubResource("StyleBoxFlat_kpe7o")
-theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
-text = "Continue"
+offset_left = 22.0
+offset_top = 119.0
+offset_right = 410.0
+offset_bottom = 253.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.894118, 0.85098, 0, 1)
+theme_override_fonts/font = ExtResource("4_sjex7")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uw63n")
+text = "CONTINUE"
+flat = true
+
+[node name="BackCover" type="ColorRect" parent="PlayPop"]
+layout_mode = 0
+offset_left = -1397.0
+offset_top = 183.0
+offset_right = -1162.0
+offset_bottom = 291.0
+color = Color(0, 0, 0, 1)
+
+[node name="BackBtn" type="Button" parent="PlayPop/BackCover"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = -8.0
+offset_top = -13.0
+offset_right = 242.0
+offset_bottom = 121.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.894118, 0.85098, 0, 1)
+theme_override_fonts/font = ExtResource("4_sjex7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_arw22")
+text = "BACK"
+flat = true
 
 [node name="Rewardpop" type="ColorRect" parent="."]
 unique_name_in_owner = true
 auto_translate_mode = 1
+visible = false
 layout_mode = 0
-offset_left = 891.0
-offset_top = 309.0
-offset_right = 1452.0
-offset_bottom = 967.0
-color = Color(0.947199, 0.947199, 0.947199, 0.988235)
-
-[node name="ColorRect" type="ColorRect" parent="Rewardpop"]
-auto_translate_mode = 1
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 554.0
-offset_bottom = 645.0
-color = Color(0.111197, 0.111197, 0.111197, 0.988235)
+offset_left = -12.0
+offset_top = -9.0
+offset_right = 1945.0
+offset_bottom = 1124.0
+color = Color(0, 0, 0, 1)
 
 [node name="PlayReward" type="Button" parent="Rewardpop"]
 auto_translate_mode = 1
 layout_mode = 0
-offset_left = 86.0
-offset_top = 99.0
-offset_right = 474.0
-offset_bottom = 233.0
-theme_override_fonts/font = ExtResource("3_65r85")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/hover = SubResource("StyleBoxFlat_p0ejj")
-theme_override_styles/normal = SubResource("StyleBoxFlat_aovt3")
+offset_left = 1489.0
+offset_top = 896.0
+offset_right = 1867.0
+offset_bottom = 1030.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.894118, 0.85098, 0, 1)
+theme_override_fonts/font = ExtResource("4_sjex7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o03hw")
 text = "Play Reward"
+icon = ExtResource("5_qg3cv")
+flat = true
+alignment = 0
+icon_alignment = 2
 
 [node name="BestTimeLabel" type="Label" parent="Rewardpop"]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 354.0
-offset_right = 501.0
-offset_bottom = 471.0
-theme_override_fonts/font = ExtResource("5_eldjj")
-theme_override_font_sizes/font_size = 50
-text = "Longest Survival
-Time"
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -469.5
+offset_top = -132.0
+offset_right = 469.5
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_sjex7")
+theme_override_font_sizes/font_size = 70
+text = "Longest Survival Time"
 horizontal_alignment = 1
 
 [node name="BestTime" type="Label" parent="Rewardpop"]
 unique_name_in_owner = true
 auto_translate_mode = 1
-layout_mode = 0
-offset_left = 67.0
-offset_top = 497.0
-offset_right = 501.0
-offset_bottom = 554.0
-theme_override_fonts/font = ExtResource("5_eldjj")
-theme_override_font_sizes/font_size = 45
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = 9.5
+offset_right = 217.0
+offset_bottom = 66.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_sjex7")
+theme_override_font_sizes/font_size = 70
 text = "30 seconds"
 horizontal_alignment = 1
+
+[node name="BackBtn2" type="Button" parent="Rewardpop"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 58.0
+offset_top = 900.0
+offset_right = 308.0
+offset_bottom = 1034.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.894118, 0.85098, 0, 1)
+theme_override_fonts/font = ExtResource("4_sjex7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_arw22")
+text = "BACK"
+flat = true
 
 [node name="CheatAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -241,8 +280,11 @@ stream = ExtResource("6_w1n77")
 
 [connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="CreditsBtn" to="." method="_on_credits_btn_pressed"]
 [connection signal="pressed" from="RewardBtn" to="." method="_on_reward_btn_pressed"]
 [connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]
 [connection signal="pressed" from="PlayPop/NewGameBtn" to="." method="_on_new_game_btn_pressed"]
 [connection signal="pressed" from="PlayPop/ContinueBtn" to="." method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="PlayPop/BackCover/BackBtn" to="." method="_on_back_btn_pressed"]
 [connection signal="pressed" from="Rewardpop/PlayReward" to="." method="_on_play_reward_pressed"]
+[connection signal="pressed" from="Rewardpop/BackBtn2" to="." method="_on_back_btn_pressed"]

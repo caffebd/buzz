@@ -27,9 +27,10 @@ func _on_play_btn_pressed() -> void:
 		%ContinueBtn.disabled = true
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		%PlayPop.visible = false
-		%Rewardpop.visible = false
+	return
+	#if event is InputEventMouseButton:
+		#%PlayPop.visible = false
+		#%Rewardpop.visible = false
 
 
 func _on_new_game_btn_pressed() -> void:
@@ -80,3 +81,15 @@ func _unhandled_key_input(event: InputEvent) -> void:
 					%BestTime.text = str(GlobalVars.reward_time)+" seconds"
 			else:
 				cheat_index = 0
+
+
+
+
+
+func _on_back_btn_pressed() -> void:
+	%PlayPop.visible = false
+	%Rewardpop.visible = false
+
+
+func _on_credits_btn_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/credits_menu.tscn")

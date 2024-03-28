@@ -197,7 +197,7 @@ autostart = true
 
 [node name="Footsteps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_mxmaq")
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="LightSwitchArea" type="Area3D" parent="."]
 collision_layer = 8388608
