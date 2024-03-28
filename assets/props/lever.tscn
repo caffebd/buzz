@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cygxyydymwdxm"]
+[gd_scene load_steps=21 format=3 uid="uid://7qgb8jowtatc"]
 
 [ext_resource type="PackedScene" uid="uid://gtcihlort0us" path="res://assets/props/imported/lever.glb" id="1_lrff6"]
 [ext_resource type="Material" uid="uid://bm5mmlclkh2no" path="res://assets/materials/metal/metal4.tres" id="2_12kja"]
@@ -96,7 +96,7 @@ roughness_texture = ExtResource("5_d0y5b")
 normal_enabled = true
 normal_texture = ExtResource("4_sy5nx")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhmtf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1d0k"]
 transparency = 1
 depth_draw_mode = 1
 albedo_color = Color(0.52849, 0.370263, 0.119642, 1)
@@ -371,7 +371,7 @@ transform = Transform3D(0.403295, 0, 0, 0, 0.403296, 0, 0, 0, 0.403296, 0.000631
 mesh = SubResource("ArrayMesh_npfw8")
 surface_material_override/0 = SubResource("StandardMaterial3D_b4seh")
 surface_material_override/1 = SubResource("StandardMaterial3D_b4seh")
-surface_material_override/2 = SubResource("StandardMaterial3D_bhmtf")
+surface_material_override/2 = SubResource("StandardMaterial3D_m1d0k")
 
 [node name="Circle_013" parent="." index="1"]
 surface_material_override/0 = ExtResource("2_12kja")
