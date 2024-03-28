@@ -1,8 +1,9 @@
-[gd_scene load_steps=172 format=3 uid="uid://bemeghhhf4cwr"]
+[gd_scene load_steps=173 format=3 uid="uid://bemeghhhf4cwr"]
 
 [ext_resource type="Script" path="res://scripts/MainCave.gd" id="1_wnv3q"]
 [ext_resource type="ArrayOccluder3D" uid="uid://ytjnoassvn75" path="res://assets/resources/cave_occ_5.occ" id="2_cayuj"]
 [ext_resource type="Environment" uid="uid://cabft7enoqf3a" path="res://assets/caveEnv.tres" id="2_g1yio"]
+[ext_resource type="Shader" path="res://assets/materials/shaders/chromaticAbberation.gdshader" id="2_ipax3"]
 [ext_resource type="Script" path="res://scripts/InvisiBridge.gd" id="2_mpgbl"]
 [ext_resource type="PackedScene" uid="uid://nb0lreegw6ru" path="res://assets/props/lantern.tscn" id="2_yl8qj"]
 [ext_resource type="PackedScene" uid="uid://cs0dn8ou7cuv" path="res://assets/props/crate_2.tscn" id="3_v5vlg"]
@@ -51,8 +52,7 @@
 [ext_resource type="Texture2D" uid="uid://dwaawlchha2yl" path="res://assets/textures/miscTextures/map/map 1.png" id="45_vyx8p"]
 [ext_resource type="PackedScene" uid="uid://u4hxq1msejna" path="res://scenes/secretRoom.tscn" id="50_4xnoy"]
 [ext_resource type="PackedScene" uid="uid://c7vqoxchxma4g" path="res://scenes/secret_key.tscn" id="51_2mfg0"]
-[ext_resource type="PackedScene" uid="uid://cygxyydymwdxm" path="res://assets/props/lever.tscn" id="53_amydh"]
-[ext_resource type="PackedScene" uid="uid://cygxyydymwdxm" path="res://assets/props/lever_old.tscn" id="53_j0xnx"]
+[ext_resource type="PackedScene" uid="uid://cygxyydymwdxm" path="res://assets/props/lever.tscn" id="53_j0xnx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1u0j2"]
 
@@ -1642,6 +1642,10 @@ albedo_texture = ExtResource("45_vyx8p")
 [sub_resource type="BoxShape3D" id="BoxShape3D_302k6"]
 size = Vector3(180, 1, 160)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nf71x"]
+shader = ExtResource("2_ipax3")
+shader_parameter/ca_strength = 20.0
+
 [node name="MainCave" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_wnv3q")
 player = NodePath("Player")
@@ -1798,7 +1802,7 @@ mesh = SubResource("BoxMesh_v1td2")
 
 [node name="PullLevers" type="Node3D" parent="."]
 
-[node name="SneakyLever" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("53_amydh")]
+[node name="SneakyLever" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("53_j0xnx")]
 unique_name_in_owner = true
 transform = Transform3D(1.40269, 0, 1.04641, 0, 1.75, 0, -1.04641, 0, 1.40269, -22.7699, 1.82112, 17.7638)
 linked_object = NodePath("../../cave2/SecretDoorNode")
@@ -1810,7 +1814,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_kff0v")
 surface_material_override/1 = SubResource("StandardMaterial3D_kff0v")
 surface_material_override/2 = SubResource("StandardMaterial3D_av0o1")
 
-[node name="lever2" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("53_amydh")]
+[node name="lever2" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("53_j0xnx")]
 unique_name_in_owner = true
 transform = Transform3D(0.918614, 0, -1.48951, 0, 1.75, 0, 1.48951, 0, 0.918614, 16.3187, 1.08027, 52.535)
 linked_object = NodePath("../../woodenLift")
@@ -1826,7 +1830,7 @@ surface_material_override/2 = SubResource("StandardMaterial3D_mir0i")
 mesh = SubResource("ArrayMesh_1afjp")
 surface_material_override/0 = SubResource("StandardMaterial3D_6ko2a")
 
-[node name="lever3" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("53_amydh")]
+[node name="lever3" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("53_j0xnx")]
 unique_name_in_owner = true
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 16.8138, 1.08027, 61.6835)
 linked_object = NodePath("../../woodenLift")
@@ -1842,7 +1846,7 @@ surface_material_override/2 = SubResource("StandardMaterial3D_rp6ih")
 mesh = SubResource("ArrayMesh_hre6d")
 surface_material_override/0 = SubResource("StandardMaterial3D_firu3")
 
-[node name="lever4" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("53_amydh")]
+[node name="lever4" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("53_j0xnx")]
 unique_name_in_owner = true
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 30.6918, 1.08027, 62.9717)
 linked_object = NodePath("../../woodenLift")
@@ -1857,7 +1861,7 @@ surface_material_override/2 = SubResource("StandardMaterial3D_sex54")
 [node name="Circle_013" parent="PullLevers/lever4" index="1"]
 transform = Transform3D(1.04513e-07, 0.29224, -0.277927, -0.403295, 1.4423e-07, 0, 9.93943e-08, 0.277927, 0.29224, 0.000631332, 0.00219405, -0.000370026)
 
-[node name="lever5" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("53_amydh")]
+[node name="lever5" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("53_j0xnx")]
 unique_name_in_owner = true
 transform = Transform3D(1.11241, 0, 1.35094, 0, 1.75, 0, -1.35094, 0, 1.11241, 30.0416, 1.08027, 51.9115)
 linked_object = NodePath("../../woodenLift")
@@ -1869,7 +1873,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vsfai")
 surface_material_override/1 = SubResource("StandardMaterial3D_vsfai")
 surface_material_override/2 = SubResource("StandardMaterial3D_bjb76")
 
-[node name="lever6" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("53_amydh")]
+[node name="lever6" parent="PullLevers" node_paths=PackedStringArray("linked_object", "the_player") instance=ExtResource("53_j0xnx")]
 unique_name_in_owner = true
 transform = Transform3D(1.18089, 0, -1.29151, 0, 1.75, 0, 1.29151, 0, 1.18089, 97.477, 0.87156, -64.7178)
 script = SubResource("GDScript_mhlm2")
@@ -2818,6 +2822,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3776, 0, 0)
 
 [node name="lever" parent="." instance=ExtResource("53_j0xnx")]
 transform = Transform3D(2.03283, 0, 0, 0, 2.03283, 0, 0, 0, 2.03283, -33.4566, 2.05429, 6.72496)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+auto_translate_mode = 1
+material = SubResource("ShaderMaterial_nf71x")
+offset_left = -131.0
+offset_top = -91.0
+offset_right = 2197.0
+offset_bottom = 1209.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.738255, 0, -0.674521, 0, 1, 0, 0.674521, 0, -0.738255, 1.83619, 3.037, -4.78083)
 
 [connection signal="body_entered" from="cave2/PlatformDeathArea" to="." method="_on_platform_death_area_body_entered"]
 [connection signal="body_entered" from="cave2/ElevatorDeathArea" to="." method="_on_platform_death_area_body_entered"]
