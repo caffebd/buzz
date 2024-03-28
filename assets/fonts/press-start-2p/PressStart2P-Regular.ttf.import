@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/PressStart2P-Regular.ttf-39b5351e53292168ca0f
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
-disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48

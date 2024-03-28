@@ -1,24 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://duhbtvh7pgjrn"]
+[gd_scene load_steps=3 format=3 uid="uid://duhbtvh7pgjrn"]
 
 [ext_resource type="Shader" path="res://assets/materials/shaders/chromaticAbberation.gdshader" id="1_ysab7"]
-[ext_resource type="Texture2D" uid="uid://bh7y5gcvg66vy" path="res://assets/textures/woodTextures/wood_surface/weathered_brown_planks_diff_2k-2.jpg" id="2_av0pn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5jstt"]
 shader = ExtResource("1_ysab7")
-shader_parameter/ca_strength = 20.0
+shader_parameter/r_displacement = Vector2(3, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(-3, 0)
 
-[node name="Node3D" type="Node3D"]
+[node name="chromaticAbberation" type="Node3D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_5jstt")
 offset_left = -131.0
 offset_top = -91.0
 offset_right = 2197.0
 offset_bottom = 1209.0
 metadata/_edit_use_anchors_ = true
-
-[node name="WeatheredBrownPlanksDiff2k-2" type="Sprite2D" parent="."]
-position = Vector2(1171, 593)
-texture = ExtResource("2_av0pn")

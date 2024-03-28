@@ -1,7 +1,8 @@
-[gd_scene load_steps=139 format=3 uid="uid://bemeghhhf4cwr"]
+[gd_scene load_steps=140 format=3 uid="uid://bemeghhhf4cwr"]
 
 [ext_resource type="Script" path="res://scripts/MainCave.gd" id="1_wnv3q"]
 [ext_resource type="ArrayOccluder3D" uid="uid://ytjnoassvn75" path="res://assets/resources/cave_occ_5.occ" id="2_cayuj"]
+[ext_resource type="PackedScene" uid="uid://duhbtvh7pgjrn" path="res://assets/resources/chromaticAbberation.tscn" id="2_fiopf"]
 [ext_resource type="Environment" uid="uid://cabft7enoqf3a" path="res://assets/caveEnv.tres" id="2_g1yio"]
 [ext_resource type="Script" path="res://scripts/InvisiBridge.gd" id="2_mpgbl"]
 [ext_resource type="PackedScene" uid="uid://nb0lreegw6ru" path="res://assets/props/lantern.tscn" id="2_yl8qj"]
@@ -1110,6 +1111,8 @@ size = Vector3(1.89, 1.165, 3.52)
 [node name="MainCave" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_wnv3q")
 player = NodePath("Player")
+
+[node name="chromaticAbberation" parent="." instance=ExtResource("2_fiopf")]
 
 [node name="CaveEnvironment" type="WorldEnvironment" parent="."]
 unique_name_in_owner = true

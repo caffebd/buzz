@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/EduTASBeginner-VariableFont_wght.ttf-3ef1ccc4
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
-disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
