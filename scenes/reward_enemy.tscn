@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dx3i7qn671mp4"]
+[gd_scene load_steps=10 format=3 uid="uid://dx3i7qn671mp4"]
 
 [ext_resource type="Script" path="res://scripts/reward_enemy.gd" id="1_vapl8"]
 [ext_resource type="AudioStream" uid="uid://c1mg57wpvtb1r" path="res://assets/audio/RewardAudio/take_hit.mp3" id="2_w3cy2"]
+[ext_resource type="ArrayMesh" uid="uid://c8qy8van2q1qk" path="res://assets/imported/reward_enemey.obj" id="3_j3jx7"]
+[ext_resource type="Material" uid="uid://bvwke8uepajwd" path="res://assets/materials/misc/blackPlastic.tres" id="4_pyc2p"]
+[ext_resource type="Material" uid="uid://c81vweqyc5clw" path="res://assets/materials/wireframe/wireframe_enemy.tres" id="5_h5xdk"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_npqym"]
 
@@ -27,6 +30,7 @@ script = ExtResource("1_vapl8")
 shape = SubResource("SphereShape3D_npqym")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("SphereMesh_qi0oy")
 
 [node name="RewardNav" type="NavigationAgent3D" parent="."]
@@ -44,6 +48,11 @@ shape = SubResource("CylinderShape3D_jykf0")
 
 [node name="PlayerHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_w3cy2")
+
+[node name="RewardEnemey" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_j3jx7")
+surface_material_override/0 = ExtResource("4_pyc2p")
+surface_material_override/1 = ExtResource("5_h5xdk")
 
 [connection signal="area_entered" from="EnemyArea" to="." method="_on_enemy_area_area_entered"]
 [connection signal="body_entered" from="EnemyArea" to="." method="_on_enemy_area_body_entered"]

@@ -7,6 +7,8 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GlobalSignals.light_up_crates.connect(_light_on)
+	if not can_light:
+		$arrowCrateBody/crateColl.disabled = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1118,6 +1118,7 @@ environment = ExtResource("2_g1yio")
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.688599, 0.0113792, 0.191214)
 occluder = ExtResource("2_cayuj")
+bake_simplification_distance = 0.05
 
 [node name="PlayerCheckPositions" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -1132,7 +1133,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.1757, 3.62796, -23.398)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.6677, 3.3021, -10.8494)
 
 [node name="CheckPos3" type="Marker3D" parent="PlayerCheckPositions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3169, 2.71989, 5.66544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3169, 2.92878, 4.91319)
 
 [node name="CheckPos4" type="Marker3D" parent="PlayerCheckPositions"]
 transform = Transform3D(-0.0387017, 0, -0.999251, 0, 1, 0, 0.999251, 0, -0.0387017, 1.28224, 3.02292, -4.77723)
@@ -1214,7 +1215,7 @@ shape = SubResource("ConcavePolygonShape3D_7esv1")
 transform = Transform3D(0.760046, 0, -0.64987, 0, 1, 0, 0.64987, 0, 0.760046, 11.2041, 4.03598, 15.3446)
 
 [node name="SecretDoorNode" type="Node3D" parent="cave2"]
-transform = Transform3D(0.996287, 0, 0.0860991, -0.000186336, 0.999998, 0.00215617, -0.0860989, -0.00216421, 0.996285, 4.351, 3.77156, 23.3948)
+transform = Transform3D(0.996287, 0, 0.0860991, -0.000186336, 0.999998, 0.00215617, -0.0860989, -0.00216421, 0.996285, 4.351, 3.77156, 22.0255)
 script = ExtResource("25_51ns1")
 
 [node name="SecretDoor" type="MeshInstance3D" parent="cave2/SecretDoorNode"]
@@ -1330,8 +1331,8 @@ needs_key = true
 
 [node name="ElecLight1" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
 transform = Transform3D(1, 0, 0, 0, 0.999998, 0.00219911, 0, -0.00219911, 0.999998, -41.9075, 5.15606, -24.4958)
-light_range = 4.0
-light_energy = 1.0
+light_range = 3.0
+light_energy = 0.7
 
 [node name="ElecLight2" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.9484, 4.96777, 2.06119)
@@ -1416,7 +1417,12 @@ light_range = 4.0
 light_energy = 0.2
 
 [node name="lantern41" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4789, 3.95376, -65.0155)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1144, 3.81648, -64.6893)
+light_range = 4.0
+light_energy = 0.2
+
+[node name="lantern67" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0264, 4.25549, -66.2508)
 light_range = 4.0
 light_energy = 0.2
 
@@ -1491,9 +1497,9 @@ light_range = 6.0
 light_energy = 0.3
 
 [node name="lantern50" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5036, 4.06836, -45.7949)
-light_range = 4.0
-light_energy = 0.2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2484, 4.06836, -46.8964)
+light_range = 6.0
+light_energy = 0.3
 
 [node name="lantern28" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6451, 3.77137, -59.97)
@@ -1552,8 +1558,13 @@ light_energy = 0.4
 
 [node name="lantern" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.1097, 5.94058, -40.9556)
-light_range = 4.0
-light_energy = 0.2
+light_range = 6.0
+light_energy = 0.4
+
+[node name="lantern65" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.8766, 5.94058, -36.0717)
+light_range = 6.0
+light_energy = 0.4
 
 [node name="lantern2" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.7041, 6.39969, -32.4608)
@@ -1568,6 +1579,11 @@ light_energy = 0.2
 [node name="lantern3" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.9868, 5.1368, -19.6025)
 light_range = 4.0
+light_energy = 0.2
+
+[node name="lantern8" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.8712, 4.98505, -22.1752)
+light_range = 3.0
 light_energy = 0.2
 
 [node name="lantern6" parent="Lanterns" instance=ExtResource("2_yl8qj")]
@@ -1615,6 +1631,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3455, 4.12432, 41.8227)
 light_range = 4.0
 light_energy = 0.2
 
+[node name="lantern66" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7732, 4.55407, 24.329)
+light_range = 4.0
+light_energy = 0.2
+
 [node name="lantern59" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3904, 4.12432, 44.0507)
 light_range = 4.0
@@ -1622,11 +1643,6 @@ light_energy = 0.2
 
 [node name="lantern35" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8254, 4.93759, 49.5304)
-light_range = 4.0
-light_energy = 0.2
-
-[node name="lantern8" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.69401, 4.42098, 23.4234)
 light_range = 4.0
 light_energy = 0.2
 
@@ -1691,12 +1707,12 @@ light_range = 4.0
 light_energy = 0.2
 
 [node name="lantern32" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.51694, 5.4012, 23.037)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96484, 5.4012, 23.037)
 light_range = 4.0
 light_energy = 0.2
 
 [node name="lantern33" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.09224, 5.4012, 16.9249)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0218, 5.60578, 17.4723)
 light_range = 4.0
 light_energy = 0.2
 
@@ -1868,7 +1884,7 @@ shape = SubResource("BoxShape3D_w17t2")
 transform = Transform3D(0.914713, 0, 0.404104, 0, 1, 0, -0.404104, 0, 0.914713, -31.4382, 2.11976, 6.32946)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointAreas/CheckPoint3"]
-transform = Transform3D(0.997865, 0, 0.0653161, 0, 1, 0, -0.0653161, 0, 0.997865, -0.113972, 0.434196, -0.165106)
+transform = Transform3D(0.997865, 0, 0.0653161, 0, 1, 0, -0.0653161, 0, 0.997865, -0.0721455, 0.434196, -0.412811)
 shape = SubResource("BoxShape3D_8tlqf")
 
 [node name="CheckPoint4" type="Area3D" parent="CheckPointAreas"]
@@ -1904,7 +1920,7 @@ transform = Transform3D(0.719679, 0, -0.694306, 0, 1, 0, 0.694306, 0, 0.719679, 
 shape = SubResource("BoxShape3D_ajmf6")
 
 [node name="lantern" parent="." instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1439, 4.72741, 21.3485)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7846, 5.9361, 22.5248)
 
 [node name="CaveAudio" type="Node3D" parent="."]
 
@@ -2103,7 +2119,11 @@ transform = Transform3D(0.999882, 0, -0.0153408, 0, 1, 0, 0.0153408, 0, 0.999882
 can_light = true
 
 [node name="crate2" parent="Crates" instance=ExtResource("4_jnikq")]
-transform = Transform3D(0.0809818, 0, 0.996716, 0, 1, 0, -0.996716, 0, 0.0809818, 26.4058, 0.972213, -52.3178)
+transform = Transform3D(0.446651, 0, 0.894709, 0, 1, 0, -0.894709, 0, 0.446651, 15.589, 1.39084, -48.0978)
+can_light = true
+
+[node name="crate8" parent="Crates" instance=ExtResource("4_jnikq")]
+transform = Transform3D(0.446651, 0, 0.894709, 0, 1, 0, -0.894709, 0, 0.446651, 9.35499, 1.41486, -61.435)
 can_light = true
 
 [node name="Maps" type="Node3D" parent="."]

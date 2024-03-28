@@ -38,6 +38,6 @@ transform = Transform3D(-2.31678, 2.0254e-07, 0.172451, -2.031e-07, -2.32319, -2
 collision_layer = 8
 collision_mask = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="arrowCrateBody"]
+[node name="crateColl" type="CollisionShape3D" parent="arrowCrateBody"]
 transform = Transform3D(-0.0582087, 9.25117e-08, 0.998304, 9.25117e-08, 1, -8.72746e-08, -0.998304, 8.72747e-08, -0.0582087, 0, 0, 0)
 shape = SubResource("BoxShape3D_2ev2o")

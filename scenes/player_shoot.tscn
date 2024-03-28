@@ -245,11 +245,11 @@ visible = false
 
 [node name="Weapon" parent="CanvasLayer/SubViewportContainer/WeaponSubView/HandCam/Hand" instance=ExtResource("10_a5kps")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.286822, -0.626941, -0.987913)
+transform = Transform3D(0.987265, 0.148325, 0.0575092, -0.145944, 0.988331, -0.0436194, -0.063308, 0.0346708, 0.997392, 0.273, -0.44, -0.619)
 
 [node name="BulletMarker" type="Marker3D" parent="CanvasLayer/SubViewportContainer/WeaponSubView/HandCam/Hand/Weapon"]
 unique_name_in_owner = true
-transform = Transform3D(0.999507, 0.000931839, 0.0313969, 0, 0.99956, -0.0296662, -0.0314108, 0.0296516, 0.999067, 0.0520845, 0.223253, -0.791838)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260107, 0.0856134, -1.29483)
 
 [node name="WeaponShoot" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

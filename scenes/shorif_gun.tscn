@@ -1,52 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxom4dthfe7x5"]
+[gd_scene load_steps=4 format=3 uid="uid://bxom4dthfe7x5"]
 
-[ext_resource type="ArrayMesh" uid="uid://drxtlr3u2oy76" path="res://assets/props/imported/NEW_GUN.obj" id="1_7ig7k"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijtt0"]
-albedo_color = Color(1, 0.260006, 0.200835, 1)
-emission_enabled = true
-emission = Color(0.607843, 0.160784, 0.12549, 1)
-emission_energy_multiplier = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8u21l"]
-albedo_color = Color(0.933333, 0.266667, 0.215686, 1)
-emission_enabled = true
-emission = Color(0.92549, 0.262745, 0.211765, 1)
-emission_energy_multiplier = 1.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1a51r"]
-albedo_color = Color(0.752941, 0.207843, 0.168627, 1)
-emission_enabled = true
-emission = Color(0.752941, 0.207843, 0.168627, 1)
-emission_energy_multiplier = 1.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0k4oc"]
-albedo_color = Color(0, 0.513726, 1, 1)
-emission_enabled = true
-emission = Color(0.0431373, 0.309804, 0.611765, 1)
-emission_energy_multiplier = 2.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iumca"]
-albedo_color = Color(0.105882, 0.529412, 1, 1)
-emission_enabled = true
-emission = Color(0.105882, 0.529412, 1, 1)
-emission_energy_multiplier = 2.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3tc7"]
-albedo_color = Color(0.737255, 0.203922, 0.164706, 1)
-emission_enabled = true
-emission = Color(0.752941, 0.207843, 0.168627, 1)
-emission_energy_multiplier = 3.0
+[ext_resource type="ArrayMesh" uid="uid://b6bjfb0dajgia" path="res://assets/imported/gun_foyez_2.obj" id="1_4b65i"]
+[ext_resource type="Material" uid="uid://cgbcbh7wtjkk1" path="res://assets/materials/wireframe/wireframe1.tres" id="2_ob6yp"]
+[ext_resource type="Material" uid="uid://bvwke8uepajwd" path="res://assets/materials/misc/blackPlastic.tres" id="3_k032p"]
 
 [node name="ShorifGun" type="Node3D"]
 
-[node name="NewGun" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0569243, -0.516297, 0.0876319)
+[node name="GunFoyez2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.280158, 2.98023e-08, -0.322165)
 layers = 524288
-mesh = ExtResource("1_7ig7k")
-surface_material_override/0 = SubResource("StandardMaterial3D_ijtt0")
-surface_material_override/1 = SubResource("StandardMaterial3D_8u21l")
-surface_material_override/2 = SubResource("StandardMaterial3D_1a51r")
-surface_material_override/3 = SubResource("StandardMaterial3D_0k4oc")
-surface_material_override/4 = SubResource("StandardMaterial3D_iumca")
-surface_material_override/5 = SubResource("StandardMaterial3D_y3tc7")
+mesh = ExtResource("1_4b65i")
+surface_material_override/0 = ExtResource("3_k032p")
+surface_material_override/1 = ExtResource("2_ob6yp")

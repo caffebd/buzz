@@ -25,9 +25,11 @@ func _ready() -> void:
 	chase = true
 	visible = true
 	current_target = player
+
 	
 
 func _physics_process(delta: float) -> void:
+	rotation_degrees.y += 35 * delta
 	if not chase:
 		return
 	nav_agent.set_target_position(current_target.global_position)
@@ -37,7 +39,7 @@ func _physics_process(delta: float) -> void:
 func nav_towards_point(delta, speed):
 	var targetPos = nav_agent.get_next_path_position()
 	var direction = global_position.direction_to(targetPos)
-	faceDirection(current_target.global_position)
+	#faceDirection(current_target.global_position)
 	velocity = direction * speed
 	move_and_slide()
 

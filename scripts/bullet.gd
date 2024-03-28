@@ -14,5 +14,4 @@ func _process(delta: float) -> void:
 
 func _on_bullet_area_body_entered(body: Node3D) -> void:
 	if not body.is_in_group("enemy"):
-		print ("Bully hit")
 		queue_free()

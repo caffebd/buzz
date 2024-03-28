@@ -8,6 +8,7 @@ var result: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GlobalVars.in_lift = false
 	player.set_start_position(player.global_position, deg_to_rad(180.0))
 	_setup_signs()
 
@@ -20,9 +21,9 @@ func _setup_signs():
 	$SecretSign3/Label3D.text = "Secret Areas found "+ str(secret_area_count)+"/2"
 	$SecretSign4/Label3D.text = str(GlobalVars.encounters) + " Anomaly Encounters"
 
-	if GlobalVars.encounters < 5:
+	if GlobalVars.encounters < 10:
 		assessment = "LOW"
-	elif GlobalVars.encounters < 10:
+	elif GlobalVars.encounters < 15:
 		assessment = "MEDIUM"
 	else:
 		assessment = "HIGH"
@@ -55,7 +56,7 @@ func _on_end_body_entered(body: Node3D) -> void:
 		match result:
 			"TERMINATION":
 				$IntroPath/StaticBody3D/PathColl.disabled = true
-			"RELAX":
+			"RE-TRAIN":
 				get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 			"REWARD":
 				get_tree().change_scene_to_file("res://scenes/reward_scene.tscn")
