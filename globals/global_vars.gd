@@ -52,7 +52,7 @@ var tape_current_state = all_tape_states[tape_state_index]
 
 var lever_state:String = "off"
 
-var gates_open = [false, false, false, false, false, false, false, false]
+var gates_open = [false, false, false, false, false]
 
 var lamps_on = [true, false, false]
 

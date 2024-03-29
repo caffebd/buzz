@@ -38,7 +38,7 @@ outline_size = 6
 
 [node name="PlatformKey" parent="." instance=ExtResource("6_3wx6k")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -1.57042, -0.416473)
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -1.57042, -0.894049)
 switch_effected = false
 is_platform_key = true
 

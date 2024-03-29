@@ -28,12 +28,9 @@ SaveLoad="*res://auto_load/save_load.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=4
+window/size/borderless=true
 window/stretch/mode="canvas_items"
-window/vsync/vsync_mode=0
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/nv.file_system/plugin.cfg")
 
 [importer_defaults]
 
@@ -116,6 +113,4 @@ textures/default_filters/anisotropic_filtering_level=0
 environment/ssao/quality=0
 environment/ssil/quality=0
 environment/glow/upscale_mode=0
-anti_aliasing/quality/msaa_3d=3
-anti_aliasing/quality/use_taa=true
 occlusion_culling/use_occlusion_culling=true

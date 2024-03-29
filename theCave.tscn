@@ -1,8 +1,7 @@
-[gd_scene load_steps=140 format=3 uid="uid://bemeghhhf4cwr"]
+[gd_scene load_steps=142 format=3 uid="uid://bemeghhhf4cwr"]
 
 [ext_resource type="Script" path="res://scripts/MainCave.gd" id="1_wnv3q"]
 [ext_resource type="ArrayOccluder3D" uid="uid://ytjnoassvn75" path="res://assets/resources/cave_occ_5.occ" id="2_cayuj"]
-[ext_resource type="PackedScene" uid="uid://duhbtvh7pgjrn" path="res://assets/resources/chromaticAbberation.tscn" id="2_fiopf"]
 [ext_resource type="Environment" uid="uid://cabft7enoqf3a" path="res://assets/caveEnv.tres" id="2_g1yio"]
 [ext_resource type="Script" path="res://scripts/InvisiBridge.gd" id="2_mpgbl"]
 [ext_resource type="PackedScene" uid="uid://nb0lreegw6ru" path="res://assets/props/lantern.tscn" id="2_yl8qj"]
@@ -200,6 +199,16 @@ size = Vector3(0.545, 1, 2.035)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ajmf6"]
 size = Vector3(2.33, 0.765, 1.025)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_alkk8"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="PrismMesh" id="PrismMesh_hon85"]
+material = SubResource("StandardMaterial3D_alkk8")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qhcyq"]
+data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8rk4s"]
 
@@ -1112,8 +1121,6 @@ size = Vector3(1.89, 1.165, 3.52)
 script = ExtResource("1_wnv3q")
 player = NodePath("Player")
 
-[node name="chromaticAbberation" parent="." instance=ExtResource("2_fiopf")]
-
 [node name="CaveEnvironment" type="WorldEnvironment" parent="."]
 unique_name_in_owner = true
 environment = ExtResource("2_g1yio")
@@ -1339,8 +1346,8 @@ light_energy = 0.7
 
 [node name="ElecLight2" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.9484, 4.96777, 2.06119)
-light_range = 4.0
-light_energy = 0.3
+light_range = 6.0
+light_energy = 0.35
 
 [node name="ElecLight2a" parent="ElectricLights" instance=ExtResource("6_a2gbo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.4975, 4.96777, 9.45201)
@@ -1570,9 +1577,9 @@ light_range = 6.0
 light_energy = 0.4
 
 [node name="lantern2" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.7041, 6.39969, -32.4608)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.0372, 5.99895, -31.985)
 light_range = 4.0
-light_energy = 0.2
+light_energy = 0.35
 
 [node name="lantern29" parent="Lanterns" instance=ExtResource("2_yl8qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.5813, 5.70871, -33.2505)
@@ -1725,14 +1732,19 @@ light_range = 4.0
 light_energy = 0.2
 
 [node name="lantern21" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02161, 6.18942, -6.18082)
-light_range = 4.0
-light_energy = 0.2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02161, 4.86419, -6.18082)
+light_range = 6.0
+light_energy = 0.3
 
 [node name="lantern63" parent="Lanterns" instance=ExtResource("2_yl8qj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.29487, 4.91997, -1.93745)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.65754, 4.72932, -1.07692)
+light_range = 5.0
+light_energy = 0.3
+
+[node name="lantern68" parent="Lanterns" instance=ExtResource("2_yl8qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0968, 5.17471, -1.35128)
 light_range = 4.0
-light_energy = 0.2
+light_energy = 0.3
 
 [node name="Switches" type="Node3D" parent="."]
 
@@ -1844,7 +1856,7 @@ player = NodePath("../../Player")
 linked_switch = NodePath("../../Switches/switch3")
 
 [node name="BuzzEnemy4" parent="BuzzEnemies" node_paths=PackedStringArray("player", "linked_switch") instance=ExtResource("16_14da8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7739, 2.20379, 40.5532)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7739, 2.20379, 39.4077)
 player = NodePath("../../Player")
 linked_switch = NodePath("../../Switches/switch4")
 patrolSpeed = 2.1
@@ -1897,7 +1909,7 @@ transform = Transform3D(0.919396, 0, -0.393332, 0, 1, 0, 0.393332, 0, 0.919396, 
 shape = SubResource("BoxShape3D_hfb36")
 
 [node name="CheckPoint5" type="Area3D" parent="CheckPointAreas"]
-transform = Transform3D(0.103452, 0, -0.994634, 0, 1, 0, 0.994634, 0, 0.103452, 21.5937, 2.41663, 39.4635)
+transform = Transform3D(-0.0802165, 0, -0.996777, 0, 1, 0, 0.996777, 0, -0.0802165, 24.9938, 2.41663, 41.5868)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointAreas/CheckPoint5"]
 shape = SubResource("BoxShape3D_hfb36")
@@ -1996,6 +2008,16 @@ world_env = NodePath("../CaveEnvironment")
 
 [node name="woodenLiftShaft" parent="." instance=ExtResource("30_qxgbt")]
 transform = Transform3D(0.992384, 0, 0.123186, 0, 1, 0, -0.123186, 0, 0.992384, 24.3393, 2.52291, 56.3993)
+
+[node name="LittleRamp" type="MeshInstance3D" parent="woodenLiftShaft"]
+transform = Transform3D(-4.47035e-08, 0, 3.24367, 0, 0.30865, 0, -1.08558, 0, -1.19209e-07, -0.034462, -1.39076, -1.89107)
+layers = 131072
+mesh = SubResource("PrismMesh_hon85")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="woodenLiftShaft/LittleRamp"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="woodenLiftShaft/LittleRamp/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qhcyq")
 
 [node name="woodenLift" parent="." instance=ExtResource("31_xvxvi")]
 unique_name_in_owner = true
@@ -2189,7 +2211,7 @@ font_size = 22
 outline_size = 1
 
 [node name="map4" type="MeshInstance3D" parent="Maps"]
-transform = Transform3D(-0.659776, 0, 1.02287, 0, 1.2172, 0, -1.02287, 0, -0.659776, 24.9207, 2.78793, -9.58902)
+transform = Transform3D(-0.659776, 0, 1.02287, 0, 1.2172, 0, -1.02287, 0, -0.659776, 22.7693, 2.78793, -10.24)
 mesh = SubResource("ArrayMesh_amdm2")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("31_k84k0")

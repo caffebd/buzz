@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://7n8g8f8tubsd"]
+[gd_scene load_steps=21 format=3 uid="uid://7n8g8f8tubsd"]
 
 [ext_resource type="Script" path="res://scripts/Hud.gd" id="1_8c27q"]
 [ext_resource type="PackedScene" uid="uid://drdrhpc5dcafn" path="res://scenes/key_icon.tscn" id="2_6ngnm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://tk1c2mccatjb" path="res://shaders/static_shader.tres" id="5_2dwyq"]
 [ext_resource type="Texture2D" uid="uid://d2li7en5n0ffa" path="res://assets/ui/target.png" id="6_51w1l"]
 [ext_resource type="PackedScene" uid="uid://dx8ya7af5arcv" path="res://scenes/noise_meter-chunk.tscn" id="8_hk4il"]
+[ext_resource type="Texture2D" uid="uid://wjcaefbueduf" path="res://assets/ui/left_mouse.png" id="9_8tyg8"]
 [ext_resource type="Texture2D" uid="uid://b4ik8sp7tus14" path="res://assets/ui/lock_closed.png" id="9_ipt8r"]
 [ext_resource type="Texture2D" uid="uid://d2r7rhsggc6gw" path="res://assets/ui/lock_open.png" id="10_s16ru"]
 [ext_resource type="FontFile" uid="uid://bs5t4chqd6rde" path="res://assets/fonts/Comfortaa/static/Comfortaa-Regular.ttf" id="13_mbrfa"]
@@ -388,10 +389,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -220.0
-offset_top = 34.0
-offset_right = -35.0
-offset_bottom = 78.0
+offset_left = -219.0
+offset_top = 191.0
+offset_right = -34.0
+offset_bottom = 235.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("2_iyhvh")
 theme_override_font_sizes/font_size = 36
@@ -457,6 +458,16 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("6_51w1l")
 expand_mode = 2
+
+[node name="LeftMouse" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 914.0
+offset_top = 392.0
+offset_right = 1010.0
+offset_bottom = 512.0
+texture = ExtResource("9_8tyg8")
 
 [node name="Locked" type="TextureRect" parent="."]
 unique_name_in_owner = true

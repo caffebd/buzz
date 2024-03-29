@@ -41,6 +41,7 @@ func _on_new_game_btn_pressed() -> void:
 	GlobalVars.secret_room_found = false
 	GlobalVars.secret_area_found = false
 	GlobalVars.sneaky_wall_open = false
+	GlobalVars.gates_open = [false, false, false, false, false]
 	await SaveLoad.save_data()
 	get_tree().change_scene_to_file("res://scenes/intro.tscn")
 
@@ -79,6 +80,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 					print ("CHEATER")
 					%CheatAudio.play()
 					cheat_index = 0
+					%ExitBtn.visible = true
+					%ExitBtn.disabled = false
+					%PlayPop.visible = false
+					%Rewardpop.visible = false
 					$RewardBtn.visible = true
 					%BestTime.text = str(GlobalVars.reward_time)+" seconds"
 			else:

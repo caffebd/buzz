@@ -25,7 +25,8 @@ func save_data():
 		"secret_area_found" : GlobalVars.secret_area_found,
 		"sneaky_wall_open": GlobalVars.sneaky_wall_open,
 		"reward_unlocked": GlobalVars.reward_unlocked,
-		"reward_time": GlobalVars.reward_time
+		"reward_time": GlobalVars.reward_time,
+		"gates_open": GlobalVars.gates_open
 		}
 	}
 	
@@ -59,6 +60,7 @@ func load_data():
 		GlobalVars.sneaky_wall_open = buzzData["sneaky_wall_open"]
 		GlobalVars.reward_unlocked = buzzData["reward_unlocked"]
 		GlobalVars.reward_time = buzzData["reward_time"]
+		GlobalVars.gates_open = buzzData["gates_open"]
 
 	
 	

@@ -16,4 +16,5 @@ offset_left = -131.0
 offset_top = -91.0
 offset_right = 2197.0
 offset_bottom = 1209.0
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true

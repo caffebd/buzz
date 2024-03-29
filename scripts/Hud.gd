@@ -16,6 +16,7 @@ var key_icon
 @onready var target := %Target
 @onready var locked := %Locked
 @onready var unlocked := %Unlocked
+@onready var left_mouse:= %LeftMouse
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

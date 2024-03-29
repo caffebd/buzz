@@ -58,8 +58,8 @@ radius = 11.5
 
 [node name="PlayerSway" type="CharacterBody3D" groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-collision_layer = 5
-collision_mask = 5
+collision_layer = 131077
+collision_mask = 131077
 wall_min_slide_angle = 0.523599
 script = ExtResource("1_tfjt2")
 

@@ -170,7 +170,7 @@ func _unhandled_input(event):
 			return
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60)) 
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-70), deg_to_rad(60)) 
 	if Input.is_action_just_pressed("ui_cancel"):
 		if GlobalVars.in_lift:
 			return
@@ -233,12 +233,16 @@ func _physics_process(delta):
 		if collider.get_parent().has_method("use_action") or collider.is_in_group("key") or collider.is_in_group("door"):
 			hud.target.modulate = Color(1,1,1,1)
 			#_check_door(collider)
+			if collider.get_parent().name == "gate":
+				hud.left_mouse.visible = true
 		else:
 			hud.target.modulate = Color(1,1,1,0.2)
+			
 			#hud.locked.visible = false
 			#hud.unlocked.visible = false
 	else:
 		hud.target.modulate = Color(1,1,1,0.2)
+		hud.left_mouse.visible = false
 		#hud.locked.visible = false
 		#hud.unlocked.visible = false
 

@@ -249,7 +249,7 @@ transform = Transform3D(0.987265, 0.148325, 0.0575092, -0.145944, 0.988331, -0.0
 
 [node name="BulletMarker" type="Marker3D" parent="CanvasLayer/SubViewportContainer/WeaponSubView/HandCam/Hand/Weapon"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260107, 0.0856134, -1.29483)
+transform = Transform3D(1, 1.67638e-08, 0, 2.09548e-09, 1, 0, 0, 0, 1, 0.23376, 0.100042, -0.879745)
 
 [node name="WeaponShoot" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
