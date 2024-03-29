@@ -32,6 +32,10 @@ window/size/mode=4
 window/size/borderless=true
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/nv.file_system/plugin.cfg")
+
 [importer_defaults]
 
 texture={
