@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/Ranade-Bold.otf-96b238374f83f2f0ec37795881d90
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48

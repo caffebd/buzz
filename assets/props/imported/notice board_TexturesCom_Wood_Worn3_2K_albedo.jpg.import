@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnqufbw8ueb6g"
 path.s3tc="res://.godot/imported/notice board_TexturesCom_Wood_Worn3_2K_albedo.jpg-4b3adad6994b7ca76cdf67dbd7cd8a8b.s3tc.ctex"
+path.etc2="res://.godot/imported/notice board_TexturesCom_Wood_Worn3_2K_albedo.jpg-4b3adad6994b7ca76cdf67dbd7cd8a8b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://assets/props/imported/notice board_TexturesCom_Wood_Worn3_2K_albedo.jpg"
-dest_files=["res://.godot/imported/notice board_TexturesCom_Wood_Worn3_2K_albedo.jpg-4b3adad6994b7ca76cdf67dbd7cd8a8b.s3tc.ctex"]
+dest_files=["res://.godot/imported/notice board_TexturesCom_Wood_Worn3_2K_albedo.jpg-4b3adad6994b7ca76cdf67dbd7cd8a8b.s3tc.ctex", "res://.godot/imported/notice board_TexturesCom_Wood_Worn3_2K_albedo.jpg-4b3adad6994b7ca76cdf67dbd7cd8a8b.etc2.ctex"]
 
 [params]
 

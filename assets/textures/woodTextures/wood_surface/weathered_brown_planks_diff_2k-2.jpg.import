@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bh7y5gcvg66vy"
 path.s3tc="res://.godot/imported/weathered_brown_planks_diff_2k-2.jpg-9e2d99d5c7c5112fe388931ecd8ce4c5.s3tc.ctex"
+path.etc2="res://.godot/imported/weathered_brown_planks_diff_2k-2.jpg-9e2d99d5c7c5112fe388931ecd8ce4c5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/woodTextures/wood_surface/weathered_brown_planks_diff_2k-2.jpg"
-dest_files=["res://.godot/imported/weathered_brown_planks_diff_2k-2.jpg-9e2d99d5c7c5112fe388931ecd8ce4c5.s3tc.ctex"]
+dest_files=["res://.godot/imported/weathered_brown_planks_diff_2k-2.jpg-9e2d99d5c7c5112fe388931ecd8ce4c5.s3tc.ctex", "res://.godot/imported/weathered_brown_planks_diff_2k-2.jpg-9e2d99d5c7c5112fe388931ecd8ce4c5.etc2.ctex"]
 
 [params]
 

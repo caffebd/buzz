@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccdbottes00fs"
 path.s3tc="res://.godot/imported/notice board_weathered_brown_planks_diff_2k-2.jpg-c6ebdd22cbf5ce8ddf8c5fa838e3c3da.s3tc.ctex"
+path.etc2="res://.godot/imported/notice board_weathered_brown_planks_diff_2k-2.jpg-c6ebdd22cbf5ce8ddf8c5fa838e3c3da.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://assets/props/imported/notice board_weathered_brown_planks_diff_2k-2.jpg"
-dest_files=["res://.godot/imported/notice board_weathered_brown_planks_diff_2k-2.jpg-c6ebdd22cbf5ce8ddf8c5fa838e3c3da.s3tc.ctex"]
+dest_files=["res://.godot/imported/notice board_weathered_brown_planks_diff_2k-2.jpg-c6ebdd22cbf5ce8ddf8c5fa838e3c3da.s3tc.ctex", "res://.godot/imported/notice board_weathered_brown_planks_diff_2k-2.jpg-c6ebdd22cbf5ce8ddf8c5fa838e3c3da.etc2.ctex"]
 
 [params]
 

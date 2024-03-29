@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bb5v2hkvghr6d"
 path.s3tc="res://.godot/imported/tkdicbgew_2K_Normal.jpg-be9e5d930e7c076f62f1ff65cea6311b.s3tc.ctex"
+path.etc2="res://.godot/imported/tkdicbgew_2K_Normal.jpg-be9e5d930e7c076f62f1ff65cea6311b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/metalTextures/metal_rusty_tkdicbgew/tkdicbgew_2K_Normal.jpg"
-dest_files=["res://.godot/imported/tkdicbgew_2K_Normal.jpg-be9e5d930e7c076f62f1ff65cea6311b.s3tc.ctex"]
+dest_files=["res://.godot/imported/tkdicbgew_2K_Normal.jpg-be9e5d930e7c076f62f1ff65cea6311b.s3tc.ctex", "res://.godot/imported/tkdicbgew_2K_Normal.jpg-be9e5d930e7c076f62f1ff65cea6311b.etc2.ctex"]
 
 [params]
 

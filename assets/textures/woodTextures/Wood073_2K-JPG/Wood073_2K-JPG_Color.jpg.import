@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://w7de2y664mwu"
 path.s3tc="res://.godot/imported/Wood073_2K-JPG_Color.jpg-a29325e4f7a5cb0122670ff53b4f54fe.s3tc.ctex"
+path.etc2="res://.godot/imported/Wood073_2K-JPG_Color.jpg-a29325e4f7a5cb0122670ff53b4f54fe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/woodTextures/Wood073_2K-JPG/Wood073_2K-JPG_Color.jpg"
-dest_files=["res://.godot/imported/Wood073_2K-JPG_Color.jpg-a29325e4f7a5cb0122670ff53b4f54fe.s3tc.ctex"]
+dest_files=["res://.godot/imported/Wood073_2K-JPG_Color.jpg-a29325e4f7a5cb0122670ff53b4f54fe.s3tc.ctex", "res://.godot/imported/Wood073_2K-JPG_Color.jpg-a29325e4f7a5cb0122670ff53b4f54fe.etc2.ctex"]
 
 [params]
 

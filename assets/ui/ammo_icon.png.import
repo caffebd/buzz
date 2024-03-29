@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtyofg0gj2ora"
 path.s3tc="res://.godot/imported/ammo_icon.png-256a2866050b96d80c7ffae85d44eb83.s3tc.ctex"
+path.etc2="res://.godot/imported/ammo_icon.png-256a2866050b96d80c7ffae85d44eb83.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/ui/ammo_icon.png"
-dest_files=["res://.godot/imported/ammo_icon.png-256a2866050b96d80c7ffae85d44eb83.s3tc.ctex"]
+dest_files=["res://.godot/imported/ammo_icon.png-256a2866050b96d80c7ffae85d44eb83.s3tc.ctex", "res://.godot/imported/ammo_icon.png-256a2866050b96d80c7ffae85d44eb83.etc2.ctex"]
 
 [params]
 

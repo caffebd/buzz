@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3qxlgd0qoo87"
 path.s3tc="res://.godot/imported/paper1_rough.jpg-39b2c65eb08d64ab2fe751529ef5ed41.s3tc.ctex"
+path.etc2="res://.godot/imported/paper1_rough.jpg-39b2c65eb08d64ab2fe751529ef5ed41.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/miscTextures/paper_1/paper1_rough.jpg"
-dest_files=["res://.godot/imported/paper1_rough.jpg-39b2c65eb08d64ab2fe751529ef5ed41.s3tc.ctex"]
+dest_files=["res://.godot/imported/paper1_rough.jpg-39b2c65eb08d64ab2fe751529ef5ed41.s3tc.ctex", "res://.godot/imported/paper1_rough.jpg-39b2c65eb08d64ab2fe751529ef5ed41.etc2.ctex"]
 
 [params]
 

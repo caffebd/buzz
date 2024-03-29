@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cju4abdnyjgk0"
 path.s3tc="res://.godot/imported/papers_alpha.jpg-ce2aebd600de0c0a8afe1564be8aa236.s3tc.ctex"
+path.etc2="res://.godot/imported/papers_alpha.jpg-ce2aebd600de0c0a8afe1564be8aa236.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/miscTextures/papers/papers_alpha.jpg"
-dest_files=["res://.godot/imported/papers_alpha.jpg-ce2aebd600de0c0a8afe1564be8aa236.s3tc.ctex"]
+dest_files=["res://.godot/imported/papers_alpha.jpg-ce2aebd600de0c0a8afe1564be8aa236.s3tc.ctex", "res://.godot/imported/papers_alpha.jpg-ce2aebd600de0c0a8afe1564be8aa236.etc2.ctex"]
 
 [params]
 

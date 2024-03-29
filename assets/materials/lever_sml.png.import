@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://q5qk6pkt0y8u"
 path.s3tc="res://.godot/imported/lever_sml.png-1c1464a08f695c58259d2c9a6be2048c.s3tc.ctex"
+path.etc2="res://.godot/imported/lever_sml.png-1c1464a08f695c58259d2c9a6be2048c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/materials/lever_sml.png"
-dest_files=["res://.godot/imported/lever_sml.png-1c1464a08f695c58259d2c9a6be2048c.s3tc.ctex"]
+dest_files=["res://.godot/imported/lever_sml.png-1c1464a08f695c58259d2c9a6be2048c.s3tc.ctex", "res://.godot/imported/lever_sml.png-1c1464a08f695c58259d2c9a6be2048c.etc2.ctex"]
 
 [params]
 

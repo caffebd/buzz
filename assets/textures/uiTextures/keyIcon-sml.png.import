@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://datdw27kwlpt"
 path.s3tc="res://.godot/imported/keyIcon-sml.png-18ca7d6ab08f0013ac78ec80fd37bd63.s3tc.ctex"
+path.etc2="res://.godot/imported/keyIcon-sml.png-18ca7d6ab08f0013ac78ec80fd37bd63.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/uiTextures/keyIcon-sml.png"
-dest_files=["res://.godot/imported/keyIcon-sml.png-18ca7d6ab08f0013ac78ec80fd37bd63.s3tc.ctex"]
+dest_files=["res://.godot/imported/keyIcon-sml.png-18ca7d6ab08f0013ac78ec80fd37bd63.s3tc.ctex", "res://.godot/imported/keyIcon-sml.png-18ca7d6ab08f0013ac78ec80fd37bd63.etc2.ctex"]
 
 [params]
 

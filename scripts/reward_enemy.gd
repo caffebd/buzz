@@ -64,5 +64,5 @@ func _on_enemy_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group("bullet"):
 		#print ("respawn enemy at "+str(marker_count))
 		area.get_parent().queue_free()
-		GlobalSignals.emit_signal("respawn_enemy", marker_count)
-		queue_free()
+		GlobalSignals.emit_signal("respawn_enemy", marker_count, self)
+		#queue_free()

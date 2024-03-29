@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c534tusln4av8"
 path.s3tc="res://.godot/imported/xbknedb_2K_Albedo.jpg-3a1512c45a5487342bf91c6b84c5ec50.s3tc.ctex"
+path.etc2="res://.godot/imported/xbknedb_2K_Albedo.jpg-3a1512c45a5487342bf91c6b84c5ec50.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/caveTextures/rock_cliff_xbknedb/Thumbs/2k/xbknedb_2K_Albedo.jpg"
-dest_files=["res://.godot/imported/xbknedb_2K_Albedo.jpg-3a1512c45a5487342bf91c6b84c5ec50.s3tc.ctex"]
+dest_files=["res://.godot/imported/xbknedb_2K_Albedo.jpg-3a1512c45a5487342bf91c6b84c5ec50.s3tc.ctex", "res://.godot/imported/xbknedb_2K_Albedo.jpg-3a1512c45a5487342bf91c6b84c5ec50.etc2.ctex"]
 
 [params]
 

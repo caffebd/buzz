@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjstbthu403cw"
 path.s3tc="res://.godot/imported/paper1_trans.jpg-d466df3fe37bf55f6c8815059e76fc9b.s3tc.ctex"
+path.etc2="res://.godot/imported/paper1_trans.jpg-d466df3fe37bf55f6c8815059e76fc9b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/miscTextures/paper_1/paper1_trans.jpg"
-dest_files=["res://.godot/imported/paper1_trans.jpg-d466df3fe37bf55f6c8815059e76fc9b.s3tc.ctex"]
+dest_files=["res://.godot/imported/paper1_trans.jpg-d466df3fe37bf55f6c8815059e76fc9b.s3tc.ctex", "res://.godot/imported/paper1_trans.jpg-d466df3fe37bf55f6c8815059e76fc9b.etc2.ctex"]
 
 [params]
 

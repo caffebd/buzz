@@ -28,13 +28,8 @@ SaveLoad="*res://auto_load/save_load.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=4
 window/size/borderless=true
 window/stretch/mode="canvas_items"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/nv.file_system/plugin.cfg")
 
 [importer_defaults]
 
@@ -113,6 +108,8 @@ test_open={
 
 [rendering]
 
+textures/vram_compression/import_etc2_astc=true
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=1
 textures/default_filters/anisotropic_filtering_level=0
 environment/ssao/quality=0
 environment/ssil/quality=0

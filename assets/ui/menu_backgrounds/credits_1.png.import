@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnd3tflwq4wgv"
 path.s3tc="res://.godot/imported/credits_1.png-b25c42b2897147e4a624f04f2e90bfb0.s3tc.ctex"
+path.etc2="res://.godot/imported/credits_1.png-b25c42b2897147e4a624f04f2e90bfb0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/ui/menu_backgrounds/credits_1.png"
-dest_files=["res://.godot/imported/credits_1.png-b25c42b2897147e4a624f04f2e90bfb0.s3tc.ctex"]
+dest_files=["res://.godot/imported/credits_1.png-b25c42b2897147e4a624f04f2e90bfb0.s3tc.ctex", "res://.godot/imported/credits_1.png-b25c42b2897147e4a624f04f2e90bfb0.etc2.ctex"]
 
 [params]
 

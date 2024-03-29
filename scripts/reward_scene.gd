@@ -9,6 +9,8 @@ var ammo_left: int = 20
 
 var play_time: int = -1 
 
+var ammo_delay: int = 2
+
 var rng = RandomNumberGenerator.new()
 
 var immunity: bool = false
@@ -82,15 +84,18 @@ func _all_enemies():
 		enemy.global_position = %EnemyPositions.get_child(mark).global_position
 
 
-func _respawn_enemy(marker_count):
+func _respawn_enemy(marker_count, enemy):
 	$EnemyHit.play()
-	var enemy: CharacterBody3D = enemy_scene.instantiate()
-	%Enemies.add_child(enemy)
-	enemy.marker_count = marker_count
-	enemy.player = player
-	enemy.speed = enemy_speed_multiplier
-	enemy.my_home = %EnemyPositions.get_child(marker_count)
 	enemy.global_position = %EnemyPositions.get_child(marker_count).global_position
+	enemy.speed = enemy_speed_multiplier
+	#var enemy: CharacterBody3D = enemy_scene.instantiate()
+	#%Enemies.add_child(enemy)
+	#enemy.marker_count = marker_count
+	#enemy.player = player
+	#enemy.speed = enemy_speed_multiplier
+	#enemy.my_home = %EnemyPositions.get_child(marker_count)
+	#enemy.global_position = %EnemyPositions.get_child(marker_count).global_position
+
 		
 func _all_ammo():
 	var ammo_count = %AmmoSpawn.get_child_count()
@@ -105,7 +110,7 @@ func _respawn_ammo(marker_count):
 	var using_marker:Marker3D =  %AmmoSpawn.get_child(marker_count)
 	var ammo_timer = Timer.new()
 	add_child(ammo_timer)
-	ammo_timer.start(rng.randf_range(20,60));
+	ammo_timer.start(rng.randf_range(20+ammo_delay,60+ammo_delay));
 	await ammo_timer.timeout
 	ammo_timer.queue_free()	
 	var distance_to_player:float = player.global_position.distance_to(using_marker.global_position)	
@@ -121,7 +126,7 @@ func _respawn_ammo(marker_count):
 
 func _on_enemy_speed_timer_timeout() -> void:
 	enemy_speed_multiplier *= 1.2
-	if enemy_speed_multiplier >= 4:
+	if enemy_speed_multiplier >= 5:
 		enemy_speed_multiplier = 4
 		$EnemySpeedTimer.stop()
 

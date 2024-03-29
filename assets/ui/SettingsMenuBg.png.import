@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqjwprhvmfpel"
 path.s3tc="res://.godot/imported/SettingsMenuBg.png-e4e7e42a863e7d3a5e1d0646ef14ae35.s3tc.ctex"
+path.etc2="res://.godot/imported/SettingsMenuBg.png-e4e7e42a863e7d3a5e1d0646ef14ae35.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/ui/SettingsMenuBg.png"
-dest_files=["res://.godot/imported/SettingsMenuBg.png-e4e7e42a863e7d3a5e1d0646ef14ae35.s3tc.ctex"]
+dest_files=["res://.godot/imported/SettingsMenuBg.png-e4e7e42a863e7d3a5e1d0646ef14ae35.s3tc.ctex", "res://.godot/imported/SettingsMenuBg.png-e4e7e42a863e7d3a5e1d0646ef14ae35.etc2.ctex"]
 
 [params]
 

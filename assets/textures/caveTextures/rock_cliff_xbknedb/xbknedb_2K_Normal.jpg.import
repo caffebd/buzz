@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3wamahsi1wj1"
 path.s3tc="res://.godot/imported/xbknedb_2K_Normal.jpg-c1b0bf40314a428a484c980e02b9242e.s3tc.ctex"
+path.etc2="res://.godot/imported/xbknedb_2K_Normal.jpg-c1b0bf40314a428a484c980e02b9242e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/caveTextures/rock_cliff_xbknedb/xbknedb_2K_Normal.jpg"
-dest_files=["res://.godot/imported/xbknedb_2K_Normal.jpg-c1b0bf40314a428a484c980e02b9242e.s3tc.ctex"]
+dest_files=["res://.godot/imported/xbknedb_2K_Normal.jpg-c1b0bf40314a428a484c980e02b9242e.s3tc.ctex", "res://.godot/imported/xbknedb_2K_Normal.jpg-c1b0bf40314a428a484c980e02b9242e.etc2.ctex"]
 
 [params]
 

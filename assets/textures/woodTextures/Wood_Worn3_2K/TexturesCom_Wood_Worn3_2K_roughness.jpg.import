@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ib756kele0j4"
 path.s3tc="res://.godot/imported/TexturesCom_Wood_Worn3_2K_roughness.jpg-8cb8625b4529829ab435cdfc1a487a4e.s3tc.ctex"
+path.etc2="res://.godot/imported/TexturesCom_Wood_Worn3_2K_roughness.jpg-8cb8625b4529829ab435cdfc1a487a4e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/woodTextures/Wood_Worn3_2K/TexturesCom_Wood_Worn3_2K_roughness.jpg"
-dest_files=["res://.godot/imported/TexturesCom_Wood_Worn3_2K_roughness.jpg-8cb8625b4529829ab435cdfc1a487a4e.s3tc.ctex"]
+dest_files=["res://.godot/imported/TexturesCom_Wood_Worn3_2K_roughness.jpg-8cb8625b4529829ab435cdfc1a487a4e.s3tc.ctex", "res://.godot/imported/TexturesCom_Wood_Worn3_2K_roughness.jpg-8cb8625b4529829ab435cdfc1a487a4e.etc2.ctex"]
 
 [params]
 

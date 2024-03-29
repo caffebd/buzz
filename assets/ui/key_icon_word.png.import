@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1vlmebjnfgux"
 path.s3tc="res://.godot/imported/key_icon_word.png-70e91dc5f93ac186db6146a3a1b3f147.s3tc.ctex"
+path.etc2="res://.godot/imported/key_icon_word.png-70e91dc5f93ac186db6146a3a1b3f147.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/ui/key_icon_word.png"
-dest_files=["res://.godot/imported/key_icon_word.png-70e91dc5f93ac186db6146a3a1b3f147.s3tc.ctex"]
+dest_files=["res://.godot/imported/key_icon_word.png-70e91dc5f93ac186db6146a3a1b3f147.s3tc.ctex", "res://.godot/imported/key_icon_word.png-70e91dc5f93ac186db6146a3a1b3f147.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmmspy5j0d7m3"
 path.s3tc="res://.godot/imported/xbknedb_1K_Roughness.jpg-5e53985695b71dc53af699af2fcb86e2.s3tc.ctex"
+path.etc2="res://.godot/imported/xbknedb_1K_Roughness.jpg-5e53985695b71dc53af699af2fcb86e2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/caveTextures/rock_cliff_xbknedb/Thumbs/1k/xbknedb_1K_Roughness.jpg"
-dest_files=["res://.godot/imported/xbknedb_1K_Roughness.jpg-5e53985695b71dc53af699af2fcb86e2.s3tc.ctex"]
+dest_files=["res://.godot/imported/xbknedb_1K_Roughness.jpg-5e53985695b71dc53af699af2fcb86e2.s3tc.ctex", "res://.godot/imported/xbknedb_1K_Roughness.jpg-5e53985695b71dc53af699af2fcb86e2.etc2.ctex"]
 
 [params]
 

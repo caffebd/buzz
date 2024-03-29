@@ -11,8 +11,8 @@ func _verify_save_dir(path:String):
 	DirAccess.make_dir_absolute(path)
 
 func save_data():
-	var file = FileAccess.open(SAVE_DIR+SAVE_FILE_NAME, FileAccess.WRITE)
-	#var file = FileAccess.open_encrypted_with_pass(SAVE_DIR+SAVE_FILE_NAME, FileAccess.WRITE, SECURITY_KEY)
+	#var file = FileAccess.open(SAVE_DIR+SAVE_FILE_NAME, FileAccess.WRITE)
+	var file = FileAccess.open_encrypted_with_pass(SAVE_DIR+SAVE_FILE_NAME, FileAccess.WRITE, SECURITY_KEY)
 	if file == null:
 		print (FileAccess.get_open_error())
 		return
@@ -37,8 +37,8 @@ func save_data():
 
 func load_data():
 	if FileAccess.file_exists(SAVE_DIR+SAVE_FILE_NAME):
-		var file = FileAccess.open(SAVE_DIR+SAVE_FILE_NAME, FileAccess.READ)
-		#var file = FileAccess.open_encrypted_with_pass(SAVE_DIR+SAVE_FILE_NAME, FileAccess.READ, SECURITY_KEY)
+		#var file = FileAccess.open(SAVE_DIR+SAVE_FILE_NAME, FileAccess.READ)
+		var file = FileAccess.open_encrypted_with_pass(SAVE_DIR+SAVE_FILE_NAME, FileAccess.READ, SECURITY_KEY)
 		if file == null:
 			print (FileAccess.get_open_error())
 			return

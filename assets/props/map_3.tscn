@@ -1,23 +1,139 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwnqf3m7ffqhk"]
+[gd_scene load_steps=15 format=3 uid="uid://cwnqf3m7ffqhk"]
 
 [ext_resource type="ArrayMesh" uid="uid://b4sn5sii4g4oq" path="res://assets/props/imported/map3.obj" id="1_2swd3"]
+[ext_resource type="Script" path="res://scripts/map_arrrow_fall.gd" id="1_nuv8w"]
 [ext_resource type="Material" uid="uid://bhnjimwycstky" path="res://assets/materials/misc/papers.tres" id="2_ivmiw"]
 [ext_resource type="Texture2D" uid="uid://7r076i83xrax" path="res://assets/textures/miscTextures/map/new/map3.png" id="3_4lyot"]
 [ext_resource type="Material" uid="uid://dh7flndmsr48s" path="res://assets/materials/wood/wood2.tres" id="4_noesf"]
 [ext_resource type="Material" uid="uid://bg40piu4c00br" path="res://assets/materials/wood/wood1.tres" id="5_oslyn"]
+[ext_resource type="Texture2D" uid="uid://chrnm4e82rvuw" path="res://assets/textures/miscTextures/map/new/arrow.png" id="6_le24j"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2o1ow"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rb8pv"]
 transparency = 1
 albedo_texture = ExtResource("3_4lyot")
 
-[node name="map3" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4cp8"]
+albedo_texture = ExtResource("6_le24j")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_303rb"]
+
+[sub_resource type="Animation" id="Animation_jsxhq"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowHing:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArrowHing:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArrowHing:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3.14159, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_0kvp2"]
+resource_name = "arrow_fall"
+length = 2.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowHing:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7, 1.1, 1.5, 1.8, 2.1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArrowHing:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7, 1.1, 1.5, 1.8, 2.1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArrowHing:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-3.14159, -0.25, 0, 0.25, 0, -0.101229, -0.25, 0, 0.25, 0, -1.11527, -0.25, 0, 0.25, 0, -0.507891, -0.25, 0, 0.25, 0, -0.710349, -0.25, 0, 0.25, 0, -0.541052, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7, 1.1, 1.5, 1.8, 2.1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bd6no"]
+_data = {
+"RESET": SubResource("Animation_jsxhq"),
+"arrow_fall": SubResource("Animation_0kvp2")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cgkd7"]
+size = Vector3(1.205, 0.87, 0.095)
+
+[node name="ArrowMap" type="Node3D"]
+script = ExtResource("1_nuv8w")
 
 [node name="Map3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 mesh = ExtResource("1_2swd3")
 surface_material_override/0 = ExtResource("2_ivmiw")
-surface_material_override/1 = ExtResource("2_ivmiw")
-surface_material_override/2 = SubResource("StandardMaterial3D_2o1ow")
-surface_material_override/3 = ExtResource("2_ivmiw")
-surface_material_override/4 = ExtResource("4_noesf")
-surface_material_override/5 = ExtResource("5_oslyn")
+surface_material_override/1 = SubResource("StandardMaterial3D_rb8pv")
+surface_material_override/2 = ExtResource("2_ivmiw")
+surface_material_override/3 = ExtResource("4_noesf")
+surface_material_override/4 = ExtResource("5_oslyn")
+
+[node name="ArrowHing" type="Node3D" parent="."]
+transform = Transform3D(-1, 2.53518e-06, 0, -2.53518e-06, -1, 0, 0, 0, 1, 0.427064, -0.15523, -0.0637463)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ArrowHing"]
+transform = Transform3D(0.116738, 0, 0, 0, -3.84987e-09, -0.0880748, 0, 0.0880748, -3.84987e-09, 0.118738, -0.10381, 0.0791564)
+material_override = SubResource("StandardMaterial3D_o4cp8")
+mesh = SubResource("PlaneMesh_303rb")
+skeleton = NodePath("../..")
+
+[node name="ArrowFall" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bd6no")
+}
+
+[node name="MapDetect" type="StaticBody3D" parent="." groups=["map"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.108067)
+collision_layer = 9
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapDetect"]
+shape = SubResource("BoxShape3D_cgkd7")
+
+[node name="ArrowDelay" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="ArrowDelay" to="." method="_on_arrow_delay_timeout"]

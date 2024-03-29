@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbkj3fpsaia6o"
 path.s3tc="res://.godot/imported/tklmeeso_2K_Roughness.jpg-e938e042bd30cc2f0dbacf2f5d139d12.s3tc.ctex"
+path.etc2="res://.godot/imported/tklmeeso_2K_Roughness.jpg-e938e042bd30cc2f0dbacf2f5d139d12.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/metalTextures/metal_rusty_tklmeeso/tklmeeso_2K_Roughness.jpg"
-dest_files=["res://.godot/imported/tklmeeso_2K_Roughness.jpg-e938e042bd30cc2f0dbacf2f5d139d12.s3tc.ctex"]
+dest_files=["res://.godot/imported/tklmeeso_2K_Roughness.jpg-e938e042bd30cc2f0dbacf2f5d139d12.s3tc.ctex", "res://.godot/imported/tklmeeso_2K_Roughness.jpg-e938e042bd30cc2f0dbacf2f5d139d12.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://wjcaefbueduf"
 path.bptc="res://.godot/imported/left_mouse.png-8eaf48ec4f169c0460151369c64aa179.bptc.ctex"
+path.astc="res://.godot/imported/left_mouse.png-8eaf48ec4f169c0460151369c64aa179.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/ui/left_mouse.png"
-dest_files=["res://.godot/imported/left_mouse.png-8eaf48ec4f169c0460151369c64aa179.bptc.ctex"]
+dest_files=["res://.godot/imported/left_mouse.png-8eaf48ec4f169c0460151369c64aa179.bptc.ctex", "res://.godot/imported/left_mouse.png-8eaf48ec4f169c0460151369c64aa179.astc.ctex"]
 
 [params]
 

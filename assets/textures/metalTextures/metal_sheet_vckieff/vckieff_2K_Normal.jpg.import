@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b68sxivmb7fe4"
 path.s3tc="res://.godot/imported/vckieff_2K_Normal.jpg-c80e35df2db09415507ae20dabeba5b5.s3tc.ctex"
+path.etc2="res://.godot/imported/vckieff_2K_Normal.jpg-c80e35df2db09415507ae20dabeba5b5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/metalTextures/metal_sheet_vckieff/vckieff_2K_Normal.jpg"
-dest_files=["res://.godot/imported/vckieff_2K_Normal.jpg-c80e35df2db09415507ae20dabeba5b5.s3tc.ctex"]
+dest_files=["res://.godot/imported/vckieff_2K_Normal.jpg-c80e35df2db09415507ae20dabeba5b5.s3tc.ctex", "res://.godot/imported/vckieff_2K_Normal.jpg-c80e35df2db09415507ae20dabeba5b5.etc2.ctex"]
 
 [params]
 

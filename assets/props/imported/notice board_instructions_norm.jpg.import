@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxo7k40dmda7v"
 path.s3tc="res://.godot/imported/notice board_instructions_norm.jpg-1ba9b995da375e726c75f2c8478b36bf.s3tc.ctex"
+path.etc2="res://.godot/imported/notice board_instructions_norm.jpg-1ba9b995da375e726c75f2c8478b36bf.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://assets/props/imported/notice board_instructions_norm.jpg"
-dest_files=["res://.godot/imported/notice board_instructions_norm.jpg-1ba9b995da375e726c75f2c8478b36bf.s3tc.ctex"]
+dest_files=["res://.godot/imported/notice board_instructions_norm.jpg-1ba9b995da375e726c75f2c8478b36bf.s3tc.ctex", "res://.godot/imported/notice board_instructions_norm.jpg-1ba9b995da375e726c75f2c8478b36bf.etc2.ctex"]
 
 [params]
 

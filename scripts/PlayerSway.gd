@@ -230,11 +230,13 @@ func _physics_process(delta):
 	var collider = ray.get_collider()
 	if collider != null and collider is StaticBody3D:
 		#print (collider.name)
-		if collider.get_parent().has_method("use_action") or collider.is_in_group("key") or collider.is_in_group("door"):
+		if collider.get_parent().has_method("use_action") or collider.is_in_group("key") or collider.is_in_group("door") or collider.is_in_group("map"):
 			hud.target.modulate = Color(1,1,1,1)
 			#_check_door(collider)
 			if collider.get_parent().name == "gate":
 				hud.left_mouse.visible = true
+			if collider.get_parent().name == "ArrowMap":
+				collider.get_parent().arrow_fall()
 		else:
 			hud.target.modulate = Color(1,1,1,0.2)
 			

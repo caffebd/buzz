@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwsa3um5pdog6"
 path.s3tc="res://.godot/imported/TexturesCom_Wood_Rough_2K_albedo.jpg-833f776269b7468e52c4e4d936e63523.s3tc.ctex"
+path.etc2="res://.godot/imported/TexturesCom_Wood_Rough_2K_albedo.jpg-833f776269b7468e52c4e4d936e63523.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/woodTextures/Wood_Rough_2K/TexturesCom_Wood_Rough_2K_albedo.jpg"
-dest_files=["res://.godot/imported/TexturesCom_Wood_Rough_2K_albedo.jpg-833f776269b7468e52c4e4d936e63523.s3tc.ctex"]
+dest_files=["res://.godot/imported/TexturesCom_Wood_Rough_2K_albedo.jpg-833f776269b7468e52c4e4d936e63523.s3tc.ctex", "res://.godot/imported/TexturesCom_Wood_Rough_2K_albedo.jpg-833f776269b7468e52c4e4d936e63523.etc2.ctex"]
 
 [params]
 
